@@ -10,7 +10,7 @@ require_once("db_connect.php");
 $db = new DB_CONNECT();
 
 // USER TABLE
-mysql_query("CREATE TABLE IF NOT EXISTSS user(user_id int unsigned auto_increment not null primary key,
+mysql_query("CREATE TABLE IF NOT EXISTS user(user_id int unsigned auto_increment not null primary key,
 											  first_name varchar(45) not null,
 											  middle_name varchar(45),
 											  last_name varchar(45) not null,
@@ -36,7 +36,8 @@ mysql_query("CREATE TABLE IF NOT EXISTS friend_circle(friend_id int unsigned not
 //CIRCLE
 mysql_query("CREATE TABLE IF NOT EXISTS circle(circle_id int unsigned auto_increment not null primary key,
 											   circle_name not null tinytext,
-											   owner_id int unsigned not null foreign key references user(user_id)
+											   owner_id int unsigned not null,
+											   foreign key (owner_id) references user(user_id)
 											   )
 			") or die (mysql_error());
 
