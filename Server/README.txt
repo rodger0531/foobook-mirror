@@ -17,3 +17,8 @@ This README file contains information about the Server folder all the realted ch
 		- Doesn't allow the name 'group' for that table;
 		- Doesn't allow us to use getDate() for the default value of the timestamps.
 
+06/02/2014 - Rodger
+
+	- Changed the 'group' table and all references to 'groups' because 'group' is
+	  a reserved keyword in SQL.
+
