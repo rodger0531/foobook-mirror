@@ -35,7 +35,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS friend_circle(friend_id int unsigned not
 
 //CIRCLE
 mysql_query("CREATE TABLE IF NOT EXISTS circle(circle_id int unsigned auto_increment not null primary key,
-											   circle_name not null tinytext,
+											   circle_name tinytext not null,
 											   owner_id int unsigned not null,
 											   foreign key (owner_id) references user(user_id)
 											   )
