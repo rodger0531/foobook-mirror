@@ -92,31 +92,31 @@ mysql_query("CREATE TABLE IF NOT EXISTS employer(employer_id int unsigned auto_i
 												 )
 			") or die (mysql_error());
 
-//USER_GROUP
-mysql_query("CREATE TABLE IF NOT EXISTS user_group(user_id int unsigned not null,
-												   group_id bigint unsigned not null,
-												   primary key(user_id,group_id)
+//USER_groups
+mysql_query("CREATE TABLE IF NOT EXISTS user_groups(user_id int unsigned not null,
+												   groups_id bigint unsigned not null,
+												   primary key(user_id,groups_id)
 												   )
 			") or die (mysql_error());
 
-//GROUP
-mysql_query("CREATE TABLE IF NOT EXISTS group(group_id bigint unsigned auto_increment not null primary key,
+//groups
+mysql_query("CREATE TABLE IF NOT EXISTS groups(groups_id bigint unsigned auto_increment not null primary key,
 											  name tinytext not null,
-											  group_visibility tinyint(1) not null default 0
+											  groups_visibility tinyint(1) not null default 0
 											  )
 			") or die (mysql_error());
 
-//GROUP_ADMIN
-mysql_query("CREATE TABLE IF NOT EXISTS group_admin(group_id bigint unsigned not null,
+//groups_ADMIN
+mysql_query("CREATE TABLE IF NOT EXISTS groups_admin(groups_id bigint unsigned not null,
 												    admin_id int unsigned not null,
-												    primary key(group_id,admin_id)
+												    primary key(groups_id,admin_id)
 												    )
 			") or die (mysql_error());
 
-//GROUPwALLPOST
-mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost(post_id bigint unsigned auto_increment not null primary key,
-													  group_id bigint unsigned not null,
-													  foreign key(group_id) references group(group_id),
+//groupswALLPOST
+mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost(post_id bigint unsigned auto_increment not null primary key,
+													  groups_id bigint unsigned not null,
+													  foreign key(groups_id) references groups(groups_id),
 													  sender_id int unsigned not null,
 													  foreign key(sender_id) references user(user_id),
 													  post text,
@@ -125,17 +125,17 @@ mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost(post_id bigint unsigned au
 													  )
 			") or die (mysql_error());
 
-//GROUPWALLPOST_PHOTO
-mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_photo(post_id bigint unsigned not null,
+//groupsWALLPOST_PHOTO
+mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost_photo(post_id bigint unsigned not null,
 														    photo_id bigint unsigned not null,
 														    primary key(post_id,photo_id)
 														    )
 			") or die (mysql_error());
 
-//GROUPWALLPOST_COMMENT
-mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_comment(comment_id bigint unsigned auto_increment not null primary key,
+//groupsWALLPOST_COMMENT
+mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost_comment(comment_id bigint unsigned auto_increment not null primary key,
 															  post_id bigint unsigned not null,
-															  foreign key(post_id) references groupWallPost(post_id),
+															  foreign key(post_id) references groupsWallPost(post_id),
 															  sender_id int unsigned not null,
 															  foreign key(sender_id) references user(user_id),
 															  comment text not null,
@@ -144,15 +144,15 @@ mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_comment(comment_id bigint 
 															  )
 			") or die (mysql_error());
 
-//GROUPWALLPOST_FRIENDVISIBILITY
-mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_friendVisibility(post_id bigint unsigned not null,
+//groupsWALLPOST_FRIENDVISIBILITY
+mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost_friendVisibility(post_id bigint unsigned not null,
 																	   friend_id int unsigned not null,
 																	   primary key(post_id,friend_id)
 																	   )
 			") or die (mysql_error());
 
-//GROUPWALLPOST_CIRCLEVISIBILITY
-mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_circleVisibility(post_id bigint unsigned not null,
+//groupsWALLPOST_CIRCLEVISIBILITY
+mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost_circleVisibility(post_id bigint unsigned not null,
 																	   circle_id int unsigned not null,
 																	   primary key(post_id,circle_id)
 																	   )
