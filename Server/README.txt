@@ -20,5 +20,6 @@ This README file contains information about the Server folder all the realted ch
 06/02/2014 - Rodger
 
 	-Changed all keyword "group" to "groups" since group is a reserved keyword in MySQL.
-	-changed timestamp data type from DATETIME to TIMESTAMP. reason: DATETIME does not allow default CURRENT_TIMESTAMP.
-	-script works as of this version change via php setup_database.php in terminal.
+	-Changed timestamp data type from DATETIME to TIMESTAMP. reason: DATETIME does not allow default CURRENT_TIMESTAMP.
+	-Script works as of this version change via php setup_database.php in terminal.
+
