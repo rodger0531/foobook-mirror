@@ -252,8 +252,10 @@ mysql_query("CREATE TABLE IF NOT EXISTS photo(photo_id bigint unsigned auto_incr
 
 //PHOTOCOMMENT
 mysql_query("CREATE TABLE IF NOT EXISTS photoComment(comment_id bigint unsigned auto_increment not null primary key,
-													 photo_id bigint unsigned not null foreign key references photo(photo_id),
-													 sender_id int unsigned not null foreign key references user(user_id),
+													 photo_id bigint unsigned not null,
+													 foreign key (photo_id)references photo(photo_id),
+													 sender_id int unsigned not null,
+													 foreign key (sender_id) references user(user_id),
 													 comment text not null,
 													 timestamp datetime not null default getdate(),
 													 visibility_setting tinyint(1) not null default 0
@@ -276,7 +278,8 @@ mysql_query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 
 //COLLECTION
 mysql_query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned auto_increment not null primary key,
-												   user_id int unsigned not null foreign key references user(user_id),
+												   user_id int unsigned not null,
+												   foreign key (user_id) references user(user_id),
 												   name tinytext not null
 												   )
 			") or die (mysql_error());
