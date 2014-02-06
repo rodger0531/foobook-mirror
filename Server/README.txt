@@ -9,3 +9,11 @@ This README file contains information about the Server folder all the realted ch
 		-db_connect.php
 		-example_create_user.php
 		-setup_database.php
+
+06/02/2014 - Philip and Tharman
+
+	- Corrected the keyword order in the 'setup_database.php' file.
+	- Tested out on phpMyAdmin with the following issues:
+		- Doesn't allow the name 'group' for that table;
+		- Doesn't allow us to use getDate() for the default value of the timestamps.
+
