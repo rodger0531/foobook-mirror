@@ -35,7 +35,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS friend_circle(friend_id int unsigned not
 
 //CIRCLE
 mysql_query("CREATE TABLE IF NOT EXISTS circle(circle_id int unsigned auto_increment not null primary key,
-											   circle_name not null tinytext,
+											   circle_name tinytext not null,
 											   owner_id int unsigned not null,
 											   foreign key (owner_id) references user(user_id)
 											   )
@@ -115,8 +115,10 @@ mysql_query("CREATE TABLE IF NOT EXISTS group_admin(group_id bigint unsigned not
 
 //GROUPwALLPOST
 mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost(post_id bigint unsigned auto_increment not null primary key,
-													  group_id bigint unsigned not null foreign key references group(group_id),
-													  sender_id int unsigned not null foreign key references user(user_id),
+													  group_id bigint unsigned not null,
+													  foreign key (group_id) references group(group_id),
+													  sender_id int unsigned not null,
+													  foreign key (sender_id) references user(user_id),
 													  post text,
 													  timestamp datetime not null default getdate(),
 													  visibility_setting tinyint(1) not null default 0
@@ -132,8 +134,10 @@ mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_photo(post_id bigint unsig
 
 //GROUPWALLPOST_COMMENT
 mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_comment(comment_id bigint unsigned auto_increment not null primary key,
-															  post_id bigint unsigned not null foreign key references groupWallPost(post_id),
-															  sender_id int unsigned not null foreign key references user(user_id),
+															  post_id bigint unsigned not null,
+															  foreign key(post_id) references groupWallPost(post_id),
+															  sender_id int unsigned not null,
+															  foreign key(sender_id) references user(user_id),
 															  comment text not null,
 															  timestamp datetime not null default getdate(),
 															  visibility_setting tinyint(1) not null default 0
@@ -143,7 +147,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_comment(comment_id bigint 
 //GROUPWALLPOST_FRIENDVISIBILITY
 mysql_query("CREATE TABLE IF NOT EXISTS groupWallPost_friendVisibility(post_id bigint unsigned not null,
 																	   friend_id int unsigned not null,
-																	   primary post_id(key,friend_id)
+																	   primary key (post_id, friend_id)
 																	   )
 			") or die (mysql_error());
 
@@ -163,7 +167,8 @@ mysql_query("CREATE TABLE IF NOT EXISTS user_userWallPost(user_id int unsigned n
 
 //USERWALLPOST
 mysql_query("CREATE TABLE IF NOT EXISTS userWallPost(post_id bigint unsigned auto_increment not null primary key,
-													 sender_id int unsigned not null foreign key references user(user_id),
+													 sender_id int unsigned not null,
+													 foreign key(sender_id) references user(user_id),
 													 post text,
 													 timestamp datetime not null default getdate(),
 													 visibility_setting tinyint(1) not null default 0
@@ -179,8 +184,10 @@ mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_photo(post_id bigint unsign
 
 //USERWALLPOST_COMMENT
 mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_comment(comment_id bigint unsigned auto_increment not null primary key,
-															 post_id bigint unsigned not null foreign key references userWallPost(post_id),
-															 sender_id int unsigned not null foreign key references user(user_id),
+															 post_id bigint unsigned not null,
+															 foreign key (post_id) references userWallPost(post_id),
+															 sender_id int unsigned not null,
+															 foreign key (sender_id) references user(user_id),
 															 comment text not null,
 															 timestamp datetime not null default getdate(),
 															 visibility_setting tinyint(1) not null default 0
@@ -216,8 +223,10 @@ mysql_query("CREATE TABLE IF NOT EXISTS thread(thread_id bigint unsigned auto_in
 
 //THREADMESSAGE
 mysql_query("CREATE TABLE IF NOT EXISTS threadMessage(message_id bigint unsigned auto_increment not null primary key,
-													  thread_id bigint unsigned not null foreign key references thread(thread_id),
-													  sender_id int unsigned not null foreign key references user(user_id),
+													  thread_id bigint unsigned not null,
+													  foreign key (thread_id) references thread(thread_id),
+													  sender_id int unsigned not null,
+													  foreign key (sender_id) references user(user_id),
 													  message text,
 													  timestamp datetime not null default getdate(),
 													  visibility_setting tinyint(1) not null default 0
@@ -233,7 +242,8 @@ mysql_query("CREATE TABLE IF NOT EXISTS threadMessage_photo(message_id bigint un
 
 //PHOTO
 mysql_query("CREATE TABLE IF NOT EXISTS photo(photo_id bigint unsigned auto_increment not null primary key,
-											  collection_id bigint unsigned not null foreign key references collection(collection_id),
+											  collection_id bigint unsigned not null,
+											  foreign key (collection_id) references collection(collection_id),
 											  name tinytext,
 											  photo_visibility tinyint(1) not null default 0,
 											  photo mediumblob not null
