@@ -19,6 +19,5 @@ This README file contains information about the Server folder all the realted ch
 
 06/02/2014 - Rodger
 
-	- Changed the 'group' table and all references to 'groups' because 'group' is
-	  a reserved keyword in SQL.
+	- Changed all keyword "group" to "groups" since group is a reserved keyword in MySQL.
 
