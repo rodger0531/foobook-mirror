@@ -17,6 +17,8 @@ This README file contains information about the Server folder all the realted ch
 		- Doesn't allow the name 'group' for that table;
 		- Doesn't allow us to use getDate() for the default value of the timestamps.
 
-07/02/2014 - Rodger
+06/02/2014 - Rodger
 
-	-Changed all keyword "group" to "groups" since group is a reserved keyword in MySQL
+	-Changed all keyword "group" to "groups" since group is a reserved keyword in MySQL.
+	-changed timestamp data type from DATETIME to TIMESTAMP. reason: DATETIME does not allow default CURRENT_TIMESTAMP.
+	-script works as of this version change via php setup_database.php in terminal.

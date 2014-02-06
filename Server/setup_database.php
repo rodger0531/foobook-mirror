@@ -120,7 +120,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost(post_id bigint unsigned a
 													  sender_id int unsigned not null,
 													  foreign key(sender_id) references user(user_id),
 													  post text,
-													  timestamp datetime not null default getdate(),
+													  timestamp timestamp default current_timestamp,
 													  visibility_setting tinyint(1) not null default 0
 													  )
 			") or die (mysql_error());
@@ -139,7 +139,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS groupsWallPost_comment(comment_id bigint
 															  sender_id int unsigned not null,
 															  foreign key(sender_id) references user(user_id),
 															  comment text not null,
-															  timestamp datetime not null default getdate(),
+															  timestamp timestamp default current_timestamp,
 															  visibility_setting tinyint(1) not null default 0
 															  )
 			") or die (mysql_error());
@@ -170,7 +170,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS userWallPost(post_id bigint unsigned aut
 													 sender_id int unsigned not null,
 													 foreign key(sender_id) references user(user_id),
 													 post text,
-													 timestamp datetime not null default getdate(),
+													 timestamp timestamp default current_timestamp,
 													 visibility_setting tinyint(1) not null default 0
 													 )
 			") or die (mysql_error());
@@ -189,7 +189,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_comment(comment_id bigint u
 															 sender_id int unsigned not null,
 															 foreign key(sender_id) references user(user_id),
 															 comment text not null,
-															 timestamp datetime not null default getdate(),
+															 timestamp timestamp default current_timestamp,
 															 visibility_setting tinyint(1) not null default 0
 															 )
 			") or die (mysql_error());
@@ -228,7 +228,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS threadMessage(message_id bigint unsigned
 													  sender_id int unsigned not null,
 													  foreign key(sender_id) references user(user_id),
 													  message text,
-													  timestamp datetime not null default getdate(),
+													  timestamp timestamp default current_timestamp,
 													  visibility_setting tinyint(1) not null default 0
 													  )
 			") or die (mysql_error());
@@ -238,6 +238,15 @@ mysql_query("CREATE TABLE IF NOT EXISTS threadMessage_photo(message_id bigint un
 															photo_id bigint unsigned not null,
 															primary key(message_id,photo_id)
 															)
+			") or die (mysql_error());
+
+
+//COLLECTION
+mysql_query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned auto_increment not null primary key,
+												   user_id int unsigned not null,
+												   foreign key(user_id) references user(user_id),
+												   name tinytext not null
+												   )
 			") or die (mysql_error());
 
 //PHOTO
@@ -257,7 +266,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS photoComment(comment_id bigint unsigned 
 													 sender_id int unsigned not null,
 													 foreign key(sender_id) references user(user_id),
 													 comment text not null,
-													 timestamp datetime not null default getdate(),
+													 timestamp timestamp default current_timestamp,
 													 visibility_setting tinyint(1) not null default 0
 													 )
 			") or die (mysql_error());
@@ -276,13 +285,6 @@ mysql_query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 															   )
 			") or die (mysql_error());
 
-//COLLECTION
-mysql_query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned auto_increment not null primary key,
-												   user_id int unsigned not null,
-												   foreign key(user_id) references user(user_id),
-												   name tinytext not null
-												   )
-			") or die (mysql_error());
 
 //COLLECTION_FRIENDVISIBLITY
 mysql_query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_id bigint unsigned not null,
