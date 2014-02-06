@@ -17,3 +17,6 @@ This README file contains information about the Server folder all the realted ch
 		- Doesn't allow the name 'group' for that table;
 		- Doesn't allow us to use getDate() for the default value of the timestamps.
 
+07/02/2014 - Rodger
+
+	-Changed all keyword "group" to "groups" since group is a reserved keyword in MySQL
