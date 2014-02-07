@@ -34,7 +34,7 @@ This README file contains information about the Server folder all the realted ch
 	-The Deletion part is ambiguous at this point (we still need to figure that part out), but we agreed on including the Deletion part everywhere and change it later.
 	-Here is the list of all the tables we need to create CRUD php files for:
 
-		- cicle
+		- cicle - done Philip (07/02/2014) - REVISION NEEDED!!!
 		- collection
 		- collection_circleVisibility
 		- collection_friendVisibility
