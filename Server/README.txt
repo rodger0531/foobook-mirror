@@ -27,3 +27,45 @@ This README file contains information about the Server folder all the realted ch
 07/02/2014 - Rodger
 	
 	-Added AJAX test script (test.js and test.html)
+
+07/02/2014 - Philip and Tharman
+
+	-Generated the first CRUD php file, the "user" one. We tested it and it works, so it can serve as a future reference file for the rest of the tables.
+	-The Deletion part is ambiguous at this point (we still need to figure that part out), but we agreed on including the Deletion part everywhere and change it later.
+	-Here is the list of all the tables we need to create CRUD php files for:
+
+		- cicle
+		- collection
+		- collection_circleVisibility
+		- collection_friendVisibility
+		- education
+		- employer
+		- friend_circle
+		- groups
+		- groupsWallPost
+		- groupsWallPost_circleVisibility
+		- groupWallPost_comment
+		- groupWallPost_friendVisibility
+		- groupWallPost_photo
+		- group_admin
+		- photo
+		- photoComment
+		- photo_circleVisibility
+		- photo_friendVisibility
+		- thread
+		- threadMessage
+		- threadMessage_photo
+		- user - Philip, Tharman and Rodger (07/02/2014)
+		- userWallPost
+		- userWallPost_circleVisibility
+		- userWillPost_comment
+		- userWallPost_friendVisibility
+		- userWallPost_photo
+		- user_block
+		- user_education
+		- user_employer
+		- user_friend
+		- user_groups
+		- user_request
+		- user_thread
+		- user_userWallPost
