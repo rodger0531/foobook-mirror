@@ -1,11 +1,13 @@
 <?php
 
 
-//enable CORS (Cross Origin Resource Sharing)- CORS allows our JS files to be run on client side.
-//The asterisk wild-card permits scripts hosted on any site to load your resources; listing one or more specific <base URI> will permit scripts hosted on the specified site(s) -- and no others -- to load your resources.
+/*enable CORS (Cross Origin Resource Sharing)- CORS allows our JS files to be run on client side.
+The asterisk wild-card permits scripts hosted on any site to load your resources; listing one or more specific <base URI> will permit scripts hosted on the specified site(s) -- and no others -- to load your resources.
+*/
  header("Access-Control-Allow-Origin: *");
 
 $action = $_POST['action'];
+
 echo($action);
 
 switch ($action) {
@@ -31,7 +33,6 @@ switch ($action) {
  * Following code will create a new user row
  * All user details are read from HTTP Post Request
  */
-
 
 function create() {
 
@@ -105,13 +106,10 @@ function create() {
     }
 }
 
-
-
 /*
  * Following code will get single user details
  * A user is identified by user id (user_id)
  */
-
 
 function read () {
 
@@ -267,7 +265,7 @@ function update () {
  * A user is identified by user id (user_id)
  */
 
-function delete () {
+function delete () { //NOTE: Deletion still need to figured out.
  
     // array for JSON response
     $response = array();
