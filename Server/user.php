@@ -13,19 +13,22 @@ echo($action);
 switch ($action) {
     case 1:
         create();
-        echo "Yes!";
+        echo "Creation works!";
         break;
     case 2:
         read();
+        echo "Reading works!";
         break;
     case 3:
         update();
+        echo "Updating works!";
         break;
     case 4:
         delete();
+        echo "Deletion works!";
         break;    
     default:
-        echo "We are fucked!";
+        echo "None of the CRUD option is working!";
         break;
 }
 
