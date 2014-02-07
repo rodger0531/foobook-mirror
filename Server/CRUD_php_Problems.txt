@@ -10,3 +10,4 @@ collection_circleVisibility:
 - create () is not applicable for visibility settings in general.
 - update() we have the "visibility_setting" in the ERD diagram but in the actual database. I think we need to include it in order to be able to update the visibility.
 - delete() is not applicable for collection_circleVisibility due to the fact this value is set by default a user can never entirely delete this function 
+- I needed to add "visibility_setting" attribute to "setup_database.php" becase we need to refer to it in order to update it.
