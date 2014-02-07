@@ -35,7 +35,7 @@ This README file contains information about the Server folder all the realted ch
 	-Here is the list of all the tables we need to create CRUD php files for:
 
 		- cicle - done Philip (07/02/2014) - REVISION NEEDED!!!
-		- collection
+		- collection - done Philip (07/02/2014)
 		- collection_circleVisibility
 		- collection_friendVisibility
 		- education
