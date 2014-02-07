@@ -33,8 +33,8 @@ switch ($action) {
 }
 
 /*
- * Following code will change collection_circleVisibility
- * All collection_circleVisibility details are read from HTTP Post Request
+ * Following code will change collection_friendVisibility
+ * All collection_friendVisibility details are read from HTTP Post Request
  */
 
 function create() { //Not applicable
@@ -43,7 +43,7 @@ function create() { //Not applicable
     $response = array();
      
     // check for required fields
-    # Not applicable for collection_circleVisibility.
+    # Not applicable for collection_friendVisibility.
 
     {
 
@@ -54,13 +54,13 @@ function create() { //Not applicable
         $db = new DB_CONNECT();
      
         // mysql inserting a new row
-        # Not applicable for collection_circleVisibility.
+        # Not applicable for collection_friendVisibility.
      
         // check if row inserted or not
         if ($result) {
             // successfully inserted into database
             $response["success"] = 1;
-            $response["message"] = "collection_circleVisibility successfully created.";
+            $response["message"] = "collection_friendVisibility successfully created.";
      
             // echoing JSON response
             echo json_encode($response);
@@ -83,8 +83,8 @@ function create() { //Not applicable
 }
 
 /*
- * Following code will get single collection_circleVisibility details
- * A collection_circleVisibility is identified by collection_id and circle_id
+ * Following code will get single collection_friendVisibility details
+ * A collection_friendVisibility is identified by collection_id and friend_id
  */
 
 function read () {
@@ -101,12 +101,12 @@ function read () {
      
     // check for post data
     if (isset($_GET["collection_id"])
-        &&isset($_GET["circle_id"])) { //NOTE: We need both to identify circle collection.
+        &&isset($_GET["friend_id"])) { //NOTE: We need both to identify circle collection.
         $collection_id = $_GET['collection_id'];
-        $circle_id = $_GET['circle_id'];
+        $friend_id = $_GET['friend_id'];
      
-        // get a visibility from collection_circleVisibility table
-        $result = mysql_query("SELECT * FROM collection_circleVisibility WHERE collection_id = $collection_id, circle_id = $circle_id");
+        // get a visibility from collection_friendVisibility table
+        $result = mysql_query("SELECT * FROM collection_friendVisibility WHERE collection_id = $collection_id, friend_id = $friend_id");
      
         if (!empty($result)) {
             // check for empty result
@@ -116,33 +116,33 @@ function read () {
      
                 $visibility = array();
 
-                $collection_circleVisibility["collection_id"] = $result['collection_id'];
-                $collection_circleVisibility["circle_id"] = $result['circle_id'];
+                $collection_friendVisibility["collection_id"] = $result['collection_id'];
+                $collection_friendVisibility["friend_id"] = $result['friend_id'];
                 
                 // success
                 $response["success"] = 1;
      
                 // visibility node
-                $response["collection_circleVisibility"] = array();
+                $response["collection_friendVisibility"] = array();
      
-                array_push($response["collection_circleVisibility"], $collection_circleVisibility);
+                array_push($response["collection_friendVisibility"], $collection_friendVisibility);
      
                 // echoing JSON response
                 echo json_encode($response);
             } else {
-                // no collection_circleVisibility found
+                // no collection_friendVisibility found
                 $response["success"] = 0;
-                $response["message"] = "No collection_circleVisibility found";
+                $response["message"] = "No collection_friendVisibility found";
      
-                // echo no collection_circleVisibility JSON
+                // echo no collection_friendVisibility JSON
                 echo json_encode($response);
             }
         } else {
-            // no collection_circleVisibility found
+            // no collection_friendVisibility found
             $response["success"] = 0;
-            $response["message"] = "No collection_circleVisibility found";
+            $response["message"] = "No collection_friendVisibility found";
      
-            // echo no collection_circleVisibility JSON
+            // echo no collection_friendVisibility JSON
             echo json_encode($response);
         }
     } else {
@@ -157,8 +157,8 @@ function read () {
 }
 
 /*
- * Following code will update a collection_circleVisibility information
- * A collection_circleVisibility is identified by collection_id and cirlce_id
+ * Following code will update a collection_friendVisibility information
+ * A collection_friendVisibility is identified by collection_id and cirlce_id
  */
 
 function update () {
@@ -181,13 +181,13 @@ function update () {
         $db = new DB_CONNECT();
      
         // mysql update row with matched visibility_id
-        $result = mysql_query("UPDATE collection_circleVisibility SET visibility_setting = '$visibility_setting', WHERE collection_id = $collection_id, circle_id = $circle_id");
+        $result = mysql_query("UPDATE collection_friendVisibility SET visibility_setting = '$visibility_setting', WHERE collection_id = $collection_id, friend_id = $friend_id");
      
         // check if row inserted or not
         if ($result) {
             // successfully updated
             $response["success"] = 1;
-            $response["message"] = "collection_circleVisibility successfully updated.";
+            $response["message"] = "collection_friendVisibility successfully updated.";
      
             // echoing JSON response
             echo json_encode($response);
@@ -206,13 +206,13 @@ function update () {
 }
 
 /*
- * Following code will delete a collection_circleVisibility from table
- * A collection_circleVisibility is identified by collection_id and circle_id
+ * Following code will delete a collection_friendVisibility from table
+ * A collection_friendVisibility is identified by collection_id and friend_id
  */
 
 function delete () { //NOTE: Deletion still need to figured out.
     
-//This function is not applicable for collection_circleVisibility
+//This function is not applicable for collection_friendVisibility
 
     // array for JSON response
     $response = array();
@@ -232,16 +232,16 @@ function delete () { //NOTE: Deletion still need to figured out.
         if (mysql_affected_rows() > 0) {
             // successfully updated
             $response["success"] = 1;
-            $response["message"] = "collection_circleVisibility successfully deleted";
+            $response["message"] = "collection_friendVisibility successfully deleted";
      
             // echoing JSON response
             echo json_encode($response);
         } else {
-            // no collection_circleVisibility found
+            // no collection_friendVisibility found
             $response["success"] = 0;
-            $response["message"] = "No collection_circleVisibility found";
+            $response["message"] = "No collection_friendVisibility found";
      
-            // echo no collection_circleVisibility JSON
+            // echo no collection_friendVisibility JSON
             echo json_encode($response);
         }
     } else {
