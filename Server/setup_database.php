@@ -197,6 +197,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_comment(comment_id bigint u
 //USERWALLPOST_FRIENDVISIBILITY
 mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_friendVisibility(post_id bigint unsigned not null,
 																	  friend_id int unsigned not null,
+																	  visibility_setting tinyint(1) not null default 0
 																	  primary key(post_id,friend_id)
 																	  )
 			") or die (mysql_error());
@@ -204,6 +205,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_friendVisibility(post_id bi
 //USERWALLPOST_CIRCLEVISIBILITY
 mysql_query("CREATE TABLE IF NOT EXISTS userWallPost_circleVisibility(post_id bigint unsigned not null,
 																	  circle_id int unsigned not null,
+																	  vvisibility_setting tinyint(1) not null default 0
 																	  primary key(post_id,circle_id)
 																	  )
 			") or die (mysql_error());
@@ -274,6 +276,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS photoComment(comment_id bigint unsigned 
 //PHOTO_FRIENDVISIBILITY
 mysql_query("CREATE TABLE IF NOT EXISTS photo_friendVisibility(photo_id bigint unsigned not null,
 															   friend_id int unsigned not null,
+															   visibility_setting tinyint(1) not null default 0
 															   primary key(photo_id,friend_id)
 															   )
 			") or die (mysql_error());
@@ -281,6 +284,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS photo_friendVisibility(photo_id bigint u
 //PHOTO_CIRCLEVISIBILITY
 mysql_query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint unsigned not null,
 															   circle_id int unsigned not null,
+															   visibility_setting tinyint(1) not null default 0
 															   primary key(photo_id,circle_id)
 															   )
 			") or die (mysql_error());
@@ -289,6 +293,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 //COLLECTION_FRIENDVISIBLITY
 mysql_query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_id bigint unsigned not null,
 																	friend_id int unsigned not null,
+																	visibility_setting tinyint(1) not null default 0
 																	primary key(collection_id,friend_id)
 																	)
 			") or die (mysql_error());
@@ -296,6 +301,7 @@ mysql_query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_i
 //COLLECTION_CIRCLEVISIBLITY
 mysql_query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_id bigint unsigned not null,
 																	circle_id int unsigned not null,
+																	visibility_setting tinyint(1) not null default 0 
 																	primary key(collection_id,circle_id)
 																	)
 			") or die (mysql_error());
