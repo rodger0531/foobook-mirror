@@ -1,0 +1,6 @@
+circle: 
+- are we going to allow users to create their own circles if yes we need to add to the table a field to list the friends you would like to have in this circle (currently we don't have this option)
+- correct me if I am wrong bu currently there is no option for the user to create his own circle. We haven't considered this option I think. Currently the system assignes you circles based on who are you family/school/work members right?
+- Currently the system should generate circles for you based on who do you mark as your sibling/collegue/and so on. 
+(I think this will lead to more attributes such as Relationship status, allowing to add users as siblings.)
+- Updating a cirlce means that we have to give the users the option to create their own circles, i.e. they can add and remove users from the given circles. (Basically, more changes ... pfffff)
