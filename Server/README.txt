@@ -24,3 +24,6 @@ This README file contains information about the Server folder all the realted ch
 	-Script works as of this version change via php setup_database.php in terminal.
 	-Created a php script to update user table (create user) via JSON/AJAX
 
+07/02/2014 - Rodger
+	
+	-Added AJAX test script (test.js and test.html)
