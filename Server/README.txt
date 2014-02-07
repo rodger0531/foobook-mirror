@@ -55,7 +55,7 @@ This README file contains information about the Server folder all the realted ch
 		- thread
 		- threadMessage
 		- threadMessage_photo
-		- user - Philip, Tharman and Rodger (07/02/2014)
+		- user - done Philip, Tharman and Rodger (07/02/2014)
 		- userWallPost
 		- userWallPost_circleVisibility
 		- userWillPost_comment
