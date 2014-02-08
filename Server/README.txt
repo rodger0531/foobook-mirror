@@ -78,3 +78,15 @@ This README file contains information about the Server folder all the realted ch
 	- Combined db_config and db_connect into the file so it does not need the variables and classes to run, i.e. it is a standalone version.
 	- Updated circle.php -> typos
 	- NOTE: we need to change php files to object orientated mysqli method.
+
+08/02/2014 - Tharman
+
+	- Addressed Philip's concerns regarding the system in 'CRUD_php_Problems.txt'.
+	- Made a few alterations to the 'setup_database.php' file:
+		- Grouped 'collection' related parts together.
+		- Changed 'groups_visibility' attribute in 'groups' and 'photo_visiblity' in the 'photo' table to 'visibility_setting' - consistency.
+		- Added 'visiblity_setting' attribute to the 'collection' table. We had the friend and circle visilbity tables, but why not this field then? I assumed it was a mistake, and have added it.
+		- Added 'visiblity_setting' attribute to all of the 'circleVisiblity' and 'friendVisiblity' tables. Good catch by Philip.
+		- Removed 'visiblity_setting' attribute from 'threadMessage' table. Why was that there? Users aren't supposed to be able to assign visibility to a thread message, right?
+		- 'visiblity_setting' attributes should be correct across the board now.
+
