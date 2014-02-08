@@ -163,7 +163,7 @@ function read () {
 
 function update () {
 
-/* Updating a cirlce means that we have to give the users the option to create their own circle, i.e. they can add and remove users from the given circle. At this stage only tha name of the circle can be updated.*/
+/* Updating a circle means that we have to give the users the option to create their own circle, i.e. they can add and remove users from the given circle. At this stage only tha name of the circle can be updated.*/
 
     // array for JSON response
     $response = array();
@@ -183,7 +183,7 @@ function update () {
         $db = new DB_CONNECT();
      
         // mysql update row with matched circle_id
-        $result = mysql_query("UPDATE circle SET circle_name = '$circle_name', WHERE cirlce_name = $cirlce_name");
+        $result = mysql_query("UPDATE circle SET circle_name = '$circle_name', WHERE circle_name = $circle_name");
      
         // check if row inserted or not
         if ($result) {

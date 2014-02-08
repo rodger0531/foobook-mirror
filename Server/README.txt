@@ -36,6 +36,7 @@ This README file contains information about the Server folder all the realted ch
 
 		- cicle - done Philip (07/02/2014) - REVISION NEEDED!!!
 				- revision Rodger (08/02/2014) - typos
+				- revision Tharman (08/02/2014) - typo in filename, 'cirlce.php' -> 'circle.php'
 		- collection - done Philip (07/02/2014)
 		- collection_circleVisibility - done Philip (07/02/2014) - REVISION NEEDED!!!
 		- collection_friendVisibility - done Philip (07/02/2014) - REVISION NEEDED!!!
