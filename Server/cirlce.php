@@ -4,7 +4,7 @@
 /*enable CORS (Cross Origin Resource Sharing)- CORS allows our JS files to be run on client side.
 The asterisk wild-card permits scripts hosted on any site to load your resources; listing one or more specific <base URI> will permit scripts hosted on the specified site(s) -- and no others -- to load your resources.
 */
- header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 
 $action = $_POST['action'];
 
@@ -57,7 +57,7 @@ function create() {
      
         // mysql inserting a new row
         
-        # The iserted fields go in here ...
+        # The inserted fields go in here ...
      
         // check if row inserted or not
         if ($result) {
@@ -87,7 +87,7 @@ function create() {
 
 /*
  * Following code will get single circle details
- * A circle is identified by circle id (cirlce_id)
+ * A circle is identified by circle id (circle_id)
  */
 
 function read () {
@@ -103,11 +103,11 @@ function read () {
     $db = new DB_CONNECT();
      
     // check for post data
-    if (isset($_GET["cirlce_id"])) {
-        $cirlce_id = $_GET['cirlce_id'];
+    if (isset($_GET["circle_id"])) {
+        $circle_id = $_GET['circle_id'];
      
         // get a circle from circle table
-        $result = mysql_query("SELECT * FROM circle WHERE cirlce_id = $cirlce_id");
+        $result = mysql_query("SELECT * FROM circle WHERE circle_id = $circle_id");
      
         if (!empty($result)) {
             // check for empty result
@@ -158,7 +158,7 @@ function read () {
 
 /*
  * Following code will update a circle information
- * A circle is identified by circle id (cirlce_id)
+ * A circle is identified by circle id (circle_id)
  */
 
 function update () {
@@ -182,7 +182,7 @@ function update () {
         // connecting to db
         $db = new DB_CONNECT();
      
-        // mysql update row with matched cirlce_id
+        // mysql update row with matched circle_id
         $result = mysql_query("UPDATE circle SET circle_name = '$circle_name', WHERE cirlce_name = $cirlce_name");
      
         // check if row inserted or not
@@ -209,7 +209,7 @@ function update () {
 
 /*
  * Following code will delete a circle from table
- * A circle is identified by circle id (cirlce_id)
+ * A circle is identified by circle id (circle_id)
  */
 
 function delete () { //NOTE: Deletion still need to figured out.
@@ -218,8 +218,8 @@ function delete () { //NOTE: Deletion still need to figured out.
     $response = array();
      
     // check for required fields
-    if (isset($_POST['cirlce_id'])) {
-        $cirlce_id = $_POST['cirlce_id'];
+    if (isset($_POST['circle_id'])) {
+        $circle_id = $_POST['circle_id'];
      
         // include db connect class
         require_once __DIR__ . '/db_connect.php';
@@ -227,8 +227,8 @@ function delete () { //NOTE: Deletion still need to figured out.
         // connecting to db
         $db = new DB_CONNECT();
      
-        // mysql update row with matched cirlce_id
-        $result = mysql_query("DELETE FROM circle WHERE cirlce_id = $cirlce_id");
+        // mysql update row with matched circle_id
+        $result = mysql_query("DELETE FROM circle WHERE circle_id = $circle_id");
      
         // check if row deleted or not
         if (mysql_affected_rows() > 0) {

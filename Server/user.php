@@ -4,7 +4,7 @@
 /*enable CORS (Cross Origin Resource Sharing)- CORS allows our JS files to be run on client side.
 The asterisk wild-card permits scripts hosted on any site to load your resources; listing one or more specific <base URI> will permit scripts hosted on the specified site(s) -- and no others -- to load your resources.
 */
- header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: *");
 
 $action = $_POST['action'];
 

@@ -1,9 +1,6 @@
 <?php
 
-define('DB_USER', 'root'); // db user
-define('DB_PASSWORD', ''); // db password
-define('DB_DATABASE', 'foobook'); // database name
-define('DB_SERVER', 'localhost'); // db server
+require_once __DIR__ . '/db_config.php';
 
 // create mysqli object
 $con = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
