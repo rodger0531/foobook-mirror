@@ -69,3 +69,8 @@ This README file contains information about the Server folder all the realted ch
 		- user_request
 		- user_thread
 		- user_userWallPost
+
+08/02/2014 - Rodger
+
+	- Altered the setup database php file from mysql to mysqli. I adopted object oriented style instead of procedural style it was before. This allows high security due to it being prepared statement and prevents hacking such as injection.
+	-Combined db_config and db_connect into the file so it does not need the variables and classes to run, i.e. it is a standalone version.
