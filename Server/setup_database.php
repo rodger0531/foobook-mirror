@@ -282,7 +282,6 @@ $con->query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_i
 																	)
 			") or die ($con->error);
 
-$con->close();
 
 //PHOTO
 $con->query("CREATE TABLE IF NOT EXISTS photo(photo_id bigint unsigned auto_increment not null primary key,
@@ -321,5 +320,7 @@ $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 															   primary key(photo_id,circle_id)
 															   )
 			") or die ($con->error);
+
+$con->close();
 
 ?>
