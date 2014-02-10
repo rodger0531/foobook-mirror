@@ -93,3 +93,7 @@ This README file contains information about all changes relating to the 'Server'
 10/02/2014 - Rodger
 	
 	-Re-added "visibility_setting tinyint(1) not null default 0" to those tables which got accidentally removed.
+
+10/02/2014 - Philip, Rodger, Tharman
+	
+	- Successfully created a working Read abstracted file. To be continued ....................... :) NOTE: Still have to fix AJAX returning array. 
