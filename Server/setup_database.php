@@ -268,6 +268,7 @@ $con->query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned
 
 //COLLECTION_FRIENDVISIBLITY
 $con->query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_id bigint unsigned not null,
+																	visibility_setting tinyint(1) not null default 0,
 																	friend_id int unsigned not null,
 																	primary key(collection_id,friend_id)
 																	)
@@ -275,6 +276,7 @@ $con->query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_i
 
 //COLLECTION_CIRCLEVISIBLITY
 $con->query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_id bigint unsigned not null,
+																    visibility_setting tinyint(1) not null default 0,
 																	circle_id int unsigned not null,
 																	primary key(collection_id,circle_id)
 																	)
@@ -306,6 +308,7 @@ $con->query("CREATE TABLE IF NOT EXISTS photoComment(comment_id bigint unsigned 
 
 //PHOTO_FRIENDVISIBILITY
 $con->query("CREATE TABLE IF NOT EXISTS photo_friendVisibility(photo_id bigint unsigned not null,
+															   visibility_setting tinyint(1) not null default 0,
 															   friend_id int unsigned not null,
 															   primary key(photo_id,friend_id)
 															   )
@@ -313,6 +316,7 @@ $con->query("CREATE TABLE IF NOT EXISTS photo_friendVisibility(photo_id bigint u
 
 //PHOTO_CIRCLEVISIBILITY
 $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint unsigned not null,
+															   visibility_setting tinyint(1) not null default 0,
 															   circle_id int unsigned not null,
 															   primary key(photo_id,circle_id)
 															   )

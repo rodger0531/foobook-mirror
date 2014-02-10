@@ -90,3 +90,6 @@ This README file contains information about all changes relating to the 'Server'
 		- Removed 'visiblity_setting' attribute from 'threadMessage' table. Why was that there? Users aren't supposed to be able to assign visibility to a thread message, right?
 		- 'visiblity_setting' attributes should be correct across the board now.
 
+10/02/2014 - Rodger
+	
+	-Re-added "visibility_setting tinyint(1) not null default 0" to those tables which got accidentally removed.
