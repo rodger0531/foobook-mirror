@@ -323,4 +323,6 @@ $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 
 $con->close();
 
+echo("Database successfullt created")
+
 ?>
