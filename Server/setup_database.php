@@ -261,7 +261,7 @@ $con->query("CREATE TABLE IF NOT EXISTS threadMessage_photo(message_id bigint un
 $con->query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned auto_increment not null primary key,
 												   user_id int unsigned not null,
 												   foreign key(user_id) references user(user_id),
-												   name tinytext not null
+												   name tinytext not null,
 												   visibility_setting tinyint(1) not null default 0
 												   )
 			") or die ($con->error);
