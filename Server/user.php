@@ -4,7 +4,8 @@
 The asterisk wild-card permits scripts hosted on any site to load your resources; listing one or more specific <base URI> will permit scripts hosted on the specified site(s) -- and no others -- to load your resources.
 */
 header("Access-Control-Allow-Origin: *");
-	
+
+include 'db_connect.php';	
  
 /*
 * @authors: Philip, Tharman, Rodger and Abdi.
@@ -178,7 +179,7 @@ class User extends DB {
 	* @return : boolean for deletion result.
 	*/
 	/* 
-	public function delete($id){
+	public function delete($param){
 	 
 		try {
 		$this->pdo = $this->connectMySql();
@@ -204,5 +205,80 @@ class User extends DB {
 		return true;
 	}
 	*/
+
+	
 }
+
+			$testUser = new User();
+/*
+* For inserting article
+*/
+
+
+		/*
+			
+		 	$params = array(
+			'first_name' => $_POST['first_name'],
+			'last_name' => $_POST['last_name'],
+			'email' => $_POST['email'],
+			'password' => $_POST['password'],
+			'date_of_birth' =>$_POST['date_of_birth'],
+			'gender'=>$_POST['gender'],
+			);
+
+			if ($testUser->create($params)) {
+			echo "Successfully user Inserted";
+			}else{
+			echo "user Insertion is Failed ";
+			}
+			*/
+
+
+/*
+* Reading a single user!
+*/
+			 
+			/*
+			$result = $testUser->read(2);
+			echo "<pre>";
+			print_r($result);
+			echo "</pre>";
+			echo $result->last_name;
+			*/
+
+
+/*
+* For updating user
+*/
+ 
+			/*
+			$params = array(
+			'user_id' => $_POST['user_id'],
+			'first_name' => $_POST['first_name'],
+			'last_name' => $_POST['last_name'],
+			'email' => $_POST['email'],
+			'password' => $_POST['password'],
+			'date_of_birth' =>$_POST['date_of_birth'],
+			'gender'=>$_POST['gender']
+			);
+
+			if ($testUser->update($params)) {
+			echo "Successfully user updated";
+			}else{
+			echo "User update has failed ";
+			}
+			*/
+
+
+/*
+* For delete an user //NEEDS REVIEW.
+*/
+ /*
+if($testUser->delete()){
+echo "Successfully user deleted";
+}else{
+echo "Users delete failed ";
+}
+*/
+
 ?>
