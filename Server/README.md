@@ -109,3 +109,8 @@ This README file contains information about all changes relating to the 'Server'
 	- Successfully created the create() method.
 	- TODO: Need to revise the OO structure.
 
+11/02/2014 - Tharman, Philip, Rodger
+
+	- Optimised the 'Server' folder.
+	- Finished the 'db_connect.php' and 'user.php' files.
+
