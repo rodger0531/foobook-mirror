@@ -1,3 +1,12 @@
+/*
+@ authors: Philip, Tharman, Rodger and Abdi.
+*/
+
+/*
+This file is responsible for connecting the HTML front-end to the PHP server-side.
+*/
+
+//The following 3 lines are for testing purposes, they won't be present in production mode.
 $file = "user";
 $sample = {"first_name":"Tharman", "last_name":"Anantharajan", "email":"21@jumpstreet.com", "password":"otacon", "date_of_birth":"2001/01/04", "gender":1};
 ajax($sample,$file);
@@ -11,21 +20,10 @@ function ajax(sample,file){
         dataType:'html',
         success:  function(data){
             alert(data);
-            // rs=JSON.parse(data);
-            // alert(rs.rows.item(0));
         },
-        error: function(transaction,err){ //sql fail action
-                                      alert("error"+err.message);
+        error: function(transaction,err){ 
+            alert("error"+err.message);
                                       
         }
     });
 }
-/*
-function success(data){
-    alert(data)
-} //sql success action
-
-function fail(transaction,err){ //sql fail action
-    alert("error"+err.message);
-}
-*/
