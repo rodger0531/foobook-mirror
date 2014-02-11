@@ -92,8 +92,13 @@ This README file contains information about all changes relating to the 'Server'
 
 10/02/2014 - Rodger
 	
-	-Re-added "visibility_setting tinyint(1) not null default 0" to those tables which got accidentally removed.
+	- Re-added "visibility_setting tinyint(1) not null default 0" to those tables which got accidentally removed.
 
 10/02/2014 - Philip, Rodger, Tharman
 	
 	- Successfully created a working Read abstracted file. To be continued ....................... :) NOTE: Still have to fix AJAX returning array. 
+
+11/02/2014 - Rodger
+
+	- Created a file "dummydata.php" for easy insertion of fake information for testing purposes, can be extended to insert into other tables.
+	- Altered the password in "db_config.php" in the "PDO files" folder as it contained someone's password
