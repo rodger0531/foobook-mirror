@@ -113,4 +113,5 @@ This README file contains information about all changes relating to the 'Server'
 
 	- Optimised the 'Server' folder.
 	- Finished the 'db_connect.php' and 'user.php' files.
+	- Added Test folder with relevant test files for ajax (array fetching from front-end side)
 
