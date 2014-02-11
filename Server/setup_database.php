@@ -5,6 +5,12 @@ require_once __DIR__ . '/db_config.php';
 // create mysqli object
 $con = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
 
+
+if ($con->connect_errno) {
+	printf("Connect failed: %s\n", $con->connect_error);
+	exit();
+}
+
 // remove current database
 $sql = 'DROP DATABASE IF EXISTS foobook';
 $rs = $con->query($sql);
