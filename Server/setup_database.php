@@ -2,14 +2,17 @@
 
 require_once __DIR__ . '/db_config.php';
 
-// Create a new PDO object.
+// Parameters used in creating a new PDO database connection object.
 $dsn = DSN;
 $user = DB_USER;
 $password = DB_PASSWORD;
-$con = new PDO($dsn, $user, $password);
 
-if ($con->connect_errno) {
-	printf("Connect failed: %s\n", $con->connect_error);
+// Create an instance of the PDO connection to the database.
+try {
+	$con = new PDO($dsn, $user, $password);
+}
+catch (PDOException $e) {
+	echo("Database connection attempt failed!\n");
 	exit();
 }
 
@@ -335,9 +338,9 @@ $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 															   )
 			") or die ($con->error);
 
-// Close the connection to the PDO object.
+// Close the PDO connection to the database.
 unset($con);
 
-echo("Database successfully created!");
+echo("Database successfully created!\n");
 
 ?>

@@ -128,3 +128,45 @@ This README file contains information about all changes relating to the 'Server'
 	-Fixed: Read function in user.php: Ajax is returning response as an array now. The object querried from PDO was not successfully called. $result was used instead of $this->result.
 	-Have tested out read function and works as of now 2:37pm.
 
+12/02/2014 - Tharman
+
+	- Removed the 'test' folder since it is no longer needed.
+	- Made minor fixes to 'setup_database.php' and 'ajax.js'.
+	- Removed old testing section from 'user.php'.
+	- Re-posting CRUD files list, to be implemented. Check off as completed.
+		- circle - Tharman (12/02/2014) - Working on.
+		- collection
+		- collection_circleVisibility
+		- collection_friendVisibility
+		- education
+		- employer
+		- friend_circle
+		- groups
+		- groupsWallPost
+		- groupsWallPost_circleVisibility
+		- groupWallPost_comment
+		- groupWallPost_friendVisibility
+		- groupWallPost_photo
+		- group_admin
+		- photo
+		- photoComment
+		- photo_circleVisibility
+		- photo_friendVisibility
+		- thread
+		- threadMessage
+		- threadMessage_photo
+		- user - done Philip, Tharman and Rodger (11/02/2014). Completed as of 12/02/2014.
+		- userWallPost
+		- userWallPost_circleVisibility
+		- userWillPost_comment
+		- userWallPost_friendVisibility
+		- userWallPost_photo
+		- user_block
+		- user_education
+		- user_employer
+		- user_friend
+		- user_groups
+		- user_request
+		- user_thread
+		- user_userWallPost
+

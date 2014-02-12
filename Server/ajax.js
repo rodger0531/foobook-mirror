@@ -1,5 +1,5 @@
 /*
- * @author Philip, Tharman, Rodger and Abdi.
+ * @author: Philip, Tharman, Rodger and Abdi.
  */
 
 /*
@@ -8,32 +8,32 @@
 $("document").ready(function() {
 
     // The following lines are for testing purposes, and won't be present in production mode.
+    // The four param lines in sequence test 'Create', 'Read', 'Update' and then 'Read' again to check the 'Update' operation.
     $file = "user";
-    //$params = {"action":1, "first_name":"Tharman", "last_name":"Anantharajan", "email":"21@jumpstreet.com", "password":"Otacon", "date_of_birth":"2001/01/04", "gender":1};
-    $params = {"action":2, "user_id":1};
-    //$params = {"action":3, "user_id":1, "first_name":"Tharman", "last_name":"Anantharajan", "email":"21@jumpstreet.com", "password":"HalEmmerich", "date_of_birth":"2001/01/04", "gender":1};
-    //$params = {"action":4, "user_id":1};
+    $params = {"action":1, "first_name":"Tharman", "last_name":"Anantharajan", "email":"21@jumpstreet.com", "password":"HalEmmerich", "date_of_birth":"2001/01/04", "gender":1};
+    //$params = {"action":2, "user_id":1};
+    //$params = {"action":3, "user_id":1, "first_name":"Tharman", "last_name":"Anantharajan", "email":"21@jumpstreet.com", "password":"Otacon", "date_of_birth":"2001/01/04", "gender":1};
+    //$params = {"action":2, "user_id":1};
     ajax($file, $params);
 
     function ajax(file, params){
         $.ajax({
             type: 'POST',
-            url: 'http://localhost/'+file+'.php',
+            url: 'http://localhost/' + file + '.php',
             data: params,
-            dataType:'HTML',
+            dataType:'JSON',
             success: function(data) {
-                var rs = JSON.parse(data);
-                if (typeof rs === 'string') {
-                    alert(rs);
+                if (typeof data === 'string') {
+                    alert(data);
                 }
                 else {
-                    alert(rs.password);
+                    alert(data.password);
                 }
             },
-            error: function(transaction, err) { 
-                alert(rs = "Error: " + err.message);
+            error: function(transaction, err) {
+                alert("Error: " + err.message);
             }
-        });        
+        });
     }
 
 });
