@@ -123,3 +123,8 @@ This README file contains information about all changes relating to the 'Server'
 	- Added a few test cases to the 'ajax.php' file.
 	- TODO: The ajax is not properly passing out the PHP array being returned from the read function.
 
+12/02/2014 - Rodger
+
+	-Fixed: Read function in user.php: Ajax is returning response as an array now. The object querried from PDO was not successfully called. $result was used instead of $this->result.
+	-Have tested out read function and works as of now 2:37pm.
+

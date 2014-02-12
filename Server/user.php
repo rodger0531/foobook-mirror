@@ -90,18 +90,18 @@ class User extends DB {
 			
 			// Store the query results in an array.
 			$resultArray = array(
-				'first_name' => $result->first_name,
-				'middle_name' => $result->middle_name,
-				'last_name' => $result->last_name,
-				'email' => $result->email,
-				'password' => $result->password,
-				'date_of_birth' => $result->date_of_birth,
-				'gender' => $result->gender,
-				'city' => $result->city,
-				'country' => $result->country,
-				'profile_picture' => $result->profile_picture,
-				'profile_visibility' => $result->profile_visibility,
-				'chat_visibility' => $result->chat_visibility
+				'first_name' => $this->result->first_name,
+				'middle_name' => $this->result->middle_name,
+				'last_name' => $this->result->last_name,
+				'email' => $this->result->email,
+				'password' => $this->result->password,
+				'date_of_birth' => $this->result->date_of_birth,
+				'gender' => $this->result->gender,
+				'city' => $this->result->city,
+				'country' => $this->result->country,
+				'profile_picture' => $this->result->profile_picture,
+				'profile_visibility' => $this->result->profile_visibility,
+				'chat_visibility' => $this->result->chat_visibility
 			);
 
 			$this->pdo = null; // Resetting the PDO object.
