@@ -34,7 +34,7 @@ This README file contains information about all changes relating to the 'Server'
 	-The Deletion part is ambiguous at this point (we still need to figure that part out), but we agreed on including the Deletion part everywhere and change it later.
 	-Here is the list of all the tables we need to create CRUD php files for:
 
-		- cicle - done Philip (07/02/2014) - REVISION NEEDED!!!
+		- circle - done Philip (07/02/2014) - REVISION NEEDED!!!
 				- revision Rodger (08/02/2014) - typos
 				- revision Tharman (08/02/2014) - typo in filename, 'cirlce.php' -> 'circle.php'
 		- collection - done Philip (07/02/2014)
@@ -114,4 +114,12 @@ This README file contains information about all changes relating to the 'Server'
 	- Optimised the 'Server' folder.
 	- Finished the 'db_connect.php' and 'user.php' files.
 	- Added Test folder with relevant test files for ajax (array fetching from front-end side)
+
+12/02/2014 - Tharman
+
+	- Cleaned up code pretty extensively.
+	- Implemented the switch mechanism.
+	- Fixed the 'setup_database.php' file - was broken previously because it was still using MySQLi, not PDO.
+	- Added a few test cases to the 'ajax.php' file.
+	- TODO: The ajax is not properly passing out the PHP array being returned from the read function.
 
