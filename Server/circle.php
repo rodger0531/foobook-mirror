@@ -165,25 +165,25 @@ class Circle extends DB {
 $circle = new Circle();
 
 switch($_POST['action']) {
-	case 1:
+	case 1: //Creates a new circle entry in "circle" table.
 		$params = array(
 			'circle_name' => $_POST['circle_name'],
 			'owner_id' => $_POST['owner_id']
 		);
 		echo json_encode($circle->create($params));
 		break;
-	case 2:
+	case 2: //Reads a single circle entry from "circle" table.
 		$params = $_POST['circle_id'];
 		echo json_encode($circle->read($params));
 		break;
-	case 3:
+	case 3: //Updates existing entries in "circle" table. 
 		$params = array(
 			'circle_id' => $_POST['circle_id'],
 			'owner_id' => $_POST['owner_id']
 		);
 		echo json_encode($circle->update($params));
 		break;
-//	case 4:
+//	case 4: // Deletes circle entries from "circle" table.
 //		$params = $_POST['circle_id'];
 //	 	echo json_encode($circle->delete($params));
 //	 	break;
