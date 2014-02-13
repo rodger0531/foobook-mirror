@@ -134,7 +134,7 @@ This README file contains information about all changes relating to the 'Server'
 	- Made minor fixes to 'setup_database.php' and 'ajax.js'.
 	- Removed old testing section from 'user.php'.
 	- Re-posting CRUD files list, to be implemented. Check off as completed.
-		- circle - Tharman (12/02/2014) - Finished 13/02/2014. Not tested.
+		- circle - Tharman (12/02/2014) - Finished 13/02/2014. Tested (Philip)
 		- collection
 		- collection_circleVisibility
 		- collection_friendVisibility
@@ -180,3 +180,7 @@ This README file contains information about all changes relating to the 'Server'
 
 	- Updated dummydata.php -> it can now create user, group; befriend users; post messages on user and group walls; insert user into group.
 	- Also includes a combo function =)
+
+13/02/2014 - Philip 
+
+	- Tested "circle.php" it is working perfectly.
