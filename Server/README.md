@@ -172,7 +172,11 @@ This README file contains information about all changes relating to the 'Server'
 
 12/02/2014 - Tharman
 
-	- Separated out the AJAX function, and it can now return JSON data by running a passed-in callback function from its success function.
+	- Separated out the AJAX function, and it can now return JSON data by running a passed in callback function from its success function.
 	- Also created a 'controller.js' file which will be included client-side (as per usual), and defines event actions to be performed.
 	- The tests should be run from the controller file now, since the 'ajax' function is final, and independent now.
 
+13/02/2014 - Rodger
+
+	- Updated dummydata.php -> it can now create user, group; befriend users; post messages on user and group walls; insert user into group.
+	- Also includes a combo function =)

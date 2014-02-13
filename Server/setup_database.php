@@ -162,8 +162,8 @@ $con->query("CREATE TABLE IF NOT EXISTS groupsWallPost_photo(post_id bigint unsi
 															 )
 			") or die ($con->error);
 
-//GROUPSWALLPOST_COMMENT
-$con->query("CREATE TABLE IF NOT EXISTS groupsWallPost_comment(comment_id bigint unsigned auto_increment not null primary key,
+//GROUPSWALLPOSTComment
+$con->query("CREATE TABLE IF NOT EXISTS groupsWallPostComment(comment_id bigint unsigned auto_increment not null primary key,
 															   post_id bigint unsigned not null,
 															   foreign key(post_id) references groupsWallPost(post_id),
 															   sender_id int unsigned not null,
@@ -214,8 +214,8 @@ $con->query("CREATE TABLE IF NOT EXISTS userWallPost_photo(post_id bigint unsign
 														   )
 			") or die ($con->error);
 
-//USERWALLPOST_COMMENT
-$con->query("CREATE TABLE IF NOT EXISTS userWallPost_comment(comment_id bigint unsigned auto_increment not null primary key,
+//USERWALLPOSTComment
+$con->query("CREATE TABLE IF NOT EXISTS userWallPostComment(comment_id bigint unsigned auto_increment not null primary key,
 															 post_id bigint unsigned not null,
 															 foreign key(post_id) references userWallPost(post_id),
 															 sender_id int unsigned not null,
