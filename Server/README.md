@@ -135,11 +135,11 @@ This README file contains information about all changes relating to the 'Server'
 	- Removed old testing section from 'user.php'.
 	- Re-posting CRUD files list, to be implemented. Check off as completed.
 		- circle - Tharman (12/02/2014) - Finished 13/02/2014. Tested (Philip)
-		- collection
-		- collection_circleVisibility
-		- collection_friendVisibility
-		- education
-		- employer
+		- collection - Philip (13/02/2014) - Working on it!
+		- collection_circleVisibility - Philip (13/02/2014) - Working on it!
+		- collection_friendVisibility - Philip (13/02/2014) - Working on it!
+		- education - Philip (13/02/2014) - Working on it!
+		- employer - Philip (13/02/2014) - Working on it!
 		- friend_circle
 		- groups
 		- groupsWallPost
