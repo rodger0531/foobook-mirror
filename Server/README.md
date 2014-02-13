@@ -139,7 +139,7 @@ This README file contains information about all changes relating to the 'Server'
 		- collection_circleVisibility - Philip (13/02/2014) - Working on it!
 		- collection_friendVisibility - Philip (13/02/2014) - Working on it!
 		- education - Philip (13/02/2014) - Working on it!
-		- employer - Philip (13/02/2014) - Working on it!
+		- employer - Philip (13/02/2014) - Working on it! 
 		- friend_circle
 		- groups
 		- groupsWallPost
