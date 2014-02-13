@@ -24,14 +24,14 @@ class Homepage extends DB {
 	 * @function: This is responsible for populating the news feed with posts and comments from
 	 * the user's wall, their friends' walls, and their group walls.
 	 */
-	public function populateNewFeed($user_id){
+	public function populateNewsFeed($user_id){
 		try {
 			$this->pdo = $this->connectMySql();
 
 			$query =
 				"SELECT sender_id, post, timestamp, visiblity_setting
-				FROM user_userWallPost
-				INNER JOIN userWallPost
+				FROM userWallPost
+				INNER JOIN user_userWallPost
 				ON user_userWallPost.post_id = userWallPost.post_id
 				WHERE user_id = :user_id OR user_id
 				IN (
@@ -96,12 +96,5 @@ class Homepage extends DB {
 	}
 	
 }
-
-// TESTING
-
-		// Create a new Homepage object.
-		$homepage = new Homepage();
-		echo json_encode($homepage->populateNewFeed(1));
-		echo json_encode($homepage->getPostComments(1));
 
 ?>
