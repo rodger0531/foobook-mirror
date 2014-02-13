@@ -184,3 +184,7 @@ This README file contains information about all changes relating to the 'Server'
 13/02/2014 - Philip 
 
 	- Tested "circle.php" it is working perfectly.
+
+13/02/2014 - Philip and Abdi
+	
+	- Add comments to case switch at the bottom of circle.php 
