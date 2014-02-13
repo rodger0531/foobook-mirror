@@ -134,7 +134,7 @@ This README file contains information about all changes relating to the 'Server'
 	- Made minor fixes to 'setup_database.php' and 'ajax.js'.
 	- Removed old testing section from 'user.php'.
 	- Re-posting CRUD files list, to be implemented. Check off as completed.
-		- circle - Tharman (12/02/2014) - Working on.
+		- circle - Tharman (12/02/2014) - Finished 13/02/2014. Not tested.
 		- collection
 		- collection_circleVisibility
 		- collection_friendVisibility
