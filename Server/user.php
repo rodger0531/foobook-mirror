@@ -40,12 +40,12 @@ class User extends DB {
 			
 			$stmt = $this->pdo->prepare($query);
 			
-			$stmt->bindParam(':first_name', $params['first_name'], PDO::PARAM_STR); // PDO::PARAM_STR is used for treating $params['title_en'] as String
+			$stmt->bindParam(':first_name', $params['first_name'], PDO::PARAM_STR); // PDO::PARAM_STR is used for treating $params['first_name'] as String
 			$stmt->bindParam(':last_name', $params['last_name'], PDO::PARAM_STR);
 			$stmt->bindParam(':email' ,$params['email'], PDO::PARAM_STR);
 			$stmt->bindParam(':password', $params['password'], PDO::PARAM_STR);
 			$stmt->bindParam(':date_of_birth', $params['date_of_birth'], PDO::PARAM_STR);
-			$stmt->bindParam(':gender', $params['gender'], PDO::PARAM_INT); // PDO::PARAM_INT is used for treating $params['active'] as Integer
+			$stmt->bindParam(':gender', $params['gender'], PDO::PARAM_INT); // PDO::PARAM_INT is used for treating $params['gender'] as Integer
 			
 			if (!$stmt->execute()) {
 				return "Create query could not be executed!";
@@ -142,13 +142,13 @@ class User extends DB {
 			$stmt = $this->pdo->prepare($query);
 			
 			$stmt->bindParam(':user_id',$params['user_id'], PDO::PARAM_INT);
-			$stmt->bindParam(':first_name', $params['first_name'], PDO::PARAM_STR); // PDO::PARAM_STR is used for treating $params['title_en'] as String
+			$stmt->bindParam(':first_name', $params['first_name'], PDO::PARAM_STR); // PDO::PARAM_STR is used for treating $params['first_name'] as String
 			$stmt->bindParam(':middle_name', $params['middle_name'], PDO::PARAM_STR);
 			$stmt->bindParam(':last_name', $params['last_name'], PDO::PARAM_STR);
 			$stmt->bindParam(':email' ,$params['email'], PDO::PARAM_STR);
 			$stmt->bindParam(':password', $params['password'], PDO::PARAM_STR);
 			$stmt->bindParam(':date_of_birth', $params['date_of_birth'], PDO::PARAM_STR);
-			$stmt->bindParam(':gender', $params['gender'], PDO::PARAM_INT); // PDO::PARAM_INT is used for treating $params['active'] as Integer
+			$stmt->bindParam(':gender', $params['gender'], PDO::PARAM_INT); // PDO::PARAM_INT is used for treating $params['gender'] as Integer
 			$stmt->bindParam(':city', $params['city'], PDO::PARAM_STR);
 			$stmt->bindParam(':country', $params['country'], PDO::PARAM_STR);
 			$stmt->bindParam(':profile_picture', $params['profile_picture'], PDO::PARAM_STR);
