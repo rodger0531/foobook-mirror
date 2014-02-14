@@ -39,7 +39,7 @@ This README file contains information about all changes relating to the 'Server'
 		- collection_circleVisibility 					- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip)
 		- collection_friendVisibility 					- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip) 
 		- education 									- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip) 
-		- employer 										- Philip (13/02/2014) - Working on it! 
+		- employer 										- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip)
 		- friend_circle 								- Tharman (13/02/2014) - Working on.
 		- groups 										- Tharman (13/02/2014) - Working on.
 		- groupsWallPost 								- Tharman (13/02/2014) - Working on.
