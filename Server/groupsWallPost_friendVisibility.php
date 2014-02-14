@@ -184,6 +184,7 @@ switch($_POST['action']) {
 		break;
 	case 3: //Updates existing entries in "collection" table.
 		$params = array(
+			 'post_id' => $_POST['post_id'],
 			 'visibility_setting' => $_POST['visibility_setting'],
 			 'friend_id' => $_POST['friend_id']
 		);
