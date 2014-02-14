@@ -182,7 +182,7 @@ switch($_POST['action']) {
 		break;
 //	case 4: // Deletes groupsWallPost_photo entries from "groupsWallPost_photo" table.
 //		$params = $_POST['groupsWallPost_photo_id'];
-//	 	echo json_encode($groupsWallPost_photo->delete($params));
+//	 	echo json_encode($GroupsWallPost_Photo->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");
