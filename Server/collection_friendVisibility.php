@@ -186,6 +186,8 @@ switch($_POST['action']) {
 	case 3: //Updates existing entries in "collection" table.
 		$params = array(
 			 'visibility_setting' => $_POST['visibility_setting']
+			 'collection_id' => $_POST['collection_id'],
+			 'friend_id' => $_POST['friend_id']
 		);
 		echo json_encode($Collection_FriendVisibility->update($params));
 		break;
