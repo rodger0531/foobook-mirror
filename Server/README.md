@@ -34,17 +34,17 @@ This README file contains information about all changes relating to the 'Server'
 	- Removed old testing section from 'user.php'.
 	- Re-posting CRUD files list, to be implemented. Check off as completed.
 	
-		- circle																- Tharman (12/02/2014) - Finished 13/02/2014. Tested (Philip)
-		- collection 														- Philip (13/02/2014) - Finished 13/02/2014. Tested (Philip)
+		- circle										- Tharman (12/02/2014) - Finished 13/02/2014. Tested (Philip)
+		- collection 									- Philip (13/02/2014) - Finished 13/02/2014. Tested (Philip)
 		- collection_circleVisibility 					- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip)
 		- collection_friendVisibility 					- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip) 
-		- education 														- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip) 
-		- employer 															- Philip (13/02/2014) - Working on it! 
-		- friend_circle 												- Tharman (13/02/2014) - Working on.
-		- groups 																- Tharman (13/02/2014) - Working on.
-		- groupsWallPost 												- Tharman (13/02/2014) - Working on.
+		- education 									- Philip (13/02/2014) - Finished 14/02/2014. Tested (Philip) 
+		- employer 										- Philip (13/02/2014) - Working on it! 
+		- friend_circle 								- Tharman (13/02/2014) - Working on.
+		- groups 										- Tharman (13/02/2014) - Working on.
+		- groupsWallPost 								- Tharman (13/02/2014) - Working on.
 		- groupsWallPost_circleVisibility			 	- Tharman (13/02/2014) - Working on.
-		- groupWallPostComment 									- Tharman (13/02/2014) - Working on.
+		- groupWallPostComment 							- Tharman (13/02/2014) - Working on.
 		- groupWallPost_friendVisibility
 		- groupWallPost_photo
 		- group_admin
@@ -55,13 +55,13 @@ This README file contains information about all changes relating to the 'Server'
 		- thread
 		- threadMessage
 		- threadMessage_photo
-		- user 																	- Philip, Tharman and Rodger (11/02/2014). Finished 12/02/2014. Tested.
+		- user 											- Philip, Tharman and Rodger (11/02/2014). Finished 12/02/2014. Tested.
 		- userWallPost
 		- userWallPost_circleVisibility
 		- userWillPostComment
 		- userWallPost_friendVisibility
 		- userWallPost_photo
-		- user_block														- Rodger (14/02/2014) - Working on.
+		- user_block									- Rodger (14/02/2014) - Working on.
 		- user_education
 		- user_employer
 		- user_friend
