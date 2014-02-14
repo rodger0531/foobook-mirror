@@ -45,11 +45,11 @@ This README file contains information about all changes relating to the 'Server'
 		- groupsWallPost 								- Tharman (13/02/2014) - Working on.
 		- groupsWallPost_circleVisibility			 	- Tharman (13/02/2014) - Working on.
 		- groupWallPostComment 							- Tharman (13/02/2014) - Working on.
-		- groupWallPost_friendVisibility
-		- groupWallPost_photo
-		- group_admin
-		- photo 																
-		- photoComment
+		- groupWallPost_friendVisibility				- Philip (14/02/2014) - Working on.	
+		- groupWallPost_photo							- Philip (14/02/2014) - Working on.	
+		- group_admin									- Philip (14/02/2014) - Working on.	
+		- photo 										- Philip (14/02/2014) - Working on.												
+		- photoComment									- Philip (14/02/2014) - Working on.	
 		- photo_circleVisibility
 		- photo_friendVisibility
 		- thread
