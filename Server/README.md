@@ -48,7 +48,7 @@ This README file contains information about all changes relating to the 'Server'
 		- groupWallPost_friendVisibility
 		- groupWallPost_photo
 		- group_admin
-		- photo 																- Rodger (14/02/2014) - Working on.
+		- photo 																
 		- photoComment
 		- photo_circleVisibility
 		- photo_friendVisibility
@@ -61,7 +61,7 @@ This README file contains information about all changes relating to the 'Server'
 		- userWillPostComment
 		- userWallPost_friendVisibility
 		- userWallPost_photo
-		- user_block
+		- user_block														- Rodger (14/02/2014) - Working on.
 		- user_education
 		- user_employer
 		- user_friend
