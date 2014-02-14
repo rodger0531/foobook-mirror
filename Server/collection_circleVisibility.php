@@ -13,7 +13,7 @@ include 'db_connect.php';
  * @class: This is the collection_circleVisibility class. This class is responsible for create, read, update and delete
  * funtionalities with the database using PHP Data Object (PDO) with Prepared Statement.
  */
-class collection_circleVisibility extends DB {
+class Collection_CircleVisibility extends DB {
 
 	private $pdo;
 	public  $result;
@@ -165,7 +165,7 @@ class collection_circleVisibility extends DB {
 }
 
 // Create a new collection_circleVisibility object.
-$collection_circleVisibility = new collection_circleVisibility();
+$Collection_CircleVisibility = new Collection_CircleVisibility();
 
 
 switch($_POST['action']) {
