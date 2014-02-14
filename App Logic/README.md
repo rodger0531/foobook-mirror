@@ -1,6 +1,7 @@
 This README file contains information about all changes relating to the 'App Logic' folder. 
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
+===========================================================================================
 
 13/02/2014 - Tharman, Philip, Rodger
 
