@@ -165,7 +165,7 @@ class Collection_FriendVisibility extends DB {
 }
 
 // Create a new collection_friendVisibility object.
-$Collection_FriendVisibility = new Collection_FriendVisibility();
+$collection_friendVisibility = new Collection_FriendVisibility();
 
 
 switch($_POST['action']) {
@@ -175,13 +175,13 @@ switch($_POST['action']) {
 			'visibility_setting' => $_POST['visibility_setting'],
 			'friend_id' => $_POST['friend_id']
 		);
-		echo json_encode($Collection_FriendVisibility->create($params));
+		echo json_encode($collection_friendVisibility->create($params));
 		break;
 	case 2: //Reads a single collection entry from "collection" table.
 		$params = array(
 			 'collection_id' => $_POST['collection_id']
 		);
-		echo json_encode($Collection_FriendVisibility->read($params));
+		echo json_encode($collection_friendVisibility->read($params));
 		break;
 	case 3: //Updates existing entries in "collection" table.
 		$params = array(
@@ -189,14 +189,14 @@ switch($_POST['action']) {
 			 'collection_id' => $_POST['collection_id'],
 			 'friend_id' => $_POST['friend_id']
 		);
-		echo json_encode($Collection_FriendVisibility->update($params));
+		echo json_encode($collection_friendVisibility->update($params));
 		break;
 //	case 4: // Deletes collection entries from "collection" table.
 //		$params = array(
 			// 'collection_id' => $_POST['collection_id'], 
 			// 'circle_id' => $_POST['circle_id']
 		//)
-//	 	echo json_encode($Collection_FriendVisibility->delete($params));
+//	 	echo json_encode($collection_friendVisibility->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");

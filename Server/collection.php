@@ -167,7 +167,7 @@ class Collection extends DB {
 }
 
 // Create a new Collection object.
-$Collection = new Collection();
+$collection = new Collection();
 
 switch($_POST['action']) {
 	case 1: //Creates a new collection entry in "collection" table.
@@ -176,11 +176,11 @@ switch($_POST['action']) {
 			'user_id' => $_POST['user_id'],
 			'visibility_setting' => $_POST['visibility_setting']
 		);
-		echo json_encode($Collection->create($params));
+		echo json_encode($collection->create($params));
 		break;
 	case 2: //Reads a single collection entry from "collection" table.
 		$params = $_POST['collection_id'];
-		echo json_encode($Collection->read($params));
+		echo json_encode($collection->read($params));
 		break;
 	case 3: //Updates existing entries in "collection" table.
 		$params = array(
@@ -189,11 +189,11 @@ switch($_POST['action']) {
 			'user_id' => $_POST['user_id'],
 			'visibility_setting' => $_POST['visibility_setting']
 		);
-		echo json_encode($Collection->update($params));
+		echo json_encode($collection->update($params));
 		break;
 //	case 4: // Deletes collection entries from "collection" table.
 //		$params = $_POST['collection_id'];
-//	 	echo json_encode($Collection->delete($params));
+//	 	echo json_encode($collection->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");

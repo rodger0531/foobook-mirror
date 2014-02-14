@@ -159,7 +159,7 @@ class Groups_Admin extends DB {
 }
 
 // Create a new Groups_Admin object.
-$Groups_Admin = new Groups_Admin();
+$groups_admin = new Groups_Admin();
 
 switch($_POST['action']) {
 	case 1: //Creates a new Groups_Admin entry in "Groups_Admin" table.
@@ -167,22 +167,22 @@ switch($_POST['action']) {
 			'groups_id' => $_POST['groups_id'],
 			'admin_id' => $_POST['admin_id']
 		);
-		echo json_encode($Groups_Admin->create($params));
+		echo json_encode($groups_admin->create($params));
 		break;
 	case 2: //Reads a single Groups_Admin entry from "Groups_Admin" table.
 		$params = $_POST['groups_id'];
-		echo json_encode($Groups_Admin->read($params));
+		echo json_encode($groups_admin->read($params));
 		break;
 	case 3: //Updates existing entries in "groups_admin" table. 
 		$params = array(
 			'groups_id' => $_POST['groups_id'],
 			'admin_id' => $_POST['admin_id']
 		);
-		echo json_encode($Groups_Admin->update($params));
+		echo json_encode($groups_admin->update($params));
 		break;
 //	case 4: // Deletes groups_admin entries from "groups_admin" table.
 //		$params = $_POST['groups_admin'];
-//	 	echo json_encode($Groups_Admin->delete($params));
+//	 	echo json_encode($groups_admin->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");

@@ -159,7 +159,7 @@ class GroupsWallPost_Photo extends DB {
 }
 
 // Create a new GroupsWallPost_Photo object.
-$GroupsWallPost_Photo = new GroupsWallPost_Photo();
+$groupsWallPost_photo = new GroupsWallPost_Photo();
 
 switch($_POST['action']) {
 	case 1: //Creates a new GroupsWallPost_Photo entry in "GroupsWallPost_Photo" table.
@@ -167,22 +167,22 @@ switch($_POST['action']) {
 			'post_id' => $_POST['post_id'],
 			'photo_id' => $_POST['photo_id']
 		);
-		echo json_encode($GroupsWallPost_Photo->create($params));
+		echo json_encode($groupsWallPost_photo->create($params));
 		break;
 	case 2: //Reads a single GroupsWallPost_Photo entry from "GroupsWallPost_Photo" table.
 		$params = $_POST['post_id'];
-		echo json_encode($GroupsWallPost_Photo->read($params));
+		echo json_encode($groupsWallPost_photo->read($params));
 		break;
 	case 3: //Updates existing entries in "GroupsWallPost_Photo" table. 
 		$params = array(
 			'photo_id' => $_POST['photo_id'],
 			'post_id' => $_POST['post_id']
 		);
-		echo json_encode($GroupsWallPost_Photo->update($params));
+		echo json_encode($groupsWallPost_photo->update($params));
 		break;
 //	case 4: // Deletes groupsWallPost_photo entries from "groupsWallPost_photo" table.
 //		$params = $_POST['groupsWallPost_photo_id'];
-//	 	echo json_encode($GroupsWallPost_Photo->delete($params));
+//	 	echo json_encode($groupsWallPost_photo->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");

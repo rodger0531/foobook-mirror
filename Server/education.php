@@ -161,7 +161,7 @@ $query = "INSERT INTO education SET
 }
 
 // Create a new Education object.
-$Education = new Education();
+$education = new Education();
 
 switch($_POST['action']) {
 	case 1: //Creates a new education entry in "education" table.
@@ -169,22 +169,22 @@ switch($_POST['action']) {
 			'school_name' => $_POST['school_name'],
 			'school_id' => $_POST['school_id']
 		);
-		echo json_encode($Education->create($params));
+		echo json_encode($education->create($params));
 		break;
 	case 2: //Reads a single education entry from "education" table.
 		$params = $_POST['school_id'];
-		echo json_encode($Education->read($params));
+		echo json_encode($education->read($params));
 		break;
 	case 3: //Updates existing entries in "education" table.
 		$params = array(
 			'school_id'=> $_POST['school_id'],
 			'school_name' => $_POST['school_name']
 		);
-		echo json_encode($Education->update($params));
+		echo json_encode($education->update($params));
 		break;
 //	case 4: // Deletes education entries from "education" table.
 //		$params = $_POST['school_id'];
-//	 	echo json_encode($Education->delete($params));
+//	 	echo json_encode($education->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");

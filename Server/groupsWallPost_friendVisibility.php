@@ -164,7 +164,7 @@ class GroupsWallPost_FriendVisibility extends DB {
 }
 
 // Create a new groupsWallPost_friendVisibility object.
-$GroupsWallPost_FriendVisibility = new GroupsWallPost_FriendVisibility();
+$groupsWallPost_friendVisibility = new GroupsWallPost_FriendVisibility();
 
 
 switch($_POST['action']) {
@@ -174,13 +174,13 @@ switch($_POST['action']) {
 			'visibility_setting' => $_POST['visibility_setting'],
 			'friend_id' => $_POST['friend_id']
 		);
-		echo json_encode($GroupsWallPost_FriendVisibility->create($params));
+		echo json_encode($groupsWallPost_friendVisibility->create($params));
 		break;
 	case 2: //Reads a single collection entry from "collection" table.
 		$params = array(
 			 'post_id' => $_POST['post_id']
 		);
-		echo json_encode($GroupsWallPost_FriendVisibility->read($params));
+		echo json_encode($groupsWallPost_friendVisibility->read($params));
 		break;
 	case 3: //Updates existing entries in "collection" table.
 		$params = array(
@@ -188,14 +188,14 @@ switch($_POST['action']) {
 			 'visibility_setting' => $_POST['visibility_setting'],
 			 'friend_id' => $_POST['friend_id']
 		);
-		echo json_encode($GroupsWallPost_FriendVisibility->update($params));
+		echo json_encode($groupsWallPost_friendVisibility->update($params));
 		break;
 //	case 4: // Deletes collection entries from "collection" table.
 //		$params = array(
 			// 'post_id' => $_POST['post_id'], 
 			// 'circle_id' => $_POST['circle_id']
 		//)
-//	 	echo json_encode($GroupsWallPost_FriendVisibility->delete($params));
+//	 	echo json_encode($groupsWallPost_friendVisibility->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");

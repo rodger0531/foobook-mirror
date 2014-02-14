@@ -161,7 +161,7 @@ $query = "INSERT INTO employer SET
 }
 
 // Create a new Employer object.
-$Employer = new Employer();
+$employer = new Employer();
 
 switch($_POST['action']) {
 	case 1: //Creates a new employer entry in "employer" table.
@@ -169,22 +169,22 @@ switch($_POST['action']) {
 			'employer_id' => $_POST['employer_id'],
 			'employer_name' => $_POST['employer_name']
 		);
-		echo json_encode($Employer->create($params));
+		echo json_encode($employer->create($params));
 		break;
 	case 2: //Reads a single employer entry from "employer" table.
 		$params = $_POST['employer_id'];
-		echo json_encode($Employer->read($params));
+		echo json_encode($employer->read($params));
 		break;
 	case 3: //Updates existing entries in "employer" table.
 		$params = array(
 			'employer_id'=> $_POST['employer_id'],
 			'employer_name' => $_POST['employer_name']
 		);
-		echo json_encode($Employer->update($params));
+		echo json_encode($employer->update($params));
 		break;
 //	case 4: // Deletes employer entries from "employer" table.
 //		$params = $_POST['employer_id'];
-//	 	echo json_encode($Employer->delete($params));
+//	 	echo json_encode($employer->delete($params));
 //	 	break;
 	default:
 		echo json_encode("CRUD methods are not working!");
