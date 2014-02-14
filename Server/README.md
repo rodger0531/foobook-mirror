@@ -47,7 +47,7 @@ This README file contains information about all changes relating to the 'Server'
 		- groupWallPostComment 							- Tharman (13/02/2014) - Working on.
 		- groupWallPost_friendVisibility				- Philip (14/02/2014) - Finished 14/02/2014. Tested (Philip)
 		- groupWallPost_photo							- Philip (14/02/2014) - Finished 14/02/2014. Tested (Philip)	
-		- group_admin									- Philip (14/02/2014) - Working on.	
+		- group_admin									- Philip (14/02/2014) - Finished 14/02/2014. Tested (Philip)	
 		- photo 										- Philip (14/02/2014) - Working on.												
 		- photoComment									- Philip (14/02/2014) - Working on.	
 		- photo_circleVisibility
