@@ -117,7 +117,7 @@ class Collection_CircleVisibility extends DB {
 			
 			$stmt->bindParam(':collection_id',$params['collection_id'], PDO::PARAM_INT);
 			$stmt->bindParam(':circle_id', $params['circle_id'], PDO::PARAM_INT); 
-			$stmt->bindParam(':visibility_setting', $params['visibility_setting'], PDO::PARAM_STR); 
+			$stmt->bindParam(':visibility_setting', $params['visibility_setting'], PDO::PARAM_INT); 
 
 			if (!$stmt->execute()) {
 				return "Update query could not be executed!";
