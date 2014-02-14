@@ -179,7 +179,8 @@ switch($_POST['action']) {
 	case 3: //Updates existing entries in "circle" table. 
 		$params = array(
 			'circle_id' => $_POST['circle_id'],
-			'owner_id' => $_POST['owner_id']
+			'owner_id' => $_POST['owner_id'],
+			'circle_name' => $_POST['circle_name'],
 		);
 		echo json_encode($circle->update($params));
 		break;

@@ -32,12 +32,14 @@ class Collection extends DB {
 			
 			$query = "INSERT INTO collection SET
 				name = :name,
-				user_id = :user_id";
+				user_id = :user_id,
+				visibility_setting = :visibility_setting";
 			
 			$stmt = $this->pdo->prepare($query);
 			
 			$stmt->bindParam(':name', $params['name'], PDO::PARAM_STR); 
 			$stmt->bindParam(':user_id', $params['user_id'], PDO::PARAM_INT); 
+			$stmt->bindParam(':visibility_setting', $params['visibility_setting'], PDO::PARAM_INT);
 			
 			if (!$stmt->execute()) {
 				return "Create query could not be executed!";
@@ -83,7 +85,8 @@ class Collection extends DB {
 			// Store the query results in an array.
 			$resultArray = array(
 				'name' => $this->result->name,
-				'user_id' => $this->result->user_id
+				'user_id' => $this->result->user_id,
+				'visibility_setting' => $this->result->visibility_setting
 			);
 
 			$this->pdo = null; // Resetting the PDO object.
@@ -107,7 +110,8 @@ class Collection extends DB {
 			
 			$query = "UPDATE collection SET
 				name = :name,
-				user_id = :user_id
+				user_id = :user_id,
+				visibility_setting = :visibility_setting
 				WHERE
 				collection_id = :collection_id";
 			
@@ -116,6 +120,7 @@ class Collection extends DB {
 			$stmt->bindParam(':collection_id',$params['collection_id'], PDO::PARAM_INT);
 			$stmt->bindParam(':name', $params['name'], PDO::PARAM_STR); 
 			$stmt->bindParam(':user_id', $params['user_id'], PDO::PARAM_INT); 
+			$stmt->bindParam(':visibility_setting', $params['visibility_setting'], PDO::PARAM_INT); 
 
 			if (!$stmt->execute()) {
 				return "Update query could not be executed!";
@@ -168,7 +173,8 @@ switch($_POST['action']) {
 	case 1: //Creates a new collection entry in "collection" table.
 		$params = array(
 			'name' => $_POST['name'],
-			'user_id' => $_POST['user_id']
+			'user_id' => $_POST['user_id'],
+			'visibility_setting' => $_POST['visibility_setting']
 		);
 		echo json_encode($Collection->create($params));
 		break;
@@ -180,7 +186,8 @@ switch($_POST['action']) {
 		$params = array(
 			'collection_id'=> $_POST['collection_id'],
 			'name' => $_POST['name'],
-			'user_id' => $_POST['user_id']
+			'user_id' => $_POST['user_id'],
+			'visibility_setting' => $_POST['visibility_setting']
 		);
 		echo json_encode($Collection->update($params));
 		break;
