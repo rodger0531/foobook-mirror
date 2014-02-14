@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+14/02/2014 - Rodger
+
+	- Added the ability to create circles and friends into circles to dummydata.php
+
 13/02/2014 - Philip and Abdi
 	
 	- Add comments to case switch at the bottom of circle.php. 

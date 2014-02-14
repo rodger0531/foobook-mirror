@@ -6,12 +6,13 @@
 Cases:
 1 - reset database
 2 - clear user table and reset user_id auto-increment
-3 - insert user data
+3 - create user
 4 - befriend two users
 5 - post on wall
 6 - create group
 7 - add user to group
 8 - post on group wall
+9 - create a circle
 */
 
 /*
@@ -28,8 +29,8 @@ Combos:
 //=========================================================
 /////////////////////////EXECUTION/////////////////////////
 
-// queryswitch(8);
-comboswitch(1);
+queryswitch(9);
+// comboswitch(1);
 
 
 //=========================================================
@@ -83,8 +84,26 @@ function queryswitch($switch_case){
 		case 8:
 			postgroup();
 			break;
+
+		case 9:
+			createcircle();
+			break;
 	}
 }
+
+function createcircle(){
+	$con = connect();
+	$circle_name = "UCL colleagues";
+	$friend_id = 3;
+	$owner_id = 1;
+	$query = "INSERT INTO circle(owner_id, circle_name)
+						VALUES ('$owner_id','$circle_name');
+						INSERT INTO friend_circle(circle_id,friend_id)
+						VALUES ((SELECT circle_id FROM circle ORDER BY circle_id DESC LIMIT 1),'$friend_id')";
+	$con->query($query) or die ($con->error);
+	unset($con);
+}
+
 
 function postgroup(){
 	$con = connect();
