@@ -43,7 +43,7 @@ class Query extends DB
 				{
 					return "There is no record associated with the given id.";
 				}
-				$result = $stmt->fetch(PDO::FETCH_OBJ)->password; // Assign the query result set.
+				$result = $stmt->fetch(PDO::FETCH_OBJ); // Assign the query result set.
 			}
 			else
 			{

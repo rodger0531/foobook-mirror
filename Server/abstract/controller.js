@@ -77,7 +77,7 @@ function test()
 
 function testSuccess(result)
 {
-	alert(result);
+	alert(result.password);
 }
 
 function testFailure(result)
