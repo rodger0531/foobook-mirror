@@ -3,6 +3,12 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+15/02/2014 - Tharman
+
+	- Successfully abstracted CRUD. But with some modification, should theoretically be capable of running any query, as long as the parameters are defined in the correct structure.
+	- Tested that it works successfully with all four CRUD operations.
+	- Added this all to the 'abstract' folder.
+
 14/02/2014 - Rodger
 
 	- Added the ability to create circles and friends into circles to dummydata.php
