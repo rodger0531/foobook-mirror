@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+17/02/2014 - Tharman
+
+	- Added updated versions of server files.
+	- Started work on login html.
+
 15/02/2014 - Tharman
 
 	- Successfully abstracted CRUD. But with some modification, should theoretically be capable of running any query, as long as the parameters are defined in the correct structure.

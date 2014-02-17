@@ -32,7 +32,7 @@ class Query extends DB
 			// A check that produces a warning in case the SQL statement fails to execute properly.
 			if (!$stmt->execute())
 			{
-				return "Query could not be executed!";
+				return "201";
 			}
 			// If attempting to read from the database, need to output a result set.
 			reset($sqlParams);
@@ -41,20 +41,20 @@ class Query extends DB
 				// A check that produces a warning in case nothing was returned from the database.
 				if ($stmt->rowCount() == 0)
 				{
-					return "There is no record associated with the given id.";
+					return "202";
 				}
 				$result = $stmt->fetch(PDO::FETCH_OBJ); // Assign the query result set.
 			}
 			else
 			{
-				$result = "Transaction was successful!";
+				$result = "200";
 			}
 			$pdo = null; // Reset the PDO object.
 			return $result;
 		}
 		catch (PDOException $e)
 		{
-			return "Error: " . $e->getMessage() . "<br/>";
+			return "203: " . $e->getMessage();
 		}
 	}
 	
@@ -132,6 +132,10 @@ class Query extends DB
 				{
 					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
 				}
+				elseif ($x === 'photo')
+				{
+					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_LOB);
+				}
 			}
 		}
 		catch (PDOException $e)
@@ -142,7 +146,11 @@ class Query extends DB
 
 }
 
-// Output the result of the executed query operation.
-echo json_encode( Query::execSql( $_POST['sqlParams'], $_POST['dataParams'] ) );
+/*
+ * Start the process of constructing and executing a SQL query given the necessary parameters.
+ */
+function query($sqlParams, $dataParams) {
+	echo json_encode( Query::execSql( $sqlParams, $dataParams ) );
+}
 
 ?>
