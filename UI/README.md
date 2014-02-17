@@ -4,5 +4,6 @@ This README file contains information about all changes relating to the 'UI' fol
 =======================================================================================
 
 {NEXT UPDATE HERE}
+17/02/2014 - Added a basic HTML tamplate which may come in handy when creating the idividual UI elements. - Philip
 
 17/02/2014 - Added initial 'landing.html'.
