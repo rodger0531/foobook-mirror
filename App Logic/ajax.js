@@ -1,7 +1,7 @@
 /*
  * This function is responsible for connecting the JavaScript client-side to the PHP server-side.
  */
-function ajax(file, params, successCallback, failureCallback)
+function ajax(file, params, successCallback)
 {
     $.ajax
     (
@@ -14,9 +14,9 @@ function ajax(file, params, successCallback, failureCallback)
             {
                 successCallback(data);
             },
-            error: function(error)
+            error: function()
             {
-                failureCallback(error);
+                alert("Ajax failure.");
             }
         }
     );

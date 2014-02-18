@@ -12,6 +12,7 @@ array(
 	'FROM' => array('user'),
 	'WHERE' => array('email' => null)
 );
+
 $dataParams =
 array(
 	'email' => $email
@@ -19,13 +20,37 @@ array(
 
 $result = query($sqlParams, $dataParams);
 
-if ($result->password === $password)
+if ($result['outcome'] === 0)
 {
-	echo json_encode("Login successful!");
+	if ($result['response'] === 200)
+	{
+		$result['response'] = "Transaction was successful!";
+	}
+	elseif ($result['response'] === 201)
+	{
+		$result['response'] = "Query could not be executed!";
+	}
+	elseif ($result['response'] === 202)
+	{
+		$result['response'] = "There is no account associated with the given email!";
+	}
+	elseif ($result['response'] === 203)
+	{
+		$result['response'] = "Server error!";
+	}
+	echo json_encode($result);
 }
-else
+elseif ($result['outcome'] === 1)
 {
-	echo json_encode("Incorrect password entered!");
+	if ($result['response']->password === $password)
+	{
+		$result['response'] = "Login successful!";
+	}
+	else
+	{
+		$result['response'] = "Incorrect password entered!";
+	}
+	echo json_encode($result);
 }
 
 ?>

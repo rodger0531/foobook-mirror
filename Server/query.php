@@ -23,6 +23,7 @@ class Query extends DB
 	{
 		try
 		{
+			$result = array('outcome' => 0, 'response' => "default"); // Initialise the result array.
 			$pdo = parent::connectMySql();
 			$query = self::constructSqlQuery($sqlParams);
 			$stmt = $pdo->prepare($query);
@@ -30,7 +31,9 @@ class Query extends DB
 			// A check that produces a warning in case the SQL statement fails to execute properly.
 			if (!$stmt->execute())
 			{
-				throw new Exception("Query could not be executed!");
+				$result['outcome'] = 0;
+				$result['response'] = 201;
+				return $result;
 			}
 			$pdo = null; // Reset the PDO object.
 			// If attempting to read from the database, need to output a result set.
@@ -38,23 +41,31 @@ class Query extends DB
 			if (key($sqlParams) === 'SELECT')
 			{
 				// A check that produces a warning in case nothing was returned from the database.
-				if ($stmt->rowCount() == 0)
+				if ($stmt->rowCount() === 0)
 				{
-					throw new Exception("There is no record associated with the given id!");
+					$result['outcome'] = 0;
+					$result['response'] = 202;
+					return $result;
 				}
 				else
 				{
-					return $stmt->fetch(PDO::FETCH_OBJ); // Return the query result set.
+					$result['outcome'] = 1;
+					$result['response'] = $stmt->fetch(PDO::FETCH_OBJ);
+					return $result;
 				}
 			}
 			else
 			{
-				return "Transaction was successful!";
+				$result['outcome'] = 1;
+				$result['response'] = 200;
+				return $result;
 			}
 		}
-		catch (Exception $e)
+		catch (PDOException $e)
 		{
-			return "Query failed: " . $e->getMessage();
+			$result['outcome'] = 0;
+			$result['response'] = 203;
+			return $result;
 		}
 	}
 	

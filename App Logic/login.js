@@ -8,17 +8,12 @@ $("document").ready(function()
                 'email' : $("#loginEmail").val(),
                 'password' : $("#loginPassword").val()
             },
-            loginSuccess,
-            loginFailure);
+            loginSuccess
+        );
     });
 });
 
 function loginSuccess(data)
 {
-    alert(data);
-}
-
-function loginFailure(error)
-{
-    alert(error);
+    alert(data['response']);
 }

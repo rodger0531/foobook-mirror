@@ -5,6 +5,11 @@ This README file contains information about all changes relating to the 'App Log
 
 18/02/2014 - Tharman
 
+	- Login works correctly.
+	- Updated 'login.js' and 'login.php'.
+
+18/02/2014 - Tharman
+
 	- Updated the files to abstractly use ajax function.
 	- Cleaned-up files.
 

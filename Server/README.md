@@ -3,7 +3,12 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
-19/02/2014 - Tharman
+18/02/2014 - Tharman
+
+	- Login works now.
+	- Updated 'query.php' to account for custom error messages.
+
+18/02/2014 - Tharman
 
 	- Started some work on using custom exceptions.
 
