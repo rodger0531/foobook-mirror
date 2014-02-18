@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+18/02/2014 - Made some notational changes.
+
+	- Made some notational changes.
+
 18/02/2014 - Tharman
 
 	- Added 'signup.js' and 'signup.php'. Working - no output messages.

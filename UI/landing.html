@@ -5,32 +5,31 @@
 		<script src="http://code.jquery.com/jquery-latest.min.js "></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="ajax.js"></script>
-		<script src="login.js"></script>
-		<script src="signup.js"></script>
+		<script src="signIn.js"></script>
+		<script src="signUp.js"></script>
 	</head>
 	<body>
-		<div id="page">
-			<form id="loginForm">
-				<div id="login" class="login">
-					<label for="login">Email</label>
-					<input type="text" id="loginEmail"/>
-					<label for="Password">Password</label>
-					<input type="password" id="loginPassword"/>
-					<input type="button" value="Submit" id="submitLogin" class="button"/>
-				</div>
+		<div id="signIn">
+			<form id="signInForm">
+				<h2>Sign In:</h2>
+				<input type="text" id="signInEmail" size="30" maxlength="20" placeholder="Email"/><br>
+				<input type="password" id="signInPassword" size="30" maxlength="20" placeholder="Password"/><br>
+				<input type="button" value="Submit" id="signInSubmit" class="button"/>
 			</form>
 		</div>
 		<div id="signUp">
-            <form id="input">
+            <form id="signUpForm">
 	            <h2>Sign Up:</h2>
-	            <input type="text" id="firstName" size="30" maxlength="20" placeholder="First Name"><br>
-	            <input type="text" id="lastName" size="30" maxlength="20" placeholder="Last Name"><br>
-	            <input type="text" id="setEmail" size="30" maxlength="20" placeholder="Email"><br>
-	            <input type="text" id="reenterEmail" size="30" maxlength="20" placeholder="Verify Email"><br>
-	            <input type="password" id="setPassword" size="30" maxlength="20" placeholder="Password"><br>
-	            <input type="password" id="reenterPassword" size="30" maxlength="20" placeholder="Verify Password"><br>
-	            Male<input type="radio" id="gender">Female<input type="radio" id="gender"><br>
-	            <input type="submit" id="signup" value="Submit"><br>
+	            <input type="text" id="firstName" size="30" maxlength="20" placeholder="First Name"/><br>
+	            <input type="text" id="lastName" size="30" maxlength="20" placeholder="Last Name"/><br>
+	            <input type="text" id="signUpEmail" size="30" maxlength="20" placeholder="Email"/><br>
+	            <input type="text" id="repeatEmail" size="30" maxlength="20" placeholder="Verify Email"/><br>
+	            <input type="password" id="signUpPassword" size="30" maxlength="20" placeholder="Password"/><br>
+	            <input type="password" id="repeatPassword" size="30" maxlength="20" placeholder="Verify Password"/><br>
+	            <input type="date" id="dateOfBirth"/><br>
+	            Male<input type="radio" id="gender" name="gender" value="male"/>
+	            Female<input type="radio" id="gender" name="gender" value="female"/><br>
+	            <input type="button" value="Submit" id="signUpSubmit" class="button"/><br>
             </form>
         </div>
 	</body>

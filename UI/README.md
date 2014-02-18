@@ -5,6 +5,10 @@ This README file contains information about all changes relating to the 'UI' fol
 
 18/02/2014 - Tharman
 
+	- Made some notational changes.
+
+18/02/2014 - Tharman
+
 	- Modified 'landing.html' to include the sign-up stuff.
 
 18/02/2014 - Philip

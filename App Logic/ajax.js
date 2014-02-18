@@ -10,14 +10,13 @@ function ajax(file, params, successCallback)
             url: 'http://localhost/' + file + '.php',
             data: params,
             dataType: 'JSON',
-            success: function(data)
-            {
-                successCallback(data);
-            },
-            error: function()
-            {
-                alert("Ajax failure.");
-            }
+            async: false,
+            success: successCallback,
+            error: ajaxFailure
         }
     );
+}
+
+function ajaxFailure(result) {
+    alert("FAILED : " + result.status + ' ' + result.statusText);
 }
