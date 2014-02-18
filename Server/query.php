@@ -1,7 +1,5 @@
 <?php
 
-// Enable CORS (Cross Origin Resource Sharing) - CORS allows our JS files to be run on client side.
-// The asterisk wild-card permits scripts hosted on any site to load your resources; listing one or more specific <base URI> will permit scripts hosted on the specified site(s) -- and no others -- to load your resources.
 header("Access-Control-Allow-Origin: *");
 
 // Include the file containing the database connection class - which the below class will extend.
@@ -32,8 +30,9 @@ class Query extends DB
 			// A check that produces a warning in case the SQL statement fails to execute properly.
 			if (!$stmt->execute())
 			{
-				return "201";
+				throw new Exception("Query could not be executed!");
 			}
+			$pdo = null; // Reset the PDO object.
 			// If attempting to read from the database, need to output a result set.
 			reset($sqlParams);
 			if (key($sqlParams) === 'SELECT')
@@ -41,20 +40,21 @@ class Query extends DB
 				// A check that produces a warning in case nothing was returned from the database.
 				if ($stmt->rowCount() == 0)
 				{
-					return "202";
+					throw new Exception("There is no record associated with the given id!");
 				}
-				$result = $stmt->fetch(PDO::FETCH_OBJ); // Assign the query result set.
+				else
+				{
+					return $stmt->fetch(PDO::FETCH_OBJ); // Return the query result set.
+				}
 			}
 			else
 			{
-				$result = "200";
+				return "Transaction was successful!";
 			}
-			$pdo = null; // Reset the PDO object.
-			return $result;
 		}
-		catch (PDOException $e)
+		catch (Exception $e)
 		{
-			return "203: " . $e->getMessage();
+			return "Query failed: " . $e->getMessage();
 		}
 	}
 	
@@ -150,7 +150,7 @@ class Query extends DB
  * Start the process of constructing and executing a SQL query given the necessary parameters.
  */
 function query($sqlParams, $dataParams) {
-	return( Query::execSql( $sqlParams, $dataParams ) );
+	return Query::execSql( $sqlParams, $dataParams );
 }
 
 ?>
