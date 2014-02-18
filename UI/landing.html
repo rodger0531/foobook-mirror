@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Foobook login</title>
 		<script src="http://code.jquery.com/jquery-latest.min.js "></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="ajax.js"></script>
 		<script src="login.js"></script>
+		<script src="signup.js"></script>
 	</head>
 	<body>
 		<div id="page">
@@ -18,5 +20,18 @@
 				</div>
 			</form>
 		</div>
+		<div id="signUp">
+            <form id="input">
+	            <h2>Sign Up:</h2>
+	            <input type="text" id="firstName" size="30" maxlength="20" placeholder="First Name"><br>
+	            <input type="text" id="lastName" size="30" maxlength="20" placeholder="Last Name"><br>
+	            <input type="text" id="setEmail" size="30" maxlength="20" placeholder="Email"><br>
+	            <input type="text" id="reenterEmail" size="30" maxlength="20" placeholder="Verify Email"><br>
+	            <input type="password" id="setPassword" size="30" maxlength="20" placeholder="Password"><br>
+	            <input type="password" id="reenterPassword" size="30" maxlength="20" placeholder="Verify Password"><br>
+	            Male<input type="radio" id="gender">Female<input type="radio" id="gender"><br>
+	            <input type="submit" id="signup" value="Submit"><br>
+            </form>
+        </div>
 	</body>
 </html>
