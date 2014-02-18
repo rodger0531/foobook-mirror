@@ -1,7 +1,5 @@
 <?php
 
-header("Access-Control-Allow-Origin: *");
-
 include('query.php');
 
 $email = $_POST['email'];
@@ -12,7 +10,7 @@ $sqlParams =
 array(
 	'SELECT' => array('password'),
 	'FROM' => array('user'),
-    'WHERE' => array('email' => null)
+	'WHERE' => array('email' => null)
 );
 $dataParams =
 array(
