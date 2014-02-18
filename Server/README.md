@@ -2,6 +2,9 @@ This README file contains information about all changes relating to the 'Server'
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
+18/02/2014 - Rodger
+	
+	- Modified query.php -> at the end of the file, it should be return, not echo json_encode, since it is a communication between phps.
 
 17/02/2014 - Tharman
 

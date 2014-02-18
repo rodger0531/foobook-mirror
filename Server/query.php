@@ -150,7 +150,7 @@ class Query extends DB
  * Start the process of constructing and executing a SQL query given the necessary parameters.
  */
 function query($sqlParams, $dataParams) {
-	echo json_encode( Query::execSql( $sqlParams, $dataParams ) );
+	return( Query::execSql( $sqlParams, $dataParams ) );
 }
 
 ?>

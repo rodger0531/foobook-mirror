@@ -13,17 +13,17 @@ $("document").ready
                         url: 'http://localhost/login.php',
                         data:
                         {
-                            email : $("#logInEmail"),
-                            password : $("#logInPassword")
+                            email : $("#logInEmail").value,
+                            password : $("#logInPassword").value
                         },
                         dataType:'JSON',
                         success: function(data)
                         {
-                            alert("You are now logged in!");
+                            alert(data);
                         },
                         error: function(transaction, err)
                         {
-                            alert("Login failed!");
+                            alert("Ajax failed!");
                         }
                     }
                 );

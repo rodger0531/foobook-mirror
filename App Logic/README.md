@@ -2,6 +2,10 @@ This README file contains information about all changes relating to the 'App Log
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
+18/02/2014 - Rodger
+
+	- Modified login.php -> added header("Access-Control-Allow-Origin: *") to allow communication between ajax and php.
+	- Modified controller.js -> added .value to the $ variable for the correct call for value from html forms.
 
 17/02/2014 - Tharman
 

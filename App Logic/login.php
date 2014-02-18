@@ -1,31 +1,34 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 
 include('query.php');
 
-$email = $_POST('email');
-$password = $_POST('password');
+$email = $_POST['email'];
+$password = $_POST['password'];
+// $email = "foobar@foo.com";
+// $password = "p4ssw0rd";
 
 // Define a SQL statement that can retreive the user's email and password.
-$sqlParams =
-{
-	'SELECT' : ['password'],
-	'FROM' : ['user'],
-    'WHERE' : {'email' : null}
-};
-$dataParams =
-{
-	'email' : $email
-};
+$sqlParams =array(
+	'SELECT' => array('password'),
+	'FROM' => array('user'),
+  'WHERE' => array('email' => null)
+);
+$dataParams =array
+(
+	'email' => $email
+);
 
-$result = query($sqlParams, $dataParams)->password;
+$result = query($sqlParams, $dataParams);
+// echo ($result->password);
 
-if ($result === $password) {
-	header('Content-Type: application/json');
+if ($result->password === $password) {
+	// header('Content-Type: application/json');
 	echo json_encode($result);
 }
 else {
-	header('HTTP/1.1 500 Internal Server Booboo');
-	header('Content-Type: application/json');
+	// header('HTTP/1.1 500 Internal Server Booboo');
+	// header('Content-Type: application/json');
 	die('ERROR');
 }
 
