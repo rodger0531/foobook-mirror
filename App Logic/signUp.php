@@ -48,7 +48,7 @@ elseif ($result['outcome'] === 1)
 {
 	if ($result['response'] === 200)
 	{
-		$result['response'] = "Transaction was successful!";
+		$result['response'] = "Thanks for signing up " . $first_name . "!";
 	}
 	echo json_encode($result);
 }
