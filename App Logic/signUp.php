@@ -6,7 +6,7 @@ $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-$date_of_birth = "2001-01-04";
+$date_of_birth = $_POST['date_of_birth'];
 $gender = $_POST['gender'];
 
 // Define a SQL statement that can retreive the user's email and password.
