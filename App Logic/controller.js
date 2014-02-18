@@ -13,8 +13,8 @@ $("document").ready
                         url: 'http://localhost/login.php',
                         data:
                         {
-                            email : $("#logInEmail").value,
-                            password : $("#logInPassword").value
+                            email : $("#logInEmail").val(),
+                            password : $("#logInPassword").val()
                         },
                         dataType:'JSON',
                         success: function(data)

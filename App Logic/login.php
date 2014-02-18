@@ -5,14 +5,12 @@ include('query.php');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
-// $email = "foobar@foo.com";
-// $password = "p4ssw0rd";
 
 // Define a SQL statement that can retreive the user's email and password.
 $sqlParams =array(
 	'SELECT' => array('password'),
 	'FROM' => array('user'),
-  'WHERE' => array('email' => null)
+  	'WHERE' => array('email' => null)
 );
 $dataParams =array
 (
@@ -24,12 +22,14 @@ $result = query($sqlParams, $dataParams);
 
 if ($result->password === $password) {
 	// header('Content-Type: application/json');
-	echo json_encode($result);
+	echo json_encode($result->password);
+	
 }
 else {
 	// header('HTTP/1.1 500 Internal Server Booboo');
 	// header('Content-Type: application/json');
-	die('ERROR');
+	echo json_encode("wrong password");
+	// die('ERROR');
 }
 
 ?>
