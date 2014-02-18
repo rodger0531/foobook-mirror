@@ -1,0 +1,30 @@
+<html>
+<body>
+    <head>
+        <title>Foobook Login</title>
+    </head>
+    
+        <div id="singIn">
+            <form name="input" action="login.php">
+            Email Address: <input type="text" id="verifyEmail" size="30" maxlength="20" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>" />
+            Password: <input type="text" id="verifyPassword" size="30" maxlength="20" />
+            <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+        <div id="signUp">
+            <form name="input" action="login.js" method="get">
+            <h2>Sign Up:</h2>
+            <input type="text" name="firstName" size="30" maxlength="20" placeholder="First Name"><br>
+            <input type="text" name="lastName" size="30" maxlength="20" placeholder="Last Name"><br>
+            <input type="text" name="setEmail" size="30" maxlength="20" placeholder="Email"><br>
+            <input type="text" name="reenterEmail" size="30" maxlength="20" placeholder="Verify Email"><br>
+            <input type="text" name="setPassword" size="30" maxlength="20" placeholder="Password"><br>
+            <input type="text" name="reenterPassword" size="30" maxlength="20" placeholder="Verify Password"><br>
+            <input type="date"><br>
+            Male<input type="radio" name="gender">Female<input type="radio" name="gender"><br>
+            <input type="submit" value="Submit"><br>
+            </form>
+        </div>
+    
+</body>
+</html>

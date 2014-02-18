@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+18/02/2014 - Philip
+
+	- Added "login.html" containing the structure of our login page. We are working on linking the html with the database.
+
 18/02/2014 - Tharman
 
 	- Re-added 'ajax.js'.
