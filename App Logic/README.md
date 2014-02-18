@@ -5,6 +5,10 @@ This README file contains information about all changes relating to the 'App Log
 
 18/02/2014 - Tharman
 
+	- Added 'signup.js' and 'signup.php'. Working - no output messages.
+
+18/02/2014 - Tharman
+
 	- Login works correctly.
 	- Updated 'login.js' and 'login.php'.
 
