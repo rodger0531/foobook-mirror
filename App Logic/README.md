@@ -2,6 +2,10 @@ This README file contains information about all changes relating to the 'App Log
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
+20/02/2014 - Philip and Abdi
+
+	- We created a separate folder where we pushed the working code for picture uploadind and reading. NOTE: The code still needs to be adjusted to our original overall app design. We are not quite sure but we think that we need to fit in Ajax to send the data through, because now we use only PHP for the purpose.
+
 
 19/02/2014 - Tharman
 
