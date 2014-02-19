@@ -10,7 +10,6 @@ function ajax(file, params, successCallback)
             url: 'http://localhost/' + file + '.php',
             data: params,
             dataType: 'JSON',
-            async: false,
             success: successCallback,
             error: ajaxFailure
         }
