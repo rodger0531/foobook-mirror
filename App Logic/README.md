@@ -3,7 +3,11 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
-18/02/2014 - Made some notational changes.
+19/02/2014 - Tharman
+
+	- Removed 'async: false' from 'ajax.js' since it makes no difference.
+
+18/02/2014 - Tharman.
 
 	- Made some notational changes.
 
