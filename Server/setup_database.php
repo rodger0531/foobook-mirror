@@ -306,7 +306,8 @@ $con->query("CREATE TABLE IF NOT EXISTS photo(photo_id bigint unsigned auto_incr
 											  foreign key(collection_id) references collection(collection_id),
 											  name tinytext,
 											  visibility_setting tinyint(1) not null default 0,
-											  photo mediumblob not null
+											  photo mediumblob not null,
+											  mime not null
 											  )
 			") or die ($con->error);
 
