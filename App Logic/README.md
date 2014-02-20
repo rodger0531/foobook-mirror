@@ -2,6 +2,21 @@ This README file contains information about all changes relating to the 'App Log
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
+
+20/02/2014 - Tharman
+
+	- Changed the query structure to be more concise.
+	- More specifically didn't actually need to construct SQL query statements. These are defined in the transaction PHP files.
+	- Parameter binding is still in place, so security is still intact from using Prepared Statements.
+	- More flexibility now.
+	- Tested and works.
+
+	- Modified the client-side JavaScript to use serialisation of forms as opposed to passing in individual elements.
+	- A far more efficient way of doing things, since we are actually using a fair number of forms.
+	- Quite code-saving.
+	- Abstract Ajax is still intact, so we can pass in requests without form serialisation if we want.
+	- Again, more flexibility now.
+
 20/02/2014 - Philip and Abdi
 
 	- We created a separate folder where we pushed the working code for picture uploadind and reading. NOTE: The code still needs to be adjusted to our original overall app design. We are not quite sure but we think that we need to fit in Ajax to send the data through, because now we use only PHP for the purpose.

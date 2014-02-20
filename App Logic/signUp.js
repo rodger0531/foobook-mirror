@@ -1,18 +1,12 @@
 $("document").ready(function()
 {
-    $("#signUpSubmit").click(function()
+    $("#signUpForm").on('submit', function(event)
     {
+        event.preventDefault();
         ajax(
-            'signUp',
-            {
-                'first_name' : $('#firstName').val(),
-                'last_name' : $('#lastName').val(),
-                'email' : $('#signUpEmail').val(),
-                'password' : $('#signUpPassword').val(),
-                'date_of_birth' : $('#dateOfBirth').val(),
-                'gender' : $('#gender').val()
-            },
-            signUpSuccess
+            'signUp',                       // PHP file to call on.
+            $("#signUpForm").serialize(),   // Data from serialised form with user input.
+            signUpSuccess                   // Callback method to use on success.
         );
     });
 });

@@ -3,9 +3,17 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+20/02/2014 - Tharman
+
+	- Modified the client-side JavaScript to use serialisation of forms as opposed to passing in individual elements.
+	- A far more efficient way of doing things, since we are actually using a fair number of forms.
+	- Quite code-saving.
+	- Abstract Ajax is still intact, so we can pass in requests without form serialisation if we want.
+	- Again, more flexibility now.
+
 19/02/2014 - Philip and Tharman
 
-	- HTML dae picker form is not supported across multiple browsers.
+	- HTML date picker form is not supported across multiple browsers.
 	- Replacing with the jQuery version.
 	- Specifically, using "Display month & year menus".
 

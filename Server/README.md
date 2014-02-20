@@ -3,6 +3,14 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+20/02/2014 - Tharman
+
+	- Changed the query structure to be more concise.
+	- More specifically didn't actually need to construct SQL query statements. These are defined in the transaction PHP files.
+	- Parameter binding is still in place, so security is still intact from using Prepared Statements.
+	- More flexibility now.
+	- Tested and works.
+
 18/02/2014 - Tharman
 
 	- Login works now.

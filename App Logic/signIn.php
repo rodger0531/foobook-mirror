@@ -5,28 +5,27 @@ include('query.php');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Define a SQL statement that can retreive the user's email and password.
-$sqlParams =
-array(
-	'SELECT' => array('password'),
-	'FROM' => array('user'),
-	'WHERE' => array('email' => null)
-);
+// Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
+$action = 2; // 2 indicates that the database is being READ from.
 
-$dataParams =
+// Define a SQL query that can retreive the user's email given their email.
+$query = "
+SELECT password
+FROM user
+WHERE email = :email
+";
+
+// Define the parameters of the query depending on the information the user inputted.
+$params =
 array(
 	'email' => $email
 );
 
-$result = query($sqlParams, $dataParams);
+$result = query($action, $query, $params);
 
 if ($result['outcome'] === 0)
 {
-	if ($result['response'] === 200)
-	{
-		$result['response'] = "Transaction was successful!";
-	}
-	elseif ($result['response'] === 201)
+	if ($result['response'] === 201)
 	{
 		$result['response'] = "Query could not be executed!";
 	}

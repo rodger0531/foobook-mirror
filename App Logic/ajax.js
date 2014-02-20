@@ -16,6 +16,7 @@ function ajax(file, params, successCallback)
     );
 }
 
-function ajaxFailure(result) {
-    alert("FAILED : " + result.status + ' ' + result.statusText);
+function ajaxFailure(result)
+{
+    alert("FAILED: " + result.status + ' ' + result.statusText);
 }

@@ -19,15 +19,14 @@ class Query extends DB
  	 * These are then used to dynamically construct and execute a SQL query to the MySQL database.
  	 * The result is then returned to the client-side JavaScript and HTML via AJAX.
 	 */
-	public static function execSql($sqlParams, $dataParams)
+	public static function execSql($action, $query, $params)
 	{
 		try
 		{
 			$result = array('outcome' => 0, 'response' => "default"); // Initialise the result array.
 			$pdo = parent::connectMySql();
-			$query = self::constructSqlQuery($sqlParams);
 			$stmt = $pdo->prepare($query);
-			self::bindSqlParams($stmt, $dataParams);
+			self::bindSqlParams($stmt, $params);
 			// A check that produces a warning in case the SQL statement fails to execute properly.
 			if (!$stmt->execute())
 			{
@@ -37,8 +36,7 @@ class Query extends DB
 			}
 			$pdo = null; // Reset the PDO object.
 			// If attempting to read from the database, need to output a result set.
-			reset($sqlParams);
-			if (key($sqlParams) === 'SELECT')
+			if ($action === 2)
 			{
 				// A check that produces a warning in case nothing was returned from the database.
 				if ($stmt->rowCount() === 0)
@@ -68,72 +66,14 @@ class Query extends DB
 			return $result;
 		}
 	}
-	
-	/*
-	 * This function dynamically constructs a SQL query based on parameters received from the client-side.
-	 */
-	private function constructSqlQuery($sqlParams)
-	{
-		$query = ""; // Initilaise an empty string to hold the query.
-		foreach ($sqlParams as $x => $x_value)
-		{
-			$query .= $x . ' '; // For each of the given SQL clauses, construct and add these to the query.
-			if ($x === 'INSERT INTO'
-				or $x === 'SELECT'
-				or $x === 'FROM'
-				or $x === 'UPDATE'
-				or $x === 'DELETE FROM'
-				or $x === 'SET')
-			{
-				foreach ($x_value as $y)
-				{
-					// Insert a separator between each argument.
-					if ($y !== reset($x_value))
-					{
-	    				$query .= ', ';
-					}
-					// Insert the argument.
-					if ($x === 'SET')
-					{
-						$query .= $y . ' = :' . $y;
-					}
-					else
-					{
-						$query .= $y;
-					}
-				}
-			}
-			// The 'WHERE' SQL clause requires an associative array, so use a
-			// separate algorithm to construct the query.
-			elseif ($x === 'WHERE')
-			{
-				foreach ($x_value as $y => $y_value)
-				{
-					// Insert a separator between each argument.
-					if ($y_value !== reset($x_value))
-					{
-						$query .= ' ' . $y_value . ' ';
-					}
-					// Insert the argument.
-					$query .= $y . ' = :' . $y;
-				}
-			}
-			// Add a whitespace in-between each of the SQL clauses.
-			if ($x_value !== end($sqlParams))
-			{
-				$query .= ' ';
-			}
-		}
-		return $query;
-	}
 
 	/*
 	 * This function dynamically binds the values received from Ajax to the constructed query.
 	 */
-	private function bindSqlParams($stmt, $dataParams)
+	private function bindSqlParams($stmt, $params)
 	{
 		try {
-			foreach ($dataParams as $x => $x_value)
+			foreach ($params as $x => $x_value)
 			{
 				if (is_numeric($x_value))
 				{
@@ -160,8 +100,8 @@ class Query extends DB
 /*
  * Start the process of constructing and executing a SQL query given the necessary parameters.
  */
-function query($sqlParams, $dataParams) {
-	return Query::execSql( $sqlParams, $dataParams );
+function query($action, $query, $params) {
+	return Query::execSql($action, $query, $params);
 }
 
 ?>

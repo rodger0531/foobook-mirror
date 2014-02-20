@@ -9,14 +9,22 @@ $password = $_POST['password'];
 $date_of_birth = $_POST['date_of_birth'];
 $gender = $_POST['gender'];
 
-// Define a SQL statement that can retreive the user's email and password.
-$sqlParams =
-array(
-	'INSERT INTO' => array('user'),
-	'SET' => array('first_name', 'last_name', 'email', 'password', 'date_of_birth', 'gender')
-);
+// Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
+$action = 1; // 1 indicates that a record is being INSERTED into the database.
 
-$dataParams =
+// Define a SQL query that can create a record with the given user's details.
+$query = "
+INSERT INTO user
+SET	first_name = :first_name,
+	last_name = :last_name,
+	email = :email,
+	password = :password,
+	date_of_birth = :date_of_birth,
+	gender = :gender
+";
+
+// Define the parameters of the query depending on the information the user inputted.
+$params =
 array(
 	'first_name' => $first_name,
 	'last_name' => $last_name,
@@ -26,7 +34,7 @@ array(
 	'gender' => $gender
 );
 
-$result = query($sqlParams, $dataParams);
+$result = query($action, $query, $params);
 
 if ($result['outcome'] === 0)
 {

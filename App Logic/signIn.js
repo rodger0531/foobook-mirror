@@ -1,14 +1,12 @@
 $("document").ready(function()
 {
-    $("#signInSubmit").click(function()
+    $("#signInForm").on('submit', function(event)
     {
+        event.preventDefault();
         ajax(
-            'signIn',
-            {
-                'email' : $("#signInEmail").val(),
-                'password' : $("#signInPassword").val()
-            },
-            signInSuccess
+            'signIn',                       // PHP file to call on.
+            $("#signInForm").serialize(),   // Data from serialised form with user input.
+            signInSuccess                   // Callback method to use on success.
         );
     });
 });
