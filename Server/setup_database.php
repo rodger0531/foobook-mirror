@@ -304,11 +304,9 @@ $con->query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_i
 $con->query("CREATE TABLE IF NOT EXISTS photo(photo_id bigint unsigned auto_increment not null primary key,
 											  collection_id bigint unsigned not null,
 											  foreign key(collection_id) references collection(collection_id),
+											  name tinytext,
 											  visibility_setting tinyint(1) not null default 0,
-											  image_name varchar(25) not null,
-											  image_type varchar(25) not null,
-											  image_size varchar(25) not null,
-											  image_binary mediumblob not null
+											  photo mediumblob not null
 											  )
 			") or die ($con->error);
 
