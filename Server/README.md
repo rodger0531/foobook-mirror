@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+21/02/2014 - Tharman
+
+	- Minor alteration to 'query.php' to catch binding which is not integer or string.
+
 20/02/2014 - Tharman
 
 	- Changed the query structure to be more concise.

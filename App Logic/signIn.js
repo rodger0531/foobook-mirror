@@ -13,5 +13,5 @@ $("document").ready(function()
 
 function signInSuccess(data)
 {
-    alert(data['response']);
+    alert(data);
 }

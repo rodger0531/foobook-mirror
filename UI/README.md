@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+21/02/2014 - Tharman
+
+	- Added a test UI for uploading and viewing photos to and from the database.
+	- NOTE: YOU MUST ALREADY HAVE A COLLECTION WITH ID 1 FOR THIS TO WORK!!!
+
 20/02/2014 - Tharman
 
 	- Modified the client-side JavaScript to use serialisation of forms as opposed to passing in individual elements.

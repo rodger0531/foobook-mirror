@@ -3,6 +3,13 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+21/02/2014 - Tharman
+
+	- Got upload and viewing of photos working with current setup!!!
+	- Uploaded new photo js and php files.
+	- NOTE: YOU MUST ALREADY HAVE A COLLECTION WITH ID 1 FOR THIS TO WORK!!!
+	- Made some insignificant changes to sign in and sign up js and php files, so that less info put on client-side viewable js files.
+
 20/02/2014 - Tharman
 
 	- Changed the query structure to be more concise.

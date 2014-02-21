@@ -6,12 +6,12 @@ $("document").ready(function()
         ajax(
             'signUp',                       // PHP file to call on.
             $("#signUpForm").serialize(),   // Data from serialised form with user input.
-            signUpSuccess                   // Callback method to use on success.
+            signUpSuccess                // Callback method to use on success.
         );
     });
 });
 
 function signUpSuccess(data)
 {
-    alert(data['response']);
+    alert(data);
 }

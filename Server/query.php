@@ -83,9 +83,9 @@ class Query extends DB
 				{
 					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
 				}
-				elseif ($x === 'photo')
+				else
 				{
-					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_LOB);
+					$stmt->bindValue(':' . $x, $x_value);
 				}
 			}
 		}
