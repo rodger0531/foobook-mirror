@@ -3,10 +3,14 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
-21/02/2014 - Tharman
+21/02/2014 - Philip
 
-	- Added a test UI for uploading and viewing photos to and from the database.
-	- NOTE: YOU MUST ALREADY HAVE A COLLECTION WITH ID 1 FOR THIS TO WORK!!!
+	- Uploaded the working "newsfeed.html". 
+	- Please note that it is far from finished, but the aim was to provide us with a fundation to freely link the database to something. 
+	- I personally think that it is pretty nice.
+	- Please don't pay attention to the coloured borders ot the div elements, I needed them to CSS the html file. 
+	- Unfortunatelly, we need quite a lot of CSS even for the simplest sceleton. 
+	- NOTE: Some additional JS will be needed when we start experimenting returning the results from the database.
 
 20/02/2014 - Tharman
 
