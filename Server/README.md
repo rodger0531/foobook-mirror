@@ -2,6 +2,10 @@ This README file contains information about all changes relating to the 'Server'
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
+21/02/2014 - Abdi and Philip
+
+	- The password hashing issue is resolved. The problem was in the varchar caracter limit instead of 32 we need 40 for sha1 encryption type. NOTE: If we decide to add "salt" encryption on top of the existing one we need to increase the character restrictions even more.
+
 
 21/02/2014 - Tharman
 
