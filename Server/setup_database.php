@@ -45,7 +45,7 @@ $con->query("CREATE TABLE IF NOT EXISTS user(user_id int unsigned auto_increment
 											 middle_name varchar(45),
 											 last_name varchar(45) not null,
 											 email tinytext not null,
-											 password varchar(32) not null,
+											 password varchar(40) not null,
 											 date_of_birth date not null,
 											 gender tinyint(1),
 											 city tinytext,
