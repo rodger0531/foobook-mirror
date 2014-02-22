@@ -72,26 +72,20 @@ class Query extends DB
 	 */
 	private function bindSqlParams($stmt, $params)
 	{
-		try {
-			foreach ($params as $x => $x_value)
-			{
-				if (is_numeric($x_value))
-				{
-					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_INT);
-				}
-				elseif (is_string($x_value))
-				{
-					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
-				}
-				else
-				{
-					$stmt->bindValue(':' . $x, $x_value);
-				}
-			}
-		}
-		catch (PDOException $e)
+		foreach ($params as $x => $x_value)
 		{
-			return "Error: " . $e->getMessage() . "<br/>";
+			if (is_numeric($x_value))
+			{
+				$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_INT);
+			}
+			elseif (is_string($x_value))
+			{
+				$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
+			}
+			else
+			{
+				$stmt->bindValue(':' . $x, $x_value);
+			}
 		}
 	}
 
@@ -100,7 +94,8 @@ class Query extends DB
 /*
  * Start the process of constructing and executing a SQL query given the necessary parameters.
  */
-function query($action, $query, $params) {
+function query($action, $query, $params)
+{
 	return Query::execSql($action, $query, $params);
 }
 

@@ -41,7 +41,7 @@ if ($result['outcome'] === 0)
 }
 elseif ($result['outcome'] === 1)
 {
-	if ($result['response']->password === $password)
+	if ($result['response']->password === sha1($password))
 	{
 		$result['response'] = "Login successful!";
 	}

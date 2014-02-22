@@ -3,6 +3,16 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+22/02/2014 - Tharman
+
+	- Implemented password SHA1 hash.
+	- Tested successfully thanks to Abdi figuring out attribute size limitation.
+	- Need to investigate security implications of this though, i.e. SHA1 has been generally replaced now by successors SHA2, and soon to be SHA3.
+
+	- When signing up, implemented the creation of a default user collection for photos.
+	- This uses the name '*' to avoid conflict with any of the user's other collections.
+	- May be easier to use an additional column in the table to indicate that it is a default collection.
+
 21/02/2014 - Tharman
 
 	- Got upload and viewing of photos working with current setup!!!
