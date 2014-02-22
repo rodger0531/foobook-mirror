@@ -13,6 +13,10 @@ This README file contains information about all changes relating to the 'App Log
 	- This uses the name '*' to avoid conflict with any of the user's other collections.
 	- May be easier to use an additional column in the table to indicate that it is a default collection.
 
+	- Also enforced email uniqueness through a query to the database when signing up.
+	- No change to the database setup needed.
+	- A user should NOT be able to sign up with an email already in use.
+
 21/02/2014 - Tharman
 
 	- Got upload and viewing of photos working with current setup!!!
