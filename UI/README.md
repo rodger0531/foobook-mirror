@@ -12,6 +12,11 @@ This README file contains information about all changes relating to the 'UI' fol
 	- Unfortunatelly, we need quite a lot of CSS even for the simplest sceleton. 
 	- NOTE: Some additional JS will be needed when we start experimenting returning the results from the database.
 
+21/02/2014 - Tharman
+
+	- Added a test UI for uploading and viewing photos to and from the database.
+	- NOTE: YOU MUST ALREADY HAVE A COLLECTION WITH ID 1 FOR THIS TO WORK!!!
+
 20/02/2014 - Tharman
 
 	- Modified the client-side JavaScript to use serialisation of forms as opposed to passing in individual elements.
