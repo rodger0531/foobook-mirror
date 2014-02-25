@@ -52,11 +52,16 @@ if ($result['outcome'] === 0)
 }
 elseif ($result['outcome'] === 1)
 {
-	if (!password_verify($password, $result['response']->password))
+	if (password_verify($password, $result['response']->password))
+	{
+		$result['response'] = "Login successful!";
+	}
+	else
 	{
 		$result['response'] = "Incorrect password entered!";
-		echo json_encode($result['response']);
 	}
 }
+
+echo json_encode($result['response']);
 
 ?>
