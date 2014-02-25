@@ -2,6 +2,14 @@ This README file contains information about all changes relating to the 'App Log
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
+
+25/02/2014 - Tharman
+
+	- Removed blowfish encryption files by common consensus.
+	- Made numerous changes to files - see commit for details.
+	- Using bcrypt password hashing.
+	- Validation for empty() input fields.
+
 25/02/2014 - Philip 
 
 	- Successfully managed to hash the passwords (which is the easy part). Now we are using the so called Blowfish encryption algorythm. The cool part is that the code generates a unique salt code which improves security even more.

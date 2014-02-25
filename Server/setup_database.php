@@ -45,7 +45,7 @@ $con->query("CREATE TABLE IF NOT EXISTS user(user_id int unsigned auto_increment
 											 middle_name varchar(45),
 											 last_name varchar(45) not null,
 											 email tinytext not null,
-											 password varchar(40) not null,
+											 password char(60) not null,
 											 date_of_birth date not null,
 											 gender tinyint(1),
 											 city tinytext,
@@ -285,17 +285,17 @@ $con->query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned
 
 //COLLECTION_FRIENDVISIBLITY
 $con->query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_id bigint unsigned not null,
-																	visibility_setting tinyint(1) not null default 0,
 																	friend_id int unsigned not null,
-																	primary key(collection_id,friend_id)
+																	primary key(collection_id,friend_id),
+																	visibility_setting tinyint(1) not null default 0
 																	)
 			") or die ($con->error);
 
 //COLLECTION_CIRCLEVISIBLITY
 $con->query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_id bigint unsigned not null,
-																	visibility_setting tinyint(1) not null default 0,
 																	circle_id int unsigned not null,
-																	primary key(collection_id,circle_id)
+																	primary key(collection_id,circle_id),
+																	visibility_setting tinyint(1) not null default 0
 																	)
 			") or die ($con->error);
 
@@ -324,17 +324,17 @@ $con->query("CREATE TABLE IF NOT EXISTS photoComment(comment_id bigint unsigned 
 
 //PHOTO_FRIENDVISIBILITY
 $con->query("CREATE TABLE IF NOT EXISTS photo_friendVisibility(photo_id bigint unsigned not null,
-															   visibility_setting tinyint(1) not null default 0,
 															   friend_id int unsigned not null,
-															   primary key(photo_id,friend_id)
+															   primary key(photo_id,friend_id),
+															   visibility_setting tinyint(1) not null default 0
 															   )
 			") or die ($con->error);
 
 //PHOTO_CIRCLEVISIBILITY
 $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint unsigned not null,
-															   visibility_setting tinyint(1) not null default 0,
 															   circle_id int unsigned not null,
-															   primary key(photo_id,circle_id)
+															   primary key(photo_id,circle_id),
+															   visibility_setting tinyint(1) not null default 0
 															   )
 			") or die ($con->error);
 

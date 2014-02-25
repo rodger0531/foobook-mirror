@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 
 // Include the file containing the database connection class - which the below class will extend.
-include 'db_connect.php';
+require 'db_connect.php';
 
 /*
  * This class contains methods that can execute a SQL statement to the MySQL database.

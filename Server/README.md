@@ -3,6 +3,12 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+25/02/2014 - Tharman
+
+	- Uploading some minor changes.
+	- Files using 'require' instead of 'include'.
+	- 'setup_database.php' using char(60) for password instead of varchars, because we want 60 characters always.
+
 22/02/2014 - Tharman
 
 	- Removed unnecessary PDOException try/catch from sqlBindParams() method in 'query.php'.

@@ -1,28 +1,30 @@
 <?php
 
 /*
- * @author: Filip, Rodger, Tharman and Abdi.
- *
- * @class: This is the Abstract DB class. The purpose of this class is to connect to the database.
+ * Connects to the database.
  */
 abstract class DB {
 
 	/*
-	 * @function: This is the the function responsible for connecting with database.
-	 
-	 * @return: the connection link.
+	 * Responsible for connecting with database.
+	 * Returns the connection link as a PDO object.
 	 */
-	public function connectMySql() {
+	public function connectMySql()
+	{
 		require_once __DIR__ . '/db_config.php';
 
 		$dsn = DSN;
 		$user = DB_USER;
 		$password = DB_PASSWORD;
 		
-		try {
+		try
+		{
 			$pdoLink = new PDO($dsn, $user, $password);
+			$pdoLink->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+			$pdoLink->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
-		catch (PDOException $e) {
+		catch (PDOException $e)
+		{
 			echo "Connection Failed :: " . $e->getMessage();
 			return false;
 		}

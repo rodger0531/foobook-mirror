@@ -1,6 +1,6 @@
 <?php
 
-include 'query.php';
+require 'query.php';
 
 $photo_id = $_POST['photo_id'];
 
@@ -22,6 +22,7 @@ array(
 
 $result = query($action, $query, $params);
 
+// Alter the responses to provide feedback to the user.
 if ($result['outcome'] === 0)
 {
 	if ($result['response'] === 201)
@@ -36,12 +37,12 @@ if ($result['outcome'] === 0)
 	{
 		$result['response'] = "Server error!";
 	}
-	echo json_encode($result);
 }
 elseif ($result['outcome'] === 1)
 {
 	$result['response']->photo = base64_encode($result['response']->photo);
-	echo json_encode($result['response']);
 }
+
+echo json_encode($result['response']);
 
 ?>

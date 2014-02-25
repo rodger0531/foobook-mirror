@@ -1,6 +1,17 @@
 <?php
 
-include 'query.php';
+require 'password.php'; // For password hashing functions.
+
+require 'query.php'; // For querying to the database.
+
+if (
+	empty($_POST['email'])
+	|| empty($_POST['password'])
+	)
+{
+	echo json_encode("All input fields must be completed!");
+	return;
+}
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -23,6 +34,7 @@ array(
 
 $result = query($action, $query, $params);
 
+// Alter the responses to provide feedback to the user.
 if ($result['outcome'] === 0)
 {
 	if ($result['response'] === 201)
@@ -37,19 +49,14 @@ if ($result['outcome'] === 0)
 	{
 		$result['response'] = "Server error!";
 	}
-	echo json_encode($result);
 }
 elseif ($result['outcome'] === 1)
 {
-	if ($result['response']->password === sha1($password))
-	{
-		$result['response'] = "Login successful!";
-	}
-	else
+	if (!password_verify($password, $result['response']->password))
 	{
 		$result['response'] = "Incorrect password entered!";
+		echo json_encode($result['response']);
 	}
-	echo json_encode($result['response']);
 }
 
 ?>

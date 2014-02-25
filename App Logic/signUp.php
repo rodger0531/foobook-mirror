@@ -1,6 +1,21 @@
 <?php
 
-include 'query.php';
+require 'password.php'; // For password hashing functions.
+
+require 'query.php'; // For querying to the database.
+
+if (
+	empty($_POST['first_name'])
+	|| empty($_POST['last_name'])
+	|| empty($_POST['email'])
+	|| empty($_POST['password'])
+	|| empty($_POST['date_of_birth'])
+	|| empty($_POST['gender'])
+	)
+{
+	echo json_encode("All input fields must be completed!");
+	return;
+}
 
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
@@ -8,6 +23,14 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $date_of_birth = $_POST['date_of_birth'];
 $gender = $_POST['gender'];
+
+$hash = password_hash($password, PASSWORD_BCRYPT, array('cost' => 12)); // Use bcrypt algorithm to hash the password.
+
+// Verify that the password has been correctly hashed.
+if (!password_verify($password, $hash))
+{
+	die;
+}
 
 /*
  * Check if the email address entered is already taken.
@@ -36,7 +59,7 @@ if ($result['outcome'] === 1)
 	if ($result['response']->count !== '0')
 	{
 		echo json_encode("There is already an account linked with this email address!");
-		die;
+		return;
 	}
 }
 else
@@ -68,7 +91,7 @@ array(
 	'first_name' => $first_name,
 	'last_name' => $last_name,
 	'email' => $email,
-	'password' => sha1($password),
+	'password' => $hash,
 	'date_of_birth' => $date_of_birth,
 	'gender' => $gender
 );
@@ -128,7 +151,7 @@ SET	user_id = :user_id,
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
-	'user_id' => (int) $result['response']->user_id,
+	'user_id' => $result['response']->user_id,
 	'name' => '*'
 );
 

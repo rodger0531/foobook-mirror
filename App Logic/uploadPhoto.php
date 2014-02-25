@@ -1,6 +1,6 @@
 <?php
 
-include 'query.php';
+require 'query.php'; // For querying to the database.
 
 $collection_id = 1;
 $photo_type = $_FILES['photo']['type'];
@@ -33,6 +33,7 @@ array(
 
 $result = query($action, $query, $params);
 
+// Alter the responses to provide feedback to the user.
 if ($result['outcome'] === 0)
 {
 	if ($result['response'] === 201)
@@ -43,7 +44,6 @@ if ($result['outcome'] === 0)
 	{
 		$result['response'] = "Server error!";
 	}
-	echo json_encode($result);
 }
 elseif ($result['outcome'] === 1)
 {
@@ -51,7 +51,8 @@ elseif ($result['outcome'] === 1)
 	{
 		$result['response'] = "Photo successfully uploaded!";
 	}
-	echo json_encode($result['response']);
 }
+
+echo json_encode($result['response']);
 
 ?>
