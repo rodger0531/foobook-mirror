@@ -2,6 +2,12 @@ This README file contains information about all changes relating to the 'App Log
 
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
+25/02/2014 - Philip 
+
+	- Successfully managed to hash the passwords (which is the easy part). Now we are using the so called Blowfish encryption algorythm. The cool part is that the code generates a unique salt code which improves security even more.
+	- Setup_database.php was populated for the hasing part we needed to add another column called "salt" it stores the randomly generated salt code. It is reuired for the verifycation part. Furthermore, the password length had to be increased to fit the new password.
+	- Sing in function still need to be finished. Unfortunately, at this stage it doesn't manage to match the pass in my opinion it simply does not take the salt element. But anyway please check the code so we can sort this out together.
+
 
 22/02/2014 - Tharman
 
