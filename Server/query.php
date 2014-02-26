@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 
 // Include the file containing the database connection class - which the below class will extend.
-require 'db_connect.php';
+include 'db_connect.php';
 
 /*
  * This class contains methods that can execute a SQL statement to the MySQL database.
@@ -48,7 +48,7 @@ class Query extends DB
 				else
 				{
 					$result['outcome'] = 1;
-					$result['response'] = $stmt->fetch(PDO::FETCH_OBJ);
+					$result['response']= $stmt->fetchAll(PDO::FETCH_OBJ);
 					return $result;
 				}
 			}
@@ -72,20 +72,26 @@ class Query extends DB
 	 */
 	private function bindSqlParams($stmt, $params)
 	{
-		foreach ($params as $x => $x_value)
+		try {
+			foreach ($params as $x => $x_value)
+			{
+				if (is_numeric($x_value))
+				{
+					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_INT);
+				}
+				elseif (is_string($x_value))
+				{
+					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
+				}
+				else
+				{
+					$stmt->bindValue(':' . $x, $x_value);
+				}
+			}
+		}
+		catch (PDOException $e)
 		{
-			if (is_numeric($x_value))
-			{
-				$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_INT);
-			}
-			elseif (is_string($x_value))
-			{
-				$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
-			}
-			else
-			{
-				$stmt->bindValue(':' . $x, $x_value);
-			}
+			return "Error: " . $e->getMessage() . "<br/>";
 		}
 	}
 
@@ -94,8 +100,7 @@ class Query extends DB
 /*
  * Start the process of constructing and executing a SQL query given the necessary parameters.
  */
-function query($action, $query, $params)
-{
+function query($action, $query, $params) {
 	return Query::execSql($action, $query, $params);
 }
 

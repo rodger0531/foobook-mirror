@@ -13,6 +13,6 @@ $("document").ready(function()
 
 function viewSuccess(data)
 {
-    $("#photoDesc").html(data['description']);
-    $("#photoSrc").html('<img src="data:image/jpeg;base64,' + data['photo'] + '" />');
+    $("#photoDesc").html(data[0].description);
+    $("#photoSrc").html('<img src="data:image/jpeg;base64,' + data[0].photoContent + '" />');
 }

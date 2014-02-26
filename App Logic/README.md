@@ -3,6 +3,20 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+26/02/2014 - Rdoger
+
+	- Added friendList.js
+		- The success function loops through each element of the returned array of objects, puts the appropriate data in its own div boxes, together in a collective div, to present the data as a list in the friendList.html.
+		- NOTE: need to change parameters to session's user_id
+	- Added friendList.php
+		- Query statement joins two tables in order to query the server for first_name, last_name and profile_picture.
+		- Loops through the returned array of objects from query.php, and encodes them through base64 in order for it to be passed through json_encode.
+		- This looping fucntion will have to be used in every json_encode for fetchAll to work in query.php.
+	- Altered viewPhoto.js
+		- The array obtained from AJAX has been changed due to fetchAll in query.php, so the method to call array elements of objects has been changed.
+	- Altered viewPhoto.php
+		-Similar as to the reason above, changed to adopt the fetchAll change made to query.php.
+
 25/02/2014 - Tharman
 
 	- Removed blowfish encryption files by common consensus.

@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+26/02/2014 - Rodger
+
+	- Altered query.php line 51 "fetch" to "fetchAll" in order to fetch all the rows from the database
+	- Altered setup_database.php where creating a table for photo, the column name for the actual photo content has been changed to photoContent to prevent confusions and server errors.
+
 25/02/2014 - Tharman
 
 	- Uploading some minor changes.
