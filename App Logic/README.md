@@ -3,6 +3,12 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+27/02/2014 - Rodger
+
+	- Added session.js to be able to store relevant information into session to be used later (i.e. user_id). Adapted the script from http://dreamerslab.com/blog/en/javascript-session/, and also instructions are on this webpage.
+	- Updated friendList.js to use user_id from session.
+
+
 26/02/2014 - Rdoger
 
 	- Added friendList.js

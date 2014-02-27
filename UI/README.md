@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+27/02/2014 - Rodger
+
+	- Updated friendList.html to include session.js in order to store user_id in a session
+
 26/02/2014 - Rodger
 	
 	- Added friendList.html to request the profile_picture and the user's name from the server and display them in multiple div boxes.

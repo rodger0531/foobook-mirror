@@ -1,14 +1,12 @@
 $("document").ready(function()
 {
-    // $("#signInForm").on('submit', function(event)
-    // {
-        // event.preventDefault();
+
         ajax(
-            'friendList',                     // PHP file to call on.
-            {user_id: 1},//NOTE:session user_id       // User_id from session goes here
-            readListSuccess                   // Callback method to use on success.
+            'friendList',                       // PHP file to call on.
+            {user_id: Session.get('user_id')},  // User_id from session goes here
+            readListSuccess                     // Callback method to use on success.
         );
-    // });
+
 });
 
 function readListSuccess(data)
