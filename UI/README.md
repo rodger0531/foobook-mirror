@@ -3,6 +3,17 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+03/03/2014 - Abdi and Philip
+
+	- Updated newsfeed.html to include:
+	 	- search.js in order to search for users and groups from the database
+	 	- session.js in order to store user_id in a session
+	 	- allresults.js in order to direct the user to the view all results page
+	 	- profile.js in order to direct the user to the profile page they clicked from the results 
+	 
+	- Add allResults.html to request the user_id, first_name, middle_name, last_name, profile_picture, groups_id, groups_name from the server
+	  and display them in mutliple div boxes in either the people div or group div.
+
 27/02/2014 - Rodger
 
 	- Updated friendList.html to include session.js in order to store user_id in a session

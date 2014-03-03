@@ -3,6 +3,26 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+03/03/2014 - Abdi and Philip
+
+	- Added userSearch.php
+		- queries the database for user_id, first_name, middle_name, last_name and profile_picture from the user table with a limit of 5 and returns the results.
+	- Added groupSearch.php 
+		- queries the database for groups_id and name from the groups table with a limit of 2 and returns the results.
+	- Added allUserSearch.php 
+		- queries the database for user_id, first_name, middle_name, last_name and profile_picture from the user table with no limits and returns the results.
+	- Added allGroupSearch.php 
+		- queries the database for groups_id and name from the groups table with no limits and returns the results.
+	- Added search.js
+		- The success function loops through each element of the returned array of objects, puts the appropriate data in its own div boxes, together in a collective div, to present the data as a list in newsfeed.html in the result div in the search bar. The results are limit to a maximum of 5 user results and maximum of 2 groups results.
+	- Added profile.js
+		- Gets the name (i.e. user_id or groups_id) of the div the user clicks on in the result div under the search bar and directs them to the profile.html. 
+		- NOTE: profile.html is used for test purpose and in fact does not exit. In the future, this would direct the user someone's profile page. 
+	- Added allResults.js
+		- directs the user to allResults.html where the user can view all results
+	- Added allResultsSeach.js
+		- The success function loops through each element of the returned array of objects, puts the appropriate data in its own div boxes, together in a collective div, to present the data as a list in allResults.html. The results are have no limits. 
+
 27/02/2014 - Rodger
 
 	- Added session.js to be able to store relevant information into session to be used later (i.e. user_id). Adapted the script from http://dreamerslab.com/blog/en/javascript-session/, and also instructions are on this webpage.
