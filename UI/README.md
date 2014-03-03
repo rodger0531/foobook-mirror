@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+03/03/2014 - Rodger
+
+	- Added friendBlock.html
+		- Allows user to block a friend, remove a friend from blocked list, and view all the user's blocked friend list
+
 03/03/2014 - Abdi and Philip
 
 	- Updated newsfeed.html to include:

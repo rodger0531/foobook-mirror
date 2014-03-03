@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Foobook - FriendBlock</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js "></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="ajax.js"></script>
+		<script src="friendBlock.js"></script>
+		<script src="session.js"></script>
+	</head>
+	<body>
+		<div>
+			<form id="blockFriend">
+				<h2>Enter friend id to block</h2>
+				<input type="text" name="block_id"/><br>
+				<input type="submit" name="submit" value="block">
+			</form>
+			<form id="removeBlockFriend">
+				<h2>Enter friend id to remove from block list</h2>
+				<input type="text" name="removeBlock_id"/><br>
+				<input type="submit" name="submit" value="block">
+			</form>
+		</div>
+		<h2>Friend Block List:</h2>
+		<div id="list">
+        </div>
+	</body>
+</html>

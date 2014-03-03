@@ -3,6 +3,17 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+03/03/2014 - Rodger
+
+	- Added addBlockList.php
+		- Inserts block_id of current user_id in session to the database.
+	- Added removeBlockList.php
+		- Removes block_id specified by the user, i.e. "unblock"
+	- Added viewFriendBlock.php
+		- Shows the user's block list on html (div created for each entry)
+	- Added friendBlock.js
+		- AJAX controller for block list.
+
 03/03/2014 - Abdi and Philip
 
 	- Added userSearch.php
