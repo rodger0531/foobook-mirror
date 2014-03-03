@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+03/03/2014 - Tharman
+	
+	- Using the newest version of 'setup_database.php'.
+	- Referential integrity is enforced as much as possible for all tables where necessary, except for the 'user' table - which requires other tables that would not have been created at that point.
+
 26/02/2014 - Rodger
 
 	- Altered query.php line 51 "fetch" to "fetchAll" in order to fetch all the rows from the database

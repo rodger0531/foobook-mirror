@@ -50,70 +50,48 @@ $con->query("CREATE TABLE IF NOT EXISTS user(user_id int unsigned auto_increment
 											 gender tinyint(1),
 											 city tinytext,
 											 country tinytext,
-											 profile_picture bigint unsigned not null default 0,
+											 profile_picture_id bigint unsigned not null default 1,
+											 profile_picture_collection_id bigint unsigned,
+											 default_photo_collection_id bigint unsigned,
 											 profile_visibility tinyint(1) not null default 0,
 											 chat_visibility tinyint(1) not null default 0
 											 )
 			") or die ($con->error);
 
-//FRIEND_CIRCLE
-$con->query("CREATE TABLE IF NOT EXISTS friend_circle(friend_id int unsigned not null,
-													  circle_id int unsigned not null,
-													  primary key(friend_id,circle_id)
-													  )
-			") or die ($con->error);
-
-//CIRCLE
-$con->query("CREATE TABLE IF NOT EXISTS circle(circle_id int unsigned auto_increment not null primary key,
-											   circle_name tinytext not null,
-											   owner_id int unsigned not null,
-											   foreign key(owner_id) references user(user_id)
-											   )
-			") or die ($con->error);
-
 //USER_FRIEND
-$con->query("CREATE TABLE IF NOT EXISTS user_friend(user_id int unsigned not null,
-												    friend_id int unsigned not null,
+$con->query("CREATE TABLE IF NOT EXISTS user_friend(user_id int unsigned not null references user(user_id),
+												    friend_id int unsigned not null references user(user_id),
 												    primary key(user_id,friend_id)
 												    )
 			") or die ($con->error);
 
 //USER_REQUEST
-$con->query("CREATE TABLE IF NOT EXISTS user_request(user_id int unsigned not null,
-													 request_id int unsigned not null,
+$con->query("CREATE TABLE IF NOT EXISTS user_request(user_id int unsigned not null references user(user_id),
+													 request_id int unsigned not null references user(user_id),
 													 primary key(user_id,request_id)
 													 )
 			") or die ($con->error);
 
 //USER_BLOCK
-$con->query("CREATE TABLE IF NOT EXISTS user_block(user_id int unsigned not null,
-												   block_id int unsigned not null,
+$con->query("CREATE TABLE IF NOT EXISTS user_block(user_id int unsigned not null references user(user_id),
+												   block_id int unsigned not null references user(user_id),
 												   primary key(user_id,block_id)
 												   )
 			") or die ($con->error);
 
-//USER_EDUCATION
-$con->query("CREATE TABLE IF NOT EXISTS user_education(user_id int unsigned not null,
-													   school_id int unsigned not null,
-													   start_date date,
-													   end_date date,
-													   primary key(user_id,school_id)
-													   )
+//SCHOOL
+$con->query("CREATE TABLE IF NOT EXISTS school(school_id int unsigned auto_increment not null primary key,
+											   school_name tinytext not null
+											   )
 			") or die ($con->error);
 
-//EDUCATION
-$con->query("CREATE TABLE IF NOT EXISTS education(school_id int unsigned auto_increment not null primary key,
-												  school_name tinytext not null
-												  )
-			") or die ($con->error);
-
-//USER_EMPLOYER
-$con->query("CREATE TABLE IF NOT EXISTS user_employer(user_id int unsigned not null,
-													  employer_id int unsigned not null,
-													  start_date date,
-													  end_date date,
-													  primary key(user_id,employer_id)
-													  )
+//USER_SCHOOL
+$con->query("CREATE TABLE IF NOT EXISTS user_school(user_id int unsigned not null references user(user_id),
+													school_id int unsigned not null references school(school_id),
+													start_date date,
+													end_date date,
+													primary key(user_id,school_id)
+													)
 			") or die ($con->error);
 
 //EMPLOYER
@@ -122,11 +100,28 @@ $con->query("CREATE TABLE IF NOT EXISTS employer(employer_id int unsigned auto_i
 												 )
 			") or die ($con->error);
 
-//USER_GROUPS
-$con->query("CREATE TABLE IF NOT EXISTS user_groups(user_id int unsigned not null,
-													groups_id bigint unsigned not null,
-													primary key(user_id,groups_id)
-													)
+//USER_EMPLOYER
+$con->query("CREATE TABLE IF NOT EXISTS user_employer(user_id int unsigned not null references user(user_id),
+													  employer_id int unsigned not null references employer(employer_id),
+													  start_date date,
+													  end_date date,
+													  primary key(user_id,employer_id)
+													  )
+			") or die ($con->error);
+
+//CIRCLE
+$con->query("CREATE TABLE IF NOT EXISTS circle(circle_id bigint unsigned auto_increment not null primary key,
+											   owner_id int unsigned not null,
+											   foreign key(owner_id) references user(user_id),
+											   circle_name tinytext not null
+											   )
+			") or die ($con->error);
+
+//FRIEND_CIRCLE
+$con->query("CREATE TABLE IF NOT EXISTS friend_circle(friend_id int unsigned not null references user(user_id),
+													  circle_id bigint unsigned not null references circle(circle_id),
+													  primary key(friend_id,circle_id)
+													  )
 			") or die ($con->error);
 
 //GROUPS
@@ -137,115 +132,16 @@ $con->query("CREATE TABLE IF NOT EXISTS groups(groups_id bigint unsigned auto_in
   			") or die ($con->error); 
 
 //GROUPS_ADMIN
-$con->query("CREATE TABLE IF NOT EXISTS groups_admin(groups_id bigint unsigned not null,
-													 admin_id int unsigned not null,
+$con->query("CREATE TABLE IF NOT EXISTS groups_admin(groups_id bigint unsigned not null references groups(groups_id),
+													 admin_id int unsigned not null references user(user_id),
 													 primary key(groups_id,admin_id)
 													 )
 			") or die ($con->error);
 
-//GROUPSWALLPOST
-$con->query("CREATE TABLE IF NOT EXISTS groupsWallPost(post_id bigint unsigned auto_increment not null primary key,
-													   groups_id bigint unsigned not null,
-													   foreign key(groups_id) references groups(groups_id),
-													   sender_id int unsigned not null,
-													   foreign key(sender_id) references user(user_id),
-													   post text,
-													   timestamp timestamp default current_timestamp,
-													   visibility_setting tinyint(1) not null default 0
-													   )
-			") or die ($con->error);
-
-//GROUPSWALLPOST_PHOTO
-$con->query("CREATE TABLE IF NOT EXISTS groupsWallPost_photo(post_id bigint unsigned not null,
-															 photo_id bigint unsigned not null,
-															 primary key(post_id,photo_id)
-															 )
-			") or die ($con->error);
-
-//GROUPSWALLPOSTComment
-$con->query("CREATE TABLE IF NOT EXISTS groupsWallPostComment(comment_id bigint unsigned auto_increment not null primary key,
-															   post_id bigint unsigned not null,
-															   foreign key(post_id) references groupsWallPost(post_id),
-															   sender_id int unsigned not null,
-															   foreign key(sender_id) references user(user_id),
-															   comment text not null,
-															   timestamp timestamp default current_timestamp,
-															   visibility_setting tinyint(1) not null default 0
-															   )
-			") or die ($con->error);
-
-//GROUPSWALLPOST_FRIENDVISIBILITY
-$con->query("CREATE TABLE IF NOT EXISTS groupsWallPost_friendVisibility(post_id bigint unsigned not null,
-																		friend_id int unsigned not null,
-																		primary key(post_id,friend_id),
-																		visibility_setting tinyint(1) not null default 0
-																		)
-			") or die ($con->error);
-
-//GROUPSWALLPOST_CIRCLEVISIBILITY
-$con->query("CREATE TABLE IF NOT EXISTS groupsWallPost_circleVisibility(post_id bigint unsigned not null,
-																		circle_id int unsigned not null,
-																		primary key(post_id,circle_id),
-																		visibility_setting tinyint(1) not null default 0
-																		)
-			") or die ($con->error);
-
-//USER_USERWALLPOST
-$con->query("CREATE TABLE IF NOT EXISTS user_userWallPost(user_id int unsigned not null,
-														  post_id bigint unsigned not null,
-														  primary key(user_id,post_id)
-														  )
-			") or die ($con->error);
-
-//USERWALLPOST
-$con->query("CREATE TABLE IF NOT EXISTS userWallPost(post_id bigint unsigned auto_increment not null primary key,
-													 sender_id int unsigned not null,
-													 foreign key(sender_id) references user(user_id),
-													 post text,
-													 timestamp timestamp default current_timestamp,
-													 visibility_setting tinyint(1) not null default 0
-													 )
-			") or die ($con->error);
-
-//USERWALLPOST_PHOTO
-$con->query("CREATE TABLE IF NOT EXISTS userWallPost_photo(post_id bigint unsigned not null,
-														   photo_id bigint unsigned not null,
-														   primary key(post_id,photo_id)
-														   )
-			") or die ($con->error);
-
-//USERWALLPOSTComment
-$con->query("CREATE TABLE IF NOT EXISTS userWallPostComment(comment_id bigint unsigned auto_increment not null primary key,
-															 post_id bigint unsigned not null,
-															 foreign key(post_id) references userWallPost(post_id),
-															 sender_id int unsigned not null,
-															 foreign key(sender_id) references user(user_id),
-															 comment text not null,
-															 timestamp timestamp default current_timestamp,
-															 visibility_setting tinyint(1) not null default 0
-															 )
-			") or die ($con->error);
-
-//USERWALLPOST_FRIENDVISIBILITY
-$con->query("CREATE TABLE IF NOT EXISTS userWallPost_friendVisibility(post_id bigint unsigned not null,
-																	  friend_id int unsigned not null,
-																	  primary key(post_id,friend_id),
-																	  visibility_setting tinyint(1) not null default 0
-																	  )
-			") or die ($con->error);
-
-//USERWALLPOST_CIRCLEVISIBILITY
-$con->query("CREATE TABLE IF NOT EXISTS userWallPost_circleVisibility(post_id bigint unsigned not null,
-																	  circle_id int unsigned not null,
-																	  primary key(post_id,circle_id),
-																	  visibility_setting tinyint(1) not null default 0
-																	  )
-			") or die ($con->error);
-
-//USER_THREAD
-$con->query("CREATE TABLE IF NOT EXISTS user_thread(user_id int unsigned not null,
-													thread_id bigint unsigned not null,
-													primary key(user_id,thread_id)
+//USER_GROUPS
+$con->query("CREATE TABLE IF NOT EXISTS user_groups(user_id int unsigned not null references user(user_id),
+													groups_id bigint unsigned not null references groups(groups_id),
+													primary key(user_id,groups_id)
 													)
 			") or die ($con->error);
 
@@ -255,24 +151,12 @@ $con->query("CREATE TABLE IF NOT EXISTS thread(thread_id bigint unsigned auto_in
 											   )
 			") or die ($con->error);
 
-//THREADMESSAGE
-$con->query("CREATE TABLE IF NOT EXISTS threadMessage(message_id bigint unsigned auto_increment not null primary key,
-													  thread_id bigint unsigned not null,
-													  foreign key(thread_id) references thread(thread_id),
-													  sender_id int unsigned not null,
-													  foreign key(sender_id) references user(user_id),
-													  message text,
-													  timestamp timestamp default current_timestamp
-													  )
+//USER_THREAD
+$con->query("CREATE TABLE IF NOT EXISTS user_thread(user_id int unsigned not null references user(user_id),
+													thread_id bigint unsigned not null references thread(thread_id),
+													primary key(user_id,thread_id)
+													)
 			") or die ($con->error);
-
-//THREADMESSAGE_PHOTO
-$con->query("CREATE TABLE IF NOT EXISTS threadMessage_photo(message_id bigint unsigned not null,
-															photo_id bigint unsigned not null,
-															primary key(message_id,photo_id)
-															)
-			") or die ($con->error);
-
 
 //COLLECTION
 $con->query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned auto_increment not null primary key,
@@ -284,42 +168,29 @@ $con->query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned
 			") or die ($con->error);
 
 //COLLECTION_FRIENDVISIBLITY
-$con->query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_id bigint unsigned not null,
-																	friend_id int unsigned not null,
+$con->query("CREATE TABLE IF NOT EXISTS collection_friendVisibility(collection_id bigint unsigned not null references collection(collection_id),
+																	friend_id int unsigned not null references user(user_id),
 																	primary key(collection_id,friend_id),
 																	visibility_setting tinyint(1) not null default 0
 																	)
 			") or die ($con->error);
 
 //COLLECTION_CIRCLEVISIBLITY
-$con->query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_id bigint unsigned not null,
-																	circle_id int unsigned not null,
+$con->query("CREATE TABLE IF NOT EXISTS collection_circleVisibility(collection_id bigint unsigned not null references collection(collection_id),
+																	circle_id bigint unsigned not null references circle(circle_id),
 																	primary key(collection_id,circle_id),
 																	visibility_setting tinyint(1) not null default 0
 																	)
 			") or die ($con->error);
 
-
 //PHOTO
 $con->query("CREATE TABLE IF NOT EXISTS photo(photo_id bigint unsigned auto_increment not null primary key,
-											  collection_id bigint unsigned not null,
+											  collection_id bigint unsigned,
 											  foreign key(collection_id) references collection(collection_id),
-											  photo mediumblob not null,
+											  photo_content mediumblob not null,
 											  description tinytext,
 											  visibility_setting tinyint(1) not null default 0
 											  )
-			") or die ($con->error);
-
-//PHOTOCOMMENT
-$con->query("CREATE TABLE IF NOT EXISTS photoComment(comment_id bigint unsigned auto_increment not null primary key,
-													 photo_id bigint unsigned not null,
-													 foreign key(photo_id) references photo(photo_id),
-													 sender_id int unsigned not null,
-													 foreign key(sender_id) references user(user_id),
-													 comment text not null,
-													 timestamp timestamp default current_timestamp,
-													 visibility_setting tinyint(1) not null default 0
-													 )
 			") or die ($con->error);
 
 //PHOTO_FRIENDVISIBILITY
@@ -332,10 +203,46 @@ $con->query("CREATE TABLE IF NOT EXISTS photo_friendVisibility(photo_id bigint u
 
 //PHOTO_CIRCLEVISIBILITY
 $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint unsigned not null,
-															   circle_id int unsigned not null,
+															   circle_id bigint unsigned not null,
 															   primary key(photo_id,circle_id),
 															   visibility_setting tinyint(1) not null default 0
 															   )
+			") or die ($con->error);
+
+//MESSAGE
+$con->query("CREATE TABLE IF NOT EXISTS message(message_id bigint unsigned auto_increment not null primary key,
+												from_id int unsigned not null,
+												foreign key(from_id) references user(user_id),
+												userWall_id int unsigned,
+												foreign key(userWall_id) references user(user_id),
+												groupWall_id bigint unsigned,
+												foreign key(groupWall_id) references groups(groups_id),
+												thread_id bigint unsigned,
+												foreign key(thread_id) references thread(thread_id),
+												photo_id bigint unsigned,
+												foreign key(photo_id) references photo(photo_id),
+												response_to_id bigint unsigned,
+												foreign key(response_to_id) references message(message_id),
+												message_string text not null,
+												timestamp timestamp not null default current_timestamp,
+												visibility_setting tinyint(1) not null default 0
+												)
+			") or die ($con->error);
+
+//MESSAGE_FRIENDVISIBILITY
+$con->query("CREATE TABLE IF NOT EXISTS message_friendVisibility(message_id bigint unsigned not null references message(message_id),
+																 friend_id int unsigned not null references user(user_id),
+																 primary key(message_id,friend_id),
+																 visibility_setting tinyint(1) not null default 0
+																 )
+			") or die ($con->error);
+
+//MESSAGE_CIRCLEVISIBILITY
+$con->query("CREATE TABLE IF NOT EXISTS message_circleVisibility(message_id bigint unsigned not null references message(message_id),
+																 circle_id bigint unsigned not null references circle(circle_id),
+																 primary key(message_id,circle_id),
+																 visibility_setting tinyint(1) not null default 0
+																 )
 			") or die ($con->error);
 
 // Close the PDO connection to the database.
