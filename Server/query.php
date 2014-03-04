@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 
 // Include the file containing the database connection class - which the below class will extend.
-include 'db_connect.php';
+require 'db_connect.php';
 
 /*
  * This class contains methods that can execute a SQL statement to the MySQL database.
@@ -23,7 +23,14 @@ class Query extends DB
 	{
 		try
 		{
-			$result = array('outcome' => 0, 'response' => "default"); // Initialise the result array.
+			if ($action === 1)
+			{
+				$result = array('outcome' => 0, 'insertId' => 0, 'response' => "default"); // Initialise the result array.
+			}
+			else 
+			{
+				$result = array('outcome' => 0, 'response' => "default"); // Initialise the result array.
+			}
 			$pdo = parent::connectMySql();
 			$stmt = $pdo->prepare($query);
 			self::bindSqlParams($stmt, $params);
@@ -34,7 +41,6 @@ class Query extends DB
 				$result['response'] = 201;
 				return $result;
 			}
-			$pdo = null; // Reset the PDO object.
 			// If attempting to read from the database, need to output a result set.
 			if ($action === 2)
 			{
@@ -54,10 +60,15 @@ class Query extends DB
 			}
 			else
 			{
+				if ($action === 1)
+				{
+					$result['insertId'] = $pdo->lastInsertId();
+				}
 				$result['outcome'] = 1;
 				$result['response'] = 200;
 				return $result;
 			}
+			$pdo = null; // Reset the PDO object.
 		}
 		catch (PDOException $e)
 		{
@@ -72,26 +83,20 @@ class Query extends DB
 	 */
 	private function bindSqlParams($stmt, $params)
 	{
-		try {
-			foreach ($params as $x => $x_value)
-			{
-				if (is_numeric($x_value))
-				{
-					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_INT);
-				}
-				elseif (is_string($x_value))
-				{
-					$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
-				}
-				else
-				{
-					$stmt->bindValue(':' . $x, $x_value);
-				}
-			}
-		}
-		catch (PDOException $e)
+		foreach ($params as $x => $x_value)
 		{
-			return "Error: " . $e->getMessage() . "<br/>";
+			if (is_numeric($x_value))
+			{
+				$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_INT);
+			}
+			elseif (is_string($x_value))
+			{
+				$stmt->bindValue(':' . $x, $x_value, PDO::PARAM_STR);
+			}
+			else
+			{
+				$stmt->bindValue(':' . $x, $x_value);
+			}
 		}
 	}
 
@@ -100,7 +105,8 @@ class Query extends DB
 /*
  * Start the process of constructing and executing a SQL query given the necessary parameters.
  */
-function query($action, $query, $params) {
+function query($action, $query, $params)
+{
 	return Query::execSql($action, $query, $params);
 }
 

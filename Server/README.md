@@ -3,6 +3,16 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+04/03/2014 - Tharman
+
+	- Updated the 'query.php' file. SOME CHANGES MAY OR MAY NOT BE NEEDED NOW!
+	- Specifically, if anything that has been worked on thus far includes INSERTING a record into the database, and then using this new record to insert a different record - changes will definitely be needed.
+	- Otherwise, shouldn't be a problem.
+
+	- Updated the setup-database.php file.
+	- In the 'message' table, the actual 'message_string' field cannot be null - because this is equivalent to posting an empty message.
+	- Created a junction table between 'message' and 'photo' called 'message_photo' which will link a post to a free-floating image that they may have attached.
+
 03/03/2014 - Tharman
 	
 	- Using the newest version of 'setup_database.php'.
