@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+04/03/2014 - Tharman
+
+	- Manually merged my changes, Abdi and Philip's into a single 'homepage.html' file.
+	- Now includes posting to the wall.
+
 03/03/2014 - Rodger
 
 	- Added friendBlock.html
