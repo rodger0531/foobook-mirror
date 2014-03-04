@@ -1,28 +1,15 @@
 <?php
 
-require 'password.php'; // For password hashing functions.
-
 require 'query.php'; // For querying to the database.
 
-if (
-	empty($_POST['email'])
-	|| empty($_POST['password'])
-	)
-{
-	$result = array('outcome' => 0, 'response' => "All input fields must be completed!");
-	echo json_encode($result);
-	return;
-}
-
-$email = $_POST['email'];
-$password = $_POST['password'];
+$user_id = $_POST['user_id'];
 
 // Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
 $action = 2; // 2 indicates that the database is being READ from.
 
 // Define a SQL query that can retreive the user's email given their email.
 $query = "
-SELECT user_id, password
+SELECT password
 FROM user
 WHERE email = :email
 ";
@@ -53,14 +40,14 @@ if ($result['outcome'] === 0)
 }
 elseif ($result['outcome'] === 1)
 {
-	if (password_verify($password, $result['response'][0]->password))
+	if (password_verify($password, $result['response']->password))
 	{
-		$result['response'] = $result['response'][0]->user_id;
+		echo json_encode($result['response']->password);
 	}
 	else
 	{
-		$result['outcome'] = 0;
 		$result['response'] = "Incorrect password entered!";
+		echo json_encode($result['response']);
 	}
 }
 

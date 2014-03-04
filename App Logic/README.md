@@ -3,6 +3,15 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+04/03/2014 - Tharman
+
+	- Added updated sign in/sign up stuff.
+	- Should be final.
+
+	- Added the wall post stuff.
+	- This adds in the functinality for uploading a post with optional image to the messages table.
+	- Would probably need to describe the overall scheme in person - a bit complicated. Ask me later. Or read the github changelog.
+
 03/03/2014 - Rodger
 
 	- Added addBlockList.php

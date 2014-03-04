@@ -13,7 +13,8 @@ if (
 	|| empty($_POST['gender'])
 	)
 {
-	echo json_encode("All input fields must be completed!");
+	$result = array('outcome' => 0, 'response' => "All input fields must be completed!");
+	echo json_encode($result);
 	return;
 }
 
@@ -56,7 +57,7 @@ $result = query($action, $query, $params);
 
 if ($result['outcome'] === 1)
 {
-	if ($result['response']->count !== '0')
+	if ($result['response'][0]->count !== '0')
 	{
 		echo json_encode("There is already an account linked with this email address!");
 		return;
@@ -100,7 +101,7 @@ $result = query($action, $query, $params);
 
 if ($result['outcome'] === 1)
 {
-	echo json_encode("Thanks for signing up " . $first_name . "!");
+	echo json_encode($result);
 }
 else
 {
@@ -108,23 +109,30 @@ else
 }
 
 /*
- * Get the id of the user record just created.
+ * Set a temporary variable to hold the user's newly generated id.
+ */
+
+$user_id = $result['insertId'];
+
+/*
+ * Create a default collection for the user's profile pictures.
  */
 
 // Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
-$action = 2; // 2 indicates that the database is being READ from.
+$action = 1; // 1 indicates that a record is being INSERTED into the database.
 
-// Define a SQL query that can read through the user table to match on the email address.
+// Define a SQL query that can create a user collection.
 $query = "
-SELECT user_id
-FROM user
-WHERE email = :email
+INSERT INTO collection
+SET	user_id = :user_id,
+	name = :name
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
-	'email' => $email
+	'user_id' => $user_id,
+	'name' => 'profile_pictures'
 );
 
 $result = query($action, $query, $params);
@@ -133,6 +141,12 @@ if ($result['outcome'] === 0)
 {
 	die;
 }
+
+/*
+ * Set a temporary variable to hold the user's newly generated default photo collection.
+ */
+
+$profile_picture_collection_id = $result['insertId'];
 
 /*
  * Create a default collection for the user's photos.
@@ -151,8 +165,44 @@ SET	user_id = :user_id,
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
-	'user_id' => $result['response']->user_id,
-	'name' => '*'
+	'user_id' => $user_id,
+	'name' => 'uploaded_photos'
+);
+
+$result = query($action, $query, $params);
+
+if ($result['outcome'] === 0)
+{
+	die;
+}
+
+/*
+ * Set a temporary variable to hold the user's newly generated default photo collection.
+ */
+
+$default_photo_collection_id = $result['insertId'];
+
+/*
+ * Update the user's details with the new default collection details.
+ */
+
+// Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
+$action = 3; // 3 indicates that a record is being UPDATED in the database.
+
+// Define a SQL query that can update the user's details.
+$query = "
+UPDATE user
+SET	profile_picture_collection_id = :profile_picture_collection_id,
+	default_photo_collection_id = :default_photo_collection_id
+WHERE user_id = :user_id
+";
+
+// Define the parameters of the query depending on the information the user inputted.
+$params =
+array(
+	'user_id' => $user_id,
+	'profile_picture_collection_id' => $profile_picture_collection_id,
+	'default_photo_collection_id' => $default_photo_collection_id
 );
 
 $result = query($action, $query, $params);
