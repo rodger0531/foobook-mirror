@@ -211,7 +211,7 @@ $con->query("CREATE TABLE IF NOT EXISTS photo_circleVisibility(photo_id bigint u
 
 //MESSAGE
 $con->query("CREATE TABLE IF NOT EXISTS message(message_id bigint unsigned auto_increment not null primary key,
-												from_id int unsigned not null,
+												sender_id int unsigned not null,
 												foreign key(from_id) references user(user_id),
 												userWall_id int unsigned,
 												foreign key(userWall_id) references user(user_id),
@@ -221,7 +221,7 @@ $con->query("CREATE TABLE IF NOT EXISTS message(message_id bigint unsigned auto_
 												foreign key(thread_id) references thread(thread_id),
 												photo_id bigint unsigned,
 												foreign key(photo_id) references photo(photo_id),
-												response_to_id bigint unsigned,
+												comment_on_id bigint unsigned,
 												foreign key(response_to_id) references message(message_id),
 												message_string text not null,
 												timestamp timestamp not null default current_timestamp,
