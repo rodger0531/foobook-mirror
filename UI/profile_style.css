@@ -32,8 +32,7 @@ html, body {
 }
 .inner_wrapper{
     margin: 0 auto;
-    padding: 2.5% 0 ;
-/*    overflow: hidden; */
+    padding: 2.9% 0 ;
     height: 100%;    
     border: 1px solid red;
 }
@@ -45,6 +44,7 @@ html, body {
     border: 3px solid red;
     float: left;
     overflow: hidden;
+    position: fixed;
 }
 .left_sidebar {
     border: 2px solid blue;
@@ -111,7 +111,7 @@ html, body {
 
 /*Content elements styling!*/
 .activity {
-    width: 101%;
+    width: 101.2%;
     height: 100%;
     margin: 0 auto;
     padding: 0 0;
