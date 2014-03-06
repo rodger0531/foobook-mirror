@@ -3,6 +3,12 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+06/04/2014 - Philip
+
+	- Added the message.html and the supporting CSS and JS files.
+	- We have multiple scrollable options.
+	- The actual message boxes are depending on the iptuted text. So they resize.
+
 05/04/2014 - Philip
 
 	- Added the profile.html page and the supporting CSS and JS files.
