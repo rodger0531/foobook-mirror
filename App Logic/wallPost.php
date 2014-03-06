@@ -37,7 +37,7 @@ if ($groupWall_id === 0)
 	// Define a SQL query that can create the record.
 	$query = "
 		INSERT INTO message
-		SET from_id = :from_id,
+		SET sender_id = :sender_id,
 			userWall_id = :userWall_id,
 			message_string = :message_string
 		";
@@ -45,7 +45,7 @@ if ($groupWall_id === 0)
 	// Define the parameters of the query depending on the information the user inputted.
 	$params =
 	array(
-		'from_id' => $user_id,
+		'sender_id' => $user_id,
 		'userWall_id' => $userWall_id,
 		'message_string' => $message_string
 	);
@@ -54,7 +54,7 @@ else
 {
 	$query = "
 		INSERT INTO message
-		SET from_id = :from_id,
+		SET sender_id = :sender_id,
 			groupWall_id = :groupWall_id,
 			message_string = :message_string
 		";
@@ -62,7 +62,7 @@ else
 	// Define the parameters of the query depending on the information the user inputted.
 	$params =
 	array(
-		'from_id' => $user_id,
+		'sender_id' => $user_id,
 		'groupWall_id' => $groupWall_id,
 		'message_string' => $message_string
 	);

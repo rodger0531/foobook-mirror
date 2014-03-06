@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+06/03/2014 - Tharman
+
+	- Corrected the 'wallPost.php' file to use the updated field names currently being used for the 'message' table.
+
 04/03/2014 - Tharman
 
 	- Added updated sign in/sign up stuff.
