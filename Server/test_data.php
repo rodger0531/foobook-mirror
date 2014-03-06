@@ -1,95 +1,34 @@
 <?php
 
-//=========================================================
-//////////////////////INSTRUCTIONS/////////////////////////
-/*
-Cases:
-1 - reset database
-2 - clear user table and reset user_id auto-increment
-3 - create user
-4 - befriend two users
-5 - post on wall
-6 - create group
-7 - add user to group
-8 - post on group wall
-9 - create a circle
-*/
+include 'setup_database.php';
 
-/*
-Combos:
-1 - clean database
-		create 2 users
-		befriend them
-		create a group
-		add all users into group
-		post a message onto user 1's wall
-		user 1 posts message onto group wall
-*/
+user('Bat','Man','alfred@batmansion.com','robin','1934/01/01','0','Gotham city','USA');
+user('Super','Man','imnothere@krypton.com','kryptonite','1934/01/01','0','Metropolis','USA');
+user('Dr','Evil','irule@smallplanet.com','isuckthumbs','1934/01/01','0','Submarine','Under The Sea');
+user('Mini','Me','iloveeveil@smallplanet.com','theworld','1934/01/01','0','Submarine','Under Dr Evil');
+user('Spider','Man','ispinwebs@newyork.com','MJ','1934/01/01','0','Brooklyn','USA');
+user('Dr','Manhattan','idropbombs@manhattan.com','U235','1934/01/01','0','Manhattan','USA');
+user('Green','Lantern','iglow@greenmile.com','lantern','1934/01/01','0','wick','lantern');
+user('The','Flash','youcannotseeme@lightspeed.com','maythespeedbewithyou','1934/01/01','0','sun','universe');
 
-//=========================================================
-/////////////////////////EXECUTION/////////////////////////
-
-queryswitch(9);
-// comboswitch(1);
+befriend(1,2);
+befriend(2,1);
+befriend(1,7);
+befriend(7,1);
+befriend(1,8);
+befriend(8,1);
+befriend(2,7);
+befriend(7,2);
+befriend(2,8);
+befriend(8,2);
+befriend(3,4);
+befriend(4,3);
+befriend(5,6);
+befriend(6,5);
 
 
 //=========================================================
 
-function comboswitch($switch_case){
-	switch($switch_case){
-		case 1:
-			queryswitch(1);
-			queryswitch(3);
-			queryswitch(3);
-			queryswitch(4);
-			queryswitch(5);
-			queryswitch(6);
-			queryswitch(7);
-			queryswitch(8);
-			break;
-	}
-}
-
-
-function queryswitch($switch_case){
-	switch($switch_case){
-		case 1:
-			include 'setup_database.php';
-			break;
-
-		case 2:
-			clear();		
-			break;
-
-		case 3:
-			user();
-			break;
-
-		case 4:
-			befriend();
-			break;
-
-		case 5:
-			postwall();
-			break;
-
-		case 6:
-			creategroup();
-			break;
-
-		case 7:
-			addusertogroup();
-			break;
-
-		case 8:
-			postgroup();
-			break;
-
-		case 9:
-			createcircle();
-			break;
-	}
-}
 
 function createcircle(){
 	$con = connect();
@@ -97,9 +36,9 @@ function createcircle(){
 	$friend_id = 3;
 	$owner_id = 1;
 	$query = "INSERT INTO circle(owner_id, circle_name)
-						VALUES ('$owner_id','$circle_name');
-						INSERT INTO friend_circle(circle_id,friend_id)
-						VALUES ((SELECT circle_id FROM circle ORDER BY circle_id DESC LIMIT 1),'$friend_id')";
+			VALUES ('$owner_id','$circle_name');
+			INSERT INTO friend_circle(circle_id,friend_id)
+			VALUES ((SELECT circle_id FROM circle ORDER BY circle_id DESC LIMIT 1),'$friend_id')";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }
@@ -158,10 +97,10 @@ function postwall(){
 }
 
 
-function befriend(){
+function befriend($user_id,$friend_id){
 	$con = connect();
-	$user_id = 1;
-	$friend_id = 2;
+	// $user_id = $user_id;
+	// $friend_id = $friend_id;
 	$query = "INSERT INTO user_friend(user_id, friend_id) VALUES ('$user_id','$friend_id')";
 	$con->query($query) or die ($con->error);
 	unset($con);
@@ -176,32 +115,32 @@ function clear(){
 }
 
 
-function user(){
+function user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$city,$country){
 	$con = connect();
 		// Adding user
-	$first_name='Foo';
-	$middle_name='test';
-	$last_name='bar';
-	$email='foobar@foo.com';
-	$password='p4ssw0rd';
-	$date_of_birth='1337/05/22';
-	$gender=0;
-	$city='London';
-	$country='GB';
+	// $first_name=first;
+	$middle_name="";
+	// $last_name=last;
+	// $email=email;
+	// $password=pass;
+	// $date_of_birth=dob;
+	// $gender=gender;
+	// $city=city;
+	// $country=country;
 	// $profile_picture='';
 	// $profile_visibility='';
 	// $chat_visibility='';
 
 	$con->query("INSERT INTO user(first_name,
-																middle_name,
-																last_name,
-																email,
-																password,
-																date_of_birth,
-																gender,
-																city,
-																country
-																)VALUES('$first_name', '$middle_name', '$last_name', '$email', '$password', '$date_of_birth', '$gender','$city','$country')") or die ($con->error);
+								middle_name,
+								last_name,
+								email,
+								password,
+								date_of_birth,
+								gender,
+								city,
+								country
+								)VALUES('$first_name', '$middle_name', '$last_name', '$email', '$password', '$date_of_birth', '$gender','$city','$country')") or die ($con->error);
 	unset($con);
 }
 

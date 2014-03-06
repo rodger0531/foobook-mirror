@@ -49,7 +49,7 @@ This README file contains information about all changes relating to the 'App Log
 	- Updated friendList.js to use user_id from session.
 
 
-26/02/2014 - Rdoger
+26/02/2014 - Rodger
 
 	- Added friendList.js
 		- The success function loops through each element of the returned array of objects, puts the appropriate data in its own div boxes, together in a collective div, to present the data as a list in the friendList.html.

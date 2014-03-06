@@ -3,6 +3,12 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+06/03/2014 - Rodger
+
+	- Added test_data.php
+		- Adds 8 users and befriends them.
+		- Will be updated in future to meet our needs.
+
 04/03/2014 - Tharman
 
 	- Updated the 'query.php' file. SOME CHANGES MAY OR MAY NOT BE NEEDED NOW!
