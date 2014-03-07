@@ -3,13 +3,17 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
-06/04/2014 - Philip
+06/03/2014 - Abdi 
+
+	- Updated 'allResults.html' to include the neccessary css files 
+
+06/03/2014 - Philip
 
 	- Added the message.html and the supporting CSS and JS files.
 	- We have multiple scrollable options.
-	- The actual message boxes are depending on the iptuted text. So they resize.
+	- The actual message boxes are depending on the inputed text. So they resize.
 
-05/04/2014 - Philip
+05/03/2014 - Philip
 
 	- Added the profile.html page and the supporting CSS and JS files.
 	- This is only a sceleton so we can start matching the database with the UI.

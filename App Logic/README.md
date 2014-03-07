@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+06/03/2014 - Abdi 
+
+	- Corrected 'search.js', 'usersearch.php', 'allUserSearch.php', 'allResultsSearch.js' files so that search works. For some reason there is a conflict between 'menu.js' and 'search.js'. The view all results div in the search results is shown when the page is loaded if the 'menu.js' is connected but when I comment out the 'menu.js' the view all results div is hidden which is what we need. 
+	- Added comments to 'profile.js'
+
 06/03/2014 - Tharman
 
 	- Corrected the 'wallPost.php' file to use the updated field names currently being used for the 'message' table.

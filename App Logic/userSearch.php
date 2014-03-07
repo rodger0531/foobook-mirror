@@ -9,9 +9,9 @@ $action = 2; // 2 indicates that the database is being READ from.
 
 // Define a SQL query so that server can retrieve user friend's first name, last name and profile pic.
 $query = "
-SELECT user.user_id, user.first_name, user.middle_name, user.last_name, photo.photoContent
+SELECT user.user_id, user.first_name, user.middle_name, user.last_name, photo.photo_content
 FROM user, photo
-WHERE user.profile_picture = photo.photo_id 
+WHERE user.profile_picture_id = photo.photo_id
 AND (user.first_name like '%$user_input%' or user.middle_name like '%$user_input%' or user.last_name like '%$user_input%')
 LIMIT 5;
 ";
@@ -47,7 +47,7 @@ elseif ($result['outcome'] === 1)
 	$x = 0;
 	foreach ($result['response'] as $user) {
 		$result['response'][$x] = $user;
-		$result['response'][$x]->photoContent = base64_encode($user->photoContent);
+		$result['response'][$x]->photo_content = base64_encode($user->photo_content);
 		if($user->middle_name === null){
 			$result['response'][$x]->middle_name = "";
 		}

@@ -55,7 +55,7 @@ function successCallbackUser(data)
         data.forEach(function(element){
             $('.showUserResults').append(   '<div class="showUsers" align="left" style="border:1px solid red; height:50px; padding:20px; margin-top:-1px;"  name="'+ element.user_id +'">'+ 
                                                 '<a href="#" onClick="profile();" style="text-decoration: none">' + 
-                                                    '<img src="data:image/jpeg;base64,'+ element.photoContent + '" style="width:50px; height:50px; float:left; margin-right:6px;" />' + 
+                                                    '<img src="data:image/jpeg;base64,'+ element.photo_content + '" style="width:50px; height:50px; float:left; margin-right:6px;" />' + 
                                                     '<span style="margin-left: 10px;">' + element.first_name+' '+element.middle_name +' '+ element.last_name + '</span>'+
                                                 '</a>' +
                                             '</div>' 
