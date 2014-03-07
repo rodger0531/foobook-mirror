@@ -2,15 +2,17 @@
 
 include 'setup_database.php';
 
+//user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$city,$country)
 user('Bat','Man','alfred@batmansion.com','robin','1934/01/01','0','Gotham city','USA');
 user('Super','Man','imnothere@krypton.com','kryptonite','1934/01/01','0','Metropolis','USA');
 user('Dr','Evil','irule@smallplanet.com','isuckthumbs','1934/01/01','0','Submarine','Under The Sea');
 user('Mini','Me','iloveeveil@smallplanet.com','theworld','1934/01/01','0','Submarine','Under Dr Evil');
 user('Spider','Man','ispinwebs@newyork.com','MJ','1934/01/01','0','Brooklyn','USA');
-user('Dr','Manhattan','idropbombs@manhattan.com','U235','1934/01/01','0','Manhattan','USA');
+user('Dr','Manhattan','idropbombs@manhattan.com','U-235','1934/01/01','0','Manhattan','USA');
 user('Green','Lantern','iglow@greenmile.com','lantern','1934/01/01','0','wick','lantern');
 user('The','Flash','youcannotseeme@lightspeed.com','maythespeedbewithyou','1934/01/01','0','sun','universe');
 
+//befriend($user_id,$friend_id)
 befriend(1,2);
 befriend(2,1);
 befriend(1,7);
@@ -26,72 +28,90 @@ befriend(4,3);
 befriend(5,6);
 befriend(6,5);
 
+//postwall($sender_id,$userWall_id,$message_string){
+postwall(1,1,"I am a Bat(scat)man!");
 
+//creategroup($user_id,$admin_id,$name)
+creategroup(3,3,"Project Apocalypse");
+creategroup(2,2,"How to save the world");
+
+//addusertogroup($user_id,$groups_id)
+addusertogroup(4,1);
+addusertogroup(6,1);
+addusertogroup(1,2);
+addusertogroup(8,2);
+addusertogroup(5,2);
+
+//postgroup($sender_id,$groupWall_id,$message_string)
+postgroup(2,2,"Picnic tomorrow on top of Eiffel Tower");
+postgroup(8,2,"I have to get new shoes");
+postgroup(7,2,"My batteries need replacing");
+postgroup(3,1,"Destruction 101");
+postgroup(6,1,"Anyone know where I can find U-237?");
+
+// createcircle($owner_id,$circle_name)
+createcircle(1,"saving-the-world buddies");
+
+//addfriendtocircle($circle_id,$friend_id)
+addfriendtocircle(1,2);
+addfriendtocircle(1,5);
+addfriendtocircle(1,7);
+addfriendtocircle(1,8);
+
+echo ("Done! \n");
 //=========================================================
 
-
-function createcircle(){
+function addfriendtocircle($circle_id,$friend_id){
 	$con = connect();
-	$circle_name = "UCL colleagues";
-	$friend_id = 3;
-	$owner_id = 1;
+	$query = "INSERT INTO friend_circle(circle_id,friend_id)
+			  VALUES ($circle_id,'$friend_id')";
+	$con->query($query) or die ($con->error);
+	unset($con);
+}
+
+function createcircle($owner_id,$circle_name){
+	$con = connect();
 	$query = "INSERT INTO circle(owner_id, circle_name)
-			VALUES ('$owner_id','$circle_name');
-			INSERT INTO friend_circle(circle_id,friend_id)
-			VALUES ((SELECT circle_id FROM circle ORDER BY circle_id DESC LIMIT 1),'$friend_id')";
+			  VALUES ('$owner_id','$circle_name')";			
+	$con->query($query) or die ($con->error);
+	unset($con);
+}
+
+function postgroup($sender_id,$groupWall_id,$message_string){
+	$con = connect();
+	$query = "INSERT INTO message(sender_id, groupWall_id, message_string)
+			  VALUES ('$sender_id','$groupWall_id','$message_string')";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }
 
 
-function postgroup(){
+function addusertogroup($user_id,$groups_id){
 	$con = connect();
-	$sender_id = 1;
-	$post = "Picnic on Sunday!";
-	$groups_id = 1;
-	$query = "INSERT INTO groupsWallPost(sender_id, post, groups_id)
-						VALUES ('$sender_id','$post', '$groups_id')";
-	$con->query($query) or die ($con->error);
-	unset($con);
-}
-
-
-function addusertogroup(){
-	$con = connect();
-	$groups_id = 1;
-	$user_id = 2;
 	$query = "INSERT INTO user_groups(user_id,groups_id)
-						VALUES ('$user_id','$groups_id')";
+			  VALUES ('$user_id','$groups_id')";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }
 
 
-function creategroup(){
+function creategroup($user_id,$admin_id,$name){
 	$con = connect();
-	$user_id = 1;
-	$admin_id = $user_id;
-	$name = "badminton club";
 	$query = "INSERT INTO groups(name)
-						VALUES ('$name');
-						INSERT INTO user_groups(user_id, groups_id)
-						VALUES('$user_id', (SELECT groups_id FROM groups ORDER BY groups_id DESC LIMIT 1));
-						INSERT INTO groups_admin(admin_id, groups_id)
-						VALUES('$user_id', (SELECT groups_id FROM groups ORDER BY groups_id DESC LIMIT 1))";
+			  VALUES ('$name');
+			  INSERT INTO user_groups(user_id, groups_id)
+			  VALUES('$user_id', (SELECT groups_id FROM groups ORDER BY groups_id DESC LIMIT 1));
+			  INSERT INTO groups_admin(admin_id, groups_id)
+  			  VALUES('$user_id', (SELECT groups_id FROM groups ORDER BY groups_id DESC LIMIT 1))";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }
 
 
-function postwall(){
+function postwall($sender_id,$userWall_id,$message_string){
 	$con = connect();
-	$user_id = 1;
-	$sender_id = 2;
-	$post = "test test";
-	$query = "INSERT INTO userWallPost(sender_id, post)
-						VALUES ('$sender_id','$post');
-						INSERT INTO user_userWallPost(user_id, post_id)
-						VALUES('$user_id', (SELECT post_id FROM userWallPost ORDER BY timestamp DESC LIMIT 1))";
+	$query = "INSERT INTO message(sender_id,userWall_id,message_string)
+				VALUES ('$sender_id','$userWall_id','$message_string')";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }
@@ -99,38 +119,16 @@ function postwall(){
 
 function befriend($user_id,$friend_id){
 	$con = connect();
-	// $user_id = $user_id;
-	// $friend_id = $friend_id;
-	$query = "INSERT INTO user_friend(user_id, friend_id) VALUES ('$user_id','$friend_id')";
+	$query = "INSERT INTO user_friend(user_id, friend_id)
+			  VALUES ('$user_id','$friend_id')";
 	$con->query($query) or die ($con->error);
-	unset($con);
-}
-
-
-function clear(){
-	$con = connect();
-	$query  = "DELETE FROM user; ALTER TABLE user AUTO_INCREMENT = 1";
-	$con->query($query) or die ($con->error);;
 	unset($con);
 }
 
 
 function user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$city,$country){
 	$con = connect();
-		// Adding user
-	// $first_name=first;
 	$middle_name="";
-	// $last_name=last;
-	// $email=email;
-	// $password=pass;
-	// $date_of_birth=dob;
-	// $gender=gender;
-	// $city=city;
-	// $country=country;
-	// $profile_picture='';
-	// $profile_visibility='';
-	// $chat_visibility='';
-
 	$con->query("INSERT INTO user(first_name,
 								middle_name,
 								last_name,

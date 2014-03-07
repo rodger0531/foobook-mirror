@@ -3,6 +3,16 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+07/03/2014 - Rodger
+	
+	- Updated test_data.php
+		- Added the function to post on user walls
+		- Added the function to create groups
+		- Added the function to add user to groups
+		- Added the function to create a circle
+		- Added the function to add user to circles
+		- Added the function to post on group wall
+
 06/03/2014 - Rodger
 
 	- Added test_data.php
