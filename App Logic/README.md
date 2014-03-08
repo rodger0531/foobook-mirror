@@ -7,6 +7,7 @@ This README file contains information about all changes relating to the 'App Log
 
 	- Created an overall 'homepage.js' controller file to control the document ready functions.
 	- Should not be any conflicts in functionality.
+	- Removed unnecessary 'profile.js' and 'allResults.js'.
 
 06/03/2014 - Abdi 
 
