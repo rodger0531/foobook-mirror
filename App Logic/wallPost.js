@@ -1,4 +1,4 @@
-$(window).load(function()
+function wallPostFunctionality()
 {
     var intervalFunc = function ()
     {
@@ -12,7 +12,7 @@ $(window).load(function()
         setInterval(intervalFunc, 1);
     });
 
-	$("#postThis").on('click', function(event)
+    $("#postThis").on('click', function(event)
     {
         event.preventDefault();
         var formData = new FormData($("#wallPostForm")[0]);
@@ -32,7 +32,7 @@ $(window).load(function()
             processData: false
         });
     });
-});
+}
 
 function postSuccess(data)
 {

@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+08/03/2014
+
+	- Updated 'homepage.js' to include an overall controller js file.
+
 06/03/2014 - Abdi 
 
 	- Updated 'allResults.html' to include the neccessary css files 

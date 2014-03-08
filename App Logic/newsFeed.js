@@ -1,17 +1,17 @@
-$(window).load(function()
+function newsFeedFunctionality()
 {
 	ajax(
-		'newsFeed',									// PHP file to call on.
+		'newsFeed',
 		{
-			'user_id' : Session.get('user_id')		// Data needed.
+			'user_id' : Session.get('user_id')
 		},
-		newsFeedSuccess								// Callback method to use on success.
+		newsFeedSuccess
 	);
-});
+}
 
 function newsFeedSuccess(data)
 {
-	//alert(data);
+	//alert(data['response']);
 	/*
 	if (data['outcome'] === 1)
     {
