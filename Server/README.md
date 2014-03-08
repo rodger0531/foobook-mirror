@@ -3,6 +3,13 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+08/03/2014 - Rodger
+
+	- Developed the SQL query for creating a thread between two users if there are no existing conversations, or continues on an existing thread.
+	- Update test_data.php
+		- Added messaging function between two people.
+		- Need to look at how a group of people message each other.
+
 07/03/2014 - Rodger
 	
 	- Updated test_data.php

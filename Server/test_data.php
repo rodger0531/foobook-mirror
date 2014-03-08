@@ -58,8 +58,50 @@ addfriendtocircle(1,5);
 addfriendtocircle(1,7);
 addfriendtocircle(1,8);
 
+//sendmessage($sender_id,$recipient_id,$message_string,$name)
+//NOTE: $name will be ignored if there is an existing thread
+sendmessage(1,2,'I saw you and batwomen yesterday, you might want to use thicker walls. #X-rayVision','NULL');
+
+
 echo ("Done! \n");
 //=========================================================
+
+function sendmessage($sender_id,$recipient_id,$message_string,$name){
+	$con = connect();
+	// checks if a conversation thread exists
+	$querycheck = "SELECT user_thread.thread_id
+				   FROM
+				   (
+					   SELECT DISTINCT thread_id, COUNT( thread_id ) AS CountOf, user_id
+					   FROM user_thread AS T1
+					   GROUP BY thread_id
+					   HAVING user_id = $sender_id AND CountOf = 2
+				   )
+				   AS T2
+				   JOIN user_thread
+				   ON T2.thread_id  = user_thread.thread_id
+				   WHERE user_thread.user_id = '$recipient_id'";
+	
+	$stmt = $con->prepare($querycheck);
+	$stmt->execute();
+	$result= $stmt->fetch();
+	if (!$result){
+		// creates a new conversation thread_id
+		$querycreate = "INSERT INTO thread(name) VALUES ('$name');
+						INSERT INTO user_thread(user_id,thread_id) VALUES ('$sender_id',LAST_INSERT_ID());
+						INSERT INTO user_thread(user_id,thread_id) VALUES ('$recipient_id',LAST_INSERT_ID());
+						INSERT INTO message(sender_id,thread_id,message_string) VALUES ('$sender_id',LAST_INSERT_ID(),'$message_string')";
+		$stmt = $con->prepare($querycreate);
+	} else {
+		$existing_thread = $result['thread_id'];
+		// continues a thread
+		$querycurrent = "INSERT INTO message(sender_id,thread_id,message_string) VALUES ('$sender_id','$existing_thread','$message_string')";
+		$stmt = $con->prepare($querycurrent);
+	}
+	$stmt->execute();
+	unset($con);
+}
+
 
 function addfriendtocircle($circle_id,$friend_id){
 	$con = connect();
