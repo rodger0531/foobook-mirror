@@ -3,7 +3,7 @@
 include 'setup_database.php';
 
 //user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$city,$country)
-user('Bat','Man','alfred@batmansion.com','robin','1934/01/01','0','Gotham city','USA');
+user('Bat','Man','bat@man.com','robin','1934/01/01','0','Gotham city','USA');
 user('Super','Man','imnothere@krypton.com','kryptonite','1934/01/01','0','Metropolis','USA');
 user('Dr','Evil','irule@smallplanet.com','isuckthumbs','1934/01/01','0','Submarine','Under The Sea');
 user('Mini','Me','iloveeveil@smallplanet.com','theworld','1934/01/01','0','Submarine','Under Dr Evil');
