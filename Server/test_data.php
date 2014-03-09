@@ -63,7 +63,7 @@ addfriendtocircle(1,8);
 sendmessage(1,2,'I saw you and batwomen yesterday, you might want to use thicker walls. #X-rayVision','NULL');
 
 
-echo ("Done! \n");
+echo ("Test data inserted!\n");
 //=========================================================
 
 function sendmessage($sender_id,$recipient_id,$message_string,$name){

@@ -222,7 +222,7 @@ $con->query("CREATE TABLE IF NOT EXISTS message(message_id bigint unsigned auto_
 												photo_id bigint unsigned,
 												foreign key(photo_id) references photo(photo_id),
 												comment_on_post_id bigint unsigned,
-												foreign key(comment_on_id) references message(message_id),
+												foreign key(comment_on_post_id) references message(message_id),
 												message_string text not null,
 												timestamp timestamp not null default current_timestamp,
 												visibility_setting tinyint(1) not null default 0
