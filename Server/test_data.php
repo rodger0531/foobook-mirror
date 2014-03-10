@@ -30,7 +30,7 @@ befriend(6,5);
 
 //postwall($sender_id,$userWall_id,$message_string){
 postwall(1,1,"I am a Bat(scat)man!");
-postWall(1,2,"I have Kryptonite!!!");
+postwall(1,2,"I have Kryptonite!!!");
 
 //creategroup($user_id,$admin_id,$name)
 creategroup(3,3,"Project Apocalypse");
@@ -50,8 +50,8 @@ postgroup(7,2,"My batteries need replacing");
 postgroup(3,1,"Destruction 101");
 postgroup(6,1,"Anyone know where I can find U-237?");
 
-postWall(1,8,"Why can't I be as fast as you...?");
-postWall(8,1,"I can run circles around you! :)");
+postwall(1,8,"Why can''t I be as fast as you...?");
+postwall(8,1,"I can run circles around you! :)");
 
 // createcircle($owner_id,$circle_name)
 createcircle(1,"saving-the-world buddies");
@@ -66,43 +66,61 @@ addfriendtocircle(1,8);
 // NOTE: $name will be ignored if there is an existing thread
 //       $participantsList is an array list.
 $participantsList = array(1,3,5);
-sendmessage(2,$participantsList,'I saw you and batwomen yesterday, you might want to use thicker walls. #X-rayVision','NULL');
+sendmessage(2,$participantsList,'I saw you and batwomen yesterday, you might want to use thicker walls. #X-rayVision','Gossip');
+$participantsList = array(2,3,5);
+sendmessage(1,$participantsList,'Oh no!','NULL');
+$participantsList = array(1,2,5);
+sendmessage(3,$participantsList,'Hahaha','NULL');
+$participantsList = array(1,3,2);
+sendmessage(5,$participantsList,"Where''s the video??",'NULL');
+
+$participantsList = array(4);
+sendmessage(1,$participantsList,'Hey how are you sexy?','SexyBeast');
 
 echo ("Test data inserted!\n");
 //=========================================================
 
 function sendmessage($sender_id,$participantsList,$message_string,$chat_name){
 	$con = connect();
+	// initialise array with sender_id
 	$participants=$sender_id;
+
+	// loops through to concatenate participant ids into array for SQL query statement
 	foreach ($participantsList as $element) {
 		$participants = $participants .",". $element;
 	}
+	// get size of participant array
 	$threadSize = count($participantsList)+1;
+
 	// checks if a conversation thread exists
 	$querycheck = "SELECT DISTINCT thread_id
 				   FROM user_thread
-				   WHERE user_id IN ('$participants') AND thread_id NOT IN
+				   WHERE user_id IN ($participants) AND thread_id NOT IN
 				   (
 				   SELECT DISTINCT thread_id
 				   FROM user_thread
-				   WHERE user_id NOT IN ('$participants')
+				   WHERE user_id NOT IN ($participants)
 				   )
 				   GROUP BY thread_id
 				   HAVING COUNT(user_id) = $threadSize";
 	
+	// execute sql to check for if a thread exists
 	$stmt = $con->prepare($querycheck);
 	$stmt->execute();
 	$result= $stmt->fetch();
 
+	// if no result from fetch -> create a new thread, if not -> insert into existing thread
 	if (!$result){
 		// creates a new conversation thread_id
 		$querycreate = "INSERT INTO thread(name) VALUES ('$chat_name');";
 		// concatenates each id
+		$querycreate = $querycreate . "INSERT INTO user_thread(user_id,thread_id) VALUES ($sender_id,LAST_INSERT_ID());";
 		foreach ($participantsList as $chat_id) {
 			$querycreate = $querycreate . "INSERT INTO user_thread(user_id,thread_id) VALUES ($chat_id,LAST_INSERT_ID());";
 		}
 		// concatenates sender_id
 		$querycreate = $querycreate . "INSERT INTO message(sender_id,thread_id,message_string) VALUES ($sender_id,LAST_INSERT_ID(),'$message_string')";
+		// echo $querycreate;
 		$stmt = $con->prepare($querycreate);
 	} else {
 		$existing_thread = $result['thread_id'];
@@ -110,6 +128,7 @@ function sendmessage($sender_id,$participantsList,$message_string,$chat_name){
 		$querycurrent = "INSERT INTO message(sender_id,thread_id,message_string) VALUES ('$sender_id','$existing_thread','$message_string')";
 		$stmt = $con->prepare($querycurrent);
 	}
+	
 	$stmt->execute();
 	unset($con);
 }
