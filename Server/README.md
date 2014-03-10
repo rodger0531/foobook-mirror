@@ -3,6 +3,12 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+10/03/2014 - Rodger
+
+	- Updated test_data.php 
+		- working send message query (should be used in send message function)
+		- loops through array for participants in a thread
+		
 10/03/2014 - Tharman
 
 	- Removed 'message_photo' from setup_database.

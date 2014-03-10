@@ -62,39 +62,47 @@ addfriendtocircle(1,5);
 addfriendtocircle(1,7);
 addfriendtocircle(1,8);
 
-//sendmessage($sender_id,$recipient_id,$message_string,$name)
-//NOTE: $name will be ignored if there is an existing thread
-sendmessage(1,2,'I saw you and batwomen yesterday, you might want to use thicker walls. #X-rayVision','NULL');
-
+// sendmessage($sender_id,$participantsList,$message_string,$chat_name)
+// NOTE: $name will be ignored if there is an existing thread
+//       $participantsList is an array list.
+$participantsList = array(1,3,5);
+sendmessage(2,$participantsList,'I saw you and batwomen yesterday, you might want to use thicker walls. #X-rayVision','NULL');
 
 echo ("Test data inserted!\n");
 //=========================================================
 
-function sendmessage($sender_id,$recipient_id,$message_string,$name){
+function sendmessage($sender_id,$participantsList,$message_string,$chat_name){
 	$con = connect();
+	$participants=$sender_id;
+	foreach ($participantsList as $element) {
+		$participants = $participants .",". $element;
+	}
+	$threadSize = count($participantsList)+1;
 	// checks if a conversation thread exists
-	$querycheck = "SELECT user_thread.thread_id
-				   FROM
+	$querycheck = "SELECT DISTINCT thread_id
+				   FROM user_thread
+				   WHERE user_id IN ('$participants') AND thread_id NOT IN
 				   (
-					   SELECT DISTINCT thread_id, COUNT( thread_id ) AS CountOf, user_id
-					   FROM user_thread AS T1
-					   GROUP BY thread_id
-					   HAVING user_id = $sender_id AND CountOf = 2
+				   SELECT DISTINCT thread_id
+				   FROM user_thread
+				   WHERE user_id NOT IN ('$participants')
 				   )
-				   AS T2
-				   JOIN user_thread
-				   ON T2.thread_id  = user_thread.thread_id
-				   WHERE user_thread.user_id = '$recipient_id'";
+				   GROUP BY thread_id
+				   HAVING COUNT(user_id) = $threadSize";
 	
 	$stmt = $con->prepare($querycheck);
 	$stmt->execute();
 	$result= $stmt->fetch();
+
 	if (!$result){
 		// creates a new conversation thread_id
-		$querycreate = "INSERT INTO thread(name) VALUES ('$name');
-						INSERT INTO user_thread(user_id,thread_id) VALUES ('$sender_id',LAST_INSERT_ID());
-						INSERT INTO user_thread(user_id,thread_id) VALUES ('$recipient_id',LAST_INSERT_ID());
-						INSERT INTO message(sender_id,thread_id,message_string) VALUES ('$sender_id',LAST_INSERT_ID(),'$message_string')";
+		$querycreate = "INSERT INTO thread(name) VALUES ('$chat_name');";
+		// concatenates each id
+		foreach ($participantsList as $chat_id) {
+			$querycreate = $querycreate . "INSERT INTO user_thread(user_id,thread_id) VALUES ($chat_id,LAST_INSERT_ID());";
+		}
+		// concatenates sender_id
+		$querycreate = $querycreate . "INSERT INTO message(sender_id,thread_id,message_string) VALUES ($sender_id,LAST_INSERT_ID(),'$message_string')";
 		$stmt = $con->prepare($querycreate);
 	} else {
 		$existing_thread = $result['thread_id'];
