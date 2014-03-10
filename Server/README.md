@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+10/03/2014 - Tharman
+
+	- Removed 'message_photo' from setup_database.
+	- Added two new posts to test_data.
+
 08/03/2014 - Rodger
 
 	- Developed the SQL query for creating a thread between two users if there are no existing conversations, or continues on an existing thread.

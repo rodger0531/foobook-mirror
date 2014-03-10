@@ -245,13 +245,6 @@ $con->query("CREATE TABLE IF NOT EXISTS message_circleVisibility(message_id bigi
 																 )
 			") or die ($con->error);
 
-//MESSAGE_PHOTO
-$con->query("CREATE TABLE IF NOT EXISTS message_photo(message_id bigint unsigned not null references message(message_id),
-													  photo_id bigint unsigned not null references photo(photo_id),
-													  primary key(message_id,photo_id)
-													  )
-			") or die ($con->error);
-
 // Close the PDO connection to the database.
 unset($con);
 

@@ -30,6 +30,7 @@ befriend(6,5);
 
 //postwall($sender_id,$userWall_id,$message_string){
 postwall(1,1,"I am a Bat(scat)man!");
+postWall(1,2,"I have Kryptonite!!!");
 
 //creategroup($user_id,$admin_id,$name)
 creategroup(3,3,"Project Apocalypse");
@@ -48,6 +49,9 @@ postgroup(8,2,"I have to get new shoes");
 postgroup(7,2,"My batteries need replacing");
 postgroup(3,1,"Destruction 101");
 postgroup(6,1,"Anyone know where I can find U-237?");
+
+postWall(1,8,"Why can't I be as fast as you...?");
+postWall(8,1,"I can run circles around you! :)");
 
 // createcircle($owner_id,$circle_name)
 createcircle(1,"saving-the-world buddies");
