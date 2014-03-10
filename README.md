@@ -5,6 +5,48 @@ GC06 Database Project
 
 =======
 
+10/03/2014 - Rodger
+
+	- TO DO:
+
+		○ Settings:
+			-> to update personal info (refer to user table)
+			-> to change visibility setting, privacy
+
+		○ Posts:
+			-> Able to set visibility settings (individual friend, circles, friends of friends) for user wall posts, collection, groups (open/closed/secret)
+			-> update posts
+			-> delete posts
+
+		○ Photos:
+			-> upload into collection
+			-> delete photos
+			-> photo message in group
+			-> photo message on user wall
+
+		○ Collection page:
+			-> create collection
+			-> view collection
+			-> change visibility setting
+			-> delete collection
+
+		○ Friends:
+			-> send friend request
+			-> create a post of user A and user B are not friends on both user's wall.
+
+		○ Export:
+			-> XML format (wth?)
+
+		○ Administrator
+			-> able to create an administrator when creating an user
+			-> trumps all visibility setting
+			-> can manipulate user accounts
+
+		○ Search
+			-> able to search school, job, city and country
+
+
+
 08/03/2014 - Tharman
 
 List of things to change back before submission:
