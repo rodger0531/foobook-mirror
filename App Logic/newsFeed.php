@@ -7,17 +7,62 @@ $user_id = $_POST['user_id'];
 // Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
 $action = 2; // 2 indicates that the database is being READ from.
 
-// Define a SQL query that can retreive the user's email given their email.
+// Define the SQL query.
 $query = "
-SELECT password
-FROM user
-WHERE email = :email
+SELECT
+	m.message_id, m.message_string, m.timestamp,
+	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
+	p1.photo_content AS sender_photo,
+	u2.user_id AS recipient_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
+	g.name AS group_name,
+	p2.photo_content AS uploaded_photo
+FROM
+	message m
+	INNER JOIN user_friend uf
+		ON uf.user_id = :user_id_1
+		AND uf.friend_id = m.userWall_id
+	LEFT JOIN user u1
+		ON m.sender_id = u1.user_id
+	LEFT JOIN photo p1
+		ON u1.profile_picture_id = p1.photo_id
+	LEFT JOIN user u2
+		ON m.userWall_id = u2.user_id
+	LEFT JOIN groups g
+		ON m.groupWall_id = g.groups_id
+	LEFT JOIN photo p2
+		ON m.photo_id = p2.photo_id
+UNION
+SELECT
+	m.message_id, m.message_string, m.timestamp,
+	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
+	p1.photo_content AS sender_photo,
+	u2.user_id AS recipient_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
+	g.name AS group_name,
+	p2.photo_content AS uploaded_photo
+FROM
+	message m
+	INNER JOIN user_groups ug
+		ON ug.user_id = :user_id_2
+		AND ug.groups_id = m.groupWall_id
+	LEFT JOIN user u1
+		ON m.sender_id = u1.user_id
+	LEFT JOIN photo p1
+		ON u1.profile_picture_id = p1.photo_id
+	LEFT JOIN user u2
+		ON m.userWall_id = u2.user_id
+	LEFT JOIN groups g
+		ON m.groupWall_id = g.groups_id
+	LEFT JOIN photo p2
+		ON m.photo_id = p2.photo_id
+ORDER BY timestamp DESC
+LIMIT 10
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
-	'email' => $email
+	'user_id_1' => $user_id,
+	'user_id_2' => $user_id
 );
 
 $result = query($action, $query, $params);
@@ -31,7 +76,7 @@ if ($result['outcome'] === 0)
 	}
 	elseif ($result['response'] === 202)
 	{
-		$result['response'] = "There is no account associated with the given email!";
+		$result['response'] = "Couldn't load the newsfeed!";
 	}
 	elseif ($result['response'] === 203)
 	{
@@ -40,14 +85,12 @@ if ($result['outcome'] === 0)
 }
 elseif ($result['outcome'] === 1)
 {
-	if (password_verify($password, $result['response']->password))
+	$x = 0;
+	foreach ($result['response'] as $message)
 	{
-		echo json_encode($result['response']->password);
-	}
-	else
-	{
-		$result['response'] = "Incorrect password entered!";
-		echo json_encode($result['response']);
+		$result['response'][$x]->sender_photo = base64_encode($message->sender_photo);
+		$result['response'][$x]->uploaded_photo = base64_encode($message->uploaded_photo);
+		$x++;
 	}
 }
 

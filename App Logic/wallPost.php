@@ -10,6 +10,7 @@ $message_string = $_POST['message_string'];
 
 $photo_exists = false;
 $photo_type = $_FILES['photo_content']['type'];
+$photo_id = 0;
 
 if ($photo_type !== '')
 {
@@ -26,60 +27,7 @@ if ($photo_type !== '')
 }
 
 /*
- * Insert the post into the database.
- */
-
-// Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
-$action = 1; // 1 indicates that a record is being INSERTED into the database.
-
-if ($groupWall_id === 0)
-{
-	// Define a SQL query that can create the record.
-	$query = "
-		INSERT INTO message
-		SET sender_id = :sender_id,
-			userWall_id = :userWall_id,
-			message_string = :message_string
-		";
-
-	// Define the parameters of the query depending on the information the user inputted.
-	$params =
-	array(
-		'sender_id' => $user_id,
-		'userWall_id' => $userWall_id,
-		'message_string' => $message_string
-	);
-}
-else
-{
-	$query = "
-		INSERT INTO message
-		SET sender_id = :sender_id,
-			groupWall_id = :groupWall_id,
-			message_string = :message_string
-		";
-
-	// Define the parameters of the query depending on the information the user inputted.
-	$params =
-	array(
-		'sender_id' => $user_id,
-		'groupWall_id' => $groupWall_id,
-		'message_string' => $message_string
-	);
-}
-
-$result = query($action, $query, $params);
-
-// Alter the responses to provide feedback to the user.
-if ($result['outcome'] === 0)
-{
-	die;
-}
-
-$message_id = $result['insertId'];
-
-/*
- * Insert the photo into the database, and link it to the post, if it exists.
+ * Insert the photo into the database, if it exists.
  */
 
 if ($photo_exists === true)
@@ -105,41 +53,77 @@ if ($photo_exists === true)
 
 	$result = query($action, $query, $params);
 
-	// Alter the responses to provide feedback to the user.
+	$photo_id = $result['insertId'];
+
 	if ($result['outcome'] === 0)
 	{
 		die;
 	}
 
-	/*
-	 * Link the image to the post.
-	 */
+}
 
-	// Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
-	$action = 1; // 1 indicates that a record is being INSERTED into the database.
+/*
+ * If the photo does not exist, or has not been correctly stored to the database, make sure that the message does not depend on this.
+ */
 
+if ($photo_id === 0)
+{
+	$photo_id = null;
+}
+
+/*
+ * Insert the post into the database.
+ */
+
+// Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
+$action = 1; // 1 indicates that a record is being INSERTED into the database.
+
+if ($groupWall_id === 0)
+{
 	// Define a SQL query that can create the record.
 	$query = "
-	INSERT INTO message_photo
-	SET message_id = :message_id,
-		photo_id = :photo_id
-	";
+		INSERT INTO message
+		SET sender_id = :sender_id,
+			userWall_id = :userWall_id,
+			message_string = :message_string,
+			photo_id = :photo_id
+		";
 
 	// Define the parameters of the query depending on the information the user inputted.
 	$params =
 	array(
-		'message_id' => $message_id,
-		'photo_id' => $result['insertId']
+		'sender_id' => $user_id,
+		'userWall_id' => $userWall_id,
+		'message_string' => $message_string,
+		'photo_id' => $photo_id
 	);
+}
+else
+{
+	$query = "
+		INSERT INTO message
+		SET sender_id = :sender_id,
+			groupWall_id = :groupWall_id,
+			message_string = :message_string,
+			photo_id = :photo_id
+		";
 
-	$result = query($action, $query, $params);
+	// Define the parameters of the query depending on the information the user inputted.
+	$params =
+	array(
+		'sender_id' => $user_id,
+		'groupWall_id' => $groupWall_id,
+		'message_string' => $message_string,
+		'photo_id' => $photo_id
+	);
+}
 
-	// Alter the responses to provide feedback to the user.
-	if ($result['outcome'] === 0)
-	{
-		die;
-	}
+$result = query($action, $query, $params);
 
+// Alter the responses to provide feedback to the user.
+if ($result['outcome'] === 0)
+{
+	die;
 }
 
 echo json_encode("Success!");

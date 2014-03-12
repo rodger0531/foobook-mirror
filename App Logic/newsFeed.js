@@ -11,8 +11,6 @@ function newsFeedFunctionality()
 
 function newsFeedSuccess(data)
 {
-	//alert(data['response']);
-	/*
 	if (data['outcome'] === 1)
     {
         data.forEach(function(element)
@@ -37,5 +35,4 @@ function newsFeedSuccess(data)
     {
         alert(data['response']);
     }
-    */
 }

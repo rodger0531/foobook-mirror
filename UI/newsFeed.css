@@ -1,8 +1,70 @@
-.activities
+.post
 {
-    width: 100%;
-    height: 80%;
-    margin: 0 auto;
-    padding: 10% 0;
-    border-style: solid;
+	position: relative;
+	min-height: 200px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+}
+
+.profilePicture
+{
+	position: absolute;
+	height: 160px;
+	width: 160px;
+	margin-left: 20px;
+	border: 1px solid black;
+}
+
+.messageContents
+{
+	position: relative;
+	min-height: 160px;
+	margin-left: 200px;
+	margin-top: 20px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+}
+
+.fromToDetails
+{
+	position: absolute;
+	top: 0;
+	border: 1px solid transparent;
+}
+
+.entityName
+{
+	text-decoration: none;
+	color: blue;
+}
+
+.senderName, .to, .recipientName
+{
+	float: left;
+}
+
+.to
+{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.message
+{
+	position: relative;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border: 1px solid transparent;
+}
+
+.timestamp
+{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	border: 1px solid transparent;
 }

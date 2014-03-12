@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+12/03/2014 - Tharman
+
+	- Corrected wallPost.php to use the current table setup. Will now attach photo to message correctly.
+	- Adding newFeed php and js files.
+
 08/03/2014 - Tharman
 
 	- Created an overall 'homepage.js' controller file to control the document ready functions.
