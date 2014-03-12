@@ -3,6 +3,11 @@ This README file contains information about all changes relating to the 'Server'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+11/03/2014 - Rodger
+	
+	- Minor update for query.php
+		- Added error message reporting from SQL terminal into response if PDO query fails.
+
 10/03/2014 - Rodger
 
 	- Updated test_data.php 

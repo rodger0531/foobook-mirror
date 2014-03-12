@@ -73,7 +73,7 @@ class Query extends DB
 		catch (PDOException $e)
 		{
 			$result['outcome'] = 0;
-			$result['response'] = 203;
+			$result['response'] = $e->getmessage();
 			return $result;
 		}
 	}
