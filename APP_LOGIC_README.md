@@ -3,6 +3,24 @@ This README file contains information about all changes relating to the 'App Log
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+12/03/2014 - Rodger
+	
+	- Added addFriendToCircle.php
+		- Adds friends to circle the user is viewing.
+	- Added circle.js
+		- Controller for CRUD operations on circle
+		- Buttons dynamically generated will work
+	- Added createCircle.php
+		- Create circle defined by user
+	- Added removeCircle.php
+		- Remove user defined circle
+	- Added removeFriendFromCircle.php
+		- Remove friend from specific circle
+	- Added viewCircle.php
+		- View user's list of circles
+	- Added viewCircleFriend.php
+		- View friends within the specific circle
+
 12/03/2014 - Tharman
 
 	- Corrected wallPost.php to use the current table setup. Will now attach photo to message correctly.

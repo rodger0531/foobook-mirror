@@ -5,6 +5,10 @@ GC06 Database Project
 
 =======
 
+12/03/2014 - Rodger
+
+	- Moved README.md to outside of the folder for easy access since it is getting too crowded inside the folder, especially App Logic.
+
 10/03/2014 - Rodger
 
 	- TO DO:

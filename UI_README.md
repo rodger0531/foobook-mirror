@@ -3,6 +3,10 @@ This README file contains information about all changes relating to the 'UI' fol
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+12/03/2014 - Rodger
+
+	- Added circle.html for the basic structure for circles.
+
 12/03/2014 - Tharman
 
 	- Adding homepage html, and wall post and newsfeed css files.
