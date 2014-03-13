@@ -9,13 +9,20 @@
     border: 1px solid black;
 }
 
-.profilePicture
+.senderPictureContainer
 {
 	position: absolute;
 	height: 160px;
 	width: 160px;
 	margin-left: 20px;
 	border: 1px solid black;
+}
+
+.senderPicture
+{
+	position: absolute;
+	height: 160px;
+	width: 160px;
 }
 
 .messageContents
@@ -31,8 +38,9 @@
 
 .fromToDetails
 {
-	position: absolute;
-	top: 0;
+	position: relative;
+	margin-bottom: 20px;
+	overflow: hidden;
 	border: 1px solid transparent;
 }
 
@@ -53,12 +61,26 @@
 	margin-right: 5px;
 }
 
-.message
+.messageString
 {
 	position: relative;
-	margin-top: 25px;
-	margin-bottom: 25px;
+	margin-bottom: 20px;
 	border: 1px solid transparent;
+}
+
+.uploadedPictureContainer
+{
+	position: relative;
+	margin-bottom: 40px;
+	overflow: hidden;
+	border: 1px solid transparent;
+}
+
+.uploadedPicture
+{
+	display: block;
+	margin: 0 auto;
+	border: 1px solid black;
 }
 
 .timestamp

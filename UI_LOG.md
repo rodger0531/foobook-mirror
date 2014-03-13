@@ -3,6 +3,14 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+13/03/2014 - Tharman
+
+	- Added the completed newsfeed css file.
+	- Works correctly, but without commenting.
+
+	- Added a version of the homepage html, which has an empty newsfeed div.
+	- Will be dynamically populated.
+
 12/03/2014 - Rodger
 
 	- Added circle.html for the basic structure for circles.

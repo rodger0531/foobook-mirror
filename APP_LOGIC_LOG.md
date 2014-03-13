@@ -3,7 +3,16 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
-13/04/2014 - Philip
+13/03/2014 - Tharman
+
+	- Uploaded the completed wallpost js and php.
+	- Should not be able to post a message to a wall without typing in a message or uploading a photo first.
+
+	- Adding the newsfeed js so far.
+	- This is complete - but without the comments!
+	- Need to work on that now.
+
+13/03/2014 - Philip
 
 	- Uploaded the core messaging related php file. 
 

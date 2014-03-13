@@ -20,7 +20,16 @@ FROM
 	message m
 	INNER JOIN user_friend uf
 		ON uf.user_id = :user_id_1
-		AND uf.friend_id = m.userWall_id
+		AND
+		(
+			uf.friend_id = m.userWall_id
+			OR
+			(
+				uf.friend_id = m.sender_id
+				AND
+				m.userWall_id = :user_id_2
+			)
+		)
 	LEFT JOIN user u1
 		ON m.sender_id = u1.user_id
 	LEFT JOIN photo p1
@@ -42,7 +51,7 @@ SELECT
 FROM
 	message m
 	INNER JOIN user_groups ug
-		ON ug.user_id = :user_id_2
+		ON ug.user_id = :user_id_3
 		AND ug.groups_id = m.groupWall_id
 	LEFT JOIN user u1
 		ON m.sender_id = u1.user_id
@@ -62,7 +71,8 @@ LIMIT 10
 $params =
 array(
 	'user_id_1' => $user_id,
-	'user_id_2' => $user_id
+	'user_id_2' => $user_id,
+	'user_id_3' => $user_id
 );
 
 $result = query($action, $query, $params);
@@ -85,12 +95,10 @@ if ($result['outcome'] === 0)
 }
 elseif ($result['outcome'] === 1)
 {
-	$x = 0;
 	foreach ($result['response'] as $message)
 	{
-		$result['response'][$x]->sender_photo = base64_encode($message->sender_photo);
-		$result['response'][$x]->uploaded_photo = base64_encode($message->uploaded_photo);
-		$x++;
+		$message->sender_photo = base64_encode($message->sender_photo);
+		$message->uploaded_photo = base64_encode($message->uploaded_photo);
 	}
 }
 
