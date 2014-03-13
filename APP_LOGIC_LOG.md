@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+13/04/2014 - Philip
+
+	- Uploaded the core messaging related php file. 
+
 12/03/2014 - Rodger
 	
 	- Added addFriendToCircle.php
