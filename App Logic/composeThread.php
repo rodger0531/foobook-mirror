@@ -8,10 +8,10 @@ include 'query.php';
 // $thread_name = $_POST['thread_name'];
 
 $sender_id = 1; // test
-$message_string = "Rodger eating Banana!"; // test
-$thread_name = "Testing!"; // test
+$message_string = "hello!!!"; // test
+$thread_name = "Evening!"; // test
 
-$recipient_id = array(2,4,5,6,7); // test //The real situation will be that we will be reading an array from the $_POST. 
+$recipient_id = array(8); // test //The real situation will be that we will be reading an array from the $_POST. 
 
 $thread_size = sizeof($recipient_id)+1;
 
@@ -129,7 +129,6 @@ if ($result['outcome'] ===0)
 			{
 				$result['response'] = "Server error!";
 			}
-			echo json_encode($result);
 		}
 		elseif ($result['outcome'] === 1) //On success of inserting a user and the respective thread into user_thread a new message is inserted into the newly created thread. 
 		{
@@ -163,16 +162,17 @@ if ($result['outcome'] ===0)
 				$action = 2;
 
 				$query = "
-				SELECT first_name, middle_name, last_name, message_id, sender_id, message_string, timestamp
-				FROM user, message
-				WHERE user_id = :sender_id1 AND thread_id = :new_thread_id and user_id = :sender_id2
+				SELECT first_name, middle_name, last_name, photo_content, message_id, sender_id, message_string, timestamp
+				FROM user, photo, message
+				WHERE user_id = :sender_id1 AND user.profile_picture_id = photo.photo_id AND thread_id = :new_thread_id and user_id = :sender_id2
 				";
 
 				$params =
 				array(
 					'sender_id1' => $sender_id,
 					'sender_id2' => $sender_id,
-					'new_thread_id' => $new_thread_id 
+					'new_thread_id' => $new_thread_id
+					);
 
 				$result = query($action, $query, $params);
 
@@ -197,11 +197,11 @@ if ($result['outcome'] ===0)
 						$query = "
 						SELECT first_name, middle_name, last_name
 						FROM user
-						WHERE user_id = :sender_id
+						WHERE user_id = :recipients
 						";
 
 						$params = array(
-							'sender_id' => $sender_id
+							'recipients' => $recipient_id[0]
 						);
 
 						$result = query($action, $query, $params);
@@ -237,6 +237,7 @@ if ($result['outcome'] ===0)
 					}
 
 				$users_info = array($sender_user, $recipient_user);
+				echo json_encode($users_info);
 
 				}
 				elseif (sizeof($recipient_id)>1) { // If it's a multi user (>2) conversation.
@@ -280,10 +281,10 @@ if ($result['outcome'] ===0)
 					 			);		
 
 						$result = query($action, $query, $params);
+						echo json_encode($result['response']);
 				}
 						
 			}		
-				
 		}
 	}
 	elseif ($result['response'] === 203)
