@@ -8,10 +8,9 @@ include 'query.php';
 // $thread_name = $_POST['thread_name'];
 
 $sender_id = 1; // test
-$message_string = "hello!!!"; // test
-$thread_name = "Evening!"; // test
-
-$recipient_id = array(8); // test //The real situation will be that we will be reading an array from the $_POST. 
+$recipient_id = array(8,6); // test //The real situation will be that we will be reading an array from the $_POST. 
+$message_string = "Thank you Tharman?"; // test
+$thread_name = "Test!"; // test
 
 $thread_size = sizeof($recipient_id)+1;
 
@@ -76,215 +75,219 @@ if ($result['outcome'] ===0)
 			
 		$params = array(
 		'thread_name' => $thread_name
-			);
+		);
 
 		$result = query($action, $query, $params);
 
 		$new_thread_id = $result['insertId'];
 
-		$action = 1; //Insert the sender to user_thread along the respective thread.
-		
-		$query = "
+		if ($result['outcome'] === 0)
+		{
+			$result['response'] = "Thread cannot be inserted!";
+		}
+		elseif ($result['outcome'] === 1)
+		{
+			$action = 1; //Insert the sender to user_thread along the respective thread.
+			
+			$query = "
 			INSERT INTO user_thread
 			SET user_id = :sender_id,
 			thread_id = :new_thread_id;
 			"; 
-		
-		$params = array(
-			'sender_id' => $sender_id,
-			'new_thread_id' => $new_thread_id
- 			);
-
-		$result = query($action, $query, $params);
-
-		foreach ($recipient_id as $element) { //On successfully inserted sender, loops through the recipients and insert them into user_thread along with the respective thread.
-
-			$action = 1;
-			
-			$query = "
-				INSERT INTO user_thread 
-				SET user_id = :user_id,
-				thread_id = :new_thread_id;
-				"; 
 			
 			$params = array(
-				'user_id'=> $element,
-				'new_thread_id' => $new_thread_id
-	 			);
-
-			$result = query($action, $query, $params);
-		}
-
-		if ($result['outcome'] === 0) //If the foreabove query fails.
-		{
-			if ($result['response'] === 201)
-			{
-				$result['response'] = "Query could not be executed!";
-			}
-			elseif ($result['response'] === 202) 
-			{
-				$result['response'] = "Insert failed!";
-			}
-			elseif ($result['response'] === 203)
-			{
-				$result['response'] = "Server error!";
-			}
-		}
-		elseif ($result['outcome'] === 1) //On success of inserting a user and the respective thread into user_thread a new message is inserted into the newly created thread. 
-		{
-
-			$action = 1;
-
-			$query = "
-			INSERT INTO message
-			SET sender_id = :sender_id,
-				thread_id = :new_thread_id,
-				message_string = :message_string
-			";
-
-			$params = 
-			array(
-				'sender_id' => $sender_id,
-				'new_thread_id' => $new_thread_id,
-				'message_string' => $message_string
+			'sender_id' => $sender_id,
+			'new_thread_id' => $new_thread_id
 			);
 
 			$result = query($action, $query, $params);
 
-			if($result['outcome'] === 0) //If the foreabove query fails.
+			if ($result['outcome'] === 0)
 			{
-				$result['response'] = "New message for new thread failed!";
-
+				$result['response'] = "Sender cannot cannot be inserted!";
 			}
-			elseif($result['outcome'] === 1) //On successful new message insert, the senders message and detials are being queried.
+			elseif ($result['outcome'] === 1)
 			{
-
-				$action = 2;
-
-				$query = "
-				SELECT first_name, middle_name, last_name, photo_content, message_id, sender_id, message_string, timestamp
-				FROM user, photo, message
-				WHERE user_id = :sender_id1 AND user.profile_picture_id = photo.photo_id AND thread_id = :new_thread_id and user_id = :sender_id2
-				";
-
-				$params =
-				array(
-					'sender_id1' => $sender_id,
-					'sender_id2' => $sender_id,
+				foreach ($recipient_id as $element) //On successfully inserted sender, loops through the recipients and insert them into user_thread along with the respective thread.
+				{
+					$action = 1;
+					
+					$query = "
+					INSERT INTO user_thread 
+					SET user_id = :user_id,
+					thread_id = :new_thread_id;
+					"; 
+					
+					$params = array(
+					'user_id'=> $element,
 					'new_thread_id' => $new_thread_id
+		 			);
+
+					$result = query($action, $query, $params);
+				}
+				if ($result['outcome'] === 0) //If the foreabove query fails.
+				{
+					$result['response'] = "Recipient/s cannot cannot be inserted!";
+				}
+				elseif ($result['outcome'] === 1) //On success of inserting a user and the respective thread into user_thread a new message is inserted into the newly created thread. 
+				{
+					$action = 1;
+
+					$query = "
+					INSERT INTO message
+					SET sender_id = :sender_id,
+					thread_id = :new_thread_id,
+					message_string = :message_string
+					";
+
+					$params = 
+					array(
+					'sender_id' => $sender_id,
+					'new_thread_id' => $new_thread_id,
+					'message_string' => $message_string
 					);
 
-				$result = query($action, $query, $params);
+					$result = query($action, $query, $params);
 
-				if($result['outcome'] === 0)
-				{
-					$result['response'] = "Failed to read sender's info!";
-				}
-				elseif($result['outcome'] === 1)
-				{
-
-					$result['response'][0]->photo_content = base64_encode($result['response'][0]->photo_content);
-					if($result['response'][0]->middle_name === null)
+					if($result['outcome'] === 0) //If the foreabove query fails.
 					{
-						$result['response'][0]->middle_name = "";
+						$result['response'] = "Insert new message for new thread failed!";
+
 					}
-					$sender_user = $result['response'][0];
-
-					if(sizeof($recipient_id)===1){ // If it is a two way conversation.
-
+					elseif($result['outcome'] === 1) //On successful new message insert, the senders message and detials are being queried.
+					{
 						$action = 2;
 
 						$query = "
-						SELECT first_name, middle_name, last_name
-						FROM user
-						WHERE user_id = :recipients
+						SELECT first_name, middle_name, last_name, photo_content, message_id, sender_id, message_string, timestamp
+						FROM user, photo, message
+						WHERE user_id = :sender_id1 AND user.profile_picture_id = photo.photo_id AND thread_id = :new_thread_id and user_id = :sender_id2
 						";
 
-						$params = array(
-							'recipients' => $recipient_id[0]
+						$params =
+						array(
+						'sender_id1' => $sender_id,
+						'sender_id2' => $sender_id,
+						'new_thread_id' => $new_thread_id
 						);
 
 						$result = query($action, $query, $params);
 
 						if($result['outcome'] === 0)
 						{
-							$result['response'] = "Failed to read sender's personal details!";
+							$result['response'] = "Failed to retrieve sender's info!";
 						}
-						elseif($result['outcome'] === 1) //On success of reading the recipient's related information, thread name is being is being changed to the recipient's first and last name.
+						elseif($result['outcome'] === 1) //On successfully retrieved sender's details. The recipient/s details are retrieved.
 						{
+							$result['response'][0]->photo_content = base64_encode($result['response'][0]->photo_content);
 							if($result['response'][0]->middle_name === null)
 							{
 								$result['response'][0]->middle_name = "";
 							}
-							$recipient_user = $result['response'][0];
 
-							$names = $result['response'][0]->first_name . ' ' . $result['response'][0]->last_name;
+							$sender_user = $result['response'][0];
 
-							$action = 3;
-							$query = "
+							if(sizeof($recipient_id)===1) // If it is a two way conversation.
+							{
+								$action = 2;
+
+								$query = "
+								SELECT first_name, middle_name, last_name
+								FROM user
+								WHERE user_id = :recipient
+								";
+
+								$params = array(
+								'recipient' => $recipient_id[0]
+								);
+
+								$result = query($action, $query, $params);
+								if($result['outcome'] === 0)
+								{
+									$result['response'] = "Failed to read recipient personal details!";
+								}
+								elseif($result['outcome'] === 1) //On success of reading the recipient's related information, thread name is being is being changed to the recipient's first and last name.
+								{
+									if($result['response'][0]->middle_name === null)
+									{
+										$result['response'][0]->middle_name = "";
+									}
+
+									$recipient_user = $result['response'][0];
+
+									$names = $result['response'][0]->first_name . ' ' . $result['response'][0]->last_name;
+
+									$action = 3;
+									$query = "
 									UPDATE thread
 									SET name = :name
 									WHERE thread_id = :thread_id
 									"; 
 
-							$params = array(
+									$params = array(
 									'name'=> $names,
 									'thread_id' => $new_thread_id
 						 			);		
 
-							$result = query($action, $query, $params);
+									$result = query($action, $query, $params);
+								}
+								$users_info = array($sender_user, $recipient_user);
+								echo json_encode($users_info);
+							}
+							elseif (sizeof($recipient_id)>1) // If it's a multi user (>2) conversation.
+							{
+								$names = "";
+								$x = 0;
+								$recipient_multiuser = array();
+								foreach ($recipient_id as $element)
+								{
+									$action = 2;
+							
+									$query = "
+									SELECT first_name
+									FROM user
+									WHERE user_id = :recipients
+									"; 
+								
+									$params = array(
+									'recipients'=> $element
+						 			);
+
+									$result = query($action, $query, $params);
+									$recipient_multiuser = array_merge((array)$recipient_multiuser, (array)$result['response']);
+									$names = $names . $result['response'][0]->first_name .',';
+									$x++;
+								}
+								if($result['outcome'] === 0)
+								{
+									$result['response'] = "Failed to read participants related details!";
+								}
+								elseif($result['outcome'] === 1) //On success of reading the recipients' related information, thread name is being is being changed to the recipients' firs name.
+								{
+									$names = substr($names, 0, -1);
+									
+									$action = 3;
+									
+									$query = "
+											UPDATE thread
+											SET name = :name
+											WHERE thread_id = :thread_id
+											"; 
+
+									$params = array(
+											'name'=> $names,
+											'thread_id' => $new_thread_id
+								 			);		
+
+									$result = query($action, $query, $params);
+								}
+								$users_info2 = array($sender_user, $recipient_multiuser);
+								echo json_encode($users_info2);
+							}
 						}
 					}
-
-				$users_info = array($sender_user, $recipient_user);
-				echo json_encode($users_info);
-
 				}
-				elseif (sizeof($recipient_id)>1) { // If it's a multi user (>2) conversation.
-					$names = "";
-					foreach ($recipient_id as $element) {
-						$action = 2;
-						
-						$query = "
-							SELECT first_name
-							FROM user
-							WHERE user_id = :user_id
-							"; 
-						
-						$params = array(
-							'user_id'=> $element
-				 			);
-
-						$result = query($action, $query, $params);
-					
-						if($result['outcome'] === 0)
-						{
-							$result['response'] = "Failed to read participants related details!";
-						}
-						elseif($result['outcome'] === 1) //On success of reading the recipients' related information, thread name is being is being changed to the recipients' firs name.
-						{
-							$names = $names . $result['response'][0]->first_name .',';
-						}	
-						
-					}
-						$names = substr($names, 0, -1);
-						$action = 3;
-						$query = "
-								UPDATE thread
-								SET name = :name
-								WHERE thread_id = :thread_id
-								"; 
-
-						$params = array(
-								'name'=> $names,
-								'thread_id' => $new_thread_id
-					 			);		
-
-						$result = query($action, $query, $params);
-						echo json_encode($result['response']);
-				}
-						
-			}		
+			}
 		}
 	}
 	elseif ($result['response'] === 203)
@@ -342,7 +345,7 @@ elseif ($result['outcome'] === 1) //If the validation results in a positive outc
 				'thread_id' => (int)$thread_id
 			);
 
-			foreach ($recipient_id as $element) { //Looping through all the recipients in the given thread and getting their messages and perosnal details.
+			foreach ($recipient_id as $element) { //Looping through all the recipients in the given thread and creating the necessary params.
 
 				$tempuser = $tempuser.':user_id_' . $x . ',';
 				$user_param_1 = "user_id_".$x;
