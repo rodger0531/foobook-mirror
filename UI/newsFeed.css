@@ -1,58 +1,58 @@
-.post
-{
-	position: relative;
-	min-height: 200px;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border: 1px solid black;
-}
-
-.senderPictureContainer
-{
-	position: absolute;
-	height: 160px;
-	width: 160px;
-	margin-left: 20px;
-	border: 1px solid black;
-}
-
-.senderPicture
-{
-	position: absolute;
-	height: 160px;
-	width: 160px;
-}
-
-.messageContents
-{
-	position: relative;
-	min-height: 160px;
-	margin-left: 200px;
-	margin-top: 20px;
-	margin-right: 20px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-}
-
-.fromToDetails
-{
-	position: relative;
-	margin-bottom: 20px;
-	overflow: hidden;
-	border: 1px solid transparent;
-}
-
-.entityName
+.entity
 {
 	text-decoration: none;
 	color: blue;
 }
 
-.senderName, .to, .recipientName
+/* Post css */
+
+.post
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.details
+{
+	position: relative;
+	padding: 20px 0px 20px 20px;
+	overflow: hidden;
+}
+
+.sender_picture_container, .from_to_details
 {
 	float: left;
+}
+
+.sender_picture_container
+{
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+
+.sender_picture
+{
+	height: 100px;
+	width: 100px;
+	border: 1px solid black;
+}
+
+.from_to_details
+{
+	position: relative;
+	margin-left: 20px;
+}
+
+.sender_name, .to, .recipient_name
+{
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .to
@@ -61,32 +61,27 @@
 	margin-right: 5px;
 }
 
-.messageString
+.content
 {
-	position: relative;
+	padding: 0px 20px 0px 20px;
+}
+
+.message_string
+{
+	margin-top: 20px;
 	margin-bottom: 20px;
-	border: 1px solid transparent;
 }
 
-.uploadedPictureContainer
+.uploaded_picture_container
 {
-	position: relative;
-	margin-bottom: 40px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	overflow: hidden;
-	border: 1px solid transparent;
 }
 
-.uploadedPicture
+.uploaded_picture
 {
 	display: block;
 	margin: 0 auto;
 	border: 1px solid black;
-}
-
-.timestamp
-{
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	border: 1px solid transparent;
 }

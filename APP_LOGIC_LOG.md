@@ -3,7 +3,13 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
-14/04/2013 - Philip
+14/03/2014 - Tharman
+
+	- Changed name of 'newsFeed.php' to 'newsFeed_post.php'.
+	- Added 'newsFeed_comment.php' to handle the querying of the comments.
+	- Updating the newsFeed and wallPost js files.
+
+14/03/2013 - Philip
 
 	- Uploaded the thread.php
 	- Allows to retrieve all the threads related to a user. 

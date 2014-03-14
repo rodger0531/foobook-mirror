@@ -3,6 +3,14 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+14/03/2014 - Tharman
+
+	- Updated the newsFeed css file.
+	- Now generates the newsfeed (minus comments) in a really nice way.
+
+	- Updated the wallPost css file.
+	- Now has constant background of white, so we can change the background of the page later without damaging anything else.
+
 13/03/2014 - Tharman
 
 	- Added the completed newsfeed css file.
