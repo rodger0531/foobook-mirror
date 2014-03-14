@@ -3,6 +3,12 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+14/04/2013 - Philip
+
+	- Uploaded the thread.php
+	- Allows to retrieve all the threads related to a user. 
+	- The user_id will be passed in via the session.
+
 13/03/2014 - Tharman
 
 	- Uploaded the completed wallpost js and php.
