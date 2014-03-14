@@ -3,6 +3,17 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+14/03/2014 - Abdi
+
+	- Modified 'search.js' -- basically moved some functions around to make the file look nice
+	- Modified 'userSearch.php' to include search by full name
+	- Modified 'allResults.html' to inlcude input fields for advanced search for test purposes. 
+		- NOTE: Need to discuss where advanced search will go (either in allResults.html or its own page)
+
+	- Added 'advancedSearch.php' to handle the query of other users by city, country, employer and school
+	- Added 'advancedSearch.js' to handle the javascripts side of the advanced search query and dynamically generate it
+	- Added 'allResults.js' to be the controller of 'allResults.html'
+
 14/03/2014 - Tharman
 
 	- Changed name of 'newsFeed.php' to 'newsFeed_post.php'.

@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+14/03/2014 - Abdi
+
+	- Added the input fields for advanced search
+
 14/03/2014 - Tharman
 
 	- Updated the newsFeed css file.

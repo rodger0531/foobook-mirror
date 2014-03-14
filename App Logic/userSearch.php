@@ -4,25 +4,56 @@ include 'query.php';
 
 $user_input = $_POST['search'];
 
-// Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
-$action = 2; // 2 indicates that the database is being READ from.
+$action = 2;
 
-// Define a SQL query so that server can retrieve user friend's first name, last name and profile pic.
 $query = "
-SELECT user.user_id, user.first_name, user.middle_name, user.last_name, photo.photo_content
+SELECT user_id, first_name, middle_name, last_name, photo_content
 FROM user, photo
 WHERE user.profile_picture_id = photo.photo_id
-AND (user.first_name like '%$user_input%' or user.middle_name like '%$user_input%' or user.last_name like '%$user_input%')
-LIMIT 5;
 ";
 
-// Define the parameters of the query depending on the information the user inputted.
-$params =
-array(
-	'first_name' => $user_input,
-	'middle_name' => $user_input,
-	'last_name' => $user_input
-);
+if(preg_match('/\s/', $user_input))
+{
+	$keywords = preg_split("/\s/", $user_input);
+	$input = $keywords[1];
+
+	if(sizeof($keywords) === 2)
+	{
+		$query .= "
+		AND first_name = :first_name 
+		AND (middle_name LIKE '%$input%' OR last_name LIKE '%$input%')
+		LIMIT 5;
+		";
+
+		$params = 
+		array(
+			'first_name' => $keywords[0]
+		);
+	}
+	elseif(sizeof($keywords) === 3)
+	{
+		$query = "
+		AND first_name = :first_name 
+		AND middle_name = :middle_name 
+		AND (last_name = :last_name OR last_name LIKE '%$input%')
+		LIMIT 
+		";
+
+		$params = 
+		array(
+			'first_name' => $keywords[0],
+			'middle_name' => $keywords[1],
+			'last_name' => $keywords[1]
+		);
+	}
+}
+elseif(!preg_match('/\s/', $user_input))
+{
+	$query .= "AND (user.first_name LIKE '%$user_input%' or user.middle_name LIKE '%$user_input%' or user.last_name LIKE '%$user_input%')
+	LIMIT 5;";
+
+	$params = array();
+}
 
 $result = query($action, $query, $params);
 
@@ -34,7 +65,7 @@ if ($result['outcome'] === 0)
 	}
 	elseif ($result['response'] === 202)
 	{
-		$result['response'] = "There is no account associated with the given user_id!";
+		$result['response'] = "There is no account associated with the given user_id!"; // need to change this 
 	}
 	elseif ($result['response'] === 203)
 	{
@@ -56,7 +87,5 @@ elseif ($result['outcome'] === 1)
 
 	echo json_encode($result['response']);
 }
-
-
 
 ?>

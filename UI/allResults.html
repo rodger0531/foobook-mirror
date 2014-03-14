@@ -7,16 +7,17 @@
 		<title>Foobook News Feed</title>
         <!-- <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" /> -->
         <link rel="stylesheet" type="text/css" href="menu.css">
-        <link rel="stylesheet" type="text/css" href="wallPost.css">
-        <link rel="stylesheet" type="text/css" href="newsFeed.css">
+        <!-- <link rel="stylesheet" type="text/css" href="wallPost.css"> -->
+        <!-- <link rel="stylesheet" type="text/css" href="newsFeed.css"> -->
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <!-- <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
-        <!-- <script type="text/javascript" src="newsfeed_functionality.js"></script> -->
-        <script type="text/javascript" src="search.js"></script>
-        <script type="text/javascript" src="session.js"></script>
-        <script type="text/javascript" src="allResults.js"></script>
-        <script type="text/javascript" src="allResultsSearch.js"></script>
-        <script type="text/javascript" src="profile.js"></script>
+        <script type="text/javascript" src="newsfeed_functionality.js"></script>
+        // <script type="text/javascript" src="search.js"></script>
+        // <script type="text/javascript" src="session.js"></script>
+        // <script type="text/javascript" src="allResultsSearch.js"></script>
+        <script type="text/javascript" src="advancedSearch.js"></script>
+        <script type="text/javascript" src="ajax.js"></script>
+        // <script type="text/javascript" src="allResults.js"></script>
 	</head>
 <body>
     <div class="global_wrapper">
@@ -55,7 +56,16 @@
                 </div>
             </div>        
         </header>
-            <div id="content"></div>            
+            <div id="content">
+                <div>
+                    <input type="text" id="city" placeholder="Search by city"><br>
+                    <input type="text" id="country" placeholder="Search by country"><br>
+                    <input type="text" id="employer" placeholder="Search by employer"><br>
+                    <input type="text" id="school" placeholder="Search by school"><br>
+                    <input type="submit" id="advancedSearch" value="search">
+                </div>
+                <div id="advancedSearchResult"></div>
+            </div>            
         <footer></footer>
     </div>
 </body>
