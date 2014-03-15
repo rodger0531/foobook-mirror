@@ -126,7 +126,7 @@ $con->query("CREATE TABLE IF NOT EXISTS friend_circle(friend_id int unsigned not
 
 //GROUPS
 $con->query("CREATE TABLE IF NOT EXISTS groups(groups_id bigint unsigned auto_increment not null primary key,
-											   name tinytext not null,
+											   groups_name tinytext not null,
  											   visibility_setting tinyint(1) not null default 0
   											   )
   			") or die ($con->error); 
@@ -162,7 +162,7 @@ $con->query("CREATE TABLE IF NOT EXISTS user_thread(user_id int unsigned not nul
 $con->query("CREATE TABLE IF NOT EXISTS collection(collection_id bigint unsigned auto_increment not null primary key,
 												   user_id int unsigned not null,
 												   foreign key(user_id) references user(user_id),
-												   name tinytext not null,
+												   collection_name tinytext not null,
 												   visibility_setting tinyint(1) not null default 0
 												   )
 			") or die ($con->error);

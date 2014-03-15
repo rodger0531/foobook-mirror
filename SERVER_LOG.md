@@ -3,6 +3,11 @@ This log file contains information about all changes relating to the 'Server' fo
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+15/03/2014 - Abdi
+
+	- Minor update for 'setup_database.php' 
+		- Changed column (name) in groups table to groups_name and column (name) in collection table to collection_name
+
 11/03/2014 - Rodger
 	
 	- Minor update for query.php
