@@ -3,6 +3,11 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+15/03/2014 - Philip
+
+	- Edited the message.html file. 
+	- Improved the resizability issue and some other minor changes.
+
 14/03/2014 - Abdi
 
 	- Added the input fields for advanced search

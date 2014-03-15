@@ -1,276 +1,91 @@
 /*Main elements slyling!*/
 
-html {
-    margin: 0;
-    padding: 0;
+html, body {
     height: 100%;
     width: 100%;
-    border: 1px solid blue;
-    left: 0px;
+    overflow: hidden;    
 }
-body {
-    margin: 0;
-    padding: 0;
-    height: auto;
-    width: auto;
-    border: 1px solid white;
-    left: 0px;
-}
-.header {
-    width: 100%;
-    height: 5%;
-    background: white;
-    position: fixed;
-    top: 0;
-}
-.footer {
-    width: 100%;
-    height: 5%;
-    background: white;
-    position: fixed;
-    bottom: 0;
-    border: 1px solid green;
-    background-color: yellow;
-}
-.header_elements {
-    width: 33%;
-    height: 100%;
-    border: 1px solid black;
-    float: left;
-    left: 0px;
-}
-.inner_wrapper{
-    margin: 0 auto;
-    padding: 2.6% 0 ;
-    width: auto;
-    height: auto;    
-    border: 1px solid white;
-/*    z-index: -1;*/
-}
-.content {     
-    width: 69.2%;
-    height: 100%;
-    margin-left: 30.6%;
-    border: 1px solid red;
-    float: left;
-/*    overflow: hidden;*/
-    position: fixed;
-}
-.left_sidebar_menu {
-    width: 10%;
-    height: 100%;
-    border: 1px solid blue;
-    float: left;
-    left: 5px;
-    position: fixed;
-    z-index: -1;
-}
-.left_sidebar_thread {
-    width: 20%;
-    height: 100%;
-    margin-left: 10.4%;
-    border: 1px solid green;
-    float: left;
-/*    z-index: -1;    */
+.inner_wrapper_content{
+/*    border: 3px solid green;*/
+    position: relative;
     overflow: hidden;
-    position: fixed;
-}
-
-/*Styling of the header elements!*/
-
-#search_button {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    position: relative;
-    left: -22px;
-    top: 3px;
-    background-color: red;
-  }
-#foobook_menu .foobook_dropdown .option_menu {
-	position: absolute;
-	z-index: 100;
-	display: none;
-	background: #fff;
-}
-#foobook_menu .foobook_dropdown:hover .option_menu {
-	display: block;
-}
-#foobook_menu .foobook_dropdown.show .option_menu {
-	display: block;
-}
-.foobook_dropdown {
-    width: 100%;
-    height: 100%;
-    border: 1px solid blue;
-}
-.option_menu {
-    width: 32.9%;
-    border: 1px solid green;
-    position: absolute;
-    top: 101%;
-}
-#settings_menu .settings_dropdown .option_menu {
-    position: absolute;
-	z-index: 100;
-	display: none;
-	background: #fff;
-}
-#settings_menu .settings_dropdown:hover .option_menu {
-    display: block;
-}
-#settings_menu .settings_dropdown.show .option_menu {
-	display: block;
-}
-.settings_dropdown {
-    width: 100%;
-    height: 100%;
-    border: 1px solid blue;
-}
-
-/*Content elements styling!*/
-.content_wrapper {
-    width: 103.5%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 0;
-    border: 1px solid green;
-}
-.participants {
-    width: 100%;
-    height: 10%;
-    border: 1px solid black;
-    float: left;
-    position: fixed;
-}
-.messages {
-    width: 100%; 
-    height: 59.5%;
-    border: 1px solid blue;
-    float: left;
-    margin-top: 5.2%;
-    position: fixed;
-    overflow:hidden;
-}
-.inner_wrap_messages {
-    width: 105%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 0;
-    border: 1px solid green;
-    overflow-y: scroll;
-}
-.sender_message {
-    width: 60%;
-    min-height: 25%;
-    height: auto;
-    border: 1px solid blue;
-    float: left;
-    margin-left: 2.5%;
-    margin-top: 1%;
-    margin-right: 2.5%;
-    position: relative;
-    overflow: auto;
-}
-.sender_pic {
-    width: 50px;
-    height: 50px;
-    float: left;
-    background-color: red;
-    margin-left: 1.5%;
-    margin-top: 2%;
-    position: relative;
-    border-radius: 100%;
-}
-.message_body_sender {
-    width: 87%;
-    height: auto;
-    float: left;
-    border: 1px solid green;
-    position: relative;
-    margin-left: 10.5%;
-    margin-top: -6%;
-    margin-bottom: 2%;
-    overflow: auto;
-}
-.user_message {
-    width: 60%;
-    min-height: 25%;
-    height: auto;
-    border: 1px solid red;
-    float: left;
-    margin-left: 2.5%;
-    margin-top: 1%;
-    margin-right: 2.5%;
-    position: relative;
-    overflow: auto;
-}
-.user_pic {
-    width: 50px;
-    height: 50px;
-    float: left;
-    background-color: green;
-    margin-left: 91%;
-    margin-top: 2%;
-    margin-bottom: 2.5%;
-    position: relative;
-    border-radius: 100%;
-}
-.message_body_user {
-    width: 87%;
-    height: auto;
-    float: left;
-    border: 1px solid green;
-    position: relative;
-    margin-left: 1.5%;
-    margin-top: -8.5%;
-    margin-bottom: 2%;
-    overflow: auto;
-}
-.input_area {
-    width: 100%;
-    height: 30%;
-    border: 1px solid red;
-    float: left;
-    margin-top: 34.8%;
-    position: fixed;
-}
-#textbox {
-    width: 55%;
-    height: 50%;
-    border: 1px solid red;
-    margin-top: 1%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    margin-bottom: 1%;
-    float: left;
-    position: relative;
-}
-#reply_button {
-    top: 25%;
-    float: left; 
-    position: relative;
+    height: inherit;
+    width: inherit;
 }
 
 /*Thread elements styling!*/
 
-.threads {
-    width: 105%;
+.left_sidebar_thread, .content {
+    float: left; 
+}
+.left_sidebar_thread {
     height: 100%;
+    width: 30%;
+    border: 2px solid blue;
+}
+.threads {
+    max-height: 100%;
+    width: 105.5%;
+    border: 1px solid green;
+    overflow: auto;
+    z-index: -1;
+}
+.thread_elements {
+    border: 1px solid orange;
+    height: 100px;
+}
+
+/*Content elements styling!*/
+
+.content {     
+    width: 69.3%;
+    height: 100%;
+    border: 1px solid red;
+    z-index: 1;
+    background-color: white;
+}
+.content_wrapper {
+    height: 100%;
+    width: 100%;
     margin: 0 auto;
     padding: 0 0;
     border: 1px solid green;
-    overflow-y: scroll;
 }
-.thread_elements {
-    width: 100%;
+
+/*Participants subsection of content!*/
+
+.participants_wrapper {
     height: 10%;
-    float: left;
-    border: 1px solid orange;
-    margin: auto 0;
-    padding: 0 0;
+/*    border: 1px solid black;*/
 }
-.participant_name {
+.participants {
+    max-height: 100%;
+    width: 102.5%;
+    min-height: 85px;
+/*    border: 1px solid black;*/
+    overflow: auto;   
+}
+.participants_input_wrapper, .participants_container {
+    float: left;
+}
+.participants_input_wrapper {
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+}
+#participant_to {
+    float: left; 
+    align-content: center;
+}
+.participants_container {
+    min-height: 20%;
+    min-width: 20%;
+    border: 1px solid blue;
+    float: left;
+    margin-left: 1%;
+}
+/*
+.participant_name { 
     width: 20%;
     height: 50%;
     background-color: red;
@@ -278,5 +93,91 @@ body {
     margin-top: 1.25%;
     margin-left: 0.5%;
 }
+*/
 
+/*Messages subsection of content!*/
+
+.messages {
+    height: 63%;
+/*    border: 1px solid blue;*/
+    background-color: white;
+}
+.inner_wrap_messages {
+    max-height: 100%;
+    width: 102.5%;
+    border: 1px solid green;
+    overflow: auto;
+}
+.sender_message {
+    width: 95%;
+    min-height: 25%;
+/*    border: 1px solid blue;*/
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+.sender_pic {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-radius: 100%;
+    float: left;
+    margin-top: 0px;
+}
+.message_body_sender {
+    width: 90%;
+    height: auto;
+    border: 1px solid green;
+    float: left; 
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.user_message {
+    width: 95%;
+    min-height: 25%;
+/*    border: 1px solid red;*/
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+.user_pic {
+    width: 50px;
+    height: 50px;
+    background-color: green;
+    border-radius: 100%;
+    float: right;
+    margin-top: 0px;
+}
+.message_body_user {
+    width: 90%;
+    height: auto;
+    border: 1px solid green;
+    float: right; 
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.input_area {
+    width: 100%;
+    height: 25%;
+    border: 1px solid red;
+}
+.message_wrapper {
+    height: 80%;
+    width: 100%;
+    border: 2px solid blue;
+}
+#textbox_id {
+    width: 98%;
+    height: 70%;
+    border: 1px solid red;
+    float: left;
+    overflow: auto;
+    margin-left: 20px;
+    margin-top: 15px; 
+}
+#reply_button {
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+}
 
