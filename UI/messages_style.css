@@ -34,6 +34,23 @@ html, body {
     border: 1px solid orange;
     height: 100px;
 }
+.thread_picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    background-color: blue;
+    float: left;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+.thread_name {
+    height: 50%;
+    width: 50%;
+    float: left;
+    align-content: center;
+    margin-left: 25px;
+    margin-top: 25px;
+}
 
 /*Content elements styling!*/
 
@@ -76,6 +93,7 @@ html, body {
 #participant_to {
     float: left; 
     align-content: center;
+    margin-left: 15px;
 }
 .participants_container {
     min-height: 20%;
