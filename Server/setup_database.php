@@ -147,7 +147,7 @@ $con->query("CREATE TABLE IF NOT EXISTS user_groups(user_id int unsigned not nul
 
 //THREAD
 $con->query("CREATE TABLE IF NOT EXISTS thread(thread_id bigint unsigned auto_increment not null primary key,
-											   name tinytext
+											   thread_name tinytext
 											   )
 			") or die ($con->error);
 

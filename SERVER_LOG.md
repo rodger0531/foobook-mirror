@@ -5,6 +5,11 @@ This log file contains information about all changes relating to the 'Server' fo
 
 15/03/2014 - Abdi
 
+	- Minor update for 'setup_database.php'
+		- Changed column (name) in thread table to thread_name
+
+15/03/2014 - Abdi
+
 	- Minor update for 'setup_database.php' 
 		- Changed column (name) in groups table to groups_name and column (name) in collection table to collection_name
 
