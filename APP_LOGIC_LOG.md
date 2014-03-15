@@ -3,6 +3,16 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+15/03/2014 - Abdi
+  -
+	- Added 'createCollection.php' to handle the query to create a collection
+	- Added 'viewCollection.php' to handle the query to view a collection
+	- Added 'uploadCollection.php' to handle the query for uploading a photo to a collection
+	- Changed name to group_name in 'groupSearch.php' and 'allGroupSearch.php' as I modified the 'setup_database.php' now have group_name column name in the groups table instead of name
+	- Changed name to group_name in 'search.js' and 'allResultsSearch.js' as I modified the 'groupSearch.php' and 'allGroupSearch.php' files
+
+	- I'm now working on the html and js files for the collection and the php file for the deletion of collections
+
 14/03/2014 - Abdi
 
 	- Modified 'search.js' -- basically moved some functions around to make the file look nice

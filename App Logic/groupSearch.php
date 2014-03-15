@@ -3,23 +3,21 @@
 include 'query.php';
 
 $user_input = $_POST['search'];
+// $user_input = "f";
 
 // Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
 $action = 2; // 2 indicates that the database is being READ from.
 
 // Define a SQL query so that server can retrieve user friend's first name, last name and profile pic.
 $query = "
-SELECT groups_id, name
+SELECT groups_id, groups_name
 FROM groups
-WHERE name like '%$user_input%'
+WHERE groups_name like '%$user_input%'
 LIMIT 2;
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
-$params =
-array(
-	'name' => $user_input
-);
+$params = array();
 
 $result = query($action, $query, $params);
 

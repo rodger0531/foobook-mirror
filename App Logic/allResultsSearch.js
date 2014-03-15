@@ -1,14 +1,20 @@
-$(document).ready(function(){
+// $(document).ready(function(){
+function allResultsSearchFunctionality(){
+    $('#showAllResults').hide();
 	allUserSearch(Session.get('search'));
 	allGroupSearch(Session.get('search'));
 	$('.searchBar').keyup(function(){
-		if(Session.get('search') != undefined){
+		if(Session.get('search') != undefined)
+        {
 			Session.clear();
-        }else{
-        	search();
+        }
+        else
+        {
+            search();
         }
     });
-});
+}
+// });
 
 function allUserSearch(search){
     var search = search;
@@ -58,7 +64,7 @@ function successCallbackAllResultsGroup(data){
             data.forEach(function(element){
             $('.showGroups').append('<div class="groups" align="left" style="border:1px solid red; height:50px; padding:20px; margin-top:-1px;" name="'+ element.groups_id +'">'+ 
                                     	'<a href="#" onClick="profile();" style="text-decoration: none">' + 
-                                            '<span style="margin-left: 10px;">' + element.name + '</span>'+
+                                            '<span style="margin-left: 10px;">' + element.groups_name + '</span>'+
                                         '</a>' + 
                         			'</div>'
                             );

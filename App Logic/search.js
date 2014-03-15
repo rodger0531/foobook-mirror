@@ -1,5 +1,7 @@
 function searchFunctionality()
 {
+    $('#results-user').html("");
+    $('#results-group').html("");
     $('#showAllResults').hide();
     $('.searchBar').keyup(function()
     {
@@ -10,15 +12,19 @@ function searchFunctionality()
 function search(){
     Session.set('search', $('.searchBar').val()); 
     if(Session.get('search') != undefined){
-        $('#results').empty();
+        $('#results-user').empty();
+        $('#results-group').empty();
         userSearch(Session.get('search'));
         groupSearch(Session.get('search'));
     }else{
         Session.clear();
-        $('.showUserResults').remove();
-        $('.showGroupResults').remove();
+        $('.showUserResults').replaceWith("");
+        // $('.showGroupResults').remove();
+        // $('#results').html("");
+        // $('#results-user').html("");
+        // $('#results-group').html("");
         $('#showAllResults').hide();
-        $('#results').html("");
+        // alert(Session.get('search'));
     }
 }
 
@@ -52,8 +58,9 @@ function groupSearch(search){
 
 function successCallbackUser(data)
 {
+    // $('#results-user').html("");
     if(data.outcome != 0){
-        $('#results').append('<div class="showUserResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'People' +'</span>' +'</div>');
+        $('#results-user').html('<div class="showUserResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'People' +'</span>' +'</div>');
         data.forEach(function(element){
             $('.showUserResults').append(   '<div class="showUsers" align="left" style="border:1px solid red; height:50px; padding:20px; margin-top:-1px;"  name="'+ element.user_id +'">'+ 
                                                 '<a href="#" onClick="profile();" style="text-decoration: none">' + 
@@ -72,14 +79,14 @@ function successCallbackUser(data)
 
 function successCallbackGroup(data)
 {
-    alert(data.outcome);
+    // $('#results-group').html("");
     if(data.outcome != 0){
         function delay(){ 
-            $('#results').append('<div class="showGroupResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'Groups' +'</span>' +'</div>');
+            $('#results-group').html('<div class="showGroupResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'Groups' +'</span>' +'</div>');
             data.forEach(function(element){
             $('.showGroupResults').append(  '<div class="showGroups" align="left" style="border:1px solid red; height:50px; padding:20px; margin-top:-1px;" name="'+ element.groups_id +'">'+ 
                                                 '<a href="#" onClick="profile();" style="text-decoration: none">' + 
-                                                    '<span style="margin-left: 10px;">' + element.name + '</span>'+
+                                                    '<span style="margin-left: 10px;">' + element.groups_name + '</span>'+
                                                 '</a>' + 
                                             '</div>' 
                             );

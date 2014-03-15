@@ -9,9 +9,9 @@ $action = 2; // 2 indicates that the database is being READ from.
 
 // Define a SQL query so that server can retrieve user friend's first name, last name and profile pic.
 $query = "
-SELECT groups_id, name
+SELECT groups_id, groups_name
 FROM groups
-WHERE name like '%$user_input%'
+WHERE groups_name like '%$user_input%'
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
