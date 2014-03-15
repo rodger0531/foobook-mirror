@@ -72,6 +72,7 @@ function successCallbackUser(data)
 
 function successCallbackGroup(data)
 {
+    alert(data.outcome);
     if(data.outcome != 0){
         function delay(){ 
             $('#results').append('<div class="showGroupResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'Groups' +'</span>' +'</div>');
