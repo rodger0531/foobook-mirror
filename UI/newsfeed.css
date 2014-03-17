@@ -1,0 +1,133 @@
+.entity
+{
+	text-decoration: none;
+	color: blue;
+}
+
+/* Posts CSS */
+
+.message
+{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.message_details
+{
+	position: relative;
+	padding: 20px 0px 0px 20px;
+	overflow: hidden;
+}
+
+.message_sender_picture_container, .message_from_to_details
+{
+	float: left;
+}
+
+.message_sender_picture_container
+{
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+}
+
+.message_sender_picture
+{
+	height: 98px;
+	width: 98px;
+	border: 1px solid black;
+}
+
+.message_from_to_details
+{
+	position: relative;
+	margin-left: 20px;
+}
+
+.message_sender_name, .message_to, .message_recipient_name
+{
+	float: left;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.message_to
+{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.message_content
+{
+	padding-left: 20px;
+}
+
+.message_string
+{
+	margin-bottom: 20px;
+}
+
+.message_uploaded_picture_container
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.message_uploaded_picture
+{
+	display: block;
+	margin: 0 auto;
+	border: 1px solid black;
+}
+
+/* Comments CSS */
+
+.comment
+{
+    width: 80%;
+    margin-left: 10%;
+    border: 1px solid black;
+    border-top: none;
+    background-color: white;
+}
+
+.comment_sender_picture_container, .comment_from_to_details
+{
+	float: left;
+}
+
+.comment_sender_picture_container
+{
+	height: 60px;
+	width: 60px;
+	overflow: hidden;
+}
+
+.comment_sender_picture
+{
+	height: 58px;
+	width: 58px;
+	border: 1px solid black;
+}
+
+.comment_from_to_details
+{
+	position: relative;
+	margin-left: 10px;
+}
+
+.comment_sender_name
+{
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.comment_timestamp
+{
+	float: left;
+}

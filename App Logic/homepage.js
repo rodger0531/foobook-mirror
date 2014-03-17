@@ -4,7 +4,7 @@ $(document).ready(function()
 	Session.set('userWall_id', '1');
 	Session.set('groupWall_id', '');
 
-	searchFunctionality();
-	wallPostFunctionality();
-	newsFeedFunctionality();
+	//searchFunctionality();
+	postWallFunctionality();
+	newsfeedFunctionality();
 });

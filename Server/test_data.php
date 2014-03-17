@@ -32,7 +32,7 @@ befriend(6,5);
 postwall(1,1,"I am a Bat(scat)man!");
 postwall(1,2,"I have Kryptonite!!!");
 
-//creategroup($user_id,$admin_id,$name)
+//creategroup($user_id,$admin_id,$groups_name)
 creategroup(3,3,"Project Apocalypse");
 creategroup(2,2,"How to save the world");
 
@@ -112,7 +112,7 @@ function sendmessage($sender_id,$participantsList,$message_string,$chat_name){
 	// if no result from fetch -> create a new thread, if not -> insert into existing thread
 	if (!$result){
 		// creates a new conversation thread_id
-		$querycreate = "INSERT INTO thread(name) VALUES ('$chat_name');";
+		$querycreate = "INSERT INTO thread(thread_name) VALUES ('$chat_name');";
 		// concatenates each id
 		$querycreate = $querycreate . "INSERT INTO user_thread(user_id,thread_id) VALUES ($sender_id,LAST_INSERT_ID());";
 		foreach ($participantsList as $chat_id) {
@@ -168,10 +168,10 @@ function addusertogroup($user_id,$groups_id){
 }
 
 
-function creategroup($user_id,$admin_id,$name){
+function creategroup($user_id,$admin_id,$groups_name){
 	$con = connect();
-	$query = "INSERT INTO groups(name)
-			  VALUES ('$name');
+	$query = "INSERT INTO groups(groups_name)
+			  VALUES ('$groups_name');
 			  INSERT INTO user_groups(user_id, groups_id)
 			  VALUES('$user_id', (SELECT groups_id FROM groups ORDER BY groups_id DESC LIMIT 1));
 			  INSERT INTO groups_admin(admin_id, groups_id)

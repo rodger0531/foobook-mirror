@@ -3,8 +3,13 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+17/03/2014 - Tharman
+
+	- Homepage is nearly finished.
+	- Comments functionality only not working because buttons are not being dynamically generated properly.
+
 15/03/2014 - Abdi
-  -
+
 	- Added 'createCollection.php' to handle the query to create a collection
 	- Added 'viewCollection.php' to handle the query to view a collection
 	- Added 'uploadCollection.php' to handle the query for uploading a photo to a collection

@@ -14,7 +14,7 @@ SELECT
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
 	u2.user_id AS recipient_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
-	g.name AS group_name,
+	g.groups_name AS group_name,
 	p2.photo_content AS uploaded_picture
 FROM
 	message m
@@ -46,7 +46,7 @@ SELECT
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
 	u2.user_id AS recipient_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
-	g.name AS group_name,
+	g.groups_name AS group_name,
 	p2.photo_content AS uploaded_picture
 FROM
 	message m

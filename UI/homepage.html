@@ -5,16 +5,18 @@
         <meta name="description" content="Foobook is a social networking website." />
         <meta name="keywords" content="Foobook, Social Network">
         <title>Foobook</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="homepage.css">
         <link rel="stylesheet" type="text/css" href="menu.css">
-        <link rel="stylesheet" type="text/css" href="wallPost.css">
-        <link rel="stylesheet" type="text/css" href="newsFeed.css">
+        <link rel="stylesheet" type="text/css" href="postWall.css">
+        <link rel="stylesheet" type="text/css" href="newsfeed.css">
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="session.js"></script>
         <script type="text/javascript" src="ajax.js"></script>
         <!-- <script type="text/javascript" src="menu.js"></script> -->
         <!-- <script type="text/javascript" src="search.js"></script> -->
-        <script type="text/javascript" src="wallPost.js"></script>
-        <script type="text/javascript" src="newsFeed.js"></script>
+        <script type="text/javascript" src="postWall.js"></script>
+        <script type="text/javascript" src="newsfeed.js"></script>
         <script type="text/javascript" src="homepage.js"></script>
     </head>
     <body>
@@ -54,17 +56,19 @@
                     </div>
                 </div>        
             </header> -->
-            <form id="wallPostForm">
-                <textarea id="postMessage" name="message_string" placeholder="Post a message to your wall here..."></textarea>
-                <div class="postLinks">
-                    <button class="link" id="uploadPhoto">Upload a picture</button>
-                    <span id="photoName"></span>
-                    <input id="photoFile" type="file" name="photo_content"></input>
-                    <button class="link" id="postThis">Post this!</button>
-                </div>
-            </form>
-            <hr style="width:80%">
-            <div id="newsFeed"></div>
+            <div class="container">
+                <form class="messageForm" id="messageForm0">
+                    <textarea class="messageFormText" id="messageFormText0" name="message_string" placeholder="Post a message to your wall here..."></textarea>
+                    <div class="messageFormLinks">
+                        <button class="messageFormLink messageFormUploadPictureButton" value="0">Upload a picture</button>
+                        <span class="messageFormPictureName" id="messageFormPictureName0"></span>
+                        <input class="messageFormPicture" id="messageFormPicture0" type="file" name="photo_content"></input>
+                        <button class="messageFormLink messageFormSubmitButton" value="0">Post this!</button>
+                    </div>
+                </form>
+                <hr style="width:80%">
+                <div id="newsfeed"></div>
+            </div>
             <!-- <footer></footer>
         </div> -->
     </body>

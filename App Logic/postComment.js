@@ -1,34 +1,34 @@
-function wallPostFunctionality()
+function postWallFunctionality()
 {
     var intervalFunc = function ()
     {
-        $("#photoName").html($("#photoFile").val());
+        $("#postWallPictureName").html($("#postWallPicture").val());
     };
 
-    $("#uploadPhoto").bind("click", function(event)
+    $(".postWallUploadPictureButton").bind("click", function(event)
     {
         event.preventDefault();
-        $("#photoFile").click();
+        $("#postWallPicture").click();
         setInterval(intervalFunc, 1);
     });
 
-    $("#postThis").on('click', function(event)
+    $(".postWallSubmitButton").on('click', function(event)
     {
         event.preventDefault();
-        if (($("#postMessage").val() === "") && ($("#photoFile").val()) === "")
+        if (($("#postWallMessage").val() === "") && ($("#postWallPicture").val()) === "")
         {
             alert("You need to enter a message and/or upload an image before posting!");
         }
         else
         {
-            var formData = new FormData($("#wallPostForm")[0]);
+            var formData = new FormData($("#postWallForm")[0]);
             formData.append("user_id", Session.get("user_id"));
             formData.append("userWall_id", Session.get("userWall_id"));
             formData.append("groupWall_id", Session.get("groupWall_id"));
             $.ajax(
             {
                 type: 'POST',
-                url: 'http://localhost/wallPost.php',
+                url: 'http://localhost/postWall.php',
                 data: formData,
                 dataType: 'JSON',
                 success: postSuccess,

@@ -1,0 +1,77 @@
+.messageForm
+{
+    border: 1px solid black;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 10px 10px 0px 10px;
+    background-color: white;
+}
+
+.messageFormText
+{
+    width: 100%;
+    height: 150px;
+    padding:10px;
+    resize: vertical;
+    border-style: none none none none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.messageFormLinks
+{
+    position: relative;
+    padding: 5px 0px;
+    border-style: dashed none none none;
+    border-color: black;
+    border-width: 1px;
+    overflow: hidden;
+}
+
+.messageFormUploadPictureButton, .messageFormPicture, .messageFormPictureName, .messageFormSubmitButton
+{
+    float: left;
+}
+
+.messageFormSubmitButton
+{
+    float: right;
+}
+
+.messageFormLink
+{
+    background: none;
+    border: none;
+    color: blue;
+}
+
+.messageFormPicture
+{
+    visibility: hidden;
+}
+
+/* For comments */
+
+.commentForm
+{
+    width: 80%;
+    margin-left: 10%;
+    padding: 10px 10px 0px 10px;
+    border: 1px solid black;
+    border-top: none;
+    background-color: white;
+}
+
+.commentFormText
+{
+    width: 100%;
+    padding: 10px 0px 0px 10px;
+    resize: vertical;
+    border-style: none none none none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
