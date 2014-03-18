@@ -5,6 +5,6 @@ $(document).ready(function()
 	Session.set('groupWall_id', '');
 
 	//searchFunctionality();
-	postWallFunctionality();
-	newsfeedFunctionality();
+	post();
+	newsfeed();
 });

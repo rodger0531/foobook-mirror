@@ -11,7 +11,6 @@ if (substr($photo_type, 0, 5) !== "image")
 }
 
 $photo_content = file_get_contents($_FILES['photo_content']['tmp_name']);
-$description = $_POST['description'];
 
 // Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
 $action = 1; // 1 indicates that a record is being INSERTED into the database.
@@ -19,14 +18,13 @@ $action = 1; // 1 indicates that a record is being INSERTED into the database.
 // Define a SQL query that can create a record with the given user's details.
 $query = "
 INSERT INTO photo
-SET photo_content = :photo_content, description = :description
+SET photo_content = :photo_content
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
-	'photo_content' => $photo_content,
-	'description' => $description
+	'photo_content' => $photo_content
 );
 
 $result = query($action, $query, $params);

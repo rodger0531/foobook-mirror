@@ -2,8 +2,23 @@
 
 require 'query.php'; // For querying to the database.
 
-$user_id = (int) $_POST['user_id'];
-$comment_on_post_id = (int) $_POST['comment_on_post_id'];
+$user_id = $_POST['user_id'];
+$userWall_id = $_POST['userWall_id'];
+$groupWall_id = $_POST['groupWall_id'];
+$comment_on_post_id = $_POST['comment_on_post_id'];
+
+if ($userWall_id === "")
+{
+	$userWall_id = null;
+}
+if ($groupWall_id === "")
+{
+	$groupWall_id = null;
+}
+if ($comment_on_post_id === "")
+{
+	$comment_on_post_id = null;
+}
 
 $message_string = $_POST['message_string'];
 
@@ -81,7 +96,10 @@ $action = 1; // 1 indicates that a record is being INSERTED into the database.
 $query = "
 	INSERT INTO message
 	SET sender_id = :sender_id,
+		userWall_id = :userWall_id,
+		groupWall_id = :groupWall_id,
 		comment_on_post_id = :comment_on_post_id,
+		message_string = :message_string,
 		photo_id = :photo_id
 	";
 
@@ -89,7 +107,10 @@ $query = "
 $params =
 array(
 	'sender_id' => $user_id,
+	'userWall_id' => $userWall_id,
+	'groupWall_id' => $groupWall_id,
 	'comment_on_post_id' => $comment_on_post_id,
+	'message_string' => $message_string,
 	'photo_id' => $photo_id
 );
 
@@ -101,6 +122,6 @@ if ($result['outcome'] === 0)
 	die;
 }
 
-echo json_encode("Success!");
+echo json_encode($result);
 
 ?>

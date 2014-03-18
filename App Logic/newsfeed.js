@@ -1,4 +1,4 @@
-function newsfeedFunctionality()
+function newsfeed()
 {
     generatePosts();
 }
@@ -45,9 +45,8 @@ function generatePostsSuccess(data)
                     '</div>' +
                 '</div>' +
                 '<div class="message_content">' +
-                    '<hr>' +
                     (element['message_string'] !== ''
-                        ? '<div class="message_string">' + element['message_string'] + '</div>'
+                        ? '<hr><div class="message_string">' + element['message_string'] + '</div>'
                         : ''
                     ) +
                     (element['uploaded_picture'] !== ''
@@ -108,9 +107,8 @@ function generateCommentsSuccess(data)
                     '</div>' +
                 '</div>' +
                 '<div class="message_content">' +
-                    '<hr>' +
                     (element['message_string'] !== ''
-                        ? '<div class="message_string">' + element['message_string'] + '</div>'
+                        ? '<hr><div class="message_string">' + element['message_string'] + '</div>'
                         : ''
                     ) +
                     (element['uploaded_picture'] !== ''

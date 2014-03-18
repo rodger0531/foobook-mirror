@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'Server' fo
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =========================================================================================
 
+18/03/2014 - Tharman
+
+	- Removed 'description' attribute from the 'photo' table.
+
 17/03/2014 - Tharman
 
 	- Changed 'test_data.php' according to the changes made by Abdi to 'setup_database.php'.

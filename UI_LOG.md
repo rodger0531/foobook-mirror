@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+18/03/2014 - Tharman
+
+	- Newsfeed is working perfectly!!!
+
 17/03/2014 - Tharman
 
 	- Homepage is practically finished with regards to the UI side of things.

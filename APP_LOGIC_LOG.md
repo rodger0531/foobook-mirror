@@ -3,6 +3,11 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+18/03/2014 - Tharman
+
+	- Newsfeed is working perfectly!!!
+	- 3 files in here: 'newsfeedPosts.php', 'newsfeedComments.php', 'post.js'.
+
 17/03/2014 - Tharman
 
 	- Homepage is nearly finished.

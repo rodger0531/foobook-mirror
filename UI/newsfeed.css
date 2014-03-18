@@ -18,7 +18,7 @@
 .message_details
 {
 	position: relative;
-	padding: 20px 0px 0px 20px;
+	padding: 20px 20px 0px 20px;
 	overflow: hidden;
 }
 
@@ -63,6 +63,7 @@
 .message_content
 {
 	padding-left: 20px;
+	padding-right: 20px;
 }
 
 .message_string
@@ -74,12 +75,13 @@
 {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	overflow: hidden;
 }
 
 .message_uploaded_picture
 {
 	display: block;
+	max-width: 100%;
+	height: auto;
 	margin: 0 auto;
 	border: 1px solid black;
 }
