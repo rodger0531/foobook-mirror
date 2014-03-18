@@ -71,5 +71,5 @@ function setMessageFormPictureName(messageValue)
 
 function postSuccess(data)
 {
-    location.reload();
+    newsfeed();
 }
