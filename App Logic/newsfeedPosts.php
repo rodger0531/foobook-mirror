@@ -64,7 +64,6 @@ FROM
 	LEFT JOIN photo p2
 		ON m.photo_id = p2.photo_id
 ORDER BY timestamp DESC
-LIMIT 10
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
