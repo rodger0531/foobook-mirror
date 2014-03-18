@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Foobook - Collection</title>
+		<script src="http://code.jquery.com/jquery-latest.min.js "></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		<script src="ajax.js"></script>
+		<script src="session.js"></script>
+		<script src="collection.js"></script>
+	</head>
+	<body>
+		<div>
+			<form id="addCollection">
+				<h2>Create a new collection:</h2>
+				<input type="text" name="circle_name" placeholder="Enter collection name"/><br>
+				<input type="submit" name="submit" value="Create collection">
+			</form>
+
+			<h2>Collection:</h2>
+			<div>
+				<select id="collectionList" >
+				</select>
+				<br>
+				<button id="deleteCollection">Delete collection</button>
+	        </div>
+
+			<form id="addFriendToCircle">
+				<h2>Enter friend id to add to circle</h2>
+				<input type="text" name="friend_id"/><br>
+				<input type="submit" name="submit" value="Add">
+			</form>
+
+			<h2>Photos in Collection</h2>
+			<div id="collectionPhoto">
+	        </div>
+
+		</div>
+
+
+
+	</body>
+</html>
