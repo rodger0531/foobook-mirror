@@ -5,6 +5,10 @@ GC06 Database Project
 
 =======
 
+19/03/2014 - Tharman, Rodger
+
+	- Drastically altered the structure of the git repo to be deployment-ready.
+
 12/03/2014 - Rodger
 
 	- Moved README.md to outside of the folder for easy access since it is getting too crowded inside the folder, especially App Logic.
