@@ -5,6 +5,6 @@
  */
 define('DSN', "mysql:host=localhost;dbname=foobook");
 define('DB_USER', "root"); // db user
-define('DB_PASSWORD', "He1sen%erg"); // db password - PLEASE INPUT YOUR OWN MySQL PASSWORD WHEN RUNNING LOCALLY!!!
+define('DB_PASSWORD', ""); // db password - PLEASE INPUT YOUR OWN MySQL PASSWORD WHEN RUNNING LOCALLY!!!
 
 ?>
