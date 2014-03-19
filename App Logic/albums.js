@@ -4,7 +4,7 @@ $(document).ready(function()
 	$('#newPhoto').hide();
 	$('.photo-container').hide();
 	$('#deletePhoto').hide();
-	Session.set('user_id', 1);
+	Session.set('user_id', 1); // need to change this
 	viewCollection();
 	var collection_id;
 	var photo_id;
@@ -52,6 +52,14 @@ $(document).ready(function()
 		$('#deletePhoto').hide();
 		collection_id = $(this).attr('name');
 		viewCollectionPhoto(collection_id);
+		$('.collections').css({
+			'-webkit-box-shadow': '0px 0px 0px 0px rgba(0, 150, 0, 0.3)',
+       		'box-shadow': '0px 0px 0px 0px rgba(0, 150, 0, 0.3)'
+		});
+		$(this).css({
+			'-webkit-box-shadow': '0px 0px 5px 5px rgba(0, 150, 0, 0.5)',
+       		'box-shadow': '0px 0px 5px 5px rgba(0, 150, 0, 0.5)'
+		});
 	});
 
 	//show photo upload
@@ -94,10 +102,18 @@ $(document).ready(function()
 		);
 	});
 
-	//
+	//show delete button
 	$('.photo-container').on('click', '.photos', function(){
 		$('#deletePhoto').show();
 		photo_id = $(this).attr('name');
+		$('.photos').css({
+			'-webkit-box-shadow': '0px 0px 0px 0px rgba(0, 150, 0, 0.5)',
+       		'box-shadow': '0px 0px 0px 0px rgba(0, 150, 0, 0.5)'
+		});
+		$(this).css({
+			'-webkit-box-shadow': '0px 0px 5px 5px rgba(255, 0, 0, 0.5)',
+       		'box-shadow': '0px 0px 5px 5px rgba(255, 0, 0, 0.5)'
+		});
 	});
 
 	//delete photo
@@ -172,6 +188,10 @@ function viewCollectionPhotoSuccess(data)
 									'</div>'
                 );
 	    });
+	} 
+	else
+	{
+		$('.photo-container').hide();
 	}
 }
 

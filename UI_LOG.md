@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+19/03/2014 - Abdi
+
+	- changed and updated 'newPhoto.html' to 'albums.html' and also 'photo.css' to 'albums.css'
+
 
 19/03/2014 - Abdi
 
