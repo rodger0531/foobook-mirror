@@ -5,6 +5,10 @@ This log file contains information about all changes relating to the 'App Logic'
 
 19/03/2014 - Abdi
 
+	- changed 'photo.js' to 'albums.js' and include box glow and also fix bug with deleting the last photo in a collection
+
+19/03/2014 - Abdi
+
 	- Added 'deleteCollection.php' to delete collections from the database
 	- Added 'uploadPhotoToCollection.php' to upload photos to a collection
 	- Added 'viewCollectionPhoto.php' to view the photos in a particular collection
