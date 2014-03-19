@@ -7,7 +7,7 @@ $("document").ready(function()
         $.ajax(
         {
             type: 'POST',
-            url: 'http://localhost/uploadPhoto.php',
+            url: 'http://localhost/functions/photo/uploadPhoto.php',
             data: formData,
             dataType: 'JSON',
             success: uploadSuccess,
