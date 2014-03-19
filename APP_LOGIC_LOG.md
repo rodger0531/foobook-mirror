@@ -3,6 +3,15 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+19/03/2014 - Abdi
+
+	- Added 'deleteCollection.php' to delete collections from the database
+	- Added 'uploadPhotoToCollection.php' to upload photos to a collection
+	- Added 'viewCollectionPhoto.php' to view the photos in a particular collection
+	- Deleted 'uploadCollection.php' - no longer needed
+	- Updated 'createCollection.php', 'viewCollection.php' and 'photo.js' 
+	- Changed name to collection_name in 'signUp.php'
+
 18/03/2014 - Tharman
 
 	- Newsfeed is working perfectly!!!

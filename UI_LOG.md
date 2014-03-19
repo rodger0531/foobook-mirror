@@ -3,9 +3,15 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+
+19/03/2014 - Abdi
+
+	- Updated 'newPhoto.html' which is the photos page -- it works!
+	- Added 'photo.css' for newPhoto.html
+
 18/03/2014 - Abdi
 	
-	- Uploaded newPhoto.html for rodger to view the header
+	- Uploaded 'newPhoto.html' for rodger to view the header
 
 18/03/2014 - Tharman
 

@@ -2,27 +2,19 @@
 
 include 'query.php';
 
-$user_id = $_POST['user_id'];
+$collection_id = $_POST['collection_id'];
 
 $action = 2;
 
 $query = "
-SELECT T1.collection_id, T1.collection_name, T1.photo_content
-FROM 
-	(
-	SELECT c.collection_id, c.collection_name, p.photo_content
-	FROM collection c
-	INNER JOIN photo p
-	ON c.collection_id = p.collection_id
-	WHERE user_id = :user_id 
-	ORDER BY p.photo_id DESC
-	) T1
-GROUP BY collection_id
+SELECT photo_id, photo_content
+FROM photo 
+WHERE collection_id = :collection_id 
 ";
 
 $params = 
 array(
-	'user_id' => $user_id
+	'collection_id' => $collection_id
 );
 
 $result = query($action, $query, $params);
@@ -52,5 +44,6 @@ elseif ($result['outcome'] === 1)
 	}
 	echo json_encode($result['response']);
 }
+
 
 ?>

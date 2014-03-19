@@ -125,14 +125,14 @@ $action = 1; // 1 indicates that a record is being INSERTED into the database.
 $query = "
 INSERT INTO collection
 SET	user_id = :user_id,
-	name = :name
+	collection_name = :collection_name
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
 	'user_id' => $user_id,
-	'name' => 'profile_pictures'
+	'collection_name' => 'Profile Pictures'
 );
 
 $result = query($action, $query, $params);
@@ -159,14 +159,14 @@ $action = 1; // 1 indicates that a record is being INSERTED into the database.
 $query = "
 INSERT INTO collection
 SET	user_id = :user_id,
-	name = :name
+	collection_name = :collection_name
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
 $params =
 array(
 	'user_id' => $user_id,
-	'name' => 'uploaded_photos'
+	'collection_name' => 'Wall Pictures'
 );
 
 $result = query($action, $query, $params);

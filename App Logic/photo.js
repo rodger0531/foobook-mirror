@@ -1,99 +1,197 @@
 $(document).ready(function()
 {
-    alert("jjj");
+	$('#newCollection').hide();
+	$('#newPhoto').hide();
+	$('.photo-container').hide();
+	$('#deletePhoto').hide();
 	Session.set('user_id', 1);
-	ajax(
-		'viewCollection',
-		{'user_id' : Session.get('user_id')},
-		readCollectionList
-	);
+	viewCollection();
+	var collection_id;
+	var photo_id;
 
-	// $("#addCollection").on('submit', function(event)
- //    {
- //        event.preventDefault();
- //        ajax(
- //            'createCollection',                        
- //            {'user_id' : Session.get('user_id'), 'collection_name' :document.forms["addCollection"]["collection_name"].value},   
- //            createCollectionSuccess
- //        );
- //    });
+	//show new collection
+	$('.collection-container').on('click', '.createCollection', function(){
+		$('#newCollection').show();
+	});
 
- //    $("#deleteCollection").on('click',function(){
- //        ajax(
- //            'deleteCollection',                        // PHP file to call on.
- //            {'collection_id': $("#collectionList").val()},    // Data from serialised form with user input.
- //            deleteCollectionSuccess                       // Callback method to use on success.
- //        );
- //    });
+	//hide new collection
+	$('#newCollection').on('click', '#cancelCollection', function(){
+		$('#collection-name').val("");
+		$('#photo-content-collection').replaceWith($('#photo-content-collection').clone( true ));
+		$('#newCollection').hide();
+	});
 
- //    $("#collectionList").on('change',function(){
- //        loadPhoto($(this).val());
- //    });
+	//create new collection
+	$("#newCollection").on('submit', function(event)
+    {
+    	// if($('#photo-content-collection').val() === "")
+    	// {
+    	// 	alert("Please select a photo to upload!");
+    	// }
+    	
+    	event.preventDefault();
+        var formData = new FormData($("#newCollection")[0]);
+        formData.append('user_id', Session.get('user_id'));
+        $.ajax(
+        {
+            type: 'POST',
+            url: 'http://localhost/createCollection.php',
+            data: formData, 
+            dataType: 'JSON',
+            success: newCollection,
+            error: ajaxFailure,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+        
+    });
 
-    // $(".photo").on('click', function(){
-    // 	var photo_id = $(this).attr('name');
-    // 	alert(photo_id);
-    // });
+	// load photos in collection
+	$('.collection-container').on('click', '.collections', function(){
+		$('#deletePhoto').hide();
+		collection_id = $(this).attr('name');
+		viewCollectionPhoto(collection_id);
+	});
+
+	//show photo upload
+	$('.photo-container').on('click', '.uploadPhoto', function(){
+		$('#newPhoto').show();
+	});
+
+	//hide photo upload
+	$('#newPhoto').on('click', '#cancelPhoto', function(){
+		$('#photo-content-photo').replaceWith($('#photo-content-photo').clone( true ));
+		$('#newPhoto').hide();
+	});
+
+	// upload new photo
+	$("#newPhoto").on('submit', function(event)
+    {
+        event.preventDefault();
+        var formData = new FormData($("#newPhoto")[0]);
+        formData.append('collection_id', collection_id);
+        $.ajax(
+        {
+            type: 'POST',
+            url: 'http://localhost/uploadPhotoToCollection.php',
+            data: formData, 
+            dataType: 'JSON',
+            success: uploadPhotoSuccess,
+            error: ajaxFailure,
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+    });
+
+	//delete Collection
+	$('.photo-container').on('click', '#deleteCollection', function(){
+		ajax(
+			'deleteCollection',
+			{'collection_id' : collection_id},
+			deleteCollectionSuccess
+		);
+	});
+
+	//
+	$('.photo-container').on('click', '.photos', function(){
+		$('#deletePhoto').show();
+		photo_id = $(this).attr('name');
+	});
+
+	//delete photo
+	$('.photo-container').on('click', '#deletePhoto', function(){
+		ajax(
+			'deletePhoto',
+			{'photo_id' : photo_id},
+			deletePhotoSuccess
+		);
+	});
+
 
 });
 
-function readCollectionList(data)
+function viewCollection()
 {
-    // alert(data);
-	// if(data.outcome !== 0)
-	// {
-	// 	$("#collection-list").append('<option value = NULL > Select a collection </option>');
-	//     data.forEach(function(element){
-	//         $("#collection-list").append(  '<div class="collections">' +
- //                                                '<div class="collection-image" name="' + element.collection_id +'">' +
- //                                                    '<img id="image" src="data:image/jpeg;base64,'+ element.photo_content + '">' +
- //                                                '</div>' +
- //                                                '<div class="collection-name">' +
- //                                                    '<label>' + element.collection_name + '</label>' +
- //                                                '</div>'+
- //                                            '</div>'
- //                );
-	//     });
-	// }
+	ajax(
+		'viewCollection',
+		{'user_id' : Session.get('user_id')},
+		collectionList
+	);
+
+}
+
+function collectionList(data)
+{
+	if(data.outcome !== 0)
+	{
+		$('.collection-list').html('<div class="createCollection"><h1 class="plus">+</h1></div>');
+	    data.forEach(function(element){
+	        $('.collection-list').append(  '<div class="collections" name="' + element.collection_id +'">' +
+                                                '<div class="collection-image">' +
+                                                    '<img id="image" src="data:image/jpeg;base64,'+ element.photo_content + '">' +
+                                                '</div>' +
+                                                '<div class="collection-name">' +
+                                                    '<label>' + element.collection_name + '</label>' +
+                                                '</div>'+
+                                            '</div>'
+                );
+	    });
+	}
 	
 }
 
-// function createCollectionSuccess(data)
-// {
-// 	if(data.outcome !== 0)
-// 	{
-// 		alert("Created collection successfully");
-//     	location.reload();
-// 	}
-// }
+function newCollection(data)
+{
+	$('#collection-name').val("");
+	$('#photo-content-collection').replaceWith($('#photo-content-collection').clone( true ));
+	$('#newCollection').hide();
+	viewCollection();
+}
 
-// function deleteCollectionSuccess(data)
-// {
-// 	if(data.outcome !== 0)
-// 	{
-// 		alert("Deleted collection successfully");
-//     	location.reload();
-// 	}
-// }
+function viewCollectionPhoto(collection_id)
+{
+	var collection_id = collection_id;
+	ajax(
+			'viewCollectionPhoto',
+			{'collection_id' : collection_id},
+			viewCollectionPhotoSuccess
+		);
+}
 
-// function loadPhoto(collection_id)
-// {
-//     if (collection_id !== "NULL"){
-//         ajax(
-//             'viewCollectionPhoto',                       // PHP file to call on.
-//             {'collection_id': collection_id},  // User_id from session goes here
-//             loadPhotoSuccess                    // Callback method to use on success.
-//         );
-//     }
-        
-// }
+function viewCollectionPhotoSuccess(data)
+{
+	if(data.outcome !== 0)
+	{
+		$('.photo-container').show();
+		$('.photo-list').html('<div class="uploadPhoto"><h1 class="plus">+</h1></div>');
+	    data.forEach(function(element){
+	        $('.photo-list').append( '<div class="photos" name="'+ element.photo_id +'">' +
+										'<img class="photo-image" src="data:image/jpeg;base64,'+ element.photo_content + '">' +
+									'</div>'
+                );
+	    });
+	}
+}
 
-// function loadPhotoSuccess(data)
-// {
-// 	if(data.outcome !== 0)
-// 	{
-// 		data.forEach(function(element){
-// 			$('#collectionPhoto').append('<img class="photo" name="'+ element.photo_id +'" style="width:206px; height:206px; float:left;" src="data:image/jpeg;base64,'+ element.photo_content +'">');
-// 		});
-// 	}
-// }
+function uploadPhotoSuccess(data)
+{
+	viewCollectionPhoto(data);
+	viewCollection();
+	$('#photo-content-photo').replaceWith($('#photo-content-photo').clone( true ));
+	$('#newPhoto').hide();
+}
+
+function deleteCollectionSuccess(data)
+{
+	viewCollection();
+	$('.photo-container').hide();
+}
+
+function deletePhotoSuccess(data)
+{
+	viewCollectionPhoto(data);
+	viewCollection();
+	$('#deletePhoto').hide();
+}
