@@ -18,7 +18,7 @@
         ?>
         <div class="container">
             <form class="messageForm" id="messageForm0">
-                <textarea class="messageFormText" id="messageFormText0" name="message_string" placeholder="Post a message here..."></textarea>
+                <textarea class="messageFormText" id="messageFormText0" name="message_string" placeholder="Post a message to your wall here..."></textarea>
                 <div class="messageFormLinks">
                     <button class="messageFormLink messageFormUploadPictureButton" value="0">Upload a picture</button>
                     <span class="messageFormPictureName" id="messageFormPictureName0"></span>
