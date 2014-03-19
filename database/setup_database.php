@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/db_config.php';
+require_once '../functions/server/db_config.php';
 
 // Parameters used in creating a new PDO database connection object.
 $dsn = DSN;

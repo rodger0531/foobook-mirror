@@ -217,7 +217,7 @@ function user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$ci
 
 
 function connect(){
-	require_once __DIR__ . '/db_config.php';
+	require_once '../functions/server/db_config.php';
 	$dsn = DSN;
 	$user = DB_USER;
 	$password = DB_PASSWORD;
