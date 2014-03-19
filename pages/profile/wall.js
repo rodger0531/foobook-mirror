@@ -1,13 +1,13 @@
 function generateFeed()
 {
-    $("#newsfeed").on('click', ".entity", function(event)
+    $("#wall").on('click', ".entity", function(event)
     {
         event.preventDefault();
         var entity_id = this.getAttribute("href").split(",");
         if (entity_id[0] === "user")
         {
             Session.set('userWall_id', entity_id[1]);
-            window.location.replace("../profile/profile.php");
+            window.location.reload();
         }
         else if (entity_id[0] === "group")
         {
@@ -22,9 +22,9 @@ function generateFeed()
 function generatePosts()
 {
 	ajax(
-		'pages/homepage/newsfeedPosts',
+		'pages/profile/wallPosts',
 		{
-			'user_id': Session.get('user_id')
+			'user_id': Session.get('userWall_id')
 		},
 		generatePostsSuccess
 	);
@@ -34,7 +34,7 @@ function generatePostsSuccess(data)
 {
 	if (data['outcome'] === 1)
     {
-    	$("#newsfeed").html("");
+    	$("#wall").html("");
 
         var messageContents = "";
 
@@ -47,16 +47,6 @@ function generatePostsSuccess(data)
                     '</div>' +
                     '<div class="message_from_to_details">' +
                         '<div class="message_sender_name"><a class="entity" href="user,' + element['sender_id'] + '">' + element['sender_fname'] + ' ' + element['sender_mname'] + ' ' + element['sender_lname'] + '</a></div>' +
-                        (element['to_user_id'] === Session.get('user_id')
-                            ? '<div class="message_to">posted on your wall</div>'
-                            : (element['to_user_id'] !== null
-                                ? '<div class="message_to">➡</div><div class="message_recipient_name"><a class="entity" href="user,' + element['to_user_id'] + '">' + element['recipient_fname'] + ' ' + element['recipient_mname'] + ' ' + element['recipient_lname'] + '</a></div>'
-                                : (element['to_group_id'] !== null
-                                    ? '<div class="message_to">posted on group</div><div class="message_recipient_name"><a class="entity" href="group,' + element['to_group_id'] + '">' + element['group_name'] + '</a></div>'
-                                    : ''
-                                )
-                            )
-                        ) +
                         '<br><div class="message_timestamp">' + element['timestamp'] + '</div>' +
                     '</div>' +
                 '</div>' +
@@ -71,14 +61,14 @@ function generatePostsSuccess(data)
                     ) +
                 '</div>';
 
-            $("#newsfeed").append(
+            $("#wall").append(
                 '<div class="message">' + messageContents + '</div>' +
                 '<div id="comment_on_post_id_' + element['message_id'] + '"></div>'
             );
             
             generateComments(element['message_id']);
             
-            $("#newsfeed").append(
+            $("#wall").append(
                 '<form class="commentForm" id="messageForm' + element['message_id'] + '">' +
                     '<textarea class="commentFormText" id="messageFormText' + element['message_id'] + '" name="message_string" placeholder="Post a comment here..."></textarea>' +
                     '<div class="messageFormLinks">' +
@@ -96,7 +86,7 @@ function generatePostsSuccess(data)
 function generateComments(message_id)
 {
     ajax(
-        'pages/homepage/newsfeedComments',
+        'pages/profile/wallComments',
         {
             'message_id': message_id
         },
