@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+19/03/2014 - Rodger
+
+	- Modified homepage.php to include header.php and sliding menu
+
 19/03/2014 - Abdi
 
 	- Added 'deleteCollection.php' to delete collections from the database
