@@ -19,13 +19,13 @@ SELECT
 FROM
 	message m
 	INNER JOIN user_friend uf
-		ON uf.user_id = :user_id_1
+		ON uf.friend_id = :user_id_1
 		AND
 		(
-			uf.friend_id = m.userWall_id
+			uf.user_id = m.userWall_id
 			OR
 			(
-				uf.friend_id = m.sender_id
+				uf.user_id = m.sender_id
 				AND
 				m.userWall_id = :user_id_2
 			)

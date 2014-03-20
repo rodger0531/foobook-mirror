@@ -1,4 +1,32 @@
-.cbp-spmenu-push
+body
 {
+	position: relative;
+}
+
+#profile_details, .container, #friend_list
+{
+	float: left;
+}
+
+/*  Container. */
+
+.container
+{
+	width: 60%;
 	padding-bottom: 50px;
+}
+
+/* Friend request button. */
+
+#send_friend_request
+{
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 50px;
+}
+
+#send_friend_request_link
+{
+	text-decoration: none;
+	color: blue;
 }

@@ -1,0 +1,31 @@
+#profile_details
+{
+	width: 20%;
+	height: 100%;
+	margin-top: 50px;
+}
+
+#profile_details > .panel-heading
+{
+	text-align: center;
+}
+
+#profile_picture_container
+{
+	width: 100%;
+	height: auto;
+	margin-top: 10px;
+}
+
+#profile_picture_image
+{
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+#profile_text_details > div
+{
+	margin-top: 20px;
+}

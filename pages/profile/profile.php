@@ -8,26 +8,27 @@
         <meta name="keywords" content="Foobook, Social Network">
         <title>Foobook</title>
         <link rel="stylesheet" type="text/css" href="profile.css">
+        <link rel="stylesheet" type="text/css" href="details.css">
+        <link rel="stylesheet" type="text/css" href="friendList.css">
         <link rel="stylesheet" type="text/css" href="../../functions/post/post.css">
         <link rel="stylesheet" type="text/css" href="wall.css">
         <script type="text/javascript" src="../../functions/post/post.js"></script>
         <script type="text/javascript" src="wall.js"></script>
+        <script type="text/javascript" src="friendRequest.js"></script>
+        <script type="text/javascript" src="friendList.js"></script>
+        <script type="text/javascript" src="container.js"></script>
+        <script type="text/javascript" src="details.js"></script>
         <script type="text/javascript" src="profile.js"></script>
-        <?php 
+        <?php
           require_once '../../functions/abstract/header_footer/body.php';
         ?>
-        <div class="container">
-            <form class="messageForm" id="messageForm0">
-                <textarea class="messageFormText" id="messageFormText0" name="message_string" placeholder="Post a message to your wall here..."></textarea>
-                <div class="messageFormLinks">
-                    <button class="messageFormLink messageFormUploadPictureButton" value="0">Upload a picture</button>
-                    <span class="messageFormPictureName" id="messageFormPictureName0"></span>
-                    <input class="messageFormPicture" id="messageFormPicture0" type="file" name="photo_content"></input>
-                    <button class="messageFormLink messageFormSubmitButton" value="0">Post this!</button>
-                </div>
-            </form>
-            <hr style="width:80%">
-            <div id="wall"></div>
+        <div class="panel panel-default" id="profile_details">
+            <div class="panel-heading" id="profile_name"></div>
+            <div class="panel-body">
+                <div class="panel panel-default" id="profile_picture_container"></div>
+                <div id="profile_text_details"></div>
+            </div>
         </div>
+        <div class="container"></div>
     </body>
 </html>
