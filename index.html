@@ -22,7 +22,7 @@
             </div>
                 <div id="signinbox">
                     <form id="signInForm">
-                        <h2>Sign In</h2><br>
+                        <h2 style="color: #009933">Sign In</h2><br>
                         <div>
                             <input class="form-control" type="text" name="email" size="30" maxlength="20" placeholder="Email"/><br>
                         </div>
@@ -30,13 +30,13 @@
                             <input class="form-control" type="password" name="password" size="30" maxlength="20" placeholder="Password"/><br>
                         </div>
                         <div>
-                            <input type="submit" class="btn btn-warning" name="submit" value="Sign in" id="submitbutton"/>
+                            <input type="submit" class="btn btn-success" name="submit" value="Sign in" id="submitbutton"/>
                         </div>
                     </form>
                 </div>
                 <div id="signupbox">
                     <form id="signUpForm">
-                        <h2>Sign Up</h2><br>
+                        <h2 style="color:#335CD6">Sign Up</h2><br>
                         <div>
                             <input class="form-control" type="text" name="first_name" size="30" maxlength="20" placeholder="First Name"/><br>
                             <input class="form-control" type="text" name="last_name" size="30" maxlength="20" placeholder="Last Name"/><br>
@@ -45,15 +45,12 @@
                             <input class="form-control" type="password" id="signUpPassword" name="password" size="30" maxlength="20" placeholder="Password"/><br>
                             <input class="form-control" type="password" id="repeatPassword" size="30" maxlength="20" placeholder="Verify Password"/><br>
                             <input class="form-control" type="date" name="date_of_birth"/><br>
-                           <!--  <div class="onoffswitch">
-                                <input type="checkbox" name="gender" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                                <label class="onoffswitch-label" for="myonoffswitch">
-                                    <div class="onoffswitch-inner"></div>
-                                    <div class="onoffswitch-switch"></div>
-                                </label>
-                            </div> -->
+
+                            Male<input type="radio" name="gender" value=0/>
+                            Female<input type="radio" name="gender" value=1/><br><br>
+
                             <br>
-                             <input type="submit" class="btn btn-warning" name="submit" value="Sign up" id="submitbutton"/><br>
+                             <input type="submit" class="btn btn-primary" name="submit" value="Sign up" id="submitbutton"/><br>
                         </div>
 
                     </form>
@@ -61,21 +58,21 @@
             </div>
         <script>
             $(document).ready(function(){
-                setTimeout( function(){$( ".sign" ).slideDown( "slow")}, 1500);
                 $("#content").blurjs({
                     source: 'body',
-                    radius: 7,
-                    //overlay: 'rgba(255,255,255,0.25)',
-                    overlay: '',			//Overlay Color, follow CSS3's rgba() syntax
-                    offset: {			//Pixel offset of background-position
-                        x: 0,
+                    radius: 20,
+                    overlay: 'rgba(150,150,150,0.1)',
+                    offset: {
+                        x: -400,
                         y: 0
                     },
-                    optClass: '',			//Class to add to all affected elements
-                    cache: false,			//If set to true, blurred image will be cached and used in the future. If image is in cache already, it will be used.
-                    cacheKeyPrefix: 'blurjs-',	//Prefix to the keyname in the localStorage object
+                    optClass: '',
+                    cache: false,
+                    cacheKeyPrefix: 'blurjs-',
                     draggable: false
                 });
+
+                
             })
         </script>
 

@@ -20,13 +20,13 @@
             <form class="messageForm" id="messageForm0">
                 <textarea class="messageFormText" id="messageFormText0" name="message_string" placeholder="Post a message to your wall here..."></textarea>
                 <div class="messageFormLinks">
-                    <button class="messageFormLink messageFormUploadPictureButton" value="0">Upload a picture</button>
+                    <button class="messageFormLink messageFormUploadPictureButton btn btn-primary" value="0">Upload a picture</button>
                     <span class="messageFormPictureName" id="messageFormPictureName0"></span>
                     <input class="messageFormPicture" id="messageFormPicture0" type="file" name="photo_content"></input>
-                    <button class="messageFormLink messageFormSubmitButton" value="0">Post this!</button>
+                    <button class="messageFormLink messageFormSubmitButton btn btn-success" value="0">Post this!</button>
                 </div>
             </form>
-            <hr style="width:80%">
+            <hr style="width:80%; border-color:#C8C8C8 ;">
             <div id="newsfeed"></div>
         </div>
     </body>
