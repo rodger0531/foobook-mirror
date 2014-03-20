@@ -6,7 +6,7 @@
         ?>
         <title>Foobook</title>
         <link rel="stylesheet" type="text/css" href="advancedSearch.css">
-        <!-- // <script type="text/javascript" src="advancedSearch.js"></script> -->
+        <script type="text/javascript" src="advancedSearch.js"></script>
         <?php 
           require_once '../../functions/abstract/header_footer/body.php';
         ?>

@@ -4,19 +4,20 @@ $(document).ready(function()
     {
         allUserSearch(Session.get('search'));
         allGroupSearch(Session.get('search'));
+        Session.set('search', '');
     }
 
-	// $('#showAllResults').hide();
-	// $('#searchbar').keyup(function(){
-	// 	if(Session.get('search') != undefined)
- //        {
-	// 		Session.set('search', '');
- //        }
- //        else
- //        {
- //            search();
- //        }
- //    });
+    $('.all-users-results').on('click','.all-users',function () {
+        var user_id = this.getAttribute('value');
+        // window.location.assign('profile.html');
+        alert(user_id);
+    });
+
+    $('.all-groups-results').on('click','.all-groups',function () {
+        var user_id = this.getAttribute('value');
+        // window.location.assign('profile.html');
+        alert(user_id);
+    });
 });
 
 
@@ -50,11 +51,11 @@ function allGroupSearch(search)
 }
 
 function successCallbackAllResultsUser(data)
-{
+{ 
     if(data.outcome != 0){
-        $('.all-users-results').html('<div class="allUsers">' + '<span class="all-people">' + 'People' +'</span>' +'</div>');
+        $('.all-users-results').html('<div class="panel panel-info" ><div class="panel-heading"><h3 class="panel-title">People</h3></div><div class="panel-body" id="allUsers"></div></div>');
         data.forEach(function(element){
-            $('.allUsers').append('<div class="all-users" name="'+ element.user_id +'">'+ 
+            $('#allUsers').append('<div class="all-users" value="'+ element.user_id +'">'+ 
             						'<a href="#" onClick="profile();" style="text-decoration: none">' + 
                                     '<img src="data:image/jpeg;base64,'+ element.photo_content + '"/>' + 
                                     '<span style="margin-left: 10px;">' + element.first_name+' '+element.middle_name +' '+ element.last_name + '</span>'+
@@ -62,6 +63,8 @@ function successCallbackAllResultsUser(data)
                                 '</div>'
                             );
         });
+
+        // Session.set('search', '');
     }
 }
 
@@ -69,9 +72,9 @@ function successCallbackAllResultsGroup(data)
 {
     if(data.outcome != 0){
         function delay(){ 
-            $('.all-groups-results').html('<div class="allGroups">' + '<span class="all-group">' + 'Groups' +'</span>' +'</div>');
+            $('.all-groups-results').html('<div class="panel panel-success" ><div class="panel-heading"><h3 class="panel-title">Group</h3></div><div class="panel-body" id="allGroups"></div></div>');
             data.forEach(function(element){
-            $('.allGroups').append('<div class="all-groups" align="left" name="'+ element.groups_id +'">'+ 
+            $('#allGroups').append('<div class="all-groups" align="left" value="'+ element.groups_id +'">'+ 
                                     	'<a href="#" onClick="profile();" style="text-decoration: none">' + 
                                             '<span style="margin-left: 10px;">' + element.groups_name + '</span>'+
                                         '</a>' + 
@@ -80,5 +83,6 @@ function successCallbackAllResultsGroup(data)
             });
         }
         setTimeout(function(){delay();},5);
+        // Session.set('search', '');
     }
 }

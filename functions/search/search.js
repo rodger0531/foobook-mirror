@@ -30,7 +30,6 @@ function groupSearch(search){
 function successCallbackUser(data)
 {
     if(data.outcome != 0){
-        // $('#results-user').show();
         $('#results-user').html('<div class="panel panel-info" id="userpanel"><div class="panel-heading"><h3 class="panel-title">People</h3></div><div class="panel-body" id="userbody"></div></div>');
         data.forEach(function(element){
             $('#userbody').append(   '<div id="usersmallpanel" align="left" value='+ element.user_id +'>'+ 
