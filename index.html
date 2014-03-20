@@ -45,10 +45,8 @@
                             <input class="form-control" type="password" id="signUpPassword" name="password" size="30" maxlength="20" placeholder="Password"/><br>
                             <input class="form-control" type="password" id="repeatPassword" size="30" maxlength="20" placeholder="Verify Password"/><br>
                             <input class="form-control" type="date" name="date_of_birth"/><br>
-
-                            Male<input type="radio" name="gender" value=0/>
-                            Female<input type="radio" name="gender" value=1/><br><br>
-
+                            <span class="radiogender">Male </span><input type="radio" name="gender" class="radiobuttons" value=0/>
+                            <span class="radiogender">Female </span><input type="radio" name="gender" class="radiobuttons" value=1/><br><br>
                             <br>
                              <input type="submit" class="btn btn-primary" name="submit" value="Sign up" id="submitbutton"/><br>
                         </div>
@@ -63,7 +61,7 @@
                     radius: 20,
                     overlay: 'rgba(150,150,150,0.1)',
                     offset: {
-                        x: -400,
+                        x: -35,
                         y: 0
                     },
                     optClass: '',
