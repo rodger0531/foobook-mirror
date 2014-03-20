@@ -5,5 +5,5 @@ $(document).ready(function()
 	Session.set('groupWall_id', '');
 
 	generatePostArea();
-	generateFeed();
+	generateFeed();z
 });

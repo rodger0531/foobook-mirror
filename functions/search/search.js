@@ -98,9 +98,9 @@ function allResults()
     window.location.assign("allResults.html");
 }
 
-
-
 $( document ).ready( function(){
+
+    $('#showAllResults').hide();
 
     $("#results-user").on("click","#usersmallpanel",function () {
         var user_id=this.getAttribute("value");
