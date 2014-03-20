@@ -76,23 +76,7 @@ array(
 
 $result = query($action, $query, $params);
 
-// Alter the responses to provide feedback to the user.
-if ($result['outcome'] === 0)
-{
-	if ($result['response'] === 201)
-	{
-		$result['response'] = "Query could not be executed!";
-	}
-	elseif ($result['response'] === 202)
-	{
-		$result['response'] = "Couldn't load the newsfeed!";
-	}
-	elseif ($result['response'] === 203)
-	{
-		$result['response'] = "Server error!";
-	}
-}
-elseif ($result['outcome'] === 1)
+if ($result['outcome'] === 1)
 {
 	foreach ($result['response'] as $message)
 	{

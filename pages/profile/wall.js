@@ -81,6 +81,18 @@ function generatePostsSuccess(data)
             );
 		});
     }
+    else if (data['outcome'] === 0)
+    {
+        if (data['response'] === 202)
+        {
+            if ($("#wall").html() === "")
+            {
+                $("#wall").append(
+                    '<h4 class="empty_feed_message">No posts to display.</h4>'
+                );
+            }
+        }
+    }
 }
 
 function generateComments(message_id)

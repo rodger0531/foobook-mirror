@@ -138,3 +138,11 @@
 {
 	float: left;
 }
+
+/* Empty feed message. */
+
+.empty_feed_message
+{
+	text-align: center;
+	margin-top: 50px;
+}
