@@ -119,13 +119,13 @@ function sendmessage($sender_id,$participantsList,$message_string,$chat_name){
 			$querycreate = $querycreate . "INSERT INTO user_thread(user_id,thread_id) VALUES ($chat_id,LAST_INSERT_ID());";
 		}
 		// concatenates sender_id
-		$querycreate = $querycreate . "INSERT INTO message(sender_id,thread_id,message_string) VALUES ($sender_id,LAST_INSERT_ID(),'$message_string')";
+		$querycreate = $querycreate . "INSERT INTO message(sender_id,thread_id,message_string,created) VALUES ($sender_id,LAST_INSERT_ID(),'$message_string',now())";
 		// echo $querycreate;
 		$stmt = $con->prepare($querycreate);
 	} else {
 		$existing_thread = $result['thread_id'];
 		// continues a thread
-		$querycurrent = "INSERT INTO message(sender_id,thread_id,message_string) VALUES ('$sender_id','$existing_thread','$message_string')";
+		$querycurrent = "INSERT INTO message(sender_id,thread_id,message_string,created) VALUES ('$sender_id','$existing_thread','$message_string',now())";
 		$stmt = $con->prepare($querycurrent);
 	}
 	
@@ -152,8 +152,8 @@ function createcircle($owner_id,$circle_name){
 
 function postgroup($sender_id,$groupWall_id,$message_string){
 	$con = connect();
-	$query = "INSERT INTO message(sender_id, groupWall_id, message_string)
-			  VALUES ('$sender_id','$groupWall_id','$message_string')";
+	$query = "INSERT INTO message(sender_id, groupWall_id, message_string, created)
+			  VALUES ('$sender_id','$groupWall_id','$message_string',now())";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }
@@ -183,8 +183,8 @@ function creategroup($user_id,$admin_id,$groups_name){
 
 function postwall($sender_id,$userWall_id,$message_string){
 	$con = connect();
-	$query = "INSERT INTO message(sender_id,userWall_id,message_string)
-				VALUES ('$sender_id','$userWall_id','$message_string')";
+	$query = "INSERT INTO message(sender_id,userWall_id,message_string,created)
+				VALUES ('$sender_id','$userWall_id','$message_string',now())";
 	$con->query($query) or die ($con->error);
 	unset($con);
 }

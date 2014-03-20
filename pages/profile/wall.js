@@ -47,7 +47,7 @@ function generatePostsSuccess(data)
                     '</div>' +
                     '<div class="message_from_to_details">' +
                         '<div class="message_sender_name"><a class="entity" href="user,' + element['sender_id'] + '">' + element['sender_fname'] + ' ' + element['sender_mname'] + ' ' + element['sender_lname'] + '</a></div>' +
-                        '<br><div class="message_timestamp">' + element['timestamp'] + '</div>' +
+                        '<br><div class="message_timestamp">' + element['created'] + '</div>' +
                     '</div>' +
                 '</div>' +
                 '<div class="message_content">' +
@@ -121,7 +121,7 @@ function generateCommentsSuccess(data)
                     '</div>' +
                     '<div class="comment_from_to_details">' +
                         '<div class="comment_sender_name"><a class="entity" href="user,' + element['sender_id'] + '">' + element['sender_fname'] + ' ' + element['sender_mname'] + ' ' + element['sender_lname'] + '</a></div>' +
-                        '<br><div class="comment_timestamp">' + element['timestamp'] + '</div>' +
+                        '<br><div class="comment_timestamp">' + element['created'] + '</div>' +
                     '</div>' +
                 '</div>' +
                 '<div class="message_content">' +

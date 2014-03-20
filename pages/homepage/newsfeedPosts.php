@@ -10,7 +10,7 @@ $action = 2; // 2 indicates that the database is being READ from.
 // Define the SQL query.
 $query = "
 SELECT
-	m.message_id, m.message_string, m.timestamp,
+	m.message_id, m.message_string, m.created, m.updated,
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
 	u2.user_id AS to_user_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
@@ -42,7 +42,7 @@ FROM
 		ON m.photo_id = p2.photo_id
 UNION
 SELECT
-	m.message_id, m.message_string, m.timestamp,
+	m.message_id, m.message_string, m.created, m.updated,
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
 	u2.user_id AS to_user_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
@@ -63,7 +63,7 @@ FROM
 		ON m.groupWall_id = g.groups_id
 	LEFT JOIN photo p2
 		ON m.photo_id = p2.photo_id
-ORDER BY timestamp DESC
+ORDER BY updated DESC
 ";
 
 // Define the parameters of the query depending on the information the user inputted.

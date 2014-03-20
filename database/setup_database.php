@@ -223,7 +223,8 @@ $con->query("CREATE TABLE IF NOT EXISTS message(message_id bigint unsigned auto_
 												comment_on_post_id bigint unsigned,
 												foreign key(comment_on_post_id) references message(message_id),
 												message_string text not null,
-												timestamp timestamp not null default current_timestamp,
+												created timestamp not null default 0,
+												updated timestamp not null default current_timestamp on update current_timestamp,
 												visibility_setting tinyint(1) not null default 0
 												)
 			") or die ($con->error);

@@ -10,7 +10,7 @@ $action = 2; // 2 indicates that the database is being READ from.
 // Define the SQL query.
 $query = "
 SELECT
-	m.message_id, m.message_string, m.timestamp,
+	m.message_id, m.message_string, m.created, m.updated,
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
 	p2.photo_content AS uploaded_picture
@@ -24,7 +24,7 @@ FROM
 		ON m.photo_id = p2.photo_id
 WHERE
 	m.userWall_id = :user_id
-ORDER BY timestamp DESC
+ORDER BY updated DESC
 ";
 
 // Define the parameters of the query depending on the information the user inputted.

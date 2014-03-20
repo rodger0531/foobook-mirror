@@ -100,7 +100,8 @@ $query = "
 		groupWall_id = :groupWall_id,
 		comment_on_post_id = :comment_on_post_id,
 		message_string = :message_string,
-		photo_id = :photo_id
+		photo_id = :photo_id,
+		created = now()
 	";
 
 // Define the parameters of the query depending on the information the user inputted.
@@ -120,6 +121,37 @@ $result = query($action, $query, $params);
 if ($result['outcome'] === 0)
 {
 	die;
+}
+
+/*
+ * If commenting on a post, update its 'updated' timestamp to preserve feed order.
+ */
+
+if ($comment_on_post_id !== null)
+{
+	// Define which type of database transaction is being attempted here, e.g. INSERT, READ, etc.
+	$action = 3; // 3 indicates that a record is being UPDATED in the database.
+
+	// Define a SQL query that can update the record.
+	$query = "
+		UPDATE message
+		SET updated = now()
+		WHERE message_id = :message_id
+		";
+
+	// Define the parameters of the query depending on the information the user inputted.
+	$params =
+	array(
+		'message_id' => $comment_on_post_id
+	);
+
+	$result = query($action, $query, $params);
+
+	// Alter the responses to provide feedback to the user.
+	if ($result['outcome'] === 0)
+	{
+		die;
+	}
 }
 
 echo json_encode($result);
