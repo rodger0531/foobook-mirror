@@ -65,13 +65,6 @@ $con->query("CREATE TABLE IF NOT EXISTS user_friend(user_id int unsigned not nul
 												    )
 			") or die ($con->error);
 
-//USER_REQUEST
-$con->query("CREATE TABLE IF NOT EXISTS user_request(user_id int unsigned not null references user(user_id),
-													 request_id int unsigned not null references user(user_id),
-													 primary key(user_id,request_id)
-													 )
-			") or die ($con->error);
-
 //USER_BLOCK
 $con->query("CREATE TABLE IF NOT EXISTS user_block(user_id int unsigned not null references user(user_id),
 												   block_id int unsigned not null references user(user_id),
