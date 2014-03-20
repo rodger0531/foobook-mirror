@@ -1,0 +1,60 @@
+.advanced-search-fields
+{
+	width: 100%;
+	height: 80px;
+	margin-bottom: 10px;
+}
+
+#job, #school, #city, #country
+{
+	width: 200px;
+}
+
+#job, #school, #city, #country, #advancedSearch
+{
+	float: left;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+.people
+{
+	float:left; 
+	border: 1px solid black; 
+	width:100%;
+	padding: 10px;
+}
+
+.users
+{
+	width: 100%;
+	border:1px solid black; 
+	height: auto; 
+	padding:20px; 
+	position: relative;
+  	overflow: auto;
+}
+
+.users:hover
+{
+	-webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 150, 0.5);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 150, 0.5);
+}
+
+img 
+{
+	width:50px; 
+	height:50px; 
+	float:left; 
+	margin-right:6px;
+}
+
+a
+{
+	color: black;
+}
+
+#not-found
+{
+	font-color: black;
+}
