@@ -1,4 +1,4 @@
-function post()
+function generatePostArea()
 {
     $(".container").on('click', ".messageFormUploadPictureButton", function(event)
     {
@@ -71,5 +71,7 @@ function setMessageFormPictureName(messageValue)
 
 function postSuccess(data)
 {
-    newsfeed();
+    $("#messageFormText0").val("");
+    $("#messageFormPicture0").val("");
+    generateFeed();
 }

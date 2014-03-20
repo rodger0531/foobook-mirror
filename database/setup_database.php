@@ -65,13 +65,6 @@ $con->query("CREATE TABLE IF NOT EXISTS user_friend(user_id int unsigned not nul
 												    )
 			") or die ($con->error);
 
-//USER_REQUEST
-$con->query("CREATE TABLE IF NOT EXISTS user_request(user_id int unsigned not null references user(user_id),
-													 request_id int unsigned not null references user(user_id),
-													 primary key(user_id,request_id)
-													 )
-			") or die ($con->error);
-
 //USER_BLOCK
 $con->query("CREATE TABLE IF NOT EXISTS user_block(user_id int unsigned not null references user(user_id),
 												   block_id int unsigned not null references user(user_id),
@@ -223,7 +216,8 @@ $con->query("CREATE TABLE IF NOT EXISTS message(message_id bigint unsigned auto_
 												comment_on_post_id bigint unsigned,
 												foreign key(comment_on_post_id) references message(message_id),
 												message_string text not null,
-												timestamp timestamp not null default current_timestamp,
+												created timestamp not null default 0,
+												updated timestamp not null default current_timestamp on update current_timestamp,
 												visibility_setting tinyint(1) not null default 0
 												)
 			") or die ($con->error);

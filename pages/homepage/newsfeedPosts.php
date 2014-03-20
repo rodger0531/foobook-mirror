@@ -10,11 +10,11 @@ $action = 2; // 2 indicates that the database is being READ from.
 // Define the SQL query.
 $query = "
 SELECT
-	m.message_id, m.message_string, m.timestamp,
+	m.message_id, m.message_string, m.created, m.updated,
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
-	u2.user_id AS recipient_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
-	g.groups_name AS group_name,
+	u2.user_id AS to_user_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
+	g.groups_id AS to_group_id, g.groups_name AS group_name,
 	p2.photo_content AS uploaded_picture
 FROM
 	message m
@@ -42,11 +42,11 @@ FROM
 		ON m.photo_id = p2.photo_id
 UNION
 SELECT
-	m.message_id, m.message_string, m.timestamp,
+	m.message_id, m.message_string, m.created, m.updated,
 	u1.user_id AS sender_id, u1.first_name AS sender_fname, u1.middle_name AS sender_mname, u1.last_name AS sender_lname,
 	p1.photo_content AS sender_picture,
-	u2.user_id AS recipient_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
-	g.groups_name AS group_name,
+	u2.user_id AS to_user_id, u2.first_name AS recipient_fname, u2.middle_name AS recipient_mname, u2.last_name AS recipient_lname,
+	g.groups_id AS to_group_id, g.groups_name AS group_name,
 	p2.photo_content AS uploaded_picture
 FROM
 	message m
@@ -63,7 +63,7 @@ FROM
 		ON m.groupWall_id = g.groups_id
 	LEFT JOIN photo p2
 		ON m.photo_id = p2.photo_id
-ORDER BY timestamp DESC
+ORDER BY updated DESC
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
@@ -76,23 +76,7 @@ array(
 
 $result = query($action, $query, $params);
 
-// Alter the responses to provide feedback to the user.
-if ($result['outcome'] === 0)
-{
-	if ($result['response'] === 201)
-	{
-		$result['response'] = "Query could not be executed!";
-	}
-	elseif ($result['response'] === 202)
-	{
-		$result['response'] = "Couldn't load the newsfeed!";
-	}
-	elseif ($result['response'] === 203)
-	{
-		$result['response'] = "Server error!";
-	}
-}
-elseif ($result['outcome'] === 1)
+if ($result['outcome'] === 1)
 {
 	foreach ($result['response'] as $message)
 	{

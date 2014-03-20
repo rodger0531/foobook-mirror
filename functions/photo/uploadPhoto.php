@@ -1,6 +1,6 @@
 <?php
 
-require 'query.php'; // For querying to the database.
+require_once '../../functions/abstract/query.php'; // For querying to the database.
 
 $photo_type = $_FILES['photo_content']['type'];
 
