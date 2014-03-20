@@ -1,30 +1,4 @@
 
-// function searchFunctionality()
-// {
-//     $('#results-user').html("");
-//     $('#results-group').html("");
-//     $('#showAllResults').hide();
-//     $('#searchbar').keyup(function()
-//     {
-//         search();
-//     });
-// }
-
-// function search(){
-//     Session.set('search', $('#searchbar').val()); 
-//     if(Session.get('search') != undefined){
-//         $('#results-user').empty();
-//         $('#results-group').empty();
-//         userSearch(Session.get('search'));
-//         groupSearch(Session.get('search'));
-//     }else{
-//         Session.set('search', ''); 
-//         $('#results-user').empty();
-//         $('#results-group').empty();
-//         $('#showAllResults').hide();
-//     }
-// }
-
 function userSearch(search){
     var search = search;
     $.ajax({
@@ -97,21 +71,3 @@ function allResults()
 {
     window.location.assign("allResults.html");
 }
-
-$( document ).ready( function(){
-
-    $('#showAllResults').hide();
-
-    $("#results-user").on("click","#usersmallpanel",function () {
-        var user_id=this.getAttribute("value");
-        window.location.assign("profile.html");
-        alert(user_id);
-    });
-
-    $("#results-group").on("click","#groupsmallpanel",function () {
-        var group_id=this.getAttribute("value");
-        window.location.assign("group.html");
-        alert(group_id);
-    });
-
-});

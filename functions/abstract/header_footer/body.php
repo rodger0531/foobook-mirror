@@ -56,7 +56,20 @@ echo ('
                 $("#showRightPush").click(function () {
                     $("#showRightPush").toggleClass("clicked");
                 });
+
+                $("#results-user").on("click","#usersmallpanel",function () {
+                    var user_id=this.getAttribute("value");
+                    window.location.assign("profile.html");
+                    alert(user_id);
+                });
+
+                $("#results-group").on("click","#groupsmallpanel",function () {
+                    var group_id=this.getAttribute("value");
+                    window.location.assign("group.html");
+                    alert(group_id);
+                });
             });
+            
 
 
             $(document).click(function(e) {
@@ -91,6 +104,7 @@ echo ('
                     Session.set("search", "");
                 }
             });
+            
 
 
         </script>

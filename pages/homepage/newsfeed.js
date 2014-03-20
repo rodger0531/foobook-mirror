@@ -32,7 +32,6 @@ function generatePosts()
 
 function generatePostsSuccess(data)
 {
-    alert(data['outcome']);
 	if (data['outcome'] === 1)
     {
     	$("#newsfeed").html("");
