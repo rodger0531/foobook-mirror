@@ -3,6 +3,13 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+19/03/2014 - Abdi
+
+	- Modified advancedSearch and allResults
+	- Modified 'body.php' to include search function in document.ready
+	- Modified 'header.php' to include href for advancedSearch page and allResults page
+	- Deleted 'advancedSearch.php', 'advancedSearch.js' and 'allResults.js' from functions/search/
+
 19/03/2014 - Abdi 
 
 	- Modified albums folder to include working albums(.php, .js, .css) and search folder to include advancedSearch (.php, .css, .js) and allResults (.php, .js, .css)

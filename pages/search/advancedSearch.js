@@ -26,18 +26,19 @@ $(document).ready(function()
 		
 	});
 
-	// $('.showResults').on('click', '.users', function(){
-	// 	// alert($(this).attr('name'));
-	// 	alert("hello");
-	// });
+	$('#all-users').on('click','.users',function () {
+        var user_id = this.getAttribute('value');
+        window.location.assign('profile.html');
+        alert(user_id);
+    });
 });
 
 function successCallbackAllUser(data)
 {
     if(data.outcome != 0){
-        $('#all-users').html('<div class="showResults">' + '<span class="people">' + 'People' +'</span>' +'</div>');
+        $('#all-users').html('<div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title">People</h3></div><div class="panel-body" id="showResults"></div></div>');
         data.forEach(function(element){
-            $('.showResults').append(   '<div class="users" onClick="profiles();" align="left" name="'+ element.user_id +'">'+ 
+            $('#showResults').append(   '<div class="users" value="'+ element.user_id +'">'+ 
                                                 '<a href="#" style="text-decoration: none">' + 
                                                     '<img src="data:image/jpeg;base64,'+ element.photo_content + '" />' + 
                                                     '<span style="margin-left: 10px;">' + element.first_name+' '+element.middle_name +' '+ element.last_name + '</span>'+

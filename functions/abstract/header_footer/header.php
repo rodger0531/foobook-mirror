@@ -31,7 +31,7 @@ echo ('
           <div class="form-group" id="searchbardiv">
             <input type="text" class="form-control" placeholder="Search for people or groups"  id="searchbar">
           </div>
-          <a href="#" id="search_button">Advanced search</a>
+          <a href="../../pages/search/advancedSearchPage.php" id="search_button">Advanced search</a>
           <div id="results-box">
                 <div id="results">
                   <div id="results-user"></div>
@@ -40,7 +40,7 @@ echo ('
                 
                   <div class="panel-heading" id="showAllResults">
                     <h3 class="panel-title">
-                      <a href="#" onClick="allResults();" style="text-decoration: none; color:black;">View all results</a>
+                      <a href="../../pages/search/allResults.php" style="text-decoration: none; color:black;">View all results</a>
                     </h3>
                   </div>
                
