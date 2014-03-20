@@ -58,14 +58,14 @@ echo ('
                 });
             });
 
-/*
+
             $(document).click(function(e) {
               if(e.target.class!="panel"){
                 $(".panel").hide(500);
                 $("#showAllResults").hide(500);
               }
             });
-*/
+
 
         </script>
 	');
