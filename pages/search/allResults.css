@@ -1,0 +1,41 @@
+.all-people, .all-group
+{
+	float:left; 
+	border: 1px solid black; 
+	width:100%;
+	padding: 10px;
+}
+
+.all-group
+{
+	margin-top: 10px;
+}
+
+.all-users, .all-groups
+{
+	width: 100%;
+	border:1px solid black; 
+	height: auto; 
+	padding:20px; 
+	position: relative;
+  	overflow: auto;
+}
+
+.all-users:hover, .all-groups:hover
+{
+	-webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 150, 0.5);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 150, 0.5);
+}
+
+img 
+{
+	width:50px; 
+	height:50px; 
+	float:left; 
+	margin-right:6px;
+}
+
+a
+{
+	color: black;
+}

@@ -3,6 +3,10 @@ This log file contains information about all changes relating to the 'App Logic'
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 ===========================================================================================
 
+19/03/2014 - Abdi 
+
+	- Modified albums folder to include working albums(.php, .js, .css) and search folder to include advancedSearch (.php, .css, .js) and allResults (.php, .js, .css)
+
 19/03/2014 - Rodger
 
 	- Modified homepage.php to include header.php and sliding menu

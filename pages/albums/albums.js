@@ -60,6 +60,7 @@ $(document).ready(function()
 			'-webkit-box-shadow': '0px 0px 5px 5px rgba(0, 150, 0, 0.5)',
        		'box-shadow': '0px 0px 5px 5px rgba(0, 150, 0, 0.5)'
 		});
+		$('#newCollection').hide();
 	});
 
 	//show photo upload
@@ -74,7 +75,7 @@ $(document).ready(function()
 	});
 
 	// upload new photo
-	$("#newPhoto").on('submit', function(event)
+	$('#newPhoto').on('submit', function(event)
     {
         event.preventDefault();
         var formData = new FormData($("#newPhoto")[0]);
@@ -163,6 +164,7 @@ function newCollection(data)
 	$('#collection-name').val("");
 	$('#photo-content-collection').replaceWith($('#photo-content-collection').clone( true ));
 	$('#newCollection').hide();
+	$('.photo-container').hide();
 	viewCollection();
 }
 

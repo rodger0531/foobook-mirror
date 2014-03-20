@@ -66,6 +66,31 @@ echo ('
                 $("#showAllResults").hide(500);
               }
             });
+            
+            $("#results-user").html("");
+            $("#results-group").html("");
+            $("#showAllResults").hide();
+            $("#searchbar").keyup(function(){
+                if(Session.get("search") === undefined)
+                {
+                    Session.set("search", $("#searchbar").val()); 
+                    if(Session.get("search") != undefined){
+                        $("#results-user").empty();
+                        $("#results-group").empty();
+                        userSearch(Session.get("search"));
+                        groupSearch(Session.get("search"));
+                    }else{
+                        Session.set("search", ""); 
+                        $("#results-user").empty();
+                        $("#results-group").empty();
+                        $("#showAllResults").hide();
+                    }
+                }
+                else
+                {
+                    Session.set("search", "");
+                }
+            });
 
 
         </script>
