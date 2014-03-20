@@ -36,7 +36,7 @@ if(preg_match('/\s/', $user_input))
 		AND first_name = :first_name 
 		AND middle_name = :middle_name 
 		AND (last_name = :last_name OR last_name LIKE '%$input%')
-		LIMIT 
+		LIMIT 5
 		";
 
 		$params = 
@@ -49,7 +49,7 @@ if(preg_match('/\s/', $user_input))
 }
 elseif(!preg_match('/\s/', $user_input))
 {
-	$query .= "AND (user.first_name LIKE '%$user_input%' or user.middle_name LIKE '%$user_input%' or user.last_name LIKE '%$user_input%')
+	$query .= "AND (user.first_name LIKE '%$user_input%' OR user.middle_name LIKE '%$user_input%' OR user.last_name LIKE '%$user_input%')
 	LIMIT 5;";
 
 	$params = array();

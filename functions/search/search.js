@@ -1,30 +1,27 @@
+
 function searchFunctionality()
 {
     $('#results-user').html("");
     $('#results-group').html("");
     $('#showAllResults').hide();
-    $('.searchBar').keyup(function()
+    $('#searchbar').keyup(function()
     {
         search();
     });
 }
 
 function search(){
-    Session.set('search', $('.searchBar').val()); 
+    Session.set('search', $('#searchbar').val()); 
     if(Session.get('search') != undefined){
         $('#results-user').empty();
         $('#results-group').empty();
         userSearch(Session.get('search'));
         groupSearch(Session.get('search'));
     }else{
-        Session.clear();
-        $('.showUserResults').replaceWith("");
-        // $('.showGroupResults').remove();
-        // $('#results').html("");
-        // $('#results-user').html("");
-        // $('#results-group').html("");
+        Session.set('search', ''); 
+        $('#results-user').empty();
+        $('#results-group').empty();
         $('#showAllResults').hide();
-        // alert(Session.get('search'));
     }
 }
 
@@ -58,14 +55,13 @@ function groupSearch(search){
 
 function successCallbackUser(data)
 {
-    // $('#results-user').html("");
     if(data.outcome != 0){
-        $('#results-user').html('<div class="showUserResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'People' +'</span>' +'</div>');
+        // $('#results-user').show();
+        $('#results-user').html('<div class="panel panel-info" id="userpanel"><div class="panel-heading"><h3 class="panel-title">People</h3></div><div class="panel-body" id="userbody"></div></div>');
         data.forEach(function(element){
-            $('.showUserResults').append(   '<div class="showUsers" align="left" style="border:1px solid red; height:50px; padding:20px; margin-top:-1px;"  name="'+ element.user_id +'">'+ 
-                                                '<a href="#" onClick="profile();" style="text-decoration: none">' + 
-                                                    '<img src="data:image/jpeg;base64,'+ element.photo_content + '" style="width:50px; height:50px; float:left; margin-right:6px;" />' + 
-                                                    '<span style="margin-left: 10px;">' + element.first_name+' '+element.middle_name +' '+ element.last_name + '</span>'+
+            $('#userbody').append(   '<div id="usersmallpanel" align="left" value='+ element.user_id +'>'+ 
+                                                    '<img src="data:image/jpeg;base64,'+ element.photo_content + '" style="width:50px; height:50px; float:left; margin-right:6px;">' + 
+                                                    '<span style="margin-left: 10px; color: black;">' + element.first_name+' '+element.middle_name +' '+ element.last_name + '</span>'+
                                                 '</a>' +
                                             '</div>' 
                                             
@@ -79,20 +75,18 @@ function successCallbackUser(data)
 
 function successCallbackGroup(data)
 {
-    // $('#results-group').html("");
     if(data.outcome != 0){
         function delay(){ 
-            $('#results-group').html('<div class="showGroupResults">' + '<span style="float:left; border: 1px solid green; width:100%;">' + 'Groups' +'</span>' +'</div>');
+            $('#results-group').html('<div class="panel panel-success" id="grouppanel"><div class="panel-heading"><h3 class="panel-title">Group</h3></div><div class="panel-body" id="usergroup"></div></div>');
             data.forEach(function(element){
-            $('.showGroupResults').append(  '<div class="showGroups" align="left" style="border:1px solid red; height:50px; padding:20px; margin-top:-1px;" name="'+ element.groups_id +'">'+ 
-                                                '<a href="#" onClick="profile();" style="text-decoration: none">' + 
-                                                    '<span style="margin-left: 10px;">' + element.groups_name + '</span>'+
+            $('#usergroup').append(  '<div id="groupsmallpanel" align="left" value="'+ element.groups_id +'">'+ 
+                                                    '<span style="margin-left: 10px; color:black;">' + element.groups_name + '</span>'+
                                                 '</a>' + 
                                             '</div>' 
                             );
             });
         }
-        setTimeout(function(){delay();},500);
+        setTimeout(function(){delay();},50);
         $('#showAllResults').show();
     }else{
         $('#showAllResults').hide();
@@ -104,29 +98,20 @@ function allResults()
     window.location.assign("allResults.html");
 }
 
-function profile()
-{
-    $('.showUsers').click(function(){
-        var name = $(this).attr('name'); // alerts the user_id of the profile selected (used only for test purposes -- will be removed later)
+
+
+$( document ).ready( function(){
+
+    $("#results-user").on("click","#usersmallpanel",function () {
+        var user_id=this.getAttribute("value");
         window.location.assign("profile.html");
-        alert(name);
+        alert(user_id);
     });
 
-    $('.users').click(function(){
-        var name = $(this).attr('name'); // alerts the user_id of the profile selected (used only for test purposes -- will be removed later)
-        window.location.assign("profile.html");
-        alert(name);
+    $("#results-group").on("click","#groupsmallpanel",function () {
+        var group_id=this.getAttribute("value");
+        window.location.assign("group.html");
+        alert(group_id);
     });
 
-    $('.showGroups').click(function(){
-        var name = $(this).attr('name'); // alerts the groups_id of the profile selected (used only for test purposes -- will be removed later)
-        window.location.assign("profile.html");
-        alert(name);
-    });
-
-    $('.groups').click(function(){
-        var name = $(this).attr('name'); // alerts the groups_id of the profile selected (used only for test purposes -- will be removed later)
-        window.location.assign("profile.html");
-        alert(name);
-    });
-}
+});

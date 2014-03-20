@@ -1,6 +1,6 @@
 <?php
 
-include 'setup_database.php';
+require_once 'setup_database.php';
 
 //user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$city,$country)
 user('Bat','Man','bat@man.com','robin','1934/01/01','0','Gotham city','USA');
@@ -217,7 +217,7 @@ function user($first_name,$last_name,$email,$password,$date_of_birth,$gender,$ci
 
 
 function connect(){
-	require_once __DIR__ . '/db_config.php';
+	require_once '../functions/server/db_config.php';
 	$dsn = DSN;
 	$user = DB_USER;
 	$password = DB_PASSWORD;

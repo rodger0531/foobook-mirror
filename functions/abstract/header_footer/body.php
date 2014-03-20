@@ -52,7 +52,21 @@ echo ('
                 $("#showLeftPush").click(function () {
                     $("#showLeftPush").toggleClass("clicked");
                 });
+
+                $("#showRightPush").click(function () {
+                    $("#showRightPush").toggleClass("clicked");
+                });
             });
+
+/*
+            $(document).click(function(e) {
+              if(e.target.class!="panel"){
+                $(".panel").hide(500);
+                $("#showAllResults").hide(500);
+              }
+            });
+*/
+
         </script>
 	');
 

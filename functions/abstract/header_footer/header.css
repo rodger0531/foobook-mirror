@@ -4,13 +4,70 @@
     font-weight:bold;
 }
 
-#showLeftPush:hover
+#showLeftPush:hover, #showRightPush:hover
 {
     background-color : #47a3da;
     font-weight:bold;
 }
 
-#showLeftPush{
+#rightHandSideButtons
+{
+    position: relative;
+    float: right;
+}
+
+#usersmallpanel:hover,#groupsmallpanel:hover
+{
+    -webkit-box-shadow: inset 0px 0px 11px 0px rgba(50, 50, 160, 0.89);
+    -moz-box-shadow:    inset 0px 0px 11px 0px rgba(50, 50, 160, 0.89);
+    box-shadow:         inset 0px 0px 11px 0px rgba(50, 50, 160, 0.89);
+}
+
+
+#userbody ,#usergroup
+{
+    padding: 0px;
+}
+
+#grouppanel,#userpanel
+{
+    margin-bottom: 0px;
+}
+
+#showAllResults
+{
+    margin-top: 10px;
+    margin-bottom: 0px;
+    background-color: #f2dede;
+    border-radius: 5px;
+}
+
+#usersmallpanel,#groupsmallpanel
+{
+    z-index: 10;
+    /*overflow: auto;*/
+    position: relative;
+    background-color: white;
+    width:100%;
+    height:100px; 
+    padding:20px;
+    margin-bottom: 1px; 
+    /*margin-top:-1px;*/
+}
+
+#groupsmallpanel
+{
+    line-height: 4em;
+}
+
+#showRightPush
+{
+    position: relative;
+    float: right;
+}
+
+#showLeftPush
+{
     position: relative;
     width:150px;
 }
@@ -20,32 +77,64 @@
     width:400px;    
 }
 
-#bs-example-navbar-collapse-1
-{}
-
-#searchbardiv
+header
 {
-   display: inline-block;
+    overflow: hidden;
 }
 
-#showRightPush
-{
-    position: relative;
-    float: right;
-}
-
-/*
-.container-fluid
+#results-box
 {
     position: absolute;
+    width:400px;
+    z-index:9;
+    background-color: #F8F8F8 ;
+    border-radius: 5px;
+    -webkit-box-shadow: 5px 5px 22px 0px rgba(50, 50, 50, 0.63);
+    -moz-box-shadow:    5px 5px 22px 0px rgba(50, 50, 50, 0.63);
+    box-shadow:         5px 5px 22px 0px rgba(50, 50, 50, 0.63);
+}
+
+header{
+    position: fixed;
+}
+
+.navbar
+{
+    position: relative;
+    max-height: 20%;
+    width: 100%;
+    -webkit-box-shadow: -1px -1px 26px 0px rgba(50, 50, 50, 0.53);
+    -moz-box-shadow:    -1px -1px 26px 0px rgba(50, 50, 50, 0.53);
+    box-shadow:         -1px -1px 26px 0px rgba(50, 50, 50, 0.53);
+}
+
+#showAllResults
+{
+    border: 2px;
     width:100%;
 }
-*/
-/*
-#showLeftPush:hover, #selected_showLeftPush, .QuickStartLong:hover {
-    background-color: rgb(184, 225, 252) !important;
+
+.showUserResults
+{
+    background-color: white;
 }
-*/
+
+#bs-example-navbar-collapse-1
+{
+    padding-left: 20%;
+}
+
+.showGroupResults
+{
+    background-color: white;
+}
+
+#search_button
+{
+    text-decoration: none;
+    color: black;
+    padding-left: 10px;
+}
 
 
 

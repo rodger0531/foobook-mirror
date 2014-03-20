@@ -39,6 +39,7 @@
 	height: 98px;
 	width: 98px;
 	border: 1px solid black;
+	/*z-index: -1;*/
 }
 
 .message_from_to_details

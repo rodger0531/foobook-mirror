@@ -14,7 +14,8 @@ if (
 	)
 {
 	$result = array('outcome' => 0, 'response' => "All input fields must be completed!");
-	echo json_encode($result);
+	// echo json_encode($result);
+	echo json_encode($_POST['last_name']);
 	return;
 }
 

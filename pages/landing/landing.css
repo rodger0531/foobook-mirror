@@ -1,0 +1,147 @@
+#content
+{
+    position:absolute;
+    margin-top: 2.5%;
+    margin-left: 20%;
+    margin-bottom: 2.5%;
+    width:60%;
+    min-height: 700px;
+/*    height:auto;*/
+    min-width: 900px;
+/*    width:auto;*/
+    border-radius:40px;
+    -moz-box-shadow:    inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow:         inset 0 0 10px #000000;
+}
+h1
+{
+    position:relative;
+    left:5%;
+    font-size: 20;
+    color:#FF8533 ;
+    font-weight:bold;
+}
+
+#subtext
+{
+    position: relative;
+    float:right;
+    font-size:50%;
+    right: 10%;
+    color:black;
+    font-weight:normal;
+}
+
+h2
+{
+    color:#FF8533;
+    font-weight:bold;
+}
+
+#signupbox
+{
+    position:relative;
+    float:right;
+    right:10%;
+}
+
+#signinbox
+{
+    position:relative;
+    float:left;
+    left:10%;
+}
+
+body
+{
+    background-image: url("green.png");
+    background-size: 100%;
+}
+
+
+
+.form-control
+{
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+}
+
+.form-control:focus
+{
+    border:10px solid rgb(0,0,255,1);
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+/*    border-color: rgb(0,0,255,0.9);*/
+    background-color:#CCFFFF;
+}
+
+/*
+#signupform {
+    width: 10px;
+    height: 10px;
+    margin: 100px;
+    float: left;
+    background: blue;
+    -webkit-transition: width 1s, height 1s, margin 1s;
+    -moz-transition: width 1s, height 1s, margin 1s;
+    -ms-transition: width 1s, height 1s, margin 1s;
+    transition: width 1s, height 1s, margin 1s;
+}
+#signupform:hover {
+    width: 100px;
+    height: 100px;
+    margin: 55px;
+}
+*/
+
+
+/*Male Female switch*/
+
+.onoffswitch {
+    position: relative; width: 120px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 50px;
+}
+.onoffswitch-inner {
+    width: 200%; margin-left: -100%;
+    -moz-transition: margin 0.3s ease-in 0s; -webkit-transition: margin 0.3s ease-in 0s;
+    -o-transition: margin 0.3s ease-in 0s; transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    float: left; width: 50%; height: 34px; padding: 0; line-height: 34px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "FEMALE";
+    padding-left: 10px;
+    background-color: #FF8F8F; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "MALE";
+    padding-right: 10px;
+    background-color: #52CEFF; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-switch {
+    width: 14px; margin: 10px;
+    background: #FFFFFF;
+    border: 2px solid #999999; border-radius: 50px;
+    position: absolute; top: 0; bottom: 0; right: 67px;
+    -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+    -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
