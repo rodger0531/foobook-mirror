@@ -3,7 +3,7 @@
 include '../../functions/abstract/query.php';
 
 $school = $_POST['school'];
-$employer = $_POST['employer'];
+$employer = $_POST['job'];
 $city = $_POST['city'];
 $country = $_POST['country'];
 
@@ -25,7 +25,8 @@ if(!empty($employer))
 	ON u.user_id = ue.user_id
 	INNER JOIN employer e
 	ON ue.employer_id = e.employer_id
-	AND e.employer_name = :employer_name";
+	AND e.employer_name LIKE '%$employer%'
+	";
 }
 
 if(!empty($school))
@@ -35,154 +36,28 @@ if(!empty($school))
 	ON u.user_id = us.user_id
 	INNER JOIN school s
 	ON us.school_id = s.school_id
-	AND s.school_name = :school_name
+	AND s.school_name LIKE '%$school%'
 	";
 }
 
 if(!empty($city) && empty($country))
 {
-	$query .= " WHERE u.city = :city";
+	$query .= " WHERE u.city LIKE '%$city%'";
 }
 
 if(!empty($country) && empty($city))
 {
-	$query .= " WHERE u.country = :country";
+	$query .= " WHERE u.country LIKE '%$country%'";
 }
 
 if(!empty($city) && !empty($country))
 {
 	$query .= "
-	WHERE u.city = :city
-	AND u.country = :country";
+	WHERE u.city LIKE '%$city%'
+	AND u.country LIKE '%$country%'";
 }
 
-if(!empty($city) && empty($country) && empty($employer) && empty($school))
-{
-	$params = 
-	array(
-		'city' => $city
-	);
-}
-
-if(!empty($country) && empty($city) && empty($employer) && empty($school))
-{
-	$params = 
-	array(
-		'country' => $country
-	);
-}
-
-if(!empty($employer) && empty($country) && empty($city) && empty($school))
-{
-	$params = 
-	array(
-		'employer_name' => $employer
-	);
-}
-
-if(!empty($school) && empty($country) && empty($employer) && empty($city))
-{
-	$params = 
-	array(
-		'school_name' => $school
-	);
-}
-
-if(!empty($city) && !empty($country) && empty($school) && empty($employer))
-{
-	$params = 
-	array(
-		'city' => $city,
-		'country' => $country
-	);
-}
-
-if(!empty($city) && !empty($employer) && empty($country) && empty($school))
-{
-	$params = 
-	array(
-		'city' => $city,
-		'employer_name' => $employer
-	);
-}
-
-if(!empty($city) && !empty($school) && empty($country) && empty($employer))
-{
-	$params = 
-	array(
-		'city' => $city,
-		'school_name' => $school
-	);
-}
-
-if(!empty($country) && !empty($employer) && empty($city) && empty($school))
-{
-	$params = 
-	array(
-		'country' => $country,
-		'employer_name' => $employer
-	);
-}
-
-if(!empty($country) && !empty($school) && empty($city) && empty($employer))
-{
-	$params = 
-	array(
-		'country' => $country,
-		'school_name' => $school
-	);
-}
-
-if(!empty($employer) && !empty($school)  && empty($country) && empty($city))
-{
-	$params = 
-	array(
-		'employer_name' => $employer,
-		'school_name' => $school
-	);
-}
-
-if(!empty($city) && !empty($country) && !empty($employer) && empty($school))
-{
-	$params = 
-	array(
-		'city' => $city,
-		'country' => $country,
-		'employer_name' => $employer
-	);
-}
-
-if(!empty($city) && !empty($country) && !empty($school) && empty($employer))
-{
-	$params = 
-	array(
-		'city' => $city,
-		'country' => $country,
-		'school_name' => $school
-	);
-}
-
-if(!empty($city) && !empty($employer) && !empty($school) && empty($country))
-{
-	$params = 
-	array(
-		'city' => $city,
-		'employer_name' => $employer,
-		'school_name' => $school
-	);
-}
-
-if(!empty($country) && !empty($employer) && !empty($school) && !empty($city))
-{
-	$params = 
-	array(
-		'country' => $country,
-		'employer_name' => $employer,
-		'school_name' => $school,
-		'city' => $city
-	);
-}
-
+$params = array();
 
 $result = query($action, $query, $params);
 
