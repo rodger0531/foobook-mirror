@@ -27,9 +27,9 @@ $(document).ready(function()
 	});
 
 	$('#all-users').on('click','.users',function () {
-        var user_id = this.getAttribute('value');
+        var userWall_id = this.getAttribute('value');
+        Session.set('userWall_id', userWall_id);
         window.location.assign('profile.html');
-        alert(user_id);
     });
 });
 
@@ -53,16 +53,3 @@ function successCallbackAllUser(data)
     	$('#all-users').html('<div class="not-found"><label><h1 id="not-found">No results found</h1></label><div>');
     }	
 }
-
-function profiles()
-{
-	$('.users').click(function(){
-        var name = $(this).attr('name'); // alerts the user_id of the profile selected (used only for test purposes -- will be removed later)
-        // window.location.assign("profile.html");
-        alert(name);
-    });
-}
-
-	
-
-

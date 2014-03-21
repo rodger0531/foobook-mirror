@@ -57,7 +57,8 @@ echo ('
                 });
 
                 $("#results-group").on("click","#groupsmallpanel",function () {
-                    var group_id=this.getAttribute("value");
+                    var groups_id=this.getAttribute("value");
+                    Session.set("groupWall_id", groups_id);
                     window.location.assign("../../pages/groups/groups.php");
                 });
                 

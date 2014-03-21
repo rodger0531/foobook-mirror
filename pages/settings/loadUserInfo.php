@@ -9,13 +9,13 @@ $action = 2;
 $query = "
 SELECT u.first_name, u.middle_name, u.last_name, u.email, u.city, u.country, s.school_name, e.employer_name
 FROM user u
-INNER JOIN user_school us
+LEFT JOIN user_school us
 ON u.user_id = us.user_id
-INNER JOIN school s 
+LEFT JOIN school s 
 ON us.school_id = s.school_id
-INNER JOIN user_employer ue
+LEFT JOIN user_employer ue
 ON u.user_id = ue.user_id
-INNER JOIN employer e 
+LEFT JOIN employer e 
 ON ue.employer_id = e.employer_id
 WHERE u.user_id = :user_id
 ";
