@@ -15,7 +15,7 @@ echo ('
 <script src="../../js/classie.js"></script>
     
 <div>
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-inverse" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -24,14 +24,26 @@ echo ('
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" id="showLeftPush" href="#" style="text-align:center">FooBook</a>
+
+
+          <div id="menucontainer">
+            <button type="button" id="showLeftPush" class="btn btn-lg">
+              <span class="glyphicon glyphicon-th-list"></span>
+            </button>
+          </div>
+          <div id="logocontainer">
+            <img id="logo" src="../../functions/abstract/header_footer/logo.png"/>
+          </div>
+
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <form class="navbar-form navbar-left" role="search">
+          
           <div class="form-group" id="searchbardiv">
             <input type="text" class="form-control" placeholder="Search for people or groups"  id="searchbar">
+            <a href="../../pages/search/advancedSearchPage.php" id="search_button">Advanced search</a>
           </div>
-          <a href="../../pages/search/advancedSearchPage.php" id="search_button">Advanced search</a>
+          
           <div id="results-box">
                 <div id="results">
                   <div id="results-user"></div>

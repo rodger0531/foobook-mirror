@@ -49,14 +49,6 @@ echo ('
             }
             
             $( document ).ready( function(){
-                $("#showLeftPush").click(function () {
-                    $("#showLeftPush").toggleClass("clicked");
-                });
-
-                $("#showRightPush").click(function () {
-                    $("#showRightPush").toggleClass("clicked");
-                });
-
                 $("#results-user").on("click","#usersmallpanel",function () {
                     var user_id=this.getAttribute("value");
                     window.location.assign("profile.html");
