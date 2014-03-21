@@ -3,7 +3,7 @@
 .wrapper {
     position: fixed;
     width: inherit;
-    height: 81%;
+    height: 82%;
     margin-top: -8.2px;
 }
 .inner_wrapper_content{
@@ -46,6 +46,7 @@
     border: 2px solid #686868;
 }
 .threads {
+    height: 88%;
     max-height: 88%;
     width: 105.5%;
     overflow-y: auto;
@@ -106,7 +107,7 @@
     max-width: 50%;
     float: right;
     margin-right: 10.5%;
-    margin-top: 6.5%;
+    margin-top: 5.5%;
 /*    border: 1px solid black;*/
     font-size: 10px;
     font-style: italic;
