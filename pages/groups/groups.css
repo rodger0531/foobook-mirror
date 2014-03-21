@@ -1,4 +1,48 @@
-.cbp-spmenu-push
+.container, #member_list_panel
 {
+	float: left;
+}
+
+.message, .commentForm
+{
+	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	-moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	border: 0px;
+	border-radius: 5px;
+}
+
+/*  Container. */
+
+.container
+{
+	width: 70%;
 	padding-bottom: 50px;
+}
+
+/* Join group button. */
+
+#join_group
+{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+#join_group > h4
+{
+	color: #909090;
+}
+
+#join_group_link
+{
+	text-decoration: none;
+	color: blue;
+}
+
+/* Group name */
+
+#group_name
+{
+	background-color: #C0C0C0;
 }

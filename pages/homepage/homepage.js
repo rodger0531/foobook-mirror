@@ -1,9 +1,5 @@
 $(document).ready(function()
 {
-	Session.set('user_id', '1');
-	Session.set('userWall_id', '1');
-	Session.set('groupWall_id', '');
-
 	$("body").on('click', ".entity", function(event)
     {
         event.preventDefault();

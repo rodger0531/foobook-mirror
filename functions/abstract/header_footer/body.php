@@ -6,15 +6,15 @@ echo ('
     
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
             <h3>Menu</h3>
-            <a href="../../pages/profile/profile.php">My Profile</a>
-            <a href="../../pages/albums/albums.php">My Albums</a>
-            <a href="#">My Friends</a>
-            <a href="../../pages/groups/groups.php">My groups</a>
-            <a href="../../pages/messages/messages.php">My Messages</a>
+            <a href="#" onclick="myProfile()">My Profile</a>
+            <a href="#" onclick="myMessages()">My Messages</a>
+            <a href="#" onclick="myAlbums()">My Albums</a>
+            <a href="#" onclick="myFriends()">My Friends</a>
+            <a href="#" onclick="myGroups()">My Groups</a>
         </nav>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
             <h3>Menu</h3>
-            <a href="../../pages/settings/settings.php">Settings</a>
+            <a href="#" onclick="settings()">Settings</a>
             <a href="#">Privacy</a>
             <a href="#">Help</a>
             <a href="#">About</a>
@@ -97,9 +97,47 @@ echo ('
               }
             });
             
+            function myProfile()
+            {
+                Session.set("userWall_id", Session.get("user_id"));
+                Session.set("groupWall_id", "");
+                window.location.replace("../../pages/profile/profile.php");
+            }
             
-            
+            function myMessages()
+            {
+                Session.set("userWall_id", Session.get("user_id"));
+                Session.set("groupWall_id", "");
+                window.location.replace("../../pages/messages/messages.php");
+            }
 
+            function myAlbums()
+            {
+                Session.set("userWall_id", Session.get("user_id"));
+                Session.set("groupWall_id", "");
+                window.location.replace("../../pages/albums/albums.php");
+            }
+
+            function myFriends()
+            {
+                Session.set("userWall_id", Session.get("user_id"));
+                Session.set("groupWall_id", "");
+                window.location.replace("../../pages/friends/friends.php");
+            }
+
+            function myGroups()
+            {
+                Session.set("userWall_id", Session.get("user_id"));
+                Session.set("groupWall_id", "");
+                window.location.replace("../../pages/groups/groups.php");
+            }
+
+            function settings()
+            {
+                Session.set("userWall_id", Session.get("user_id"));
+                Session.set("groupWall_id", "");
+                window.location.replace("../../pages/settings/settings.php");
+            }
 
         </script>
 	');

@@ -8,26 +8,24 @@
         <meta name="keywords" content="Foobook, Social Network">
         <title>Foobook</title>
         <link rel="stylesheet" type="text/css" href="groups.css">
+        <link rel="stylesheet" type="text/css" href="memberList.css">
         <link rel="stylesheet" type="text/css" href="../../functions/post/post.css">
         <link rel="stylesheet" type="text/css" href="wall.css">
         <script type="text/javascript" src="../../functions/post/post.js"></script>
         <script type="text/javascript" src="wall.js"></script>
+        <script type="text/javascript" src="addMember.js"></script>
+        <script type="text/javascript" src="memberList.js"></script>
+        <script type="text/javascript" src="container.js"></script>
+        <script type="text/javascript" src="details.js"></script>
         <script type="text/javascript" src="groups.js"></script>
-        <?php 
+        <?php
           require_once '../../functions/abstract/header_footer/body.php';
         ?>
-        <div class="container">
-            <form class="messageForm" id="messageForm0">
-                <textarea class="messageFormText" id="messageFormText0" name="message_string" placeholder="Post a message here..."></textarea>
-                <div class="messageFormLinks">
-                    <button class="messageFormLink messageFormUploadPictureButton" value="0">Upload a picture</button>
-                    <span class="messageFormPictureName" id="messageFormPictureName0"></span>
-                    <input class="messageFormPicture" id="messageFormPicture0" type="file" name="photo_content"></input>
-                    <button class="messageFormLink messageFormSubmitButton" value="0">Post this!</button>
-                </div>
-            </form>
-            <hr style="width:80%">
-            <div id="wall"></div>
+        <div class="container"></div>
+        <div class="panel panel-default" id="member_list_panel">
+            <div class="panel-heading" id="group_name"></div>
+            <div class="panel-heading">Members</div>
+            <ul class="list-group" id="member_list"></ul>
         </div>
     </body>
 </html>

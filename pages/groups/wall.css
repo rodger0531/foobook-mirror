@@ -1,9 +1,3 @@
-.entity
-{
-	text-decoration: none;
-	color: blue;
-}
-
 /* Posts CSS */
 
 .message
@@ -11,8 +5,9 @@
     width: 80%;
     margin-left: 10%;
     margin-top: 50px;
-    border: 1px solid black;
     background-color: white;
+    padding-bottom: 1px;
+    border: 1px solid #C0C0C0 ;
 }
 
 .message_details
@@ -31,14 +26,14 @@
 {
 	height: 100px;
 	width: 100px;
-	overflow: hidden;
 }
 
 .message_sender_picture
 {
-	height: 98px;
-	width: 98px;
-	border: 1px solid black;
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
 }
 
 .message_from_to_details
@@ -88,7 +83,9 @@
 	max-width: 100%;
 	height: auto;
 	margin: 0 auto;
-	border: 1px solid black;
+	-webkit-box-shadow: 4px 4px 12px 0px rgba(50, 50, 50, 0.36);
+	-moz-box-shadow:    4px 4px 12px 0px rgba(50, 50, 50, 0.36);
+	box-shadow:         4px 4px 12px 0px rgba(50, 50, 50, 0.36);
 }
 
 /* Comments CSS */
@@ -97,9 +94,12 @@
 {
     width: 80%;
     margin-left: 10%;
-    border: 1px solid black;
-    border-top: none;
-    background-color: white;
+    background-color: #F8F8F8;
+    padding-bottom: 1px;
+    border: 1px solid #C0C0C0 ;
+	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	-moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.29);
 }
 
 .comment_sender_picture_container, .comment_from_to_details
@@ -116,9 +116,10 @@
 
 .comment_sender_picture
 {
-	height: 58px;
-	width: 58px;
-	border: 1px solid black;
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
 }
 
 .comment_from_to_details

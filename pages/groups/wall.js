@@ -1,21 +1,5 @@
 function generateFeed()
 {
-    $("#wall").on('click', ".entity", function(event)
-    {
-        event.preventDefault();
-        var entity_id = this.getAttribute("href").split(",");
-        if (entity_id[0] === "user")
-        {
-            Session.set('userWall_id', entity_id[1]);
-            window.location.replace("../profile/profile.php");
-        }
-        else if (entity_id[0] === "group")
-        {
-            Session.set('groupWall_id', entity_id[1]);
-            window.location.reload();
-        }
-    });
-
     generatePosts();
 }
 
@@ -32,7 +16,6 @@ function generatePosts()
 
 function generatePostsSuccess(data)
 {
-    alert(data['outcome']);
 	if (data['outcome'] === 1)
     {
     	$("#wall").html("");
@@ -69,17 +52,20 @@ function generatePostsSuccess(data)
             
             generateComments(element['message_id']);
             
-            $("#wall").append(
-                '<form class="commentForm" id="messageForm' + element['message_id'] + '">' +
-                    '<textarea class="commentFormText" id="messageFormText' + element['message_id'] + '" name="message_string" placeholder="Post a comment here..."></textarea>' +
-                    '<div class="messageFormLinks">' +
-                        '<button class="messageFormLink messageFormUploadPictureButton" value="' + element['message_id'] + '">Upload a picture</button>' +
-                        '<span class="messageFormPictureName" id="messageFormPictureName' + element['message_id'] + '"></span>' +
-                        '<input class="messageFormPicture" id="messageFormPicture' + element['message_id'] + '" type="file" name="photo_content"></input>' +
-                        '<button class="messageFormLink messageFormSubmitButton" value="' + element['message_id'] + '">Post this!</button>' +
-                    '</div>' +
-                '</form>'
-            );
+            if ((Session.get('userWall_id') === Session.get('user_id')) || (Session.get('isFriend') === "1"))
+            {
+                $("#wall").append(
+                    '<form class="commentForm" id="messageForm' + element['message_id'] + '">' +
+                        '<textarea class="commentFormText" id="messageFormText' + element['message_id'] + '" name="message_string" placeholder="Post a comment here..."></textarea>' +
+                        '<div class="messageFormLinks">' +
+                            '<button class="messageFormLink messageFormUploadPictureButton btn btn-primary" value="' + element['message_id'] + '">Upload a picture</button>' +
+                            '<span class="messageFormPictureName" id="messageFormPictureName' + element['message_id'] + '"></span>' +
+                            '<input class="messageFormPicture" id="messageFormPicture' + element['message_id'] + '" type="file" name="photo_content"></input>' +
+                            '<button class="messageFormLink messageFormSubmitButton btn btn-success" value="' + element['message_id'] + '">Post this!</button>' +
+                        '</div>' +
+                    '</form>'
+                );
+            }
 		});
     }
     else if (data['outcome'] === 0)
