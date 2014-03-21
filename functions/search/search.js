@@ -35,7 +35,6 @@ function successCallbackUser(data)
             $('#userbody').append(   '<div id="usersmallpanel" align="left" value='+ element.user_id +'>'+ 
                                                     '<img src="data:image/jpeg;base64,'+ element.photo_content + '" style="width:50px; height:50px; float:left; margin-right:6px;">' + 
                                                     '<span style="margin-left: 10px; color: black;">' + element.first_name+' '+element.middle_name +' '+ element.last_name + '</span>'+
-                                                '</a>' +
                                             '</div>' 
                                             
                             );
@@ -54,7 +53,6 @@ function successCallbackGroup(data)
             data.forEach(function(element){
             $('#usergroup').append(  '<div id="groupsmallpanel" align="left" value="'+ element.groups_id +'">'+ 
                                                     '<span style="margin-left: 10px; color:black;">' + element.groups_name + '</span>'+
-                                                '</a>' + 
                                             '</div>' 
                             );
             });
