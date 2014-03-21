@@ -3,15 +3,6 @@
 	padding-bottom: 50px;
 }
 
-#messageForm0
-{
-	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
-	-moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.29);
-	box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.29);
-	border-radius: 5px;
-	border: 1px solid #C0C0C0 ;
-}
-
 .message, .commentForm
 {
 	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);

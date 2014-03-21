@@ -1,12 +1,16 @@
 .messageForm
 {
-    border: 1px solid black;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 20px;
     margin-bottom: 50px;
     padding: 10px 10px 0px 10px;
     background-color: white;
+    -webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+    -moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+    box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+    border-radius: 5px;
+    border: 1px solid #C0C0C0 ;
 }
 
 .messageFormText

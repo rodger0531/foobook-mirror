@@ -58,10 +58,10 @@ function generatePostsSuccess(data)
                     '<form class="commentForm" id="messageForm' + element['message_id'] + '">' +
                         '<textarea class="commentFormText" id="messageFormText' + element['message_id'] + '" name="message_string" placeholder="Post a comment here..."></textarea>' +
                         '<div class="messageFormLinks">' +
-                            '<button class="messageFormLink messageFormUploadPictureButton" value="' + element['message_id'] + '">Upload a picture</button>' +
+                            '<button class="messageFormLink messageFormUploadPictureButton btn btn-primary" value="' + element['message_id'] + '">Upload a picture</button>' +
                             '<span class="messageFormPictureName" id="messageFormPictureName' + element['message_id'] + '"></span>' +
                             '<input class="messageFormPicture" id="messageFormPicture' + element['message_id'] + '" type="file" name="photo_content"></input>' +
-                            '<button class="messageFormLink messageFormSubmitButton" value="' + element['message_id'] + '">Post this!</button>' +
+                            '<button class="messageFormLink messageFormSubmitButton btn btn-success" value="' + element['message_id'] + '">Post this!</button>' +
                         '</div>' +
                     '</form>'
                 );

@@ -1,20 +1,19 @@
-body
-{
-	position: relative;
-}
-
-.entity
-{
-	text-decoration: none;
-	color: blue;
-}
-
 #profile_details_panel, .container, #friend_list_panel
 {
 	float: left;
 }
 
 /*  Container. */
+
+.message, .commentForm
+{
+	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	-moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.29);
+	border: 0px;
+	border-radius: 5px;
+}
+
 
 .container
 {
