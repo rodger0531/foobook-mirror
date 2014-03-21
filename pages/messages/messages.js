@@ -29,17 +29,11 @@ $(document).ready(function(){
         );
     });
     
-
-
-    var testp = "2,3,6"; // These values has to come from the search section
-
-
-
     $('#compose_message_id').click(function(){
         $('.participant').empty();
         $('.inner_wrap_messages').html("");
         $('.participants_container').html("");
-        var participantInput = '<input type="text" id="participants_inputField" size="30" name="' + testp + '">';
+        var participantInput = '<input type="text" id="participants_inputField" size="30">';
         $('.participants_container').append(participantInput);
     });
 
@@ -84,7 +78,7 @@ $(document).ready(function(){
             else if($('#participants_inputField').length > 0)
             {   
                 var sender_id = Session.get('user_id');
-                var recipient_id = $('#participants_inputField').attr('name');
+                var recipient_id = $('#participants_inputField').val();
                 var message_string = $('#textbox_id').val();
                 
                 ajax(
