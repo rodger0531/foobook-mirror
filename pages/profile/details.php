@@ -10,7 +10,7 @@ $action = 2; // 2 indicates that the database is being READ from.
 // Define the SQL query.
 $query = "
 SELECT
-	u.first_name, u.middle_name, u.last_name, u.date_of_birth,
+	u.first_name, u.middle_name, u.last_name, u.date_of_birth, u.city, u.country,
 	p.photo_content AS profile_picture,
 	s.school_name,
 	e.employer_name

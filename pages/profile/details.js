@@ -26,8 +26,20 @@ function detailsSuccess(data)
 			'<img id="profile_picture_image" src="data:image/jpeg;base64,' + element['profile_picture'] + '"/>'
 		);
 
+		var location = ((element['city'] !== ("" && null))
+							? element['city'] +
+								((element['country'] !== ("" && null))
+									? ", " + element['country']
+        							: "")
+        					: ((element['country'] !== ("" && null))
+								? element['country']
+        						: ""));
+
 		$("#profile_details").html(
 			'<li class="list-group-item">Date of birth: ' + element['date_of_birth'] + '</li>' +
+			((location !== "")
+                ? '<li class="list-group-item">Lives in: ' + location + '</li>'
+                : "") +
 			((element['school_name'] !== ("" || null))
                 ? '<li class="list-group-item">Attended: ' + element['school_name'] + '</li>'
                 : "") +
