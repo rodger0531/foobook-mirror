@@ -134,7 +134,8 @@ if(empty($_POST['thread_id']) && !empty($_POST['recipient_id'])) //Compose new t
 						INSERT INTO message
 						SET sender_id = :sender_id,
 						thread_id = :new_thread_id,
-						message_string = :message_string
+						message_string = :message_string,
+						created = now()
 						";
 
 						$params = 
@@ -156,7 +157,7 @@ if(empty($_POST['thread_id']) && !empty($_POST['recipient_id'])) //Compose new t
 							$action = 2;
 
 							$query = "
-							SELECT first_name, middle_name, last_name, photo_content, message_id, sender_id, message_string, timestamp
+							SELECT first_name, middle_name, last_name, photo_content, message_id, sender_id, message_string, created
 							FROM user, photo, message
 							WHERE user_id = :sender_id1 AND user.profile_picture_id = photo.photo_id AND thread_id = :new_thread_id and user_id = :sender_id2
 							";
@@ -364,7 +365,8 @@ if(empty($_POST['thread_id']) && !empty($_POST['recipient_id'])) //Compose new t
 		INSERT INTO message
 		SET sender_id = :sender_id,
 			thread_id = :thread_id,
-			message_string = :message_string
+			message_string = :message_string,
+			created = now()
 		";
 
 		$params = 
@@ -417,13 +419,13 @@ if(empty($_POST['thread_id']) && !empty($_POST['recipient_id'])) //Compose new t
 				$action = 2;
 
 					$query = "
-						SELECT T1.timestamp, T1.message_string, user.first_name, user.middle_name, user.last_name, photo.photo_content
+						SELECT T1.created, T1.message_string, user.first_name, user.middle_name, user.last_name, photo.photo_content
 						FROM
 						(
-						SELECT thread_id,sender_id,timestamp, message_string
+						SELECT thread_id,sender_id,created, message_string
 						FROM message
 						WHERE sender_id IN ($tempuser) AND thread_id = :thread_id
-						ORDER BY timestamp DESC
+						ORDER BY created DESC
 						) AS T1
 						JOIN user
 						ON T1.sender_id = user.user_id
@@ -467,7 +469,8 @@ elseif (!empty($_POST['thread_id']) && empty($_POST['recipient_id'])) //Reply to
 	SET
 	sender_id = :sender_id,
 	thread_id = :thread_id,
-	message_string = :message_string
+	message_string = :message_string,
+	created = now()
 	";
 
 	$params = array(
@@ -501,10 +504,10 @@ elseif (!empty($_POST['thread_id']) && empty($_POST['recipient_id'])) //Reply to
 		$action = 2; //Reading data from the database.
 
 		$query = "
-		SELECT user.first_name, user.last_name, photo.photo_content, T1.thread_name, T1.message_string, T1.timestamp, T1.thread_id,T1.sender_id
+		SELECT user.first_name, user.last_name, photo.photo_content, T1.thread_name, T1.message_string, T1.created, T1.thread_id,T1.sender_id, T1.message_id
 		FROM
 		(
-		SELECT t.thread_name, m.message_string, m.timestamp, m.thread_id, m.sender_id
+		SELECT t.thread_name, m.message_string, m.created, m.thread_id, m.sender_id, m.message_id
 		FROM message m
 		INNER JOIN thread t 
 		ON m.thread_id = t.thread_id

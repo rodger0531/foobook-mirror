@@ -2,19 +2,16 @@
 
 include '../../functions/abstract/query.php';
 
-$thread_id = $_POST['thread_id']; //This needs to be equal to the session id, because this is how we are going to get the user_id.
-
-//$thread_id = 1;
-
+$thread_id = $_POST['thread_id'];
 
 // Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
 $action = 2; //Reading data from the database.
 
 $query = "
-SELECT user.first_name, user.last_name, photo.photo_content, T1.thread_name, T1.message_string, T1.timestamp, T1.thread_id,T1.sender_id
+SELECT user.first_name, user.last_name, photo.photo_content, T1.thread_name, T1.message_string, T1.created, T1.thread_id,T1.sender_id, T1.message_id
 FROM
 (
-SELECT t.thread_name, m.message_string, m.timestamp, m.thread_id, m.sender_id
+SELECT t.thread_name, m.message_string, m.created, m.thread_id, m.sender_id, m.message_id
 FROM message m
 INNER JOIN thread t 
 ON m.thread_id = t.thread_id
