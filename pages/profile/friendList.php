@@ -36,7 +36,7 @@ FROM
 		ON u.user_id = t1.friend_id
 	LEFT JOIN photo p
 		ON p.photo_id = u.profile_picture_id
-ORDER BY u.first_name ASC
+ORDER BY u.first_name, u.middle_name, u.last_name ASC
 ";
 
 // Define the parameters of the query depending on the information the user inputted.
