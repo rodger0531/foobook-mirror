@@ -18,7 +18,7 @@ function generateFriendRequestLink()
 		'<div id="send_friend_request">' +
 			'<a id="send_friend_request_link" href="#">Send Friend Request</a>' +
 		'</div>' +
-		'<hr style="width:80%">'
+		'<hr style="width:80%; border-color:#C8C8C8;">'
 	);
 
 	appendFeed();

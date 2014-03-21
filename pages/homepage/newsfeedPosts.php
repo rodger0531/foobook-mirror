@@ -19,15 +19,34 @@ SELECT
 FROM
 	message m
 	INNER JOIN user_friend uf
-		ON uf.friend_id = :user_id_1
-		AND
+		ON
 		(
-			uf.user_id = m.userWall_id
-			OR
 			(
-				uf.user_id = m.sender_id
+				uf.user_id = :user_id_1
 				AND
-				m.userWall_id = :user_id_2
+				(
+					uf.friend_id = m.userWall_id
+					OR
+					(
+						uf.friend_id = m.sender_id
+						AND
+						m.userWall_id = :user_id_2
+					)
+				)
+			)
+			AND
+			(
+				uf.friend_id = :user_id_3
+				AND
+				(
+					uf.user_id = m.userWall_id
+					OR
+					(
+						uf.user_id = m.sender_id
+						AND
+						m.userWall_id = :user_id_4
+					)
+				)
 			)
 		)
 	LEFT JOIN user u1
@@ -51,8 +70,12 @@ SELECT
 FROM
 	message m
 	INNER JOIN user_groups ug
-		ON ug.user_id = :user_id_3
-		AND ug.groups_id = m.groupWall_id
+		ON
+		(
+			ug.user_id = :user_id_5
+			AND 
+			ug.groups_id = m.groupWall_id
+		)
 	LEFT JOIN user u1
 		ON m.sender_id = u1.user_id
 	LEFT JOIN photo p1
@@ -71,7 +94,9 @@ $params =
 array(
 	'user_id_1' => $user_id,
 	'user_id_2' => $user_id,
-	'user_id_3' => $user_id
+	'user_id_3' => $user_id,
+	'user_id_4' => $user_id,
+	'user_id_5' => $user_id
 );
 
 $result = query($action, $query, $params);

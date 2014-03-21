@@ -26,7 +26,7 @@
                     <button class="messageFormLink messageFormSubmitButton btn btn-success" value="0">Post this!</button>
                 </div>
             </form>
-            <hr style="width:80%; border-color:#C8C8C8 ;">
+            <hr style="width:80%; border-color:#C8C8C8;">
             <div id="newsfeed"></div>
         </div>
     </body>

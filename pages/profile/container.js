@@ -41,7 +41,7 @@ function friendCheckSuccess(data)
 				'<div id="send_friend_request">' +
 					'<h4>Friend Request Sent</h4>' +
 				'</div>' +
-				'<hr style="width:80%">'
+				'<hr style="width:80%; border-color:#C8C8C8;">'
 			);
 			appendFeed();
 		}
@@ -65,7 +65,7 @@ function appendPostArea()
                 '<button class="messageFormLink messageFormSubmitButton" value="0">Post this!</button>' +
             '</div>' +
         '</form>' +
-        '<hr style="width:80%">'
+        '<hr style="width:80%; border-color:#C8C8C8;">'
 	);
 	generatePostArea();
 }

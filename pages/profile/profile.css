@@ -25,6 +25,11 @@ body
 	margin-bottom: 50px;
 }
 
+#send_friend_request > h4
+{
+	color: #909090;
+}
+
 #send_friend_request_link
 {
 	text-decoration: none;
