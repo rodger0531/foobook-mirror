@@ -22,13 +22,17 @@
         <?php
           require_once '../../functions/abstract/header_footer/body.php';
         ?>
-        <div class="panel panel-default" id="profile_details">
+        <div class="panel panel-default" id="profile_details_panel">
             <div class="panel-heading" id="profile_name"></div>
             <div class="panel-body">
                 <div class="panel panel-default" id="profile_picture_container"></div>
-                <div id="profile_text_details"></div>
+                <ul class="list-group" id="profile_details"></ul>
             </div>
         </div>
         <div class="container"></div>
+        <div class="panel panel-default" id="friend_list_panel">
+            <div class="panel-heading">Friends</div>
+            <ul class="list-group" id="friend_list"></ul>
+        </div>
     </body>
 </html>
