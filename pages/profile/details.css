@@ -1,14 +1,14 @@
-#profile_details
+#profile_details_panel
 {
 	width: 20%;
 	height: 100%;
-	margin-top: 50px;
+	margin-top: 20px;
 	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
 	-moz-box-shadow:    4px 4px 3px 0px rgba(50, 50, 50, 0.29);
 	box-shadow:         4px 4px 3px 0px rgba(50, 50, 50, 0.29);
 }
 
-#profile_details > .panel-heading
+#profile_details_panel > .panel-heading
 {
 	text-align: center;
 }
@@ -29,9 +29,4 @@
 	-webkit-box-shadow: 4px 4px 12px 0px rgba(50, 50, 50, 0.36);
 	-moz-box-shadow:    4px 4px 12px 0px rgba(50, 50, 50, 0.36);
 	box-shadow:         4px 4px 12px 0px rgba(50, 50, 50, 0.36);
-}
-
-#profile_text_details > div
-{
-	margin-top: 20px;
 }

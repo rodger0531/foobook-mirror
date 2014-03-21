@@ -26,13 +26,13 @@ function detailsSuccess(data)
 			'<img id="profile_picture_image" src="data:image/jpeg;base64,' + element['profile_picture'] + '"/>'
 		);
 
-		$("#profile_text_details").html(
-			'<div>Date of birth: ' + element['date_of_birth'] + '</div>' +
+		$("#profile_details").html(
+			'<li class="list-group-item">Date of birth: ' + element['date_of_birth'] + '</li>' +
 			((element['school_name'] !== ("" || null))
-                ? '<div>Attended: ' + element['school_name'] + '</div>'
+                ? '<li class="list-group-item">Attended: ' + element['school_name'] + '</li>'
                 : "") +
 			((element['employer_name'] !== ("" || null))
-                ? '<div>Works at: ' + element['employer_name'] + '</div>'
+                ? '<li class="list-group-item">Works at: ' + element['employer_name'] + '</li>'
                 : "")
 		);
 	}
