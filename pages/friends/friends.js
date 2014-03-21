@@ -1,6 +1,5 @@
 $("document").ready(function()
 {
-    Session.set('user_id',1);
     ajax(
         'pages/friends/friendList',                       // PHP file to call on.
         {user_id: Session.get('user_id')},  // User_id from session goes here

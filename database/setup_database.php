@@ -238,7 +238,6 @@ $con->query("CREATE TABLE IF NOT EXISTS message_circleVisibility(message_id bigi
 																 )
 			") or die ($con->error);
 
-// Close the PDO connection to the database.
 unset($con);
 
 echo("Database successfully created!\n");

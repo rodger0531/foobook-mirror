@@ -4,7 +4,6 @@ $(document).ready(function()
 	$('#newPhoto').hide();
 	$('.photo-container').hide();
 	$('#deletePhoto').hide();
-	Session.set('user_id', 1); // need to change this
 	viewCollection();
 	var collection_id;
 	var photo_id;
