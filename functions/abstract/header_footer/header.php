@@ -60,7 +60,7 @@ echo ('
         </form>
         <div id="rightHandSideButtons">
           <ul class="nav navbar-nav">
-            <li><a href="#" id="logOut">Log Out</a></li>
+            <li><a href="#" onclick="signOut()" id="logOut">Log Out</a></li>
           </ul>
           <ul class="nav navbar-nav">
             <li><a href="#" id="showRightPush">Settings</a></li>

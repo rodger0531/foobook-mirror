@@ -139,6 +139,12 @@ echo ('
                 window.location.replace("../../pages/settings/settings.php");
             }
 
+            function signOut()
+            {
+                Session.clear();
+                window.location.replace("../../index.html");
+            }
+
         </script>
 	');
 
