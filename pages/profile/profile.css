@@ -3,8 +3,6 @@
 	float: left;
 }
 
-/*  Container. */
-
 .message, .commentForm
 {
 	-webkit-box-shadow: 4px 4px 3px 0px rgba(50, 50, 50, 0.29);
@@ -14,6 +12,7 @@
 	border-radius: 5px;
 }
 
+/*  Container. */
 
 .container
 {
