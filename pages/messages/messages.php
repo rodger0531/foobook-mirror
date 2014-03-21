@@ -4,9 +4,7 @@
 		<?php 
           require_once '../../functions/abstract/header_footer/header.php';
         ?>
-		<meta name="description" content="Bla bla" />
-		<meta name="keywords" content="Bla bla">
-		<title>Profile</title>
+		<title>Foobook - Messages</title>
         <link rel="stylesheet" type="text/css" href="messages_style.css">
         <script type="text/javascript" src="messages.js"></script>
         <?php 

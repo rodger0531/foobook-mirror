@@ -48,7 +48,7 @@
 .threads {
     max-height: 88%;
     width: 105.5%;
-    overflow: auto;
+    overflow-y: auto;
     z-index: -1;
 }
 .thread_elements {
@@ -99,13 +99,13 @@
     align-content: center;
     text-overflow: ellipsis; /* will make [...] at the end */
     white-space: nowrap; /* paragraph to one line */
-    overflow:hidden; /* older browsers */
+    overflow:hidden; 
 }
 .thread_timestamp {
     max-height: 20%;
     max-width: 50%;
     float: right;
-    margin-right: 7%;
+    margin-right: 10.5%;
     margin-top: 6.5%;
 /*    border: 1px solid black;*/
     font-size: 10px;
@@ -230,7 +230,7 @@
 .message_body_participant {
     width: 88%;
     height: auto;
-/*    border: 1px solid green;*/
+    /*border: 1px solid green;*/
     float: right;
     border-radius: 10px;
 }
@@ -239,6 +239,7 @@
     height: auto;
     float: left;
     padding: 5px;
+    word-wrap: break-word;
 }
 .message_timestamp_participant {
     width: 20%;
@@ -285,17 +286,18 @@
 .message_body_user {
     width: 88%;
     height: auto;
-/*    border: 1px solid red;*/
+    /*border: 1px solid red;*/
     float: left; 
     border-radius: 10px;
     margin-top: 5px;
 }
-.user_content_user {
+.message_content_user {
     width: 100%;
     height: auto;
     float: right;
     padding: 5px;
     text-align: right;
+    word-wrap: break-word;
 }
 .message_timestamp_user {
     width: 20%;
