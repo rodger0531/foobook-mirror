@@ -12,7 +12,7 @@ FROM
 	(
 	SELECT c.collection_id, c.collection_name, p.photo_content
 	FROM collection c
-	INNER JOIN photo p
+	LEFT JOIN photo p
 	ON c.collection_id = p.collection_id
 	WHERE user_id = :user_id 
 	ORDER BY p.photo_id DESC
