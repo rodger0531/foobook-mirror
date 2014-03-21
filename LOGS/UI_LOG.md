@@ -3,6 +3,16 @@ This log file contains information about all changes relating to the 'UI' folder
 	NOTE: PLEASE CREATE A NEW ENTRY EVERYTIME YOU COMMIT A CHANGE TO THIS FOLDER.
 =======================================================================================
 
+20/03/2014 - Rodger
+
+	- Updated newsfeed UI, homepage UI and landing UI
+	- The update is so big that I'm going to occupy the next few lines to get your attention.
+	- Massive
+	- User
+	- Interface
+	- Change
+	- enjoy.
+
 19/03/2014 - Abdi
 
 	- changed and updated 'newPhoto.html' to 'albums.html' and also 'photo.css' to 'albums.css'

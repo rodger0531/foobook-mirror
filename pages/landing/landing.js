@@ -13,7 +13,6 @@ $(function()
     $("#signUpForm").on('submit', function(event)
     {
         event.preventDefault();
-        alert($("#signUpForm").serialize());
         ajax(
             'pages/landing/signUp',                       // PHP file to call on.
             $("#signUpForm").serialize(),   // Data from serialised form with user input.

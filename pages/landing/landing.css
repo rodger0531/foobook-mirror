@@ -5,13 +5,35 @@
     margin-left: 20%;
     margin-bottom: 2.5%;
     width:60%;
-    min-height: 700px;
+    min-height: 750px;
     min-width: 900px;
     border-radius:40px;
     -moz-box-shadow:    inset 0 0 10px #000000;
     -webkit-box-shadow: inset 0 0 10px #000000;
     box-shadow:         inset 0 0 10px #000000;
-    display:none;
+}
+
+.radiogender
+{
+    font-size: 1.5em;
+    padding-left: 10%;
+}
+
+.radiobuttons
+{
+    position: relative; 
+    padding-left: 10%;
+}
+
+#female
+{
+    position: relative;
+    float:right;
+}
+
+#genderbuttons
+{
+    width: 100%;
 }
 
 #submitbutton
