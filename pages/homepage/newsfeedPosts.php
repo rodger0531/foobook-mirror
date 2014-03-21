@@ -18,35 +18,33 @@ SELECT
 	p2.photo_content AS uploaded_picture
 FROM
 	message m
-	INNER JOIN user_friend uf
+	INNER JOIN
+	(
+		SELECT
+			t1.friend_id
+		FROM
+			(
+				SELECT friend_id
+				FROM user_friend
+				WHERE user_id = :user_id_1
+			) AS t1
+			INNER JOIN
+			(
+				SELECT user_id
+				FROM user_friend
+				WHERE friend_id = :user_id_2
+			) AS t2
+			ON
+			t1.friend_id = t2.user_id
+	) AS t3
 		ON
 		(
+			m.userWall_id = t3.friend_id
+			OR
 			(
-				uf.user_id = :user_id_1
+				m.sender_id = t3.friend_id
 				AND
-				(
-					uf.friend_id = m.userWall_id
-					OR
-					(
-						uf.friend_id = m.sender_id
-						AND
-						m.userWall_id = :user_id_2
-					)
-				)
-			)
-			AND
-			(
-				uf.friend_id = :user_id_3
-				AND
-				(
-					uf.user_id = m.userWall_id
-					OR
-					(
-						uf.user_id = m.sender_id
-						AND
-						m.userWall_id = :user_id_4
-					)
-				)
+				m.userWall_id = :user_id_3
 			)
 		)
 	LEFT JOIN user u1
@@ -72,7 +70,7 @@ FROM
 	INNER JOIN user_groups ug
 		ON
 		(
-			ug.user_id = :user_id_5
+			ug.user_id = :user_id_4
 			AND 
 			ug.groups_id = m.groupWall_id
 		)
@@ -95,8 +93,7 @@ array(
 	'user_id_1' => $user_id,
 	'user_id_2' => $user_id,
 	'user_id_3' => $user_id,
-	'user_id_4' => $user_id,
-	'user_id_5' => $user_id
+	'user_id_4' => $user_id
 );
 
 $result = query($action, $query, $params);
