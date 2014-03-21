@@ -6,10 +6,11 @@ echo ('
     
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
             <h3>Menu</h3>
-            <a href="#">My Profile</a>
+            <a href="../../pages/profile/profile.php">My Profile</a>
             <a href="../../pages/albums/albums.php">My Albums</a>
             <a href="#">My Friends</a>
-            <a href="#">My groups</a>
+            <a href="../../pages/groups/groups.php">My groups</a>
+            <a href="../../pages/messages/messages.php">My Messages</a>
         </nav>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
             <h3>Menu</h3>
@@ -51,14 +52,13 @@ echo ('
             $( document ).ready( function(){
                 $("#results-user").on("click","#usersmallpanel",function () {
                     var user_id=this.getAttribute("value");
-                    window.location.assign("profile.html");
-                    alert(user_id); // need to remove
+                    Session.set("userWall_id", user_id);
+                    window.location.assign("../../pages/profile/profile.php");
                 });
 
                 $("#results-group").on("click","#groupsmallpanel",function () {
                     var group_id=this.getAttribute("value");
-                    window.location.assign("group.html");
-                    alert(group_id); // need to remove
+                    window.location.assign("../../pages/groups/groups.php");
                 });
                 
                 $("#results-user").html("");

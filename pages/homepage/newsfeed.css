@@ -26,14 +26,14 @@
 {
 	height: 100px;
 	width: 100px;
-	overflow: visible;
 }
 
 .message_sender_picture
 {
-	height: 98px;
-	width: 98px;
-	border: 1px solid black;
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
 }
 
 .message_from_to_details
@@ -83,7 +83,9 @@
 	max-width: 100%;
 	height: auto;
 	margin: 0 auto;
-	border: 1px solid black;
+	-webkit-box-shadow: 4px 4px 12px 0px rgba(50, 50, 50, 0.36);
+	-moz-box-shadow:    4px 4px 12px 0px rgba(50, 50, 50, 0.36);
+	box-shadow:         4px 4px 12px 0px rgba(50, 50, 50, 0.36);
 }
 
 /* Comments CSS */
@@ -114,9 +116,10 @@
 
 .comment_sender_picture
 {
-	height: 58px;
-	width: 58px;
-	border: 1px solid black;
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: 0 auto;
 }
 
 .comment_from_to_details
@@ -136,21 +139,6 @@
 {
 	float: left;
 }
-
-/*.messageFormSubmitButton
-{
-	background-color: #5cb85c;
-	color: #fff;
-	border-color: #4cae4c;
-}
-
-.messageFormUploadPictureButton
-{
-	color: #fff;
-	background-color: #428bca;
-	border-color: #357ebd;
-	border-radius: 5px;
-}*/
 
 /* Empty feed message. */
 

@@ -18,6 +18,7 @@
 	width: 100%;
 	height: auto;
 	margin-top: 10px;
+	border: none;
 }
 
 #profile_picture_image
@@ -29,4 +30,9 @@
 	-webkit-box-shadow: 4px 4px 12px 0px rgba(50, 50, 50, 0.36);
 	-moz-box-shadow:    4px 4px 12px 0px rgba(50, 50, 50, 0.36);
 	box-shadow:         4px 4px 12px 0px rgba(50, 50, 50, 0.36);
+}
+
+#profile_details > .list-group-item
+{
+	border: none;
 }
