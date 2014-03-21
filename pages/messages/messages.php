@@ -14,7 +14,7 @@
         ?>
         <div class="container">
             <div class="wrapper">
-                <div class="inner_wrapper_content">
+                <div class="inner_wrapper_content" value="">
                     <div class="left_sidebar_thread" id="left_sidebar_thread_id">
                         <div class="wrapper_search">
                             <div class="search_message" id="search_message_id">

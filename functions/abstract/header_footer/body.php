@@ -7,13 +7,13 @@ echo ('
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
             <h3>Menu</h3>
             <a href="#">My Profile</a>
-            <a href="#">My Albums</a>
+            <a href="../../pages/albums/albums.php">My Albums</a>
             <a href="#">My Friends</a>
             <a href="#">My groups</a>
         </nav>
         <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-s2">
             <h3>Menu</h3>
-            <a href="#">Settings</a>
+            <a href="../../pages/settings/settings.php">Settings</a>
             <a href="#">Privacy</a>
             <a href="#">Help</a>
             <a href="#">About</a>

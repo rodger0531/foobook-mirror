@@ -2,10 +2,7 @@
 
 include '../../functions/abstract/query.php';
 
-$user_id = $_POST['session']; //This needs to be equal to the session id, because this is how we are going to get the user_id.
-
-// $user_id = 1;
-
+$user_id = $_POST['session'];
 
 // Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
 $action = 2; //Reading data from the database.
@@ -14,7 +11,7 @@ $query = "
 Select *
 FROM 
 (
-SELECT DISTINCT T2.thread_id, T2.timestamp, T2.message_string, thread.thread_name, photo.photo_content
+SELECT DISTINCT T2.thread_id, T2.created, T2.message_string, thread.thread_name, photo.photo_content
 FROM message AS T2
 JOIN (SELECT thread_id
 FROM user_thread
@@ -26,10 +23,10 @@ JOIN user
 ON user.user_id = T2.sender_id
 JOIN photo
 ON user.profile_picture_id = photo.photo_id
-ORDER BY T2.timestamp DESC
+ORDER BY T2.created DESC
 ) AS T3
 GROUP BY T3.thread_id
-ORDER BY T3.timestamp DESC
+ORDER BY T3.created DESC
 ";
 
 $params = array(

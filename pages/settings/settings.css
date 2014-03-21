@@ -1,0 +1,128 @@
+.account-settings
+{
+	position: relative;
+	float: left;
+	margin-bottom: 15px;
+}
+
+#edit
+{
+	position: relative;
+	float: right;
+	color: blue;
+	margin-top: 30px;
+	margin-right: 5px;
+}
+
+.separator
+{
+	background-color: #8a8a8a;
+	height: 1px;
+	margin-top: -5px;
+	clear: both;
+}
+
+.user-name, .user-email, .user-password, .user-city, .user-country, .user-school, .user-employer
+{
+	padding: 10px;
+	margin-top: -10px;
+	margin-bottom: -10px; 
+	height: 50px;
+}
+
+.user-employer
+{
+	margin-bottom: 10px;
+}
+
+#name-label, #email-label, #password-label, #city-label, #country-label, #school-label, #employer-label
+{
+	color: black;
+	float: left;
+}
+
+#full-name, #email, #password, #city, #country, #school-name, #employer-name
+{
+	color: #424242;
+}
+
+#full-name 
+{
+	margin-left: 250px;
+}
+
+#email
+{
+	margin-left: 254px;
+} 
+
+#password
+{
+	margin-left: 222px;
+}
+
+#city
+{
+	margin-left: 262px;
+}
+
+#country
+{
+	margin-left: 233px;
+}
+
+#school-name
+{
+	margin-left: 243px;
+}
+
+#employer-name
+{
+	/*margin-left: 224px;*/
+	margin-left: 267px;
+}
+
+.inner-separator
+{
+	background-color: #b8b8b8;
+	height: 1px;
+	margin-top: -5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	clear: both;
+}
+
+#edit-done
+{
+	position: relative;
+	float: right;
+	margin-top: 30px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+
+}
+
+#first-name, #middle-name, #last-name
+{
+	width: 200px;
+	float : left;
+	margin-top: -3px;
+	margin-left: 10px;
+}
+
+#first-name
+{
+	margin-left: 250px;
+}
+
+#edit-email, #edit-password, #edit-city, #edit-country, #edit-school-name, #edit-employer-name
+{
+	width: 350px;
+	margin-top: -3px;
+	margin-left: 10px;
+	margin-left: 290px;
+}
+
+
