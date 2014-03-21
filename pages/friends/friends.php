@@ -10,7 +10,6 @@
     <script type="text/javascript" src="friends.js"></script>
     <script type="text/javascript" src="friendList.js"></script>
     <script type="text/javascript" src="circle.js"></script>
-    <!-- // <script type="text/javascript" src="jquery.cbpNTAccordion.js"></script> -->
     <?php 
       require_once '../../functions/abstract/header_footer/body.php';
     ?>
