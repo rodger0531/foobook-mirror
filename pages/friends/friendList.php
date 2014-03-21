@@ -2,8 +2,8 @@
 
 include_once '../../functions/abstract/query.php';
 
-// $user_id = $_POST['user_id'];
-$user_id = 1;
+$user_id = $_POST['user_id'];
+// $user_id = 1;
 // Define which type of database transaction is being attempted here, e.g. CREATE, READ, etc.
 $action = 2; // 2 indicates that the database is being READ from.
 
