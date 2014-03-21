@@ -9,7 +9,6 @@ $(document).ready(function(){
         'pages/messages/thread',
         {
             'session' : user_id
-            // 'user_id' : Session.get('user_id') This should be used once the developement is finished.
         },
         threadSuccess
         );
@@ -29,7 +28,13 @@ $(document).ready(function(){
             loadThreadOnClickSuccess
         );
     });
-    var testp = "8";
+    
+
+
+    var testp = "2,3,6"; // These values has to come from the search section
+
+
+
     $('#compose_message_id').click(function(){
         $('.participant').empty();
         $('.inner_wrap_messages').html("");
@@ -175,7 +180,7 @@ $(document).ready(function(){
                         '<img src="data:image/jpeg;base64,' + element.photo_content + '" class="user_picture"/>' +
                     '</div>' +
                     '<div class="message_body_user">' +
-                        '<div class="user_content_user">' + element.message_string + '</div>' +
+                        '<div class="message_content_user">' + element.message_string + '</div>' +
                         '<div class="message_timestamp_user">' + element.created + '</div>' +
                     '</div>' +
                 '</div>' + '<br style="clear: both">';
@@ -231,7 +236,7 @@ $(document).ready(function(){
                         '<img src="data:image/jpeg;base64,' + element.photo_content + '" class="user_picture"/>' +
                     '</div>' +
                     '<div class="message_body_user">' +
-                        '<div class="user_content_user">' + element.message_string + '</div>' +
+                        '<div class="message_content_user">' + element.message_string + '</div>' +
                         '<div class="message_timestamp_user">' + element.created + '</div>' +
                     '</div>' +
                 '</div>' + '<br style="clear: both">';
@@ -279,7 +284,7 @@ $(document).ready(function(){
                 '<img src="data:image/jpeg;base64,' + data[0].photo_content + '" class="user_picture"/>' +
             '</div>' +
             '<div class="message_body_user">' +
-                '<div class="user_content_user">' + data[0].message_string + '</div>' +
+                '<div class="message_content_user">' + data[0].message_string + '</div>' +
                 '<div class="message_timestamp_user">' + data[0].created + '</div>' +
             '</div>' +
         '</div>' + '<br style="clear: both">';
