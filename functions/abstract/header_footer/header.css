@@ -60,6 +60,7 @@ body
     height: inherit;
     border-radius: 10px;
     box-shadow: none;
+    z-index: 20;
 }
 
 .navbar-header

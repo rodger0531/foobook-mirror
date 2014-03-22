@@ -34,6 +34,12 @@ echo ('
           <div id="logocontainer">
             <img id="logo" src="../../functions/abstract/header_footer/logo.png"/>
           </div>
+          
+          <script>
+            $("#logocontainer").on("click","#logo",function(){
+              window.location.assign("../homepage/homepage.php"); 
+            });
+          </script>
 
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
