@@ -165,7 +165,7 @@ $(document).ready(function(){
             /*If the user_id does not match the session id then it is considered as a actor other than the current user and a 
             * a special <div> is being generated for this purpose.
             */
-            if(element.sender_id === "1")
+            if(element.sender_id === Session.get("user_id"))
             {   
                 currentUserMessage =
                 '<div class="user_message" id="' + element.message_id + '">' +
@@ -221,7 +221,7 @@ $(document).ready(function(){
             /*If the user_id does not match the session id then it is considered as a actor other than the current user and a 
             * a special <div> is being generated for this purpose.
             */
-            if(element.sender_id === "1")
+            if(element.sender_id === Session.get("user_id"))
             {   
                 currentUserMessage =
                 '<div class="user_message" id="' +element.message_id+ '">' +
