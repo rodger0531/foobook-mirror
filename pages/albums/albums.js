@@ -23,11 +23,6 @@ $(document).ready(function()
 	//create new collection
 	$("#newCollection").on('submit', function(event)
     {
-    	// if($('#photo-content-collection').val() === "")
-    	// {
-    	// 	alert("Please select a photo to upload!");
-    	// }
-    	
     	event.preventDefault();
         var formData = new FormData($("#newCollection")[0]);
         formData.append('user_id', Session.get('user_id'));

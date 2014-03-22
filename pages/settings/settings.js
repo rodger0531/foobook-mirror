@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+
 	$('.edit-account-info').hide();
 
 	loadUserInfo();
@@ -110,14 +111,14 @@ function loadUserInfoSuccess(data)
 
 					                '<div class="user-school">' +
 					                    '<label id="school-label"><strong>School</strong></label>' +
-					                    '<span id="school-name">'+ data[0].school_name +'</span>' +
+					                    '<span id="school-name">'+ ((data[0].school_name !== ("" || null)) ? data[0].school_name : "<span>No school enter</span>") +'</span>' +
 					                '</div>' +
 
 					                '<hr class="inner-separator">' +
 
 					                '<div class="user-employer">' +
 					                    '<label id="employer-label"><strong>Job</strong></label>' +
-					                    '<span id="employer-name">'+ data[0].employer_name +'</span>' +
+					                    '<span id="employer-name">'+ ((data[0].employer_name !== ("" || null)) ? data[0].employer_name : "<span>No job enter</span>") +'</span>' +
 					                '</div>' +
 
 					                '<hr class="separator">' 
@@ -167,14 +168,14 @@ function loadUserInfoSuccess(data)
 
 							                '<div class="user-school">' +
 							                    '<label id="school-label"><strong>School</strong></label>' +
-							                    '<input class="form-control" id="edit-school-name" value="'+ data[0].school_name +'" placeholder="school">' +
+							                    '<input class="form-control" id="edit-school-name" value="'+ ((data[0].school_name !== ("" || null)) ? data[0].school_name : "") +'" placeholder="school">' +
 							                '</div>' +
 
 							                '<hr class="inner-separator">' +
 
 							                '<div class="user-employer">' +
 							                    '<label id="employer-label"><strong>Job</strong></label>' +
-							                    '<input class="form-control" id="edit-employer-name" value="'+ data[0].employer_name +'" placeholder="employer">' +
+							                    '<input class="form-control" id="edit-employer-name" value="'+ ((data[0].employer_name !== ("" || null)) ? data[0].employer_name : "") +'" placeholder="employer">' +
 							                '</div>' +
 
 							                '<hr class="separator">'

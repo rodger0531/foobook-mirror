@@ -29,7 +29,7 @@ $(document).ready(function()
 	$('#all-users').on('click','.users',function () {
         var userWall_id = this.getAttribute('value');
         Session.set('userWall_id', userWall_id);
-        window.location.assign('profile.html');
+        window.location.assign('../../pages/profile/profile.php');
     });
 });
 
